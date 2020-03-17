@@ -1,0 +1,63 @@
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #ffffff;
+}
+
+h1{
+    font-family: rolachan, 'Noto Sans JP', sans-serif;
+    color: #001080;
+    font-weight: bold;
+}
+
+h2,h3,h4{
+    font-family: rolachan, 'Noto Sans JP', sans-serif;
+    color: lightslategray;
+}
+
+p{
+
+}
+
+@font-face {
+    font-family: rolachan;
+    src: url("fonts/ROLAchan-Regular.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.atcoderAccount{
+    color: #00ddff;
+}
+
+.button{
+    margin: 5px;
+    border-style: none;
+    border-radius: 5px;
+}
+
+
+.button.twitter{
+    background-color: #55acee;
+    color: white;
+    font-family: rolachan, serif;
+}
+
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.main{
+    margin-left: 2.5%;
+    margin-right:2.5%;
+    padding: 0 2.5% 2.5%;
+    background-color: #f8f8f8;
+}
+
+.container.blog{
+    justify-content: space-around;
+}
+
+
