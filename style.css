@@ -1,6 +1,8 @@
 body {
     font-family: 'Noto Sans JP', sans-serif;
-    background-color: #ffffff;
+    background-color: #ECECEC;
+    background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
+    -webkit-background-size: 7px 7px;
 }
 
 h1{
@@ -14,8 +16,8 @@ h2,h3,h4{
     color: lightslategray;
 }
 
-p{
-
+.contents{
+    margin-left: 3%;
 }
 
 @font-face {
@@ -24,6 +26,14 @@ p{
     font-weight: normal;
     font-style: normal;
 }
+
+.header{
+    margin-left: 3%;
+    margin-right: 3%;
+    display: flex;
+    justify-content: space-between;
+}
+
 
 .atcoderAccount{
     color: #00ddff;
@@ -43,21 +53,20 @@ p{
 }
 
 
+.main{
+    margin-left: 2.5%;
+    margin-right:2.5%;
+    padding: 2.5%;
+    background-color: #ffffff;
+}
+
+
+/*
+    container
+ */
+
 .container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-
-.main{
-    margin-left: 2.5%;
-    margin-right:2.5%;
-    padding: 0 2.5% 2.5%;
-    background-color: #f8f8f8;
-}
-
-.container.blog{
-    justify-content: space-around;
-}
-
-
