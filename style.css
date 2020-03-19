@@ -20,13 +20,13 @@ h2,h3,h4{
     margin-left: 3%;
 }
 
+
 @font-face {
     font-family: rolachan;
     src: url("fonts/ROLAchan-Regular.otf");
     font-weight: normal;
     font-style: normal;
 }
-
 .header{
     margin-left: 3%;
     margin-right: 3%;
