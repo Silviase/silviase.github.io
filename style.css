@@ -27,6 +27,7 @@ h2,h3,h4{
     font-weight: normal;
     font-style: normal;
 }
+
 .header{
     margin-left: 3%;
     margin-right: 3%;
@@ -51,6 +52,12 @@ h2,h3,h4{
     color: white;
     font-family: rolachan, serif;
 }
+
+.button.twitter:hover{
+    background-color: #2788cc;
+    transition: 0.2s;
+}
+
 
 
 .main{
