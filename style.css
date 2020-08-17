@@ -5,20 +5,32 @@ body {
     -webkit-background-size: 7px 7px;
 }
 
-h1{
+.title{
     font-family: rolachan, 'Noto Sans JP', sans-serif;
     color: #001080;
     font-weight: bold;
-}
-
-h2,h3,h4{
-    font-family: rolachan, 'Noto Sans JP', sans-serif;
-    color: lightslategray;
+    font-size: x-large;
 }
 
 .contents{
-    margin-left: 3%;
+    font-family: rolachan, 'Noto Sans JP', sans-serif;
+    color: darkgray;
+    font-weight: normal;
+    font-size: medium;
+    padding-left: 12px;
 }
+
+.infoBlock{
+    padding: 6px;
+    margin: 6px;
+}
+
+.main{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
 
 
 @font-face {
@@ -31,33 +43,30 @@ h2,h3,h4{
 .header{
     margin-left: 3%;
     margin-right: 3%;
+    padding: 10px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-
-.atcoderAccount{
-    color: #00ddff;
+.header > .item {
+    font-family: rolachan, 'Noto Sans JP', sans-serif;
+    color: #001080;
+    font-weight: bold;
+    font-size: x-large;
 }
 
 .button{
-    margin: 5px;
     border-style: none;
     border-radius: 5px;
+    margin: 5px;
+    transition: .3s;
 }
 
-
-.button.twitter{
-    background-color: #55acee;
-    color: white;
-    font-family: rolachan, serif;
+.button:hover{
+    background-color: darkgray;
+    transform: scale(1.1);
 }
-
-.button.twitter:hover{
-    background-color: #2788cc;
-    transition: 0.2s;
-}
-
 
 
 .main{
@@ -67,13 +76,11 @@ h2,h3,h4{
     background-color: #ffffff;
 }
 
-
-/*
-    container
- */
-
-.container{
+.footer{
+    margin-left: 2.5%;
+    margin-right:2.5%;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: left;
 }
+
