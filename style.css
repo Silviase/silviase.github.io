@@ -18,12 +18,22 @@ body {
     font-weight: normal;
     font-size: medium;
     padding-left: 12px;
+    display: flex;
+    justify-content: left;
 }
 
 .infoBlock{
     padding: 6px;
     margin: 6px;
+    transition: .3s;
 }
+.infoBlock:hover{
+    border-bottom: groove;
+    border-right: groove;
+    transform: scale(1.1);
+}
+
+
 
 .main{
     display: flex;
@@ -56,13 +66,20 @@ body {
     font-size: x-large;
 }
 
+
+
+.icon{
+    border-style: none;
+    border-radius: 5px;
+    margin: 5px
+}
+
 .button{
     border-style: none;
     border-radius: 5px;
     margin: 5px;
     transition: .3s;
 }
-
 .button:hover{
     background-color: darkgray;
     transform: scale(1.1);
