@@ -75,7 +75,10 @@ body {
 }
 
 .button{
-    border-style: none;
+    border-bottom: groove;
+    border-right: groove;
+    border-bottom-color: lightslategrey;
+    border-right-color: lightslategrey;
     border-radius: 5px;
     margin: 5px;
     transition: .3s;
@@ -94,10 +97,20 @@ body {
 }
 
 .footer{
+    background-color: #ffffff;
     margin-left: 2.5%;
     margin-right:2.5%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: space-between;
 }
 
+.goBlock{
+    padding: 6px;
+    margin: 6px;
+    transition: .3s;
+}
+
+.goBlock :hover{
+    background-color: lightslategrey;
+}

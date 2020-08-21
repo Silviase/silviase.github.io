@@ -75,14 +75,18 @@ body {
 }
 
 .button{
-    border-style: none;
+    border-bottom: solid;
+    border-right: solid;
+    border-bottom-color: lightslategrey;
+    border-right-color: lightslategrey;
     border-radius: 5px;
+    padding: 5px;
     margin: 5px;
     transition: .3s;
 }
 .button:hover{
     background-color: darkgray;
-    transform: scale(1.1);
+    border: none;
 }
 
 
