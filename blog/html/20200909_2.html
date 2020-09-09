@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>silviase's github</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/mono-blue.css">
+    <script src="scripts/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+     tex2jax: {
+     inlineMath: [["\\(","\\)"] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+     }
+     });
+    </script>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="item">
+            silvia-log
+        </div>
+    </div>
+
+    <div class="main">
+        <h1 id="vscodemarkdownでブログを書く">VSCode+Markdownでブログを書く(改良！)</h1>
+        <script async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+        <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+     tex2jax: {
+     inlineMath: [["\\(","\\)"] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+     }
+     });
+</script>
+
+        <h2 id="あらすじ">あらすじ</h2>
+        <ul>
+            <li>自分のgithub.ioでブログが書きたいけどHTMLを書くのが面倒</li>
+            <li>.mdから.htmlを作成したくなったので調べたらすぐできた</li>
+            <li>そのまま変換するだけだと見た目が酷いのでheaderとfooterはbashでいい感じにした</li>
+            <li>やっぱbashに頼りすぎるのは良くないと思い, JavaScript側で処理させるようにした(ハマりポイント)</li>
+            <li>有識者に解決してもらった</li>
+        </ul>
+        <h2 id="詳細">詳細</h2>
+        <h2 id="備考">備考</h2>
+        <h3 id="参考になったサイト">参考になったサイト</h3>
+        <ul>
+            <li><a href="https://qiita.com/aosho235/items/684cccc64e72b9d714e1">Node.jsのrequireの検索パス</a></li>
+            <li><a href="https://jsprimer.net/use-case/nodecli/md-to-html/">MarkdownをHTMLに変換する</a></li>
+            <li><a href="https://qiita.com/tomtsutom0122/items/e0ab6b6ccbd369db1aa2">Markdownで数式を表示する一番速い方法</a></li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <div class="goBlock">
+            <div class="contents">
+                <a href="https://silviase.github.io">← Home</a>
+            </div>
+        </div>
+        <div class="goBlock">
+            <div class="contents">
+                <a href="https://silviase.github.io">Go back to Home →</a>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

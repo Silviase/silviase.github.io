@@ -2,7 +2,6 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
     background-color: #ECECEC;
     background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
-    -webkit-background-size: 7px 7px;
 }
 
 .title{
@@ -59,24 +58,24 @@ body {
 
 
 .icon{
-    width: 64px;
     border-style: none;
     border-radius: 5px;
     margin: 5px
 }
 
 .button{
-    border-bottom: groove;
-    border-right: groove;
+    border-bottom: solid;
+    border-right: solid;
     border-bottom-color: lightslategrey;
     border-right-color: lightslategrey;
     border-radius: 5px;
+    padding: 5px;
     margin: 5px;
     transition: .3s;
 }
 .button:hover{
     background-color: darkgray;
-    transform: scale(1.1);
+    border: none;
 }
 
 
@@ -88,20 +87,10 @@ body {
 }
 
 .footer{
-    background-color: #ffffff;
     margin-left: 2.5%;
     margin-right:2.5%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: left;
 }
 
-.goBlock{
-    padding: 6px;
-    margin: 6px;
-    transition: .3s;
-}
-
-.goBlock :hover{
-    background-color: lightslategrey;
-}
