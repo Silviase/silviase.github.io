@@ -1,0 +1,18 @@
+</div>
+
+<div class="footer">
+    <div class="goBlock">
+        <div class="contents">
+            <a href="https://silviase.github.io">← Home</a>
+        </div>
+    </div>
+    <div class="goBlock">
+        <div class="contents">
+            <a href="https://silviase.github.io">Go back to Home →</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
