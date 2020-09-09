@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>silviase's github</title>
@@ -20,20 +19,17 @@
      });
     </script>
 </head>
-
 <body>
 
-    <div class="header">
-        <div class="item">
-            silvia-log
-        </div>
+<div class="header">
+    <div class="item">
+        silvia-log
     </div>
+</div>
 
-    <div class="main">
-        <h1 id="vscodemarkdownでブログを書く">VSCode+Markdownでブログを書く(改良！)</h1>
-        <script async
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
-        <script type="text/x-mathjax-config">
+<div class="main"><h1 id="vscodemarkdownでブログを書く">VSCode+Markdownでブログを書く</h1>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script type="text/x-mathjax-config">
      MathJax.Hub.Config({
      tex2jax: {
      inlineMath: [["\\(","\\)"] ],
@@ -42,38 +38,69 @@
      });
 </script>
 
-        <h2 id="あらすじ">あらすじ</h2>
-        <ul>
-            <li>自分のgithub.ioでブログが書きたいけどHTMLを書くのが面倒</li>
-            <li>.mdから.htmlを作成したくなったので調べたらすぐできた</li>
-            <li>そのまま変換するだけだと見た目が酷いのでheaderとfooterはbashでいい感じにした</li>
-            <li>やっぱbashに頼りすぎるのは良くないと思い, JavaScript側で処理させるようにした(ハマりポイント)</li>
-            <li>有識者に解決してもらった</li>
-        </ul>
-        <h2 id="詳細">詳細</h2>
-        <h2 id="備考">備考</h2>
-        <h3 id="参考になったサイト">参考になったサイト</h3>
-        <ul>
-            <li><a href="https://qiita.com/aosho235/items/684cccc64e72b9d714e1">Node.jsのrequireの検索パス</a></li>
-            <li><a href="https://jsprimer.net/use-case/nodecli/md-to-html/">MarkdownをHTMLに変換する</a></li>
-            <li><a href="https://qiita.com/tomtsutom0122/items/e0ab6b6ccbd369db1aa2">Markdownで数式を表示する一番速い方法</a></li>
-        </ul>
-    </div>
+<h2 id="あらすじ">あらすじ</h2>
+<ul>
+<li>自分のgithub.ioでブログが書きたいけどHTMLを書くのが面倒</li>
+<li>.mdから.htmlを作成したくなったので調べたらすぐできた</li>
+<li>そのまま変換するだけだと見た目が酷いのでheaderとfooterはbashでいい感じにした</li>
+<li>やっぱbashに頼りすぎるのは良くないと思い, JavaScript側で処理させるようにした(ハマりポイント)</li>
+<li>有識者に解決してもらった</li>
+</ul>
+<h2 id="詳細">詳細</h2>
+<p>まず考えたのは<a href="https://silviase.github.io/blog/html/20200909.html">前回</a>のものだとbashに頼りきりであまり面白くないし第一txtを標準出力に流してパイプで拾うってダサくない？ってなったところ.そこでmd2html.jsを改良(?)してheaderがわりとfooterがわりのtxtを前後に挟むところまでを担わせることにした. つまり~/.bashrcは以下のようなものになっている.</p>
+<pre><code class="language-bash">md2html() {
+    command node auto_tool/md2html.js md/$1.md html/$1.html
+}
+newblog() {
+    command touch md/$1.md
+    command cat md_head.txt &gt;&gt; md/$1.md
+}</code></pre>
+<p>newblog (タイトル)としてMDを書き, md2html (タイトル) とすることでHTMLを作成するということになる. そもそもこの動作, typoraとかでやればいいのではないか…？と今になって思った. VSCodeを使ってブログを書きたかったのと, そうでもしないと技術を享受するだけなのでたまには手を動かしてみよう, となったから, ということにしておく.</p>
+<p>さて, md2html.jsは以下のようになっている.</p>
+<pre><code class="language-JavaScript">const program = require(&#39;commander&#39;);
+const fs = require(&#39;fs&#39;);
+const marked = require(&#39;marked&#39;);
 
-    <div class="footer">
-        <div class="goBlock">
-            <div class="contents">
-                <a href="https://silviase.github.io">← Home</a>
-            </div>
-        </div>
-        <div class="goBlock">
-            <div class="contents">
-                <a href="https://silviase.github.io">Go back to Home →</a>
-            </div>
+program.parse(process.argv);
+
+const path = require(&#39;path&#39;);
+const html_head = fs.readFileSync(path.resolve(__dirname, &#39;head.txt&#39;), &#39;utf8&#39;);
+const html_body = marked(fs.readFileSync(program.args[0], &#39;utf8&#39;));
+const html_foot = fs.readFileSync(path.resolve(__dirname, &#39;foot.txt&#39;), &#39;utf8&#39;);
+
+fs.writeFileSync(program.args[1], html_head);
+fs.appendFileSync(program.args[1], html_body);
+fs.appendFileSync(program.args[1], html_foot);</code></pre>
+<p>ファイル書き込みなどに用いるfs, markdownをHTMLファイルにいい感じに書き換えてくれるmarkedなどのプラグインをふんだんに利用したJavaScript.
+ただ, pathまわりで苦労させられることになった.
+元々相対パスで</p>
+<pre><code class="language-JavaScript">const html_head = fs.readFileSync(&#39;head.txt&#39;, &#39;utf8&#39;);</code></pre>
+<p>と書こうとしていたが, どうにもエラーが出る.
+エラー文を読むと, File Not Found.
+どうやらnodeが実行されるフォルダからの相対パスを示すらしい(有識者曰く).</p>
+<p>こういった $$ e^{\pi i} = -1 $$のようなMathJaxやシンタックスハイライトもつけられるようになったので概ね満足.
+はてなブログでいちいちTeX記法で書くのが面倒で仕方なかったので今回ので少し生産性が向上したことを期待したい...</p>
+<h3 id="参考になったサイト">参考になったサイト</h3>
+<ul>
+<li><a href="https://qiita.com/aosho235/items/684cccc64e72b9d714e1">Node.jsのrequireの検索パス</a></li>
+<li><a href="https://jsprimer.net/use-case/nodecli/md-to-html/">MarkdownをHTMLに変換する</a></li>
+<li><a href="https://qiita.com/tomtsutom0122/items/e0ab6b6ccbd369db1aa2">Markdownで数式を表示する一番速い方法</a></li>
+</ul>
+</div>
+
+<div class="footer">
+    <div class="goBlock">
+        <div class="contents">
+            <a href="https://silviase.github.io">← Home</a>
         </div>
     </div>
+    <div class="goBlock">
+        <div class="contents">
+            <a href="https://silviase.github.io">Go back to Home →</a>
+        </div>
+    </div>
+</div>
 
 
 </body>
-
 </html>
