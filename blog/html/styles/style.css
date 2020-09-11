@@ -94,6 +94,8 @@ body {
     justify-content: left;
 }
 
-code {
-    font-family: 'Source Code Pro', monospace;
+pre, code, var {
+    font-family: 'Source Code Pro', Consolas, 'Courier New', Courier, Monaco, monospace;
+    font-size: 14px;
+    line-height: 1.2;
 }
