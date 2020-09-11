@@ -94,3 +94,6 @@ body {
     justify-content: left;
 }
 
+code {
+    font-family: 'Source Code Pro', monospace;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>silviase's github</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Roboto|Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/mono-blue.css">
+    <script src="scripts/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+     tex2jax: {
+     inlineMath: [["\\(","\\)"] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+     }
+     });
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <div class="item">
+        silvia-log
+    </div>
+</div>
+
+<div class="main"><h1 id="rustで最適化ことはじめ-線形計画法-準備編">Rustで最適化ことはじめ ~線形計画法 準備編~</h1>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+     tex2jax: {
+     inlineMath: [["\\(","\\)"] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+     }
+     });
+</script>
+
+<h2 id="やりたいこと">やりたいこと</h2>
+<p>以下のような式を最適化することを目指します.
+$$ \text{maximize} \sum_{i=0}^n S_ix_i \quad \text{s.t.} \bf{Ax} \leqq \bf{b} $$</p>
+<p>ここでは一般的にベクトルは列ベクトルで表すことにします.
+さて, この線形計画法は実行可能領域は凸多面体になり, 実行可能領域の境界に現れることになります. 仮に<strong>実行可能領域が存在しない場合</strong>や<strong>境界が目的関数の向きに存在しない場合</strong>は最大となるようなベクトルxを得ることが出来ません.</p>
+<p>したがってここでは実行可能領域は存在し, 最大値を得ることができるとわかっている性質の良いものについてのみ最適化を考えます.</p>
+<h2 id="第一回-rustで行列を扱ってみる">第一回: Rustで行列を扱ってみる</h2>
+<h3 id="ndarrayの導入">ndarrayの導入</h3>
+<p>Rustにおいて, 行列を扱う際には<code>ndarray</code>というクレートを導入します.このとき,</p>
+<pre><code class="language-bash">cargo add ndarray</code></pre>
+<p>でndarrayクレートが導入され, 利用しているワークスペースのCargo.tomlに以下のような記述が追加されます.</p>
+<pre><code class="language-toml">[dependencies]
+ndarray = &quot;0.13.1&quot;(versionは異なります, 2020/09/10現在)</code></pre>
+<p>さて, これでRustで行列を扱う準備は整いました.</p>
+<h3 id="初期化と基本的な演算">初期化と基本的な演算</h3>
+<p><code>main.rs</code> において, 行列は<code>arr2(&amp;[[], [],,,[]])</code>と要素を直打ちすることで初期化することが出来ます.
+また, 和・差・行列積なども計算することが出来, かつ関数の引数に取ることも出来ます.</p>
+<pre><code class="language-Rust">use ndarray::prelude::*;
+
+fn ret(mat: &amp;mut Array2&lt;i64&gt;) -&gt; Array2&lt;i64&gt; {
+    let res = mat.clone();
+    res
+}
+
+fn main() {
+    let mut m = arr2(&amp;[[1, 2], [3, 4]]);
+    let n = arr2(&amp;[[1, 0], [0, 1]]);
+
+    println!(&quot;{:?}&quot;, &amp;m + &amp;n);
+    println!(&quot;{:?}&quot;, &amp;m - &amp;n);
+    println!(&quot;{:?}&quot;, &amp;m * &amp;n);
+    println!(&quot;{:?}&quot;, &amp;m.dot(&amp;n));
+    println!(&quot;{:?}&quot;, ret(&amp;mut m));
+}</code></pre>
+<h3 id="gnuplotの導入">Gnuplotの導入</h3>
+<p>何かしらグラフを書きたくなった時のために導入しておきましょう.
+例によって<code>cargo add gnuplot</code>で良いです.</p>
+<h3 id="gnuplotを使ってみる">Gnuplotを使ってみる</h3>
+</div>
+
+<div class="footer">
+    <div class="goBlock">
+        <div class="contents">
+            <a href="https://silviase.github.io">← Home</a>
+        </div>
+    </div>
+    <div class="goBlock">
+        <div class="contents">
+            <a href="https://silviase.github.io">Go back to Home →</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
