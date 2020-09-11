@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<div class="main"><h1 id="rustで最適化ことはじめ-線形計画法-準備編">Rustで最適化ことはじめ ~線形計画法 準備編~</h1>
+<div class="main"><h1 id="rustで最適化ことはじめ-第0回">Rustで最適化ことはじめ 第0回</h1>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
 <script type="text/x-mathjax-config">
      MathJax.Hub.Config({
@@ -44,14 +44,13 @@ $$ \text{maximize} \sum_{i=0}^n S_ix_i \quad \text{s.t.} \bf{Ax} \leqq \bf{b} $$
 <p>ここでは一般的にベクトルは列ベクトルで表すことにします.
 さて, この線形計画法は実行可能領域は凸多面体になり, 実行可能領域の境界に現れることになります. 仮に<strong>実行可能領域が存在しない場合</strong>や<strong>境界が目的関数の向きに存在しない場合</strong>は最大となるようなベクトルxを得ることが出来ません.</p>
 <p>したがってここでは実行可能領域は存在し, 最大値を得ることができるとわかっている性質の良いものについてのみ最適化を考えます.</p>
-<h2 id="第一回-rustで行列を扱ってみる">第一回: Rustで行列を扱ってみる</h2>
+<h2 id="第0回-rustで最適化その前に">第0回: Rustで最適化…その前に</h2>
 <h3 id="ndarrayの導入">ndarrayの導入</h3>
 <p>Rustにおいて, 行列を扱う際には<code>ndarray</code>というクレートを導入します.このとき,</p>
 <pre><code class="language-bash">cargo add ndarray</code></pre>
 <p>でndarrayクレートが導入され, 利用しているワークスペースのCargo.tomlに以下のような記述が追加されます.</p>
 <pre><code class="language-toml">[dependencies]
 ndarray = &quot;0.13.1&quot;(versionは異なります, 2020/09/10現在)</code></pre>
-<p>さて, これでRustで行列を扱う準備は整いました.</p>
 <h3 id="初期化と基本的な演算">初期化と基本的な演算</h3>
 <p><code>main.rs</code> において, 行列は<code>arr2(&amp;[[], [],,,[]])</code>と要素を直打ちすることで初期化することが出来ます.
 また, 和・差・行列積なども計算することが出来, かつ関数の引数に取ることも出来ます.</p>
@@ -73,9 +72,30 @@ fn main() {
     println!(&quot;{:?}&quot;, ret(&amp;mut m));
 }</code></pre>
 <h3 id="gnuplotの導入">Gnuplotの導入</h3>
-<p>何かしらグラフを書きたくなった時のために導入しておきましょう.
-例によって<code>cargo add gnuplot</code>で良いです.</p>
+<ul>
+<li>まずGnuplotをインストールしましょう. Linuxは<code>sudo apt install gnuplot</code>です.
+外部クレートをインポートしているから本体には入れなくていいだろうとかそういうわけにもいかず, きっちり本体にもインストールされている必要があります.</li>
+<li>何かしらグラフを書きたくなった時のために導入しておきましょう.
+例によって<code>cargo add gnuplot</code>で良いです.</li>
+</ul>
+<pre><code class="language-bash">sudo apt install gnuplot # その後 y
+cargo add gnuplot</code></pre>
 <h3 id="gnuplotを使ってみる">Gnuplotを使ってみる</h3>
+<p>以下のようなミニマムなコードで, Gnuplotによってプロットした画像を得ることが出来ます.</p>
+<pre><code class="language-Rust">use gnuplot::{Caption, Color, Figure};
+
+fn main() {
+    let x = [0u32, 1, 2];
+    let y = [3u32, 4, 5];
+    let mut fg = Figure::new();
+    fg.axes2d()
+        .lines(&amp;x, &amp;y, &amp;[Caption(&quot;A line&quot;), Color(&quot;black&quot;)]);
+    let _ = fg.save_to_png(&quot;test.png&quot;, 300, 300);
+}</code></pre>
+<p>得られた画像は以下の通りです.</p>
+<p><img src="../images/20200910.png" alt="Gnuplotによる画像" title="test.png"></p>
+<p>さて, これでRustで最適化問題を解く準備が出来ました.
+次回から問題を解くことを進めていきましょう.</p>
 </div>
 
 <div class="footer">

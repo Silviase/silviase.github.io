@@ -91,11 +91,11 @@ body {
     margin-right:2.5%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: space-between;
 }
 
 pre, code, var {
-    font-family: 'Source Code Pro', Consolas, 'Courier New', Courier, Monaco, monospace;
+    font-family: 'Source Code Pro', Consolas, 'Noto Sans JP', 'Courier New', Courier, Monaco, monospace;
     font-size: 14px;
     line-height: 1.2;
 }
