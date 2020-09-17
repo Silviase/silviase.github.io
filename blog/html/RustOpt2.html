@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>silviase's github</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Roboto|Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/mono-blue.css">
+    <script src="scripts/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+     tex2jax: {
+     inlineMath: [["\\(","\\)"], ['$', '$'] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+     }
+     });
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <div class="item">
+        silvia-log
+    </div>
+</div>
+
+<div class="main"><h1 id="rustで始める最適化-～第1回-二分探索とニュートン法～">Rustで始める最適化 ～第1回 二分探索とニュートン法～</h1>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+     tex2jax: {
+     inlineMath: [["\\(","\\)"], ['$', '$'] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+     }
+     });
+</script>
+
+<h2 id="復習：関数をプロットしてみる">復習：関数をプロットしてみる</h2>
+<p>以下のコードを見てみましょう.</p>
+<pre><code class="language-Rust">use gnuplot::*;
+
+fn main() {
+    let mut x = vec![];
+    let mut y = vec![];
+    let mut zero = vec![];
+
+    let mut __now__ = 0.0;
+    while __now__ &lt; 3.0 {
+        x.push(__now__);
+        y.push(f(__now__));
+        zero.push(0.0);
+        __now__ += 0.001; // ステップ幅
+    }
+
+    let mut fg = Figure::new();
+    fg.axes2d()
+        .lines(&amp;x, &amp;y, &amp;[Caption(&quot;y = 2x^2+6x-5&quot;), Color(&quot;black&quot;)])
+        .lines(&amp;x, &amp;zero, &amp;[]);
+    let _ = fg.save_to_png(&quot;f1.png&quot;, 300, 300);
+}
+
+fn f(x: f64) -&gt; f64 {
+    2.0 * x * x + 1.0 * x - 5.0
+}</code></pre>
+<p>関数$f(x)$を切り分けています. ここでは$y = 2x^2+x-5$というものを考えることとします. <code>__now__</code>によって<code>x</code>の値を定め, それに対応した<code>y</code>の値を得ることが出来ます.</p>
+</div>
+
+<div class="footer">
+    <div class="goBlock">
+        <div class="contents">
+            <a href="https://silviase.github.io">← Home</a>
+        </div>
+    </div>
+    <div class="goBlock">
+        <div class="contents">
+            <a href="https://silviase.github.io">Go back to Home →</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
