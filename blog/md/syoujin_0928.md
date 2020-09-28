@@ -49,7 +49,6 @@ fn main() {
 }
 ```
 
-
 ## ABC126 E 1 or 2
 
 ある$A_i, A_j$について, $A_i + A_j + x \equiv 0 \text{ mod } 2$であるとき, $x$が一意に定まるとき, $A_i$と$A_j$の偶奇は2パターンであるため, ひとつ分かればもうひとつが分かる.
@@ -128,6 +127,46 @@ fn main() {
     }
 }
 
+```
+
+## ABC103 D Islands War
+
+区間スケジューリング問題に帰着できるのでソートして右端が最も左にあるものから貪欲に取り進めていけばいい.
+
+```rust
+use proconio::{fastout, input, marker::Usize1};
+use std::cmp::Ordering;
+
+#[fastout]
+fn main() {
+    input! {
+        n: usize,
+        m: usize,
+        mut ab: [(Usize1, Usize1); m],
+    }
+    ab.sort_by(|x, y| {
+        if x.1 < y.1 {
+            Ordering::Less
+        } else if x.1 > y.1 || x.0 > y.0 {
+            Ordering::Greater
+        } else if x.0 < y.0 {
+            Ordering::Less
+        } else {
+            Ordering::Equal
+        }
+    });
+
+    let mut res = 1;
+    let mut now = ab[0].1;
+    for i in 1..ab.len() {
+        if now <= ab[i].0 {
+            res += 1;
+            now = ab[i].1;
+        }
+    }
+
+    println!("{}", res);
+}
 ```
 
 ## 報告

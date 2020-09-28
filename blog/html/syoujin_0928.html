@@ -140,6 +140,41 @@ fn main() {
     }
 }
 </code></pre>
+<h2 id="abc103-d-islands-war">ABC103 D Islands War</h2>
+<p>区間スケジューリング問題に帰着できるのでソートして右端が最も左にあるものから貪欲に取り進めていけばいい.</p>
+<pre><code class="language-rust">use proconio::{fastout, input, marker::Usize1};
+use std::cmp::Ordering;
+
+#[fastout]
+fn main() {
+    input! {
+        n: usize,
+        m: usize,
+        mut ab: [(Usize1, Usize1); m],
+    }
+    ab.sort_by(|x, y| {
+        if x.1 &lt; y.1 {
+            Ordering::Less
+        } else if x.1 &gt; y.1 || x.0 &gt; y.0 {
+            Ordering::Greater
+        } else if x.0 &lt; y.0 {
+            Ordering::Less
+        } else {
+            Ordering::Equal
+        }
+    });
+
+    let mut res = 1;
+    let mut now = ab[0].1;
+    for i in 1..ab.len() {
+        if now &lt;= ab[i].0 {
+            res += 1;
+            now = ab[i].1;
+        }
+    }
+
+    println!(&quot;{}&quot;, res);
+}</code></pre>
 <h2 id="報告">報告</h2>
 <p>GCI 2020 Winterに参加することになりました.
 こんな感じのものらしいです.</p>
