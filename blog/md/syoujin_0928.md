@@ -83,13 +83,59 @@ fn main() {
 
 ```
 
+## ABC089 D Practical Skill Test
+
+$i$からは必ず$i+D$に行き, $i+kD$は$i$までの距離(ただし$i \\% d$を$0$とする)と合わせて累積和で求められるのでよしなにすればよい.
+$$
+\text{dist}[i] = \text{dist}[i-d] + |i.x - (i-d).x| + |i.y - (i-d).y|
+$$
+を満たしていれば良いことがわかる.
+
+```rust
+use proconio::{fastout, input, marker::Usize1};
+use std::collections::HashMap;
+
+#[fastout]
+fn main() {
+    input! {
+        h: usize,
+        w: usize,
+        d: usize,
+        a: [[Usize1; w]; h],
+        q: usize,
+        lr: [(Usize1, Usize1); q],
+    }
+
+    let mut hm = HashMap::new();
+    for i in 0..h {
+        for j in 0..w {
+            hm.insert(a[i][j], (i, j));
+        }
+    }
+    let mut modulo = vec![vec![0i64]; d];
+    for i in d..h * w {
+        let pn = hm.get(&i).unwrap();
+        let pb = hm.get(&(i - d)).unwrap();
+        let dist = i64::abs(pb.0 as i64 - pn.0 as i64) + i64::abs(pb.1 as i64 - pn.1 as i64);
+        let last = modulo[i % d][modulo[i % d].len() - 1];
+        modulo[i % d].push(last + dist);
+    }
+
+    for i in 0..q {
+        let l = lr[i].0;
+        let r = lr[i].1;
+        println!("{}", modulo[r % d][r / d] - modulo[l % d][l / d]);
+    }
+}
+
+```
+
 ## 報告
 
 GCI 2020 Winterに参加することになりました.
+こんな感じのものらしいです.
 
-```
-大量のデータを自由自在に解析・分析し、隠れた関係性を発見する。そんなスキルを身につけた「データサイエンティスト」に対する需要は、工学分野だけならず、医療・経済・経営・ライフサイエンスなど非常に多くの分野で高まる一方です。
-本コースでは、あらゆる分野で武器になるデータの解析・分析スキルのコアとなる機械学習およびビッグデータを扱う技術、分析結果を効果的に可視化する技術の基盤を網羅的に身につけ、一人前のデータサイエンティストとして活躍する入り口に立つことを目指します。
-```
+- 大量のデータを自由自在に解析・分析し、隠れた関係性を発見する。そんなスキルを身につけた「データサイエンティスト」に対する需要は、工学分野だけならず、医療・経済・経営・ライフサイエンスなど非常に多くの分野で高まる一方です。
+- 本コースでは、あらゆる分野で武器になるデータの解析・分析スキルのコアとなる機械学習およびビッグデータを扱う技術、分析結果を効果的に可視化する技術の基盤を網羅的に身につけ、一人前のデータサイエンティストとして活躍する入り口に立つことを目指します。
 
 勉強会への参加など, 学内だけでなく広くコミュニティが形成されるよう積極的に取り組んでいきたいと思います.
