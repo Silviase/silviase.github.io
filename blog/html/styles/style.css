@@ -80,15 +80,15 @@ body {
 
 
 .main{
-    margin-left: 5%;
-    margin-right:5%;
+    margin-left: 12.5%;
+    margin-right:12.5%;
     padding: 5%;
     background-color: #ffffff;
 }
 
 .footer{
-    margin-left: 2.5%;
-    margin-right:2.5%;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
