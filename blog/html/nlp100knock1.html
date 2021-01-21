@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>silviase's github</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Roboto|Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/mono-blue.css">
+    <script src="scripts/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+     tex2jax: {
+     inlineMath: [["\\(","\\)"], ['$', '$'] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+     }
+     });
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <div class="item">
+        silvia-log
+    </div>
+</div>
+
+<div class="main"><h1 id="言語処理100本ノック解説-その1">言語処理100本ノック解説 その1</h1>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+     tex2jax: {
+     inlineMath: [["\\(","\\)"] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+     }
+     });
+</script>
+
+
+<p>ソースコードは<a href="https://github.com/Silviase/NLP100">Silviaseのgithub</a>に保管してあるので, ここには考えたことだけ入れようと思う.</p>
+<h2 id="0-文字列の逆順">0. 文字列の逆順</h2>
+<p><code>array[A:B:C]</code>のイメージを持つとすれば, <code>range(A,B,C)</code>と同じで,
+A以上B未満, 間隔Cでというようなもの.</p>
+<h2 id="1-パタトクカシーー">1. パタトクカシーー</h2>
+<p>1文字目から2字おきによめばよいことがわかるので, <code>s[1::2]</code>でよい.</p>
+<h2 id="2-「パトカー」＋「タクシー」＝「パタトクカシーー」">2. 「パトカー」＋「タクシー」＝「パタトクカシーー」</h2>
+<p><code>zip()</code>はiterableなオブジェクトの要素を同時に取得することができる.</p>
+<h2 id="3-円周率">3. 円周率</h2>
+<p>,(カンマ) や.(ピリオド)を取り除きたいので, <code>re.sub(&quot;置換したい正規表現&quot;, &quot;置換先文字列&quot;, 適用する文字列)</code>をしてやればよい.
+そのあと<code>split()</code>で分割し, それぞれの文字列に対して<code>len()</code>を適用して文字列長を得ることができる.</p>
+<h2 id="4-元素記号">4. 元素記号</h2>
+<p>リスト内包表記で<code>strip()</code>, <code>split()</code>を組み合わせることが有効である。dictの番号は1-indexedのほうが個人的に気持ちがよい.</p>
+<h2 id="5-n-grams">5. n-grams</h2>
+<p>単語ごとにsplitして指定の数入れればよい(指定された語数に届いていない場合は空とした). 文字n-gramの場合は単語n-gramと合わせて二次元配列にするべきか悩んだが今回は素直な実装とした.</p>
+<h2 id="6-集合">6. 集合</h2>
+<p>listはset()を用いてsetに出来る. 集合演算は<code>+-&amp;</code>や<code>union(),difference(),intersection()</code>などで行うことが出来る.</p>
+<h2 id="7-テンプレートによる文生成">7. テンプレートによる文生成</h2>
+<p><code>format()</code>メソッドを利用する.{}の中身は<code>{(添字):(文字寄)(幅)(小数点)(型)}</code>などのようにするといい感じな指定が出来る.適宜省略は可能である.</p>
+<h2 id="8-暗号文">8. 暗号文</h2>
+<p>正規表現で言うところの<code>[a-z]</code>は<code>string.ascii_lowercase</code>で表現できる(知らなかった).これを利用してやることで少しきれいにかける.<code>ord()</code>は<code>char→ascii</code>, <code>chr()</code>は<code>ascii→char</code>であるからこれを利用してやればいい.</p>
+<h2 id="9-typoglycemia">9. Typoglycemia</h2>
+<p>長さが指定したもの以下ならそのまま単語をlistに入れる.
+そうでなければ先頭は<code>s[0]</code>, 末尾は<code>s[-1]</code>で取得することができるから, これを利用する.
+順序をランダムに入れ替えるのは<code>random.sample((対象), (回数))</code>を利用する.
+listを結合するのは<code>join</code>を用いればよい. 先頭に置くのは間に詰める文字であることがなんとなく気持ちが悪いし直感的で無い気もするがそういうものだと思うことにする.</p>
+</div>
+
+<div class="footer">
+    <div class="goBlock">
+        <div class="contents">
+            <a href="https://silviase.github.io">← Home</a>
+        </div>
+    </div>
+    <div class="goBlock">
+        <div class="contents">
+            <a href="https://silviase.github.io">Go back to Home →</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
