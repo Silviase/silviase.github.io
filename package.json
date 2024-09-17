@@ -1,7 +1,0 @@
-{
-  "name": "Silviase.github.io",
-  "version": "1.0.0",
-  "dependencies": {
-    "path": "^0.12.7"
-  }
-}
