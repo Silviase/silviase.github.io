@@ -1,13 +1,110 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple GitHub Page</title>
+    <title>Koki Maeda - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-main-color: #404040;
+            --text-headline-color: #403040;
+            --text-accent-color: #12957f;
+            --bg-main-color: white;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main-color);
+            background-color: var(--bg-main-color);
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: var(--text-headline-color);
+        }
+        a {
+            color: var(--text-accent-color);
+            text-decoration: none;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .publication, .education, .experience {
+            margin-bottom: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .contact-info a:not(:last-child)::after {
+            content: ' | ';
+            color: var(--text-main-color);
+        }
+    </style>
 </head>
 <body>
-    <h1>ようこそ！✨</h1>
-    <p>これは私のシンプルな静的サイトです。🍀</p>
-    <p>これから色々追加していくよ。</p>
+
+<header>
+    <h1>Koki Maeda</h1>
+    <p>Doctoral Student · Tokyo Institute of Technology</p>
+    <div class="contact-info">
+        <a href="mailto:koki.maeda@nlp.c.titech.ac.jp">Email</a>
+        <a href="https://sites.google.com/view/silviase">Website</a>
+        <a href="https://github.com/Silviase">GitHub</a>
+        <a href="https://linkedin.com/in/silviase">LinkedIn</a>
+    </div>
+</header>
+
+<section class="section">
+    <h2>Education</h2>
+    <div class="education">
+        <h3>Ph.D., Tokyo Institute of Technology (2024 - Ongoing)</h3>
+        <p>Vision and Language, Evaluation · Advisor: Naoaki Okazaki</p>
+    </div>
+    <div class="education">
+        <h3>M.Eng., Tokyo Institute of Technology (2022 - 2024)</h3>
+        <p>Vision and Language: Image Captioning · Advisor: Naoaki Okazaki</p>
+    </div>
+    <div class="education">
+        <h3>B.Eng., Tokyo Institute of Technology (2018 - 2022)</h3>
+        <p>NLP: Grammatical Error Correction · Advisor: Naoaki Okazaki, Mentor: Masahiro Kaneko</p>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Publications</h2>
+    <ul>
+        <li class="publication">LegalViz: Legal Text Visualization by Text To Diagram Generation, NAACL 2024</li>
+        <li class="publication">Constructing Multimodal Datasets from Scratch, NAACL 2025</li>
+        <li class="publication">COM Kitchens Dataset, ECCV 2024</li>
+        <li class="publication">Query-based Image Captioning from 360-degree Images, EMNLP 2023</li>
+        <li class="publication">DueT: Image-Text Contrastive Transfer Learning, EMNLP 2023</li>
+        <li class="publication">IMPARA: Metric for GEC Using Parallel Data, COLING 2022</li>
+    </ul>
+</section>
+
+<section class="section">
+    <h2>Awards & Fellowships</h2>
+    <ul>
+        <li>Young Scientist Award, ANLP (2025)</li>
+        <li>Committee Special Awarded Paper, ANLP (2025, 2023)</li>
+        <li>Tokyo Tech Co-creative Experts Program (2024-2027)</li>
+        <li>Awarded Paper, ANLP (2022)</li>
+    </ul>
+</section>
+
+<section class="section">
+    <h2>Experience</h2>
+    <ul>
+        <li>Engineering Internship, Cierpa & Co. (2024 - Now)</li>
+        <li>Research Assistant, National Institute of Informatics (2024 - Now)</li>
+        <li>Research Assistant, RIKEN AIP (2022 - 2024)</li>
+        <li>Research Internship, OMRON SINIC X (2023 - 2024)</li>
+        <li>Data Scientist, Future Corporation (2021 - 2022)</li>
+        <li>Tutor, Tokyo Publishing Education Lab. (2018 - 2021)</li>
+    </ul>
+</section>
+
 </body>
 </html>
+
