@@ -6,16 +6,16 @@
 }
 
 :root {
-  --primary: #12957f;
-  --primary-light: rgba(18, 149, 127, 0.1);
-  --primary-medium: rgba(18, 149, 127, 0.2);
-  --text-dark: #111827;
-  --text-medium: #374151;
-  --text-light: #6b7280;
-  --bg-light: #f8fafc;
-  --bg-white: #ffffff;
-  --border-light: #e5e7eb;
-  --badge-bg: #e2e8f0;
+  --primary: #304030; /* ベースカラーに指定した色 */
+  --primary-light: rgba(48, 64, 48, 0.1); /* 薄めのアクセント */
+  --primary-medium: rgba(48, 64, 48, 0.3); /* 中間アクセント */
+  --text-dark: #111827; /* タイトル用の黒 */
+  --text-medium: #374151; /* 本文用のダークグレー */
+  --text-light: #6b7280; /* 補助テキスト用の薄いグレー */
+  --bg-light: #f8fafc; /* 背景の淡いグレー */
+  --bg-white: #ffffff; /* カード背景の白 */
+  --border-light: #e5e7eb; /* 薄いボーダー色 */
+  --badge-bg: #e2e8f0; /* バッジ背景色 */
   --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
@@ -86,6 +86,17 @@ h2::after {
 h3 {
   font-size: 1.1rem;
   margin-bottom: 8px;
+}
+
+/* internationalとdomesticの間の余白を追加 */
+.section h3 {
+  margin-top: 40px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px dashed var(--primary-light);
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 /* Header section */
@@ -276,7 +287,7 @@ h3 {
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-light);
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   display: inline-block;
   padding: 3px 10px;
   background-color: var(--primary-light);
@@ -288,6 +299,10 @@ h3 {
   padding-left: 10px;
   border-left: 2px solid var(--primary-light);
   font-size: 0.9rem;
+}
+
+.timeline-item h3 {
+  margin-top: 0;
 }
 
 /* Badges for awards */
@@ -430,6 +445,31 @@ a:focus,
 button:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
+}
+
+/* Copy button for bibtex */
+.copy-bibtex-btn {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: var(--radius-lg);
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.copy-bibtex-btn:hover {
+  background-color: var(--primary-medium);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.copy-bibtex-btn:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Media queries for responsiveness */

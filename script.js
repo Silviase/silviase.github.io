@@ -122,3 +122,56 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+const internationalContainer = document.getElementById(
+  "international-publications"
+);
+const domesticContainer = document.getElementById("domestic-publications");
+
+// index.jsonを読み込むよ
+fetch("publications/index.json")
+  .then((res) => res.json())
+  .then((files) => {
+    files.forEach((file) => {
+      fetch(`publications/${file}`)
+        .then((res) => res.text())
+        .then((data) => {
+          const [, yamlText, markdownContent] = data.match(
+            /^---([\s\S]*?)---\s*([\s\S]*)$/
+          );
+          const meta = jsyaml.load(yamlText);
+
+          const pubCard = document.createElement("div");
+          pubCard.className = "pub-card";
+
+          pubCard.innerHTML = `
+            <a href="publication.html?pub=${file.replace(
+              ".md",
+              ""
+            )}" class="pub-title">${meta.title}</a>
+            <div class="pub-venue">${meta.venue}</div>
+            <p>${meta.description}</p>
+            <div class="pub-links">
+              ${meta.pdf_link ? `<a href="${meta.pdf_link}">PDF</a>` : ""}
+              ${meta.code_link ? `<a href="${meta.code_link}">Code</a>` : ""}
+              <button class="copy-bibtex-btn">Copy BibTeX</button>
+            </div>
+          `;
+
+          // BibTeXのコピー機能
+          pubCard
+            .querySelector(".copy-bibtex-btn")
+            .addEventListener("click", () => {
+              navigator.clipboard.writeText(meta.bibtex).then(() => {
+                alert("BibTeX copied!");
+              });
+            });
+
+          if (meta.type === "international") {
+            internationalContainer.appendChild(pubCard);
+          } else {
+            domesticContainer.appendChild(pubCard);
+          }
+        });
+    });
+  });

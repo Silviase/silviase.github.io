@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Publication Detail</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
+  </head>
+  <body>
+    <div class="container" id="publication-detail"></div>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const pubId = urlParams.get("pub");
+
+      fetch(`publications/${pubId}.md`)
+        .then((res) => res.text())
+        .then((data) => {
+          const [, yamlText, markdownContent] = data.match(
+            /^---([\s\S]*?)---\s*([\s\S]*)$/
+          );
+          const meta = jsyaml.load(yamlText);
+
+          document.getElementById("publication-detail").innerHTML = `
+          <h1>${meta.title}</h1>
+          <p><strong>${meta.venue}</strong></p>
+          <p>${meta.description}</p>
+          <div class="pub-links">
+            ${meta.pdf_link ? `<a href="${meta.pdf_link}">PDF</a>` : ""}
+            ${meta.code_link ? `<a href="${meta.code_link}">Code</a>` : ""}
+            <button id="copy-bibtex">Copy BibTeX</button>
+          </div>
+          <div class="pub-content">${markdownContent}</div>
+        `;
+
+          document
+            .getElementById("copy-bibtex")
+            .addEventListener("click", () => {
+              navigator.clipboard.writeText(meta.bibtex).then(() => {
+                alert("BibTeX copied!");
+              });
+            });
+        });
+    </script>
+  </body>
+</html>

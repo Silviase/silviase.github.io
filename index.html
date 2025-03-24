@@ -8,6 +8,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- js-yaml CDNを追加 -->
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -98,68 +100,12 @@
 
       <section class="section">
         <h2>Publications 📖</h2>
-        <div class="publications">
-          <div class="pub-card">
-            <div class="pub-title">LegalViz: Legal Text Visualization</div>
-            <div class="pub-venue">NAACL 2024</div>
-            <p>
-              Novel approach for visualizing complex legal document structures.
-            </p>
-            <div class="pub-links">
-              <a href="#">PDF</a>
-              <a href="#">Code</a>
-            </div>
-          </div>
-          <div class="pub-card">
-            <div class="pub-title">Constructing Multimodal Datasets</div>
-            <div class="pub-venue">NAACL 2025</div>
-            <p>
-              Framework for building balanced and diverse multimodal datasets.
-            </p>
-            <div class="pub-links">
-              <a href="#">PDF</a>
-              <a href="#">Dataset</a>
-            </div>
-          </div>
-          <div class="pub-card">
-            <div class="pub-title">COM Kitchens Dataset</div>
-            <div class="pub-venue">ECCV 2024</div>
-            <p>Large-scale kitchen scene dataset for action recognition.</p>
-            <div class="pub-links">
-              <a href="#">PDF</a>
-              <a href="#">Dataset</a>
-            </div>
-          </div>
-          <div class="pub-card">
-            <div class="pub-title">Query-based Image Captioning</div>
-            <div class="pub-venue">EMNLP 2023</div>
-            <p>Targeted image descriptions based on user queries.</p>
-            <div class="pub-links">
-              <a href="#">PDF</a>
-              <a href="#">Demo</a>
-            </div>
-          </div>
-          <div class="pub-card">
-            <div class="pub-title">DueT: Image-Text Learning</div>
-            <div class="pub-venue">EMNLP 2023</div>
-            <p>
-              Dual-encoder technique for image-text representation learning.
-            </p>
-            <div class="pub-links">
-              <a href="#">PDF</a>
-              <a href="#">Code</a>
-            </div>
-          </div>
-          <div class="pub-card">
-            <div class="pub-title">IMPARA: Metric for GEC</div>
-            <div class="pub-venue">COLING 2022</div>
-            <p>Improved metric for grammatical error correction evaluation.</p>
-            <div class="pub-links">
-              <a href="#">PDF</a>
-              <a href="#">Code</a>
-            </div>
-          </div>
-        </div>
+
+        <h3>🌎 International Conferences</h3>
+        <div class="publications" id="international-publications"></div>
+
+        <h3>🇯🇵 Domestic Conferences</h3>
+        <div class="publications" id="domestic-publications"></div>
       </section>
 
       <section class="section">
