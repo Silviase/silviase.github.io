@@ -1,143 +1,169 @@
 <!DOCTYPE html>
-<html lang=\"en\">
-<head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>Koki Maeda - CV</title>
-    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap\" rel=\"stylesheet\">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koki Maeda - Modern CV</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #374151;
-            max-width: 900px;
-            margin: auto;
-            padding: 40px;
-        }
-        h1, h2, h3 {
-            color: #111827;
-        }
-        .header, .section {
-            margin-bottom: 50px;
-        }
-        .contact-info a {
-            margin-right: 15px;
-            color: #12957f;
-            text-decoration: none;
-        }
-        .publications {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        .pub-card {
-            background-color: white;
-            padding: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            position: relative;
-        }
-        .pub-card a {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            font-size: 12px;
-            color: #12957f;
-        }
-        .timeline {
-            position: relative;
-            margin-left: 20px;
-            padding-left: 20px;
-            border-left: 2px dashed #12957f;
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 25px;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -31px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            background-color: #12957f;
-            border-radius: 50%;
-            box-shadow: 0 0 0 4px #f8fafc;
-        }
-        .badge {
-            display: inline-block;
-            background-color: #e2e8f0;
-            color: #111827;
-            border-radius: 10px;
-            padding: 3px 10px;
-            margin-bottom: 8px;
-        }
-        .social-icons img {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-        }
-        .profile-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin-bottom: 10px;
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8fafc;
+        color: #374151;
+        max-width: 900px;
+        margin: auto;
+        padding: 40px;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #111827;
+      }
+      .header,
+      .section {
+        margin-bottom: 50px;
+      }
+      .contact-info a {
+        margin-right: 15px;
+        color: #12957f;
+        text-decoration: none;
+      }
+      .publications {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+      }
+      .pub-card {
+        background-color: white;
+        padding: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        position: relative;
+      }
+      .pub-card a {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 12px;
+        color: #12957f;
+      }
+      .timeline {
+        position: relative;
+        margin-left: 20px;
+        padding-left: 20px;
+        border-left: 2px dashed #12957f;
+      }
+      .timeline-item {
+        position: relative;
+        margin-bottom: 25px;
+      }
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -31px;
+        top: 5px;
+        width: 12px;
+        height: 12px;
+        background-color: #12957f;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px #f8fafc;
+      }
+      .badge {
+        display: inline-block;
+        background-color: #e2e8f0;
+        color: #111827;
+        border-radius: 10px;
+        padding: 3px 10px;
+        margin-bottom: 8px;
+      }
+      .social-icons img {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+      }
+      .profile-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: #ddd;
+        margin-bottom: 10px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <header class="header">
+      <div class="profile-img"><!-- プロフィール画像プレースホルダー --></div>
+      <h1>Koki Maeda</h1>
+      <p>Doctoral Student · Tokyo Institute of Technology</p>
+      <div class="contact-info social-icons">
+        <a href="mailto:koki.maeda@nlp.c.titech.ac.jp">Email</a>
+        <a href="https://sites.google.com/view/silviase">Website</a>
+        <a href="https://github.com/Silviase">GitHub</a>
+        <a href="https://linkedin.com/in/silviase">LinkedIn</a>
+      </div>
+    </header>
 
-<header class=\"header\">
-    <div class=\"profile-img\"><!-- プロフィール画像プレースホルダー --></div>
-    <h1>Koki Maeda</h1>
-    <p>Doctoral Student · Tokyo Institute of Technology</p>
-    <div class=\"contact-info social-icons\">
-        <a href=\"mailto:koki.maeda@nlp.c.titech.ac.jp\">Email</a>
-        <a href=\"https://sites.google.com/view/silviase\">Website</a>
-        <a href=\"https://github.com/Silviase\">GitHub</a>
-        <a href=\"https://linkedin.com/in/silviase\">LinkedIn</a>
-    </div>
-</header>
-
-<section class=\"section\">
-    <h2>Education 🎓</h2>
-    <div class=\"timeline\">
-        <div class=\"timeline-item\">
-            <h3>Ph.D., Tokyo Institute of Technology (2024 - Ongoing)</h3>
-            <p>Vision and Language, Evaluation · Advisor: Naoaki Okazaki</p>
+    <section class="section">
+      <h2>Education 🎓</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Ph.D., Tokyo Institute of Technology (2024 - Ongoing)</h3>
+          <p>Vision and Language, Evaluation · Advisor: Naoaki Okazaki</p>
         </div>
-        <div class=\"timeline-item\">
-            <h3>M.Eng., Tokyo Institute of Technology (2022 - 2024)</h3>
-            <p>Vision and Language: Image Captioning · Advisor: Naoaki Okazaki</p>
+        <div class="timeline-item">
+          <h3>M.Eng., Tokyo Institute of Technology (2022 - 2024)</h3>
+          <p>Vision and Language: Image Captioning · Advisor: Naoaki Okazaki</p>
         </div>
-        <div class=\"timeline-item\">
-            <h3>B.Eng., Tokyo Institute of Technology (2018 - 2022)</h3>
-            <p>NLP: Grammatical Error Correction · Advisor: Naoaki Okazaki, Mentor: Masahiro Kaneko</p>
+        <div class="timeline-item">
+          <h3>B.Eng., Tokyo Institute of Technology (2018 - 2022)</h3>
+          <p>
+            NLP: Grammatical Error Correction · Advisor: Naoaki Okazaki, Mentor:
+            Masahiro Kaneko
+          </p>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<section class=\"section\">
-    <h2>Publications 📖</h2>
-    <div class=\"publications\">
-        <div class=\"pub-card\">LegalViz: Legal Text Visualization, NAACL 2024<a href=\"#\">PDF</a></div>
-        <div class=\"pub-card\">Constructing Multimodal Datasets, NAACL 2025<a href=\"#\">PDF</a></div>
-        <div class=\"pub-card\">COM Kitchens Dataset, ECCV 2024<a href=\"#\">PDF</a></div>
-        <div class=\"pub-card\">Query-based Image Captioning, EMNLP 2023<a href=\"#\">PDF</a></div>
-        <div class=\"pub-card\">DueT: Image-Text Learning, EMNLP 2023<a href=\"#\">PDF</a></div>
-        <div class=\"pub-card\">IMPARA: Metric for GEC, COLING 2022<a href=\"#\">PDF</a></div>
-    </div>
-</section>
+    <section class="section">
+      <h2>Publications 📖</h2>
+      <div class="publications">
+        <div class="pub-card">
+          LegalViz: Legal Text Visualization, NAACL 2024<a href="#">PDF</a>
+        </div>
+        <div class="pub-card">
+          Constructing Multimodal Datasets, NAACL 2025<a href="#">PDF</a>
+        </div>
+        <div class="pub-card">
+          COM Kitchens Dataset, ECCV 2024<a href="#">PDF</a>
+        </div>
+        <div class="pub-card">
+          Query-based Image Captioning, EMNLP 2023<a href="#">PDF</a>
+        </div>
+        <div class="pub-card">
+          DueT: Image-Text Learning, EMNLP 2023<a href="#">PDF</a>
+        </div>
+        <div class="pub-card">
+          IMPARA: Metric for GEC, COLING 2022<a href="#">PDF</a>
+        </div>
+      </div>
+    </section>
 
-<section class=\"section\">
-    <h2>Awards & Fellowships 🏆</h2>
-    <div class=\"badge\">Young Scientist Award, ANLP (2025)</div><br>
-    <div class=\"badge\">Committee Special Awarded Paper, ANLP (2025, 2023)</div><br>
-    <div class=\"badge\">Tokyo Tech Co-creative Experts Program (2024-2027)</div><br>
-    <div class=\"badge\">Awarded Paper, ANLP (2022)</div>
-</section>
-
-</body>
+    <section class="section">
+      <h2>Awards & Fellowships 🏆</h2>
+      <div class="badge">Young Scientist Award, ANLP (2025)</div>
+      <br />
+      <div class="badge">
+        Committee Special Awarded Paper, ANLP (2025, 2023)
+      </div>
+      <br />
+      <div class="badge">
+        Tokyo Tech Co-creative Experts Program (2024-2027)
+      </div>
+      <br />
+      <div class="badge">Awarded Paper, ANLP (2022)</div>
+    </section>
+  </body>
 </html>
