@@ -1,79 +1,4 @@
-.skill-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  background-color: var(--primary-light);
-}
-
-/* Footer */
-.footer {
-  padding: 30px 0;
-  background-color: var(--bg-white);
-  border-top: 1px solid var(--border-light);
-  margin-top: 60px;
-}
-
-.footer p {
-  color: var(--text-light);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Accessibility improvements */
-a:focus,
-button:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .profile-info {
-    margin-left: 0;
-    margin-top: 20px;
-  }
-
-  .publications {
-    grid-template-columns: 1fr;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  }
-}
-
-@media print {
-  body {
-    background-color: white;
-    color: black;
-  }
-
-  .container {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .pub-card:hover,
-  .badge:hover,
-  .skill-item:hover {
-    transform: none;
-    box-shadow: none;
-  }
-
-  a {
-    color: black;
-    text-decoration: none;
-  }
-} /* Base styles and reset */
+/* Base styles and reset */
 * {
   margin: 0;
   padding: 0;
@@ -473,4 +398,81 @@ h3 {
   transition: all 0.3s ease;
   font-size: 0.9rem;
   border-left: 3px solid var(--primary);
+}
+
+.skill-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background-color: var(--primary-light);
+}
+
+/* Footer */
+.footer {
+  padding: 30px 0;
+  background-color: var(--bg-white);
+  border-top: 1px solid var(--border-light);
+  margin-top: 60px;
+}
+
+.footer p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Accessibility improvements */
+a:focus,
+button:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-info {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .publications {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .pub-card:hover,
+  .badge:hover,
+  .skill-item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
 }

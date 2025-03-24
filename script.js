@@ -28,13 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    document.querySelectorAll(".pub-card").forEach((card) => {
-      if (isInViewport(card)) {
-        card.style.opacity = "1";
-        card.style.transform = "translateY(0)";
-      }
-    });
-
     document.querySelectorAll(".badge").forEach((badge) => {
       if (isInViewport(badge)) {
         badge.style.opacity = "1";
@@ -46,6 +39,13 @@ document.addEventListener("DOMContentLoaded", function () {
       if (isInViewport(skill)) {
         skill.style.opacity = "1";
         skill.style.transform = "translateY(0)";
+      }
+    });
+
+    document.querySelectorAll(".pub-card").forEach((card) => {
+      if (isInViewport(card)) {
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
       }
     });
   }
@@ -83,35 +83,42 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add scroll event listener
   window.addEventListener("scroll", handleScrollAnimations);
 
-  // Optional: Add a subtle shine effect to badges
+  // Badge hover effect - fixed version
   const badges = document.querySelectorAll(".badge");
 
   badges.forEach((badge) => {
     badge.addEventListener("mouseenter", function () {
-      this.querySelector("::before").style.left = "100%";
+      // Instead of manipulating ::before directly (which isn't possible),
+      // we can add a class that changes the animation state
+      this.classList.add("badge-hover");
     });
 
     badge.addEventListener("mouseleave", function () {
-      this.querySelector("::before").style.left = "-100%";
+      this.classList.remove("badge-hover");
     });
   });
 
   // Theme switcher functionality (if needed in the future)
   // Uncomment the following code to add a theme switcher
-  /*
-    const themeToggle = document.createElement('button');
-    themeToggle.className = 'theme-toggle';
-    themeToggle.innerHTML = '🌙';
-    themeToggle.setAttribute('aria-label', 'Toggle dark mode');
-    document.body.appendChild(themeToggle);
-    
-    themeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('dark-theme');
-        if (document.body.classList.contains('dark-theme')) {
-            this.innerHTML = '☀️';
-        } else {
-            this.innerHTML = '🌙';
-        }
-    });
-    */
+  const themeToggle = document.createElement("button");
+  themeToggle.className = "theme-toggle";
+  themeToggle.innerHTML = "🌙";
+  themeToggle.setAttribute("aria-label", "Toggle dark mode");
+  document.body.appendChild(themeToggle);
+
+  themeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("dark-theme");
+    if (document.body.classList.contains("dark-theme")) {
+      this.innerHTML = "☀️";
+    } else {
+      this.innerHTML = "🌙";
+    }
+  });
+
+  document.querySelectorAll(".pub-card").forEach((card) => {
+    if (isInViewport(card)) {
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }
+  });
 });
