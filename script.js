@@ -134,11 +134,18 @@ fetch("./publications/index.json")
   .then((files) => {
     files.forEach((file) => {
       fetch(`./publications/${file}`)
-        .then((res) => res.text())
+        .then((res) => {
+          if (!res.ok) throw new Error(`Failed to load ${file}`);
+          return res.text();
+        })
         .then((data) => {
-          const [, yamlText, markdownContent] = data.match(
-            /^---([\s\S]*?)---\s*([\s\S]*)$/
-          );
+          const matched = data.match(/^---([\s\S]*?)---\s*([\s\S]*)$/);
+          if (!matched) {
+            throw new Error(
+              `Metadata missing or incorrectly formatted in ${file}`
+            );
+          }
+          const [, yamlText, markdownContent] = matched;
           const meta = jsyaml.load(yamlText);
 
           const pubCard = document.createElement("div");
@@ -172,6 +179,9 @@ fetch("./publications/index.json")
           } else {
             domesticContainer.appendChild(pubCard);
           }
+        })
+        .catch((error) => {
+          console.error(error);
         });
     });
   });
