@@ -129,11 +129,11 @@ const internationalContainer = document.getElementById(
 const domesticContainer = document.getElementById("domestic-publications");
 
 // index.jsonを読み込むよ
-fetch("publications/index.json")
+fetch("./publications/index.json")
   .then((res) => res.json())
   .then((files) => {
     files.forEach((file) => {
-      fetch(`publications/${file}`)
+      fetch(`./publications/${file}`)
         .then((res) => res.text())
         .then((data) => {
           const [, yamlText, markdownContent] = data.match(
