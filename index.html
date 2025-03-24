@@ -1,110 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=\"en\">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
     <title>Koki Maeda - CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap\" rel=\"stylesheet\">
     <style>
-        :root {
-            --text-main-color: #404040;
-            --text-headline-color: #403040;
-            --text-accent-color: #12957f;
-            --bg-main-color: white;
-        }
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text-main-color);
-            background-color: var(--bg-main-color);
-            padding: 20px;
-            max-width: 800px;
+            background-color: #f8fafc;
+            color: #374151;
+            max-width: 900px;
             margin: auto;
+            padding: 40px;
         }
         h1, h2, h3 {
-            color: var(--text-headline-color);
+            color: #111827;
         }
-        a {
-            color: var(--text-accent-color);
+        .header, .section {
+            margin-bottom: 50px;
+        }
+        .contact-info a {
+            margin-right: 15px;
+            color: #12957f;
             text-decoration: none;
         }
-        .section {
-            margin-bottom: 40px;
+        .publications {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
         }
-        .publication, .education, .experience {
-            margin-bottom: 20px;
+        .pub-card {
+            background-color: white;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            position: relative;
         }
-        ul {
+        .pub-card a {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            color: #12957f;
+        }
+        .timeline {
+            position: relative;
+            margin-left: 20px;
             padding-left: 20px;
+            border-left: 2px dashed #12957f;
         }
-        .contact-info a:not(:last-child)::after {
-            content: ' | ';
-            color: var(--text-main-color);
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background-color: #12957f;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #f8fafc;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: #111827;
+            border-radius: 10px;
+            padding: 3px 10px;
+            margin-bottom: 8px;
+        }
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
-<header>
+<header class=\"header\">
+    <div class=\"profile-img\"><!-- プロフィール画像プレースホルダー --></div>
     <h1>Koki Maeda</h1>
     <p>Doctoral Student · Tokyo Institute of Technology</p>
-    <div class="contact-info">
-        <a href="mailto:koki.maeda@nlp.c.titech.ac.jp">Email</a>
-        <a href="https://sites.google.com/view/silviase">Website</a>
-        <a href="https://github.com/Silviase">GitHub</a>
-        <a href="https://linkedin.com/in/silviase">LinkedIn</a>
+    <div class=\"contact-info social-icons\">
+        <a href=\"mailto:koki.maeda@nlp.c.titech.ac.jp\">Email</a>
+        <a href=\"https://sites.google.com/view/silviase\">Website</a>
+        <a href=\"https://github.com/Silviase\">GitHub</a>
+        <a href=\"https://linkedin.com/in/silviase\">LinkedIn</a>
     </div>
 </header>
 
-<section class="section">
-    <h2>Education</h2>
-    <div class="education">
-        <h3>Ph.D., Tokyo Institute of Technology (2024 - Ongoing)</h3>
-        <p>Vision and Language, Evaluation · Advisor: Naoaki Okazaki</p>
-    </div>
-    <div class="education">
-        <h3>M.Eng., Tokyo Institute of Technology (2022 - 2024)</h3>
-        <p>Vision and Language: Image Captioning · Advisor: Naoaki Okazaki</p>
-    </div>
-    <div class="education">
-        <h3>B.Eng., Tokyo Institute of Technology (2018 - 2022)</h3>
-        <p>NLP: Grammatical Error Correction · Advisor: Naoaki Okazaki, Mentor: Masahiro Kaneko</p>
+<section class=\"section\">
+    <h2>Education 🎓</h2>
+    <div class=\"timeline\">
+        <div class=\"timeline-item\">
+            <h3>Ph.D., Tokyo Institute of Technology (2024 - Ongoing)</h3>
+            <p>Vision and Language, Evaluation · Advisor: Naoaki Okazaki</p>
+        </div>
+        <div class=\"timeline-item\">
+            <h3>M.Eng., Tokyo Institute of Technology (2022 - 2024)</h3>
+            <p>Vision and Language: Image Captioning · Advisor: Naoaki Okazaki</p>
+        </div>
+        <div class=\"timeline-item\">
+            <h3>B.Eng., Tokyo Institute of Technology (2018 - 2022)</h3>
+            <p>NLP: Grammatical Error Correction · Advisor: Naoaki Okazaki, Mentor: Masahiro Kaneko</p>
+        </div>
     </div>
 </section>
 
-<section class="section">
-    <h2>Publications</h2>
-    <ul>
-        <li class="publication">LegalViz: Legal Text Visualization by Text To Diagram Generation, NAACL 2024</li>
-        <li class="publication">Constructing Multimodal Datasets from Scratch, NAACL 2025</li>
-        <li class="publication">COM Kitchens Dataset, ECCV 2024</li>
-        <li class="publication">Query-based Image Captioning from 360-degree Images, EMNLP 2023</li>
-        <li class="publication">DueT: Image-Text Contrastive Transfer Learning, EMNLP 2023</li>
-        <li class="publication">IMPARA: Metric for GEC Using Parallel Data, COLING 2022</li>
-    </ul>
+<section class=\"section\">
+    <h2>Publications 📖</h2>
+    <div class=\"publications\">
+        <div class=\"pub-card\">LegalViz: Legal Text Visualization, NAACL 2024<a href=\"#\">PDF</a></div>
+        <div class=\"pub-card\">Constructing Multimodal Datasets, NAACL 2025<a href=\"#\">PDF</a></div>
+        <div class=\"pub-card\">COM Kitchens Dataset, ECCV 2024<a href=\"#\">PDF</a></div>
+        <div class=\"pub-card\">Query-based Image Captioning, EMNLP 2023<a href=\"#\">PDF</a></div>
+        <div class=\"pub-card\">DueT: Image-Text Learning, EMNLP 2023<a href=\"#\">PDF</a></div>
+        <div class=\"pub-card\">IMPARA: Metric for GEC, COLING 2022<a href=\"#\">PDF</a></div>
+    </div>
 </section>
 
-<section class="section">
-    <h2>Awards & Fellowships</h2>
-    <ul>
-        <li>Young Scientist Award, ANLP (2025)</li>
-        <li>Committee Special Awarded Paper, ANLP (2025, 2023)</li>
-        <li>Tokyo Tech Co-creative Experts Program (2024-2027)</li>
-        <li>Awarded Paper, ANLP (2022)</li>
-    </ul>
-</section>
-
-<section class="section">
-    <h2>Experience</h2>
-    <ul>
-        <li>Engineering Internship, Cierpa & Co. (2024 - Now)</li>
-        <li>Research Assistant, National Institute of Informatics (2024 - Now)</li>
-        <li>Research Assistant, RIKEN AIP (2022 - 2024)</li>
-        <li>Research Internship, OMRON SINIC X (2023 - 2024)</li>
-        <li>Data Scientist, Future Corporation (2021 - 2022)</li>
-        <li>Tutor, Tokyo Publishing Education Lab. (2018 - 2021)</li>
-    </ul>
+<section class=\"section\">
+    <h2>Awards & Fellowships 🏆</h2>
+    <div class=\"badge\">Young Scientist Award, ANLP (2025)</div><br>
+    <div class=\"badge\">Committee Special Awarded Paper, ANLP (2025, 2023)</div><br>
+    <div class=\"badge\">Tokyo Tech Co-creative Experts Program (2024-2027)</div><br>
+    <div class=\"badge\">Awarded Paper, ANLP (2022)</div>
 </section>
 
 </body>
 </html>
-
