@@ -1,4 +1,5 @@
 ---
+layout: publication
 title: "IMPARA: Impact-Based Metric for GEC Using Parallel Data"
 venue: "COLING 2022"
 description: "Proposal of a new impact-based metric for grammatical error correction using parallel datasets."

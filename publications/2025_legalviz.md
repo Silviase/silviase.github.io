@@ -1,4 +1,5 @@
 ---
+layout: publication
 title: "LegalViz: Legal Text Visualization by Text To Diagram Generation"
 venue: "NAACL 2025"
 description: "Novel approach for visualizing complex legal document structures through diagram generation from text."

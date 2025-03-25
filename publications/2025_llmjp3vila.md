@@ -1,4 +1,5 @@
 ---
+layout: publication
 title: "Constructing Multimodal Datasets from Scratch for Rapid Development of a Japanese Visual Language Model"
 venue: "NAACL 2025 (System Demonstrations)"
 description: "Methodology for quickly constructing multimodal datasets tailored for Japanese vision-language models."
