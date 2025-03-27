@@ -2,15 +2,10 @@
 layout: null
 ---
 [
-  {% for pub in site.publications %
-  }
+  {% for pub in site.publications %}
     {
-    "filename": "{{ pub.url | split: '/' | last | replace: '.md', '.html' }}",
-    "type": "{{ pub.type }}"
-  }{% if forloop.last == false %
-  },
-  {% endif %
-  }
-  {% endfor %
-  }
+      "filename": "{{ pub.url | split: '/' | last | replace: '.md', '.html' }}",
+      "type": "{{ pub.type }}"
+    }{% if forloop.last == false %},{% endif %}
+  {% endfor %}
 ]
