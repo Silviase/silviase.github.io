@@ -4,19 +4,30 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   const domesticContainer = document.getElementById("domestic-publications");
 
-  fetch("./publications/publications.json")
+  // まずindex.jsonを読み込む
+  fetch("./publications/index.json")
     .then((res) => res.json())
-    .then((publications) => {
-      publications.forEach((pub) => {
-        fetch(`./publications/${pub.filename}`)
+    .then((publicationsList) => {
+      // 各論文ファイルを処理
+      publicationsList.forEach((pubInfo) => {
+        const filename = pubInfo.filename || `${pubInfo}.md`;
+        
+        fetch(`./publications/${filename}`)
           .then((res) => {
-            if (!res.ok) throw new Error(`Failed to load ${pub.filename}`);
+            if (!res.ok) throw new Error(`Failed to load ${filename}`);
             return res.text();
           })
           .then((html) => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, "text/html");
-
+            // YAMLフロントマターを解析
+            const yamlMatch = html.match(/^---([\s\S]*?)---\s*([\s\S]*)$/);
+            if (!yamlMatch) return;
+            
+            const yamlText = yamlMatch[1];
+            const meta = jsyaml.load(yamlText);
+            
+            // typeをフロントマターから取得
+            const pubType = meta.type; // "international" または "domestic"
+            
             const pubCard = document.createElement("div");
             pubCard.className = "pub-card";
             pubCard.style.opacity = "0";
@@ -24,26 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
             pubCard.style.transition = "opacity 0.5s ease, transform 0.5s ease";
 
             pubCard.innerHTML = `
-              <a href="./publications/${pub.filename}" class="pub-title">${
-              doc.querySelector(".title").textContent
-            }</a>
-              <div class="pub-venue">${
-                doc.querySelector(".venue").textContent
-              }</div>
-              <p>${doc.querySelector(".description").textContent}</p>
+              <a href="./publications.html?pub=${filename.replace('.md', '')}" class="pub-title">${meta.title}</a>
+              <div class="pub-venue">${meta.venue}</div>
+              <p>${meta.description}</p>
               <div class="pub-links">
-                ${
-                  doc.querySelector(".pdf-link")
-                    ? `<a href="${doc.querySelector(".pdf-link").href}">PDF</a>`
-                    : ""
-                }
-                ${
-                  doc.querySelector(".code-link")
-                    ? `<a href="${
-                        doc.querySelector(".code-link").href
-                      }">Code</a>`
-                    : ""
-                }
+                ${meta.pdf_link ? `<a href="${meta.pdf_link}">PDF</a>` : ""}
+                ${meta.code_link ? `<a href="${meta.code_link}">Code</a>` : ""}
                 <button class="copy-bibtex-btn">Copy BibTeX</button>
               </div>
             `;
@@ -52,23 +49,28 @@ document.addEventListener("DOMContentLoaded", function () {
               .querySelector(".copy-bibtex-btn")
               .addEventListener("click", () => {
                 navigator.clipboard
-                  .writeText(doc.querySelector(".bibtex").textContent)
+                  .writeText(meta.bibtex)
                   .then(() => {
                     alert("BibTeX copied!");
                   });
               });
 
-            if (pub.type === "international") {
+            // typeに基づいて適切なコンテナに追加
+            if (pubType === "international") {
               internationalContainer.appendChild(pubCard);
-            } else {
+            } else if (pubType === "domestic") {
               domesticContainer.appendChild(pubCard);
             }
 
             // 追加したらアニメーション処理を呼び出し✨
             handleScrollAnimations();
           })
-          .catch((error) => console.error(error));
+          .catch((error) => console.error(`論文読み込みエラー: ${error}`));
       });
+    })
+    .catch((error) => {
+      console.error(`index.json読み込みエラー: ${error}`);
+      // エラー時のフォールバック処理をここに書ける
     });
 
   // アニメーション用関数
@@ -98,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", handleScrollAnimations);
   setTimeout(handleScrollAnimations, 300);
 
-  // ダークモード切り替えボタンもそのまま使えるよ〜🌙✨
+  // ダークモード切り替えボタン
   const themeToggle = document.createElement("button");
   themeToggle.className = "theme-toggle";
   themeToggle.innerHTML = "🌙";
