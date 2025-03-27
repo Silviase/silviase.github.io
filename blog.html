@@ -11,7 +11,8 @@ permalink: /blog/
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Koki Maeda - Blog</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -21,7 +22,7 @@ permalink: /blog/
       <nav class="site-nav">
         <a href="{{ site.baseurl }}/">Home</a>
         <a href="{{ site.baseurl }}/publications.html">Publications</a>
-        <a href="{{ site.baseurl }}/blog/" class="active">Blog</a>
+        <a href="{{ site.baseurl }}/blog.html" class="active">Blog</a>
       </nav>
     </header>
 
@@ -31,10 +32,10 @@ permalink: /blog/
           <h2 class="post-title">
             <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
           </h2>
-          <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>
+          <div class="post-date">{{ post.date | date: "%B %d, %Y" }} • By {{ post.author }}</div>
           <p class="post-summary">
             {% if post.excerpt %}
-              {{ post.excerpt | strip_html | truncatewords: 50 }}
+              {{ post.excerpt }}
             {% endif %}
           </p>
           <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more →</a>
