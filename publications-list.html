@@ -1,0 +1,134 @@
+---
+layout: default
+title: Publications
+---
+
+<div class="container">
+  <header class="blog-header">
+    <h1>Publications</h1>
+    <p class="blog-description">Research in vision-language, evaluation metrics, and multimodal learning</p>
+    <nav class="site-nav">
+      <a href="{{ site.baseurl }}/">Home</a>
+      <a href="{{ site.baseurl }}/publications-list.html" class="active">Publications</a>
+      <a href="{{ site.baseurl }}/blog.html">Blog</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h2>International Conferences 🌎</h2>
+    <div class="publications" id="international-publications"></div>
+  </section>
+
+  <section class="section">
+    <h2>Domestic Conferences 🇯🇵</h2>
+    <div class="publications" id="domestic-publications"></div>
+  </section>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 国際会議と国内会議の投稿コンテナを取得
+    const internationalContainer = document.getElementById("international-publications");
+    const domesticContainer = document.getElementById("domestic-publications");
+
+    // publications/index.jsonを読み込む
+    loadPublications();
+
+    // アニメーション効果の適用
+    handleScrollAnimations();
+    window.addEventListener("scroll", handleScrollAnimations);
+    setTimeout(handleScrollAnimations, 300);
+  });
+
+  // 論文情報を読み込み、表示する関数
+  function loadPublications() {
+    const internationalContainer = document.getElementById("international-publications");
+    const domesticContainer = document.getElementById("domestic-publications");
+
+    fetch("{{ site.baseurl }}/publications/index.json")
+      .then((res) => res.json())
+      .then((publicationsList) => {
+        // 各論文ファイルを処理
+        publicationsList.forEach((pubId) => {
+          fetch(`{{ site.baseurl }}/publications/${pubId}.md`)
+            .then((res) => {
+              if (!res.ok) throw new Error(`Failed to load ${pubId}`);
+              return res.text();
+            })
+            .then((data) => {
+              // YAMLフロントマターを解析
+              const yamlMatch = data.match(/^---([\s\S]*?)---\s*([\s\S]*)$/);
+              if (!yamlMatch) return;
+              
+              const yamlText = yamlMatch[1];
+              const meta = jsyaml.load(yamlText);
+              
+              // typeをフロントマターから取得
+              const pubType = meta.type; // "international" または "domestic"
+              
+              const pubCard = document.createElement("div");
+              pubCard.className = "pub-card";
+              pubCard.style.opacity = "0";
+              pubCard.style.transform = "translateY(20px)";
+              pubCard.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+
+              pubCard.innerHTML = `
+                <a href="{{ site.baseurl }}/publication.html?pub=${pubId}" class="pub-title">${meta.title}</a>
+                <div class="pub-venue">${meta.venue}</div>
+                <p>${meta.description}</p>
+                <div class="pub-links">
+                  ${meta.pdf_link ? `<a href="${meta.pdf_link}" target="_blank">PDF</a>` : ""}
+                  ${meta.code_link ? `<a href="${meta.code_link}" target="_blank">Code</a>` : ""}
+                  <button class="copy-bibtex-btn" data-bibtex="${encodeURIComponent(meta.bibtex)}">Copy BibTeX</button>
+                </div>
+              `;
+
+              // typeに基づいて適切なコンテナに追加
+              if (pubType === "international" && internationalContainer) {
+                internationalContainer.appendChild(pubCard);
+              } else if (pubType === "domestic" && domesticContainer) {
+                domesticContainer.appendChild(pubCard);
+              }
+
+              // BibTexコピーボタンのイベントリスナを追加
+              pubCard.querySelector(".copy-bibtex-btn").addEventListener("click", function() {
+                const bibtex = decodeURIComponent(this.getAttribute("data-bibtex"));
+                navigator.clipboard.writeText(bibtex)
+                  .then(() => {
+                    alert("BibTeX copied!");
+                  });
+              });
+
+              // 追加したらアニメーション処理を呼び出し
+              handleScrollAnimations();
+            })
+            .catch((error) => console.error(`論文読み込みエラー: ${error}`));
+        });
+      })
+      .catch((error) => {
+        console.error(`index.json読み込みエラー: ${error}`);
+      });
+  }
+
+  // アニメーション用関数
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  function handleScrollAnimations() {
+    document
+      .querySelectorAll(".pub-card")
+      .forEach((el) => {
+        if (isInViewport(el)) {
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+        }
+      });
+  }
+</script>

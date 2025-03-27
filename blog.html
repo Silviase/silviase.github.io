@@ -1,47 +1,28 @@
----
-layout: default
-title: Blog
-permalink: /blog/
----
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Koki Maeda - Blog</title>
+  <title>Blog - Koki Maeda</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
 </head>
 <body>
   <div class="container">
     <header class="blog-header">
       <h1>Blog</h1>
-      <p class="blog-description">Thoughts on vision-language research, academic life, and more</p>
+      <p class="blog-description">Thoughts on vision and language research, image captioning, and more.</p>
       <nav class="site-nav">
-        <a href="{{ site.baseurl }}/">Home</a>
-        <a href="{{ site.baseurl }}/publications.html">Publications</a>
-        <a href="{{ site.baseurl }}/blog.html" class="active">Blog</a>
+        <a href="./">Home</a>
+        <a href="./publications.html">Publications</a>
+        <a href="./blog.html" class="active">Blog</a>
       </nav>
     </header>
 
-    <section class="blog-posts">
-      {% for post in site.posts %}
-        <article class="blog-post">
-          <h2 class="post-title">
-            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-          </h2>
-          <div class="post-date">{{ post.date | date: "%B %d, %Y" }} • By {{ post.author }}</div>
-          <p class="post-summary">
-            {% if post.excerpt %}
-              {{ post.excerpt }}
-            {% endif %}
-          </p>
-          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more →</a>
-        </article>
-      {% endfor %}
-    </section>
+    <div class="blog-posts" id="blog-posts-container">
+      <!-- Blog posts will be loaded here dynamically -->
+    </div>
   </div>
 
   <footer class="footer">
@@ -49,5 +30,88 @@ permalink: /blog/
       <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load blog posts from posts/index.json
+      fetch('./posts/index.json')
+        .then(response => response.json())
+        .then(postsList => {
+          const blogPostsContainer = document.getElementById('blog-posts-container');
+          
+          // Process each post
+          const loadPromises = postsList.map(postFile => {
+            return fetch(`./posts/${postFile}`)
+              .then(response => response.text())
+              .then(content => {
+                // Parse frontmatter and content
+                const [, yamlText, markdownContent] = content.match(/^---([\s\S]*?)---\s*([\s\S]*)$/);
+                const meta = jsyaml.load(yamlText);
+                
+                // Create post element
+                const postElement = document.createElement('article');
+                postElement.className = 'blog-post';
+                postElement.style.opacity = '0';
+                postElement.style.transform = 'translateY(20px)';
+                postElement.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                // Format the date
+                const postDate = new Date(meta.date);
+                const formattedDate = postDate.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                });
+                
+                // Create post HTML
+                postElement.innerHTML = `
+                  <h2 class="post-title"><a href="./post.html?id=${postFile.replace('.md', '')}">${meta.title}</a></h2>
+                  <div class="post-date">${formattedDate} • By ${meta.author}</div>
+                  <div class="post-summary">${meta.excerpt || markdownContent.substring(0, 200) + '...'}</div>
+                  <a href="./post.html?id=${postFile.replace('.md', '')}" class="read-more">Read more →</a>
+                `;
+                
+                return postElement;
+              })
+              .catch(error => {
+                console.error(`Error loading post ${postFile}:`, error);
+                return null;
+              });
+          });
+          
+          // Wait for all posts to load, then add them to the container
+          Promise.all(loadPromises)
+            .then(postElements => {
+              // Sort posts by date (newest first)
+              postElements
+                .filter(el => el !== null)
+                .sort((a, b) => {
+                  const dateA = new Date(a.querySelector('.post-date').textContent.split('•')[0]);
+                  const dateB = new Date(b.querySelector('.post-date').textContent.split('•')[0]);
+                  return dateB - dateA;
+                })
+                .forEach(element => {
+                  blogPostsContainer.appendChild(element);
+                });
+              
+              // Trigger animation
+              setTimeout(() => {
+                document.querySelectorAll('.blog-post').forEach(post => {
+                  post.style.opacity = '1';
+                  post.style.transform = 'translateY(0)';
+                });
+              }, 100);
+            });
+        })
+        .catch(error => {
+          console.error('Error loading blog posts index:', error);
+          document.getElementById('blog-posts-container').innerHTML = `
+            <div class="error-message">
+              <p>Failed to load blog posts. Please try again later.</p>
+            </div>
+          `;
+        });
+    });
+  </script>
 </body>
 </html>
