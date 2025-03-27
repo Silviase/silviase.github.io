@@ -1,0 +1,52 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koki Maeda - Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="blog-header">
+      <h1>Blog</h1>
+      <p class="blog-description">Thoughts on vision-language research, academic life, and more</p>
+      <nav class="site-nav">
+        <a href="{{ site.baseurl }}/">Home</a>
+        <a href="{{ site.baseurl }}/publications.html">Publications</a>
+        <a href="{{ site.baseurl }}/blog/" class="active">Blog</a>
+      </nav>
+    </header>
+
+    <section class="blog-posts">
+      {% for post in site.posts %}
+        <article class="blog-post">
+          <h2 class="post-title">
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+          </h2>
+          <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>
+          <p class="post-summary">
+            {% if post.excerpt %}
+              {{ post.excerpt | strip_html | truncatewords: 50 }}
+            {% endif %}
+          </p>
+          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more →</a>
+        </article>
+      {% endfor %}
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
+    </div>
+  </footer>
+</body>
+</html>
