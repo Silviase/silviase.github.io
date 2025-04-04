@@ -1,112 +1,138 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // 国際会議と国内会議の投稿コンテナを取得
   const internationalContainer = document.getElementById("international-publications");
   const domesticContainer = document.getElementById("domestic-publications");
 
-  // publications/index.jsonを読み込む処理（既存のまま）
+  // Publicationsセクションがあればデータを読み込む
   if (internationalContainer || domesticContainer) {
     loadPublications();
   }
 
-  // アニメーション効果の適用
-  handleScrollAnimations();
+  // スクロールアニメーションの初期化とイベントリスナー設定
+  // (handleScrollAnimations関数は loadPublications のデータロード後に呼び出すのが良い)
   window.addEventListener("scroll", handleScrollAnimations);
-  setTimeout(handleScrollAnimations, 300);
 
-  // ダークモード切り替えボタン
-  setupDarkModeToggle();
+  // 必要ならダークモードなどの他の初期化処理をここに追加
+  // setupDarkModeToggle();
 });
 
-// 論文情報を読み込み、表示する関数
+// 論文情報をJSONから読み込み、表示する関数
 function loadPublications() {
   const internationalContainer = document.getElementById("international-publications");
   const domesticContainer = document.getElementById("domestic-publications");
 
-  fetch("./publications/index.json")
-    .then((res) => res.json())
-    .then((publicationsList) => {
-      // 各論文ファイルを処理
-      publicationsList.forEach((pubInfo) => {
-        const filename = pubInfo.filename || `${pubInfo}.md`;
-        
-        fetch(`./publications/${filename}`)
-          .then((res) => {
-            if (!res.ok) throw new Error(`Failed to load ${filename}`);
-            return res.text();
-          })
-          .then((html) => {
-            // YAMLフロントマターを解析
-            const yamlMatch = html.match(/^---([\s\S]*?)---\s*([\s\S]*)$/);
-            if (!yamlMatch) return;
-            
-            const yamlText = yamlMatch[1];
-            const meta = jsyaml.load(yamlText);
-            
-            // typeをフロントマターから取得
-            const pubType = meta.type; // "international" または "domestic"
-            
-            const pubCard = document.createElement("div");
-            pubCard.className = "pub-card";
-            pubCard.style.opacity = "0";
-            pubCard.style.transform = "translateY(20px)";
-            pubCard.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+  // コンテナが存在しない場合は処理を中断
+  if (!internationalContainer && !domesticContainer) {
+    console.warn("Publication containers not found on this page.");
+    return;
+  }
 
-            pubCard.innerHTML = `
-              <a href="./publications.html?pub=${filename.replace('.md', '')}" class="pub-title">${meta.title}</a>
-              <div class="pub-venue">${meta.venue}</div>
-              <p>${meta.description}</p>
-              <div class="pub-links">
-                ${meta.pdf_link ? `<a href="${meta.pdf_link}">PDF</a>` : ""}
-                ${meta.code_link ? `<a href="${meta.code_link}">Code</a>` : ""}
-                <button class="copy-bibtex-btn">Copy BibTeX</button>
-              </div>
-            `;
+  // Jekyllが生成したJSONデータをfetchする
+  fetch("./assets/js/publications_data.json") // Step 3で指定したパス
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`Failed to load publications data (status: ${res.status})`);
+      }
+      return res.json();
+    })
+    .then((publicationsData) => {
+      // 既存のコンテナ内容をクリア (念のため)
+      if (internationalContainer) internationalContainer.innerHTML = '';
+      if (domesticContainer) domesticContainer.innerHTML = '';
 
-            pubCard
-              .querySelector(".copy-bibtex-btn")
-              .addEventListener("click", () => {
-                navigator.clipboard
-                  .writeText(meta.bibtex)
-                  .then(() => {
-                    alert("BibTeX copied!");
-                  });
-              });
+      // 取得したデータ配列をループ処理
+      publicationsData.forEach((meta) => {
+        // JSONから取得したデータ（nullチェックも含む）
+        const title = meta.title || 'No Title Provided';
+        const venue = meta.venue || '';
+        const description = meta.description || '';
+        const pdfLink = meta.pdf_link; // nullかもしれない
+        const codeLink = meta.code_link; // nullかもしれない
+        const bibtex = meta.bibtex || ''; // 空文字列かもしれない
+        // 詳細ページのURL。Jekyllが生成した相対URLを使う
+        const detailUrl = meta.url ? meta.url : '#';
 
-            // typeに基づいて適切なコンテナに追加
-            if (pubType === "international" && internationalContainer) {
-              internationalContainer.appendChild(pubCard);
-            } else if (pubType === "domestic" && domesticContainer) {
-              domesticContainer.appendChild(pubCard);
-            }
+        const pubCard = document.createElement("div");
+        pubCard.className = "pub-card";
+        // アニメーション用の初期スタイル
+        pubCard.style.opacity = "0";
+        pubCard.style.transform = "translateY(20px)";
+        pubCard.style.transition = "opacity 0.5s ease, transform 0.5s ease";
 
-            // 追加したらアニメーション処理を呼び出し
-            handleScrollAnimations();
-          })
-          .catch((error) => console.error(`論文読み込みエラー: ${error}`));
+        // カードのHTMLを生成
+        pubCard.innerHTML = `
+          <a href="${detailUrl}" class="pub-title">${title}</a>
+          <div class="pub-venue">${venue}</div>
+          <p>${description}</p>
+          <div class="pub-links">
+            ${pdfLink ? `<a href="${pdfLink}" target="_blank">PDF</a>` : ""}
+            ${codeLink ? `<a href="${codeLink}" target="_blank">Code</a>` : ""}
+            ${bibtex ? `<button class="copy-bibtex-btn">Copy BibTeX</button>` : ""}
+          </div>
+        `;
+
+        // BibTeXコピーボタンのイベントリスナー (BibTeXが存在する場合のみ)
+        if (bibtex) {
+          const bibtexButton = pubCard.querySelector(".copy-bibtex-btn");
+          if (bibtexButton) {
+            bibtexButton.addEventListener("click", (e) => {
+              e.preventDefault(); // デフォルトの挙動を抑制
+              navigator.clipboard.writeText(bibtex)
+                .then(() => {
+                  alert("BibTeX copied!");
+                })
+                .catch(err => {
+                   console.error('Failed to copy BibTeX:', err);
+                   alert("Failed to copy BibTeX.");
+                });
+            });
+          }
+        }
+
+        // typeに基づいて適切なコンテナに追加
+        if (meta.type === "international" && internationalContainer) {
+          internationalContainer.appendChild(pubCard);
+        } else if (meta.type === "domestic" && domesticContainer) {
+          domesticContainer.appendChild(pubCard);
+        } else {
+          // どちらでもない場合や、片方のコンテナしかないページの場合のフォールバック
+          // console.warn(`Publication "${title}" has type: ${meta.type}. Placing in international.`);
+          if (internationalContainer) internationalContainer.appendChild(pubCard);
+          else if(domesticContainer) domesticContainer.appendChild(pubCard); // またはdomesticに入れるなど
+        }
       });
+
+      // データがDOMに追加された後にアニメーション関数を呼び出す
+      // 少し遅延させると確実
+      setTimeout(handleScrollAnimations, 100);
+
     })
     .catch((error) => {
-      console.error(`index.json読み込みエラー: ${error}`);
-      // エラー時のフォールバック処理をここに書ける
+      console.error(`Error loading or processing publications data: ${error}`);
+      // ユーザーにエラーを通知
+      const errorMessage = "<p>論文リストの読み込みに失敗しました。</p>";
+      if (internationalContainer) internationalContainer.innerHTML = errorMessage;
+      if (domesticContainer) domesticContainer.innerHTML = errorMessage;
     });
 }
 
-// アニメーション用関数
+// アニメーション用関数 (変更なし、または微調整)
 function isInViewport(element) {
+  if (!element) return false;
   const rect = element.getBoundingClientRect();
+  // 画面内に少しでも入っていればtrueを返すように調整も可能
   return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.bottom > 0 &&
+    rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
+    rect.right > 0
   );
 }
 
 function handleScrollAnimations() {
-  document
-    .querySelectorAll(".pub-card, .timeline-item, .badge, .skill-item, .blog-post")
+  document.querySelectorAll(".pub-card, .timeline-item, .badge, .skill-item, .blog-post")
     .forEach((el) => {
-      if (isInViewport(el)) {
+      // opacityが"0"の要素（まだ表示されていない要素）のみ処理
+      if (el.style.opacity === "0" && isInViewport(el)) {
         el.style.opacity = "1";
         el.style.transform = "translateY(0)";
       }

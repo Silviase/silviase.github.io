@@ -1,0 +1,25 @@
+---
+layout: null # このファイルにはHTMLレイアウトを適用しない
+permalink: /assets/js/publications_data.json # JSONファイルの出力先パス
+---
+[
+  {% comment %} ここで論文をソートできます。例: ファイル名降順 {% endcomment %}
+  {% assign sorted_pubs = site.publications | sort: "name" | reverse %}
+  {% comment %} もし各mdファイルのフロントマターに 'date: YYYY-MM-DD' のような日付があれば、それでソートも可能です {% endcomment %}
+  {% comment %} {% assign sorted_pubs = site.publications | sort: "date" | reverse %} {% endcomment %}
+
+  {% for pub in sorted_pubs %}
+  {
+    "id": {{ pub.name | remove: '.md' | jsonify }}, {# ファイル名からID生成 #}
+    "title": {{ pub.title | default: "No Title" | jsonify }}, {# タイトル (フロントマターから) #}
+    "venue": {{ pub.venue | default: "" | jsonify }}, {# 会議名など (フロントマターから) #}
+    "description": {{ pub.description | default: "" | jsonify }}, {# 説明 (フロントマターから) #}
+    "pdf_link": {{ pub.pdf_link | jsonify }}, {# PDFリンク (フロントマターから, なければnull) #}
+    "code_link": {{ pub.code_link | jsonify }}, {# Codeリンク (フロントマターから, なければnull) #}
+    "type": {{ pub.type | default: "unknown" | jsonify }}, {# international/domestic (フロントマターから) #}
+    "bibtex": {{ pub.bibtex | default: "" | jsonify }}, {# BibTeX (フロントマターから) #}
+    "url": "{{ pub.url | relative_url }}" {# 生成されたHTMLページの相対URL #}
+  }
+  {% unless forloop.last %},{% endunless %} {# 最後の要素でなければカンマを追加 #}
+  {% endfor %}
+]
