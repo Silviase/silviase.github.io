@@ -1,25 +1,24 @@
 ---
-layout: null # このファイルにはHTMLレイアウトを適用しない
-permalink: /assets/js/publications_data.json # JSONファイルの出力先パス
+layout: null
+permalink: /assets/js/publications_data.json
 ---
 [
-  {% comment %} ここで論文をソートできます。例: ファイル名降順 {% endcomment %}
-  {% assign sorted_pubs = site.publications | sort: "name" | reverse %}
-  {% comment %} もし各mdファイルのフロントマターに 'date: YYYY-MM-DD' のような日付があれば、それでソートも可能です {% endcomment %}
-  {% comment %} {% assign sorted_pubs = site.publications | sort: "date" | reverse %} {% endcomment %}
+  {% assign pubs = site.publications | sort: "name" | reverse %}
+  {% assign pubs_count = pubs | size %}
 
-  {% for pub in sorted_pubs %}
+  {% for pub in pubs %}
   {
-    "id": {{ pub.name | remove: '.md' | jsonify }}, {# ファイル名からID生成 #}
-    "title": {{ pub.title | default: "No Title" | jsonify }}, {# タイトル (フロントマターから) #}
-    "venue": {{ pub.venue | default: "" | jsonify }}, {# 会議名など (フロントマターから) #}
-    "description": {{ pub.description | default: "" | jsonify }}, {# 説明 (フロントマターから) #}
-    "pdf_link": {{ pub.pdf_link | jsonify }}, {# PDFリンク (フロントマターから, なければnull) #}
-    "code_link": {{ pub.code_link | jsonify }}, {# Codeリンク (フロントマターから, なければnull) #}
-    "type": {{ pub.type | default: "unknown" | jsonify }}, {# international/domestic (フロントマターから) #}
-    "bibtex": {{ pub.bibtex | default: "" | jsonify }}, {# BibTeX (フロントマターから) #}
-    "url": "{{ pub.url | relative_url }}" {# 生成されたHTMLページの相対URL #}
+    "id": {{ pub.basename | jsonify }}, {# ★ pub.basename に変更 #}
+    "title": {{ pub.title | default: "No Title" | jsonify }},
+    "venue": {{ pub.venue | default: "" | jsonify }},
+    "description": {{ pub.description | default: "" | jsonify }},
+    "pdf_link": {{ pub.pdf_link | jsonify }},
+    "code_link": {{ pub.code_link | jsonify }},
+    "type": {{ pub.type | default: "unknown" | jsonify }},
+    "bibtex": {{ pub.bibtex | default: "" | jsonify }},
+    "url": {{ pub.url | relative_url | jsonify }}
   }
-  {% unless forloop.last %},{% endunless %} {# 最後の要素でなければカンマを追加 #}
+  {% assign current_index = forloop.index %}
+  {% unless current_index == pubs_count %},{% endunless %} {# ★ forloop.last の代わりにインデックスで比較 (より確実な場合がある) #}
   {% endfor %}
 ]
