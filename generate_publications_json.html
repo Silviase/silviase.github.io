@@ -8,7 +8,7 @@ permalink: /assets/js/publications_data.json
 
   {% for pub in pubs %}
   {
-    "id": {{ pub.basename | jsonify }}, {# ★ pub.basename に変更 #}
+    "id": {{ pub.basename | jsonify }},
     "title": {{ pub.title | default: "No Title" | jsonify }},
     "venue": {{ pub.venue | default: "" | jsonify }},
     "description": {{ pub.description | default: "" | jsonify }},
@@ -19,6 +19,6 @@ permalink: /assets/js/publications_data.json
     "url": {{ pub.url | relative_url | jsonify }}
   }
   {% assign current_index = forloop.index %}
-  {% unless current_index == pubs_count %},{% endunless %} {# ★ forloop.last の代わりにインデックスで比較 (より確実な場合がある) #}
+  {% unless current_index == pubs_count %},{% endunless %}
   {% endfor %}
 ]

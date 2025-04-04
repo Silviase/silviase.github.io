@@ -1,5 +1,6 @@
 ---
 layout: publications
+id: 2024_comkitchens
 title: "COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark"
 venue: "ECCV 2024"
 description: "Introducing a new vision-language dataset based on unedited overhead-view procedural cooking videos."

@@ -1,5 +1,6 @@
 ---
 layout: publications
+id: 2025_llmjpevalmm
 title: "llm-jp-eval-mm"
 venue: "NLP 2025"
 description: "Methodology for quickly constructing multimodal datasets tailored for Japanese vision-language models."
