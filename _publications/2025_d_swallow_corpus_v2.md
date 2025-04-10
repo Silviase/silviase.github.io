@@ -1,6 +1,6 @@
 ---
 layout: publications
-id: "2025_d_swallow_corpus_v2"
+id: 2025_d_swallow_corpus_v2
 title: "Swallowコーパスv2: 教育的な日本語ウェブコーパスの構築"
 authors:
   - "服部, 翔"

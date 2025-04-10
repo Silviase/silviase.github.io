@@ -1,6 +1,6 @@
 ---
 layout: publications
-id: "2024_d_comkitchens"
+id: 2024_d_comkitchens
 title: "調理作業理解のための言語資源付き固定視点映像データセットの構築"
 authors:
   - "橋本, 敦史"

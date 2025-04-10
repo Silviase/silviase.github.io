@@ -1,6 +1,6 @@
 ---
 layout: publications
-id: "2025_d_llmjp3vila"
+id: 2025_d_llmjp3vila
 title: "LLM-jp-3 VILA: 日本語マルチモーダルデータセット及び強力な日本語マルチモーダルモデルの構築"
 authors:
   - "笹川, 慶人"
