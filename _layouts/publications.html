@@ -22,6 +22,7 @@
     <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
     <script>
       var shiftWindow = function() { scrollBy(0, -50) };
@@ -46,12 +47,20 @@
             <div class="description">{{ page.description }}</div>
             <div class="type">{{ page.type }}</div>
 
-            {% if page.pdf_link %}
-            <a href="{{ page.pdf_link }}" class="pdf-link">PDF</a>
-            {% endif %}
-            {% if page.code_link %}
-            <a href="{{ page.code_link }}" class="code-link">Code</a>
-            {% endif %}
+            <div class="action-buttons">
+                {% if page.pdf_link %}
+                <a href="{{ page.pdf_link }}" class="pdf-link">
+                    <i class="fas fa-file-pdf"></i>
+                    PDF
+                </a>
+                {% endif %}
+                {% if page.code_link %}
+                <a href="{{ page.code_link }}" class="code-link">
+                    <i class="fas fa-code"></i>
+                    Code
+                </a>
+                {% endif %}
+            </div>
 
             <pre class="bibtex">{{ page.bibtex }}</pre>
         </div>
