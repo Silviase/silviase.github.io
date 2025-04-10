@@ -3,3 +3,4 @@
 collections:
   publications:
     output: true # true にすると各論文のHTMLページが /publications/ファイル名.html として生成される
+    permalink: /publications/:id.html
