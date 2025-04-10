@@ -12,7 +12,7 @@ description: "Novel approach for visualizing complex legal document structures t
 date: 2025-06-01
 firstpage: 1
 lastpage: 15
-pdf_link: "https://arxiv.org/abs/2502.06147"
+pdf_link: "https://arxiv.org/pdf/2502.06147"
 code_link: ""
 type: "international"
 url: "https://silviase.com/publications/2025_legalviz.html"
