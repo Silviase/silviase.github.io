@@ -1,5 +1,6 @@
 ---
 title: "IMPARA: パラレルデータにおける修正の影響度に基づいた文法誤り訂正の自動評価法"
+id:2022_d_impara
 collection: publications
 permalink: /publication/2022_d_impara
 excerpt: "IMPARA: パラレルデータにおける修正の影響度に基づいた文法誤り訂正の自動評価法"
