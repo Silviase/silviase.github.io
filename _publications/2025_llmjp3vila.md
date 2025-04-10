@@ -17,6 +17,7 @@ lastpage: 10
 pdf_link: "https://arxiv.org/pdf/2410.22736"
 code_link: "https://huggingface.co/llm-jp/llm-jp-3-vila-14b"
 type: "international"
+url: "https://silviase.com/publications/2025_llmjp3vila.html"
 bibtex: |
   @inproceedings{sasagawa2025llmjp3vila,
     title = {Constructing Multimodal Datasets from Scratch for Rapid Development of a Japanese Visual Language Model},

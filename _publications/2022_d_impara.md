@@ -13,6 +13,7 @@ firstpage: "328"
 lastpage: "333"
 pdf_link: "/assets/papers/2022_d_impara.pdf"
 code_link: "https://github.com/Silviase/IMPARA"
+url: "https://silviase.com/publications/2022_d_impara.html"
 type: "domestic"
 bibtex: |
   @inproceedings{maeda2022impara,

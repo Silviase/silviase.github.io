@@ -17,6 +17,7 @@ lastpage: 1190
 pdf_link: "/assets/papers/2025_d_llmjp3vila.pdf"
 code_link: "https://huggingface.co/llm-jp/llm-jp-3-vila-14b"
 type: "domestic"
+url: "https://silviase.com/publications/2025_d_llmjp3vila.html"
 bibtex: |
   @inproceedings{sasagawa2025llmjp3vila_domestic,
     author = {笹川 慶人 and 前田 航希 and 杉浦 一瑳 and 栗田 修平 and 岡崎 直観 and 河原 大輔},

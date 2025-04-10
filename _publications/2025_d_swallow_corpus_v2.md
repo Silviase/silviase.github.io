@@ -25,6 +25,7 @@ lastpage: "99"
 pdf_link: "/assets/papers/2025_d_swallow_corpus_v2.pdf"
 code_link: "https://github.com/swallow-llm/swallow-corpus"
 type: "domestic"
+url: "https://silviase.com/publications/2025_d_swallow_corpus_v2.html"
 bibtex: |
   @inproceedings{maeda2025swallow,
     title={Swallowコーパスv2: 教育的な日本語ウェブコーパスの構築},

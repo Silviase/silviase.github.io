@@ -17,6 +17,7 @@ firstpage: 1
 lastpage: 16
 pdf_link: "https://doi.org/10.32130/rdata.6.1"
 code_link: "https://github.com/omron-sinicx/com_kitchens"
+url: "https://silviase.com/publications/2024_comkitchens.html"
 type: "international"
 bibtex: |
   @inproceedings{maeda2024comkitchens,

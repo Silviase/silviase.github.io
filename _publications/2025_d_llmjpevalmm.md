@@ -16,6 +16,7 @@ lastpage: 1308
 pdf_link: "/assets/papers/2025_d_llmjpevalmm.pdf"
 code_link: "https://github.com/llm-jp/llm-jp-eval-mm"
 type: "domestic"
+url: "https://silviase.com/publications/2025_d_llmjpevalmm.html"
 bibtex: |
   @inproceedings{maeda2025llm-jp-eval-mm,
     author = {前田, 航希 and 杉浦, 一瑳 and 小田, 悠介 and 栗田, 修平 and 岡崎, 直観},
