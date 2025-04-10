@@ -1,6 +1,11 @@
-# _config.yml
-
 collections:
   publications:
-    output: true # true にすると各論文のHTMLページが /publications/ファイル名.html として生成される
+    output: true
     permalink: /publications/:id.html
+
+defaults:
+  - scope:
+      path: ""
+      type: publications
+    values:
+      layout: publications
