@@ -1,7 +1,7 @@
 collections:
   publications:
     output: true
-    permalink: /publications/:id.html
+    permalink: /publications/:basename.html
 
 defaults:
   - scope:
