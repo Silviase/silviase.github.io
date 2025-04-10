@@ -1,6 +1,6 @@
 ---
 layout: publications
-id: 2024_comkitchens
+id: "2024_comkitchens"
 title: "COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark"
 authors:
   - "Koki Maeda"

@@ -1,23 +1,20 @@
 ---
+layout: publications
+id: "2023_d_duet"
 title: "DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル"
-collection: publications
-permalink: /publication/2023-nlp-duet
-excerpt: "DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル"
-date: 2023-03-01
-venue: "言語処理学会第29回年次大会 (NLP2023)"
-paperurl: ""
-citation: "西田 京介, 長谷川 拓, 前田 航希, 齋藤 邦子. DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル. 言語処理学会第29回年次大会 (NLP2023), B7-3, pp. 1586–1591, 2023年3月."
 authors:
   - "西田, 京介"
   - "長谷川, 拓"
   - "前田, 航希"
   - "齋藤, 邦子"
+venue: "言語処理学会第29回年次大会 (NLP2023)"
 description: "視覚・言語のDual-adapter Tuningによる基盤モデルに関する研究"
-type: "domestic"
+date: 2023-03-01
 firstpage: "1586"
 lastpage: "1591"
-pdf_link: "/assets/papers/2023_d_nlp_duet.pdf"
+pdf_link: "/assets/papers/2023_d_duet.pdf"
 code_link: ""
+type: "domestic"
 bibtex: |
   @inproceedings{nishida2023duet,
     title={DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル},
@@ -29,4 +26,4 @@ bibtex: |
   }
 ---
 
-[PDF](/assets/papers/2023_d_nlp_duet.pdf)
+[PDF](/assets/papers/2023_d_duet.pdf)
