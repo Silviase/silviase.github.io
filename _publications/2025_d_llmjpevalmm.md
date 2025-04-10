@@ -1,6 +1,6 @@
 ---
 layout: publications
-id: "2025_d_llmjpevalmm"
+id: 2025_d_llmjpevalmm
 title: "llm-jp-eval-mm: 日本語視覚言語モデルの自動評価基盤"
 authors:
   - "前田, 航希"

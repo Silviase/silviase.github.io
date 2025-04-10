@@ -1,6 +1,6 @@
 ---
 layout: publications
-id: "2024_d_visual_context_caption"
+id: 2024_d_visual_context_caption
 title: "視覚的文脈を利用した視覚言語モデルによる画像キャプション生成自動評価手法"
 authors:
   - "前田, 航希"
