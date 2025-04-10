@@ -1,7 +1,8 @@
 ---
 title: "DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル"
+id:2023_d_duet
 collection: publications
-permalink: /publication/2023-nlp-duet
+permalink: /publication/2023_d_duet
 excerpt: "DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル"
 date: 2023-03-01
 venue: "言語処理学会第29回年次大会 (NLP2023)"
@@ -16,7 +17,7 @@ description: "視覚・言語のDual-adapter Tuningによる基盤モデルに�
 type: "domestic"
 firstpage: "1586"
 lastpage: "1591"
-pdf_link: "/assets/papers/2023_d_nlp_duet.pdf"
+pdf_link: "/assets/papers/2023_d_duet.pdf"
 code_link: ""
 bibtex: |
   @inproceedings{nishida2023duet,
@@ -29,4 +30,4 @@ bibtex: |
   }
 ---
 
-[PDF](/assets/papers/2023_d_nlp_duet.pdf)
+[PDF](/assets/papers/2023_d_duet.pdf)
