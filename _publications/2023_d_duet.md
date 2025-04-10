@@ -14,6 +14,7 @@ firstpage: "1586"
 lastpage: "1591"
 pdf_link: "/assets/papers/2023_d_duet.pdf"
 code_link: ""
+url: "https://silviase.com/publications/2023_d_duet.html"
 type: "domestic"
 bibtex: |
   @inproceedings{nishida2023duet,

@@ -13,6 +13,7 @@ firstpage: 3578
 lastpage: 3588
 pdf_link: "https://aclanthology.org/2022.coling-1.316.pdf"
 code_link: "https://github.com/Silviase/IMPARA"
+url: "https://silviase.com/publications/2022_impara.html"
 type: "international"
 bibtex: |
   @inproceedings{maeda2022impara,

@@ -15,6 +15,7 @@ lastpage: 15
 pdf_link: "https://arxiv.org/abs/2502.06147"
 code_link: ""
 type: "international"
+url: "https://silviase.com/publications/2025_legalviz.html"
 bibtex: |
   @inproceedings{onami2024legalviz,
     title = {LegalViz: Legal Text Visualization by Text To Diagram Generation},

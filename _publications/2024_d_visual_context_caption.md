@@ -9,12 +9,13 @@ authors:
   - "岡崎, 直観"
 venue: "言語処理学会第30回年次大会 (NLP2024)"
 description: "視覚的文脈を利用した画像キャプション生成の自動評価手法に関する研究"
-type: "domestic"
+date: 2024-03-01
 firstpage: 1996
 lastpage: 2001
 pdf_link: "/assets/papers/2024_d_visual_context_caption.pdf"
 code_link: "https://github.com/Silviase/VisCE2"
-date: 2024-03-01
+url: "https://silviase.com/publications/2024_d_visual_context_caption.html"
+type: "domestic"
 bibtex: |
   @inproceedings{maeda2024visual,
     title={視覚的文脈を利用した視覚言語モデルによる画像キャプション生成自動評価手法},

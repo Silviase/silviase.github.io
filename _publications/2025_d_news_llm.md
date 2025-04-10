@@ -29,6 +29,7 @@ lastpage: 3451
 pdf_link: "/assets/papers/2025_d_news_llm.pdf"
 code_link: ""
 type: "domestic"
+url: "https://silviase.com/publications/2025_d_news_llm.html"
 bibtex: |
   @inproceedings{maeda2025news,
     title={新聞記事からつくる 時事と社会に強い日本語LLM},

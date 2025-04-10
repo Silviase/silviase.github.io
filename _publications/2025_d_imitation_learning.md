@@ -26,6 +26,7 @@ lastpage: "3451"
 pdf_link: "/assets/papers/2025_d_imitation_learning.pdf"
 code_link: "https://swallow-llm.github.io/llama3.1-swallow.ja"
 type: "domestic"
+url: "https://silviase.com/publications/2025_d_imitation_learning.html"
 bibtex: |
   @inproceedings{maeda2025imitation,
     title={模倣学習による大規模言語モデルの指示チューニング},
