@@ -2,8 +2,19 @@
 layout: publications
 id: 2024_comkitchens
 title: "COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark"
-venue: "ECCV 2024"
+authors:
+  - "Koki Maeda"
+  - "Tosho Hirasawa"
+  - "Atsushi Hashimoto"
+  - "Jun Harashima"
+  - "Leszek Rybicki"
+  - "Yusuke Fukasawa"
+  - "Yoshitaka Ushiku"
+venue: "Proceedings of The 18th European Conference on Computer Vision (ECCV 2024)"
 description: "Introducing a new vision-language dataset based on unedited overhead-view procedural cooking videos."
+date: 2024-09-29
+firstpage: 1
+lastpage: 16
 pdf_link: "https://doi.org/10.32130/rdata.6.1"
 code_link: "https://github.com/omron-sinicx/com_kitchens"
 type: "international"

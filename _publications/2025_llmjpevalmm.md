@@ -1,15 +1,24 @@
 ---
 layout: publications
 id: 2025_llmjpevalmm
-title: "llm-jp-eval-mm"
-venue: "NLP 2025"
+title: "llm-jp-eval-mm: 日本語視覚言語モデルの自動評価基盤"
+authors:
+  - "前田, 航希"
+  - "杉浦, 一瑳"
+  - "小田, 悠介"
+  - "栗田, 修平"
+  - "岡崎, 直観"
+venue: "言語処理学会第31回年次大会 (NLP2025)"
 description: "Methodology for quickly constructing multimodal datasets tailored for Japanese vision-language models."
-pdf_link: "https://www.anlp.jp/proceedings/annual_meeting/2025/pdf_dir/Q3-23.pdf"
+date: 2025-03-15
+firstpage: 1
+lastpage: 6
+pdf_link: "/assets/papers/2025_llmjpevalmm.pdf"
 code_link: "https://github.com/llm-jp/llm-jp-eval-mm"
 type: "domestic"
 bibtex: |
   @inproceedings{maeda2025llm-jp-eval-mm,
-    author = {前田 航希 and 杉浦 一瑳 and 小田 悠介 and 栗田 修平 and 岡崎 直観},
+    author = {前田, 航希 and 杉浦, 一瑳 and 小田, 悠介 and 栗田, 修平 and 岡崎, 直観},
     month = mar,
     series = {言語処理学会第31回年次大会 (NLP2025)},
     title = {{llm-jp-eval-mm: 日本語視覚言語モデルの自動評価基盤}},
@@ -20,6 +29,8 @@ bibtex: |
 ## Abstract
 
 The research rapidly advances vision-language models (VLM), but evaluation frameworks for Japanese vision-language (V&L) tasks are still inadequate. This paper introduces llm-jp-eval-mm, a toolkit for systematically evaluating Japanese multimodal tasks. It unifies six existing Japanese multimodal tasks, enabling consistent benchmarking across multiple metrics. The toolkit is publicly available, aiming to facilitate continuous improvement and evaluation of Japanese VLMs.
+
+[PDF](/assets/papers/2025_llmjpevalmm.pdf)
 
 ## Methodology
 
