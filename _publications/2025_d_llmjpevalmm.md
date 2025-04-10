@@ -1,7 +1,7 @@
 ---
 layout: publications
 id: "2025_d_llmjpevalmm"
-title: "LLM-JP-Eval-MM: 日本語マルチモーダル大規模言語モデルの評価ベンチマーク"
+title: "llm-jp-eval-mm: 日本語視覚言語モデルの自動評価基盤"
 authors:
   - "前田, 航希"
   - "杉浦, 一瑳"

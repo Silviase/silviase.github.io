@@ -1,7 +1,7 @@
 ---
 layout: publications
 id: "2025_d_news_llm"
-title: "ニュース記事を用いた日本語LLMの評価"
+title: "新聞記事からつくる時事と社会に強い日本語LLM"
 authors:
   - "服部, 翔"
   - "水木, 栄"

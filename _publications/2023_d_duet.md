@@ -1,6 +1,6 @@
 ---
 layout: publications
-id: "2023_d_nlp_duet"
+id: "2023_d_duet"
 title: "DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル"
 authors:
   - "西田, 京介"
@@ -12,7 +12,7 @@ description: "視覚・言語のDual-adapter Tuningによる基盤モデルに�
 date: 2023-03-01
 firstpage: "1586"
 lastpage: "1591"
-pdf_link: "/assets/papers/2023_d_nlp_duet.pdf"
+pdf_link: "/assets/papers/2023_d_duet.pdf"
 code_link: ""
 type: "domestic"
 bibtex: |
@@ -26,4 +26,4 @@ bibtex: |
   }
 ---
 
-[PDF](/assets/papers/2023_d_nlp_duet.pdf)
+[PDF](/assets/papers/2023_d_duet.pdf)
