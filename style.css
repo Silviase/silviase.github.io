@@ -12,27 +12,27 @@
   --primary-medium: rgba(64, 48, 48, 0.3); /* Medium chocolate accent */
   --accent: #12957f; /* Mint accent color */
   --accent-light: rgba(18, 149, 127, 0.2); /* Light mint accent */
-  
+
   /* Text colors */
   --text-dark: #111827; /* Title dark */
   --text-medium: #374151; /* Body text dark gray */
   --text-light: #6b7280; /* Auxiliary text light gray */
-  
+
   /* Background colors */
   --bg-light: #f8fafc; /* Light background */
   --bg-white: #ffffff; /* Card background white */
   --bg-mint: #e6f7f4; /* Very light mint background */
   --bg-dark: #403030; /* Rich chocolate background for blog */
-  
+
   /* Border & decorative elements */
   --border-light: #e5e7eb; /* Light border color */
   --badge-bg: #e2e8f0; /* Badge background color */
-  
+
   /* Shadows */
   --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
-  
+
   /* Border radii */
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -675,7 +675,7 @@ button:focus {
   .skills-grid {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
-  
+
   .blog-header {
     padding: 30px 15px;
   }
@@ -703,4 +703,97 @@ button:focus {
     color: black;
     text-decoration: none;
   }
+}
+
+/* Publication meta styles */
+.publication-meta {
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.publication-meta .title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.publication-meta .venue {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.publication-meta .description {
+    margin: 1rem 0;
+    color: var(--text-medium);
+}
+
+.publication-meta .type {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: var(--badge-bg);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: var(--text-medium);
+}
+
+.publication-meta .bibtex {
+    background: var(--bg-light);
+    padding: 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin: 1rem 0;
+    position: relative;
+}
+
+.publication-meta .bibtex::before {
+    content: "BibTeX";
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: var(--bg-white);
+    padding: 0 5px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.publication-meta .action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.publication-meta .action-buttons a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all 0.2s;
+    color: var(--bg-white);
+}
+
+.publication-meta .pdf-link {
+    background: var(--accent);
+}
+
+.publication-meta .pdf-link:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+}
+
+.publication-meta .code-link {
+    background: var(--primary);
+}
+
+.publication-meta .code-link:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
 }
