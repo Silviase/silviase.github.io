@@ -15,7 +15,7 @@
     {% if page.lastpage %}
     <meta name="citation_lastpage" content="{{ page.lastpage }}" />
     {% endif %}
-    <meta name="citation_abstract_html_url" content="{{ site.baseurl }}/publications/{{ page.id }}">
+    <meta name="citation_abstract_html_url" content="{{ site.baseurl }}{{ page.url }}">
     {% if page.pdf_link %}
     <meta name="citation_pdf_url" content="{{ page.pdf_link }}" />
     {% endif %}
