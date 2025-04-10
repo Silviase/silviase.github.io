@@ -1,12 +1,7 @@
 ---
+layout: publications
+id: "2025_d_imitation_learning"
 title: "模倣学習による大規模言語モデルの指示チューニング"
-collection: publications
-permalink: /publication/2025-imitation-learning
-excerpt: "模倣学習による大規模言語モデルの指示チューニング"
-date: 2025-03-01
-venue: "言語処理学会第31回年次大会 (NLP2025)"
-paperurl: ""
-citation: "Youmi Ma, 水木栄, 藤井一喜, 中村泰士, 大井聖也, 島田比奈理, 塩谷泰平, 齋藤幸史郎, 前田航希, 服部翔, 岡本拓己, 石田茂樹, 横田理央, 高村大也, 岡崎直観. 模倣学習による大規模言語モデルの指示チューニング. 言語処理学会第31回年次大会 (NLP2025), 2025年3月, 長崎."
 authors:
   - "Youmi Ma"
   - "水木, 栄"
@@ -23,12 +18,14 @@ authors:
   - "横田, 理央"
   - "高村, 大也"
   - "岡崎, 直観"
+venue: "言語処理学会第31回年次大会 (NLP2025)"
 description: "模倣学習による大規模言語モデルの指示チューニングに関する研究"
-type: "domestic"
+date: 2025-03-01
 firstpage: "3446"
 lastpage: "3451"
 pdf_link: "/assets/papers/2025_d_imitation_learning.pdf"
 code_link: "https://swallow-llm.github.io/llama3.1-swallow.ja"
+type: "domestic"
 bibtex: |
   @inproceedings{maeda2025imitation,
     title={模倣学習による大規模言語モデルの指示チューニング},

@@ -1,11 +1,11 @@
 ---
+layout: publications
+id: "2024_d_jsai_comkitchens"
 title: "調理作業理解のための言語資源付き固定視点映像データセットの構築"
-collection: publications
 permalink: /publication/2024_d_jsai_comkitchens
 excerpt: "調理作業理解のための言語資源付き固定視点映像データセットの構築"
 date: 2024-05-01
 venue: "2024年度人工知能学会全国大会（第38回）"
-paperurl: ""
 citation: "橋本 敦史, 前田 航希, 平澤 寅庄, 原島 純, RYBICKI Leszek, 深澤 祐援, 牛久 祥孝. 調理作業理解のための言語資源付き固定視点映像データセットの構築. 2024年度人工知能学会全国大会（第38回）. 2024年5月, 浜松"
 authors:
   - "橋本, 敦史"

@@ -1,7 +1,7 @@
 ---
 layout: publications
 id: 2025_d_llmjp3vila
-title: "日本語視覚言語モデルの高速開発に向けたマルチモーダルデータセットの構築"
+title: "LLM-JP-3VILA: 日本語マルチモーダル大規模言語モデルの構築"
 authors:
   - "笹川, 慶人"
   - "前田, 航希"

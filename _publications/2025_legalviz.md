@@ -1,6 +1,6 @@
 ---
 layout: publications
-id: 2025_legalviz
+id: "2025_legalviz"
 title: "LegalViz: Legal Text Visualization by Text To Diagram Generation"
 authors:
   - "Eri Onami"

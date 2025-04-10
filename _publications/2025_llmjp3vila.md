@@ -1,6 +1,6 @@
 ---
 layout: publications
-id: 2025_llmjp3vila
+id: "2025_llmjp3vila"
 title: "Constructing Multimodal Datasets from Scratch for Rapid Development of a Japanese Visual Language Model"
 authors:
   - "Keito Sasagawa"
