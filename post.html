@@ -13,18 +13,17 @@
 <body>
   <div class="container">
     <header class="blog-header">
-      <h1>Blog</h1>
+      <h1>Blog Post</h1>
       <nav class="site-nav">
         <a href="./">Home</a>
         <a href="./publications.html">Publications</a>
-        <a href="./blog.html">All Posts</a>
+        <a href="./blog.html" class="active">Blog</a>
       </nav>
     </header>
 
-    <article class="blog-post-full" id="blog-post-content">
-      <!-- Post content will be loaded here dynamically -->
-      <div class="loading">Loading post...</div>
-    </article>
+    <div class="blog-post-full" id="post-detail">
+      <div class="loading">Loading post details...</div>
+    </div>
   </div>
 
   <footer class="footer">
@@ -34,33 +33,36 @@
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener("DOMContentLoaded", function() {
       const urlParams = new URLSearchParams(window.location.search);
-      const postId = urlParams.get('id');
+      const postId = urlParams.get("id");
       
       if (!postId) {
-        document.getElementById('blog-post-content').innerHTML = `
-          <div class="error-message">
-            <h2>Post Not Found</h2>
-            <p>The requested blog post could not be found.</p>
-            <p><a href="./blog.html">Return to all posts</a></p>
-          </div>
+        document.getElementById("post-detail").innerHTML = `
+          <h2>Post not found</h2>
+          <p>No post ID specified. <a href="./blog.html">Return to blog list</a>.</p>
         `;
         return;
       }
       
       // Load the post content
       fetch(`./posts/${postId}.md`)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Post not found');
-          }
-          return response.text();
+        .then((res) => {
+          if (!res.ok) throw new Error(`Failed to load post with ID: ${postId}`);
+          return res.text();
         })
-        .then(content => {
-          // Parse frontmatter and content
-          const [, yamlText, markdownContent] = content.match(/^---([\s\S]*?)---\s*([\s\S]*)$/);
+        .then((data) => {
+          const yamlMatch = data.match(/^---([\s\S]*?)---\s*([\s\S]*)$/);
+          if (!yamlMatch) {
+            throw new Error("Invalid post format");
+          }
+
+          const yamlText = yamlMatch[1];
+          const markdownContent = yamlMatch[2];
           const meta = jsyaml.load(yamlText);
+          
+          // Convert markdown to HTML
+          const htmlContent = marked.parse(markdownContent);
           
           // Format the date
           const postDate = new Date(meta.date);
@@ -70,30 +72,25 @@
             day: 'numeric'
           });
           
-          // Update page title
-          document.title = `${meta.title} - Koki Maeda's Blog`;
-          
-          // Convert markdown to HTML
-          const htmlContent = marked.parse(markdownContent);
-          
           // Update content
-          document.getElementById('blog-post-content').innerHTML = `
+          document.getElementById("post-detail").innerHTML = `
             <h1 class="post-title">${meta.title}</h1>
-            <div class="post-date">${formattedDate} • By ${meta.author}</div>
+            <div class="post-date">${formattedDate} • By ${meta.author || 'Koki Maeda'}</div>
             
             <div class="post-content">
               ${htmlContent}
             </div>
           `;
+          
+          // Update page title
+          document.title = `${meta.title} - Koki Maeda`;
         })
-        .catch(error => {
-          console.error('Error loading post:', error);
-          document.getElementById('blog-post-content').innerHTML = `
-            <div class="error-message">
-              <h2>Post Not Found</h2>
-              <p>The requested blog post could not be found or there was an error loading it.</p>
-              <p><a href="./blog.html">Return to all posts</a></p>
-            </div>
+        .catch((error) => {
+          console.error("Error loading post:", error);
+          document.getElementById("post-detail").innerHTML = `
+            <h2>Error</h2>
+            <p>Failed to load post details: ${error.message}</p>
+            <p><a href="./blog.html">Return to blog list</a>.</p>
           `;
         });
     });
