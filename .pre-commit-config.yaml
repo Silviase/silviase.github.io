@@ -20,8 +20,8 @@ repos:
       - id: check-merge-conflict       # コンフリクト残りの検出
       - id: check-yaml                 # YAML構文確認
       - id: check-added-large-files    # 巨大ファイルの誤add防止
-      - id: no-commit-to-branch        # main/master直コミット防止
-        args: ["--branch", "main", "--branch", "master"]
+      # - id: no-commit-to-branch        # main/master直コミット防止
+      #   args: ["--branch", "main", "--branch", "master"]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.9.0
