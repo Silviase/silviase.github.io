@@ -1,5 +1,5 @@
 ---
-layout: publications
+layout: papers
 id: 2025_d_imitation_learning
 title: "模倣学習による大規模言語モデルの指示チューニング"
 authors:

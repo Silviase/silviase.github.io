@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const internationalContainer = document.getElementById("international-publications");
-  const domesticContainer = document.getElementById("domestic-publications");
+  const internationalContainer = document.getElementById("international-papers");
+  const domesticContainer = document.getElementById("domestic-papers");
 
-  // Publicationsセクションがあればデータを読み込む
+  // Papersセクションがあればデータを読み込む
   if (internationalContainer || domesticContainer) {
-    loadPublications();
+    loadPapers();
   }
 
   // スクロールアニメーションの初期化とイベントリスナー設定
@@ -16,31 +16,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 論文情報をJSONから読み込み、表示する関数
-function loadPublications() {
-  const internationalContainer = document.getElementById("international-publications");
-  const domesticContainer = document.getElementById("domestic-publications");
+function loadPapers() {
+  const internationalContainer = document.getElementById("international-papers");
+  const domesticContainer = document.getElementById("domestic-papers");
 
   // コンテナが存在しない場合は処理を中断
   if (!internationalContainer && !domesticContainer) {
-    console.warn("Publication containers not found on this page.");
+    console.warn("Paper containers not found on this page.");
     return;
   }
 
   // Jekyllが生成したJSONデータをfetchする
-  fetch("./assets/js/publications_data.json") // Step 3で指定したパス
+  fetch("./assets/js/papers_data.json") // Step 3で指定したパス
     .then((res) => {
       if (!res.ok) {
-        throw new Error(`Failed to load publications data (status: ${res.status})`);
+        throw new Error(`Failed to load papers data (status: ${res.status})`);
       }
       return res.json();
     })
-    .then((publicationsData) => {
+    .then((papersData) => {
       // 既存のコンテナ内容をクリア (念のため)
       if (internationalContainer) internationalContainer.innerHTML = '';
       if (domesticContainer) domesticContainer.innerHTML = '';
 
       // 取得したデータ配列をループ処理
-      publicationsData.forEach((meta) => {
+      papersData.forEach((meta) => {
         // JSONから取得したデータ（nullチェックも含む）
         const title = meta.title || 'No Title Provided';
         const venue = meta.venue || '';
@@ -95,7 +95,7 @@ function loadPublications() {
           domesticContainer.appendChild(pubCard);
         } else {
           // どちらでもない場合や、片方のコンテナしかないページの場合のフォールバック
-          // console.warn(`Publication "${title}" has type: ${meta.type}. Placing in international.`);
+          // console.warn(`Paper "${title}" has type: ${meta.type}. Placing in international.`);
           if (internationalContainer) internationalContainer.appendChild(pubCard);
           else if(domesticContainer) domesticContainer.appendChild(pubCard); // またはdomesticに入れるなど
         }
@@ -107,7 +107,7 @@ function loadPublications() {
 
     })
     .catch((error) => {
-      console.error(`Error loading or processing publications data: ${error}`);
+      console.error(`Error loading or processing papers data: ${error}`);
       // ユーザーにエラーを通知
       const errorMessage = "<p>論文リストの読み込みに失敗しました。</p>";
       if (internationalContainer) internationalContainer.innerHTML = errorMessage;

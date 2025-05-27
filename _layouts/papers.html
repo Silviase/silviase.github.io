@@ -33,15 +33,15 @@
 <body>
     <div class="container">
         <header class="blog-header">
-            <h1>Publication Detail</h1>
+            <h1>Paper Detail</h1>
             <nav class="site-nav">
                 <a href="/">Home</a>
-                <a href="/publications-list.html" class="active">Publications</a>
+                <a href="/papers.html" class="active">Papers</a>
                 <a href="/blog.html">Blog</a>
             </nav>
         </header>
 
-        <div class="publication-meta">
+        <div class="paper-meta">
             <h1 class="title">{{ page.title }}</h1>
             <div class="venue">{{ page.venue }}</div>
             <div class="description">{{ page.description }}</div>
@@ -65,7 +65,7 @@
             <pre class="bibtex">{{ page.bibtex }}</pre>
         </div>
 
-        <div class="publication-content">{{ content }}</div>
+        <div class="paper-content">{{ content }}</div>
     </div>
 
     <footer class="footer">

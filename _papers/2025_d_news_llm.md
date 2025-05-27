@@ -1,5 +1,5 @@
 ---
-layout: publications
+layout: papers
 id: 2025_d_news_llm
 title: "新聞記事からつくる時事と社会に強い日本語LLM"
 authors:

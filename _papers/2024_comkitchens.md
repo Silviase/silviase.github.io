@@ -1,5 +1,5 @@
 ---
-layout: publications
+layout: papers
 id: 2024_comkitchens
 title: "COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark"
 authors:

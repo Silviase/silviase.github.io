@@ -1,5 +1,5 @@
 ---
-layout: publications
+layout: papers
 id: 2022_d_impara
 title: "IMPARA: パラレルデータにおける修正の影響度に基づいた文法誤り訂正の自動評価法"
 authors:

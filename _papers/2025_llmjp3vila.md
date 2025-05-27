@@ -1,5 +1,5 @@
 ---
-layout: publications
+layout: papers
 id: 2025_llmjp3vila
 title: "Constructing Multimodal Datasets from Scratch for Rapid Development of a Japanese Visual Language Model"
 authors:

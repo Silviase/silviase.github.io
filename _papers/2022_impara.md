@@ -1,5 +1,5 @@
 ---
-layout: publications
+layout: papers
 id: 2022_impara
 title: "IMPARA: Impact-Based Metric for GEC Using Parallel Data"
 authors:

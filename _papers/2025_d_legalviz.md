@@ -1,5 +1,5 @@
 ---
-layout: publications
+layout: papers
 id: 2025_d_legalviz
 title: "多言語での判例事実概要からの法的関係性のグラフ可視化"
 authors:

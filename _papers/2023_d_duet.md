@@ -1,5 +1,5 @@
 ---
-layout: publications
+layout: papers
 id: 2023_d_duet
 title: "DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル"
 authors:

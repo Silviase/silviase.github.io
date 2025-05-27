@@ -15,7 +15,7 @@
       <p class="blog-description">Thoughts on vision and language research, image captioning, and more.</p>
       <nav class="site-nav">
         <a href="./">Home</a>
-        <a href="./publications.html">Publications</a>
+        <a href="./papers.html">Papers</a>
         <a href="./blog.html" class="active">Blog</a>
       </nav>
     </header>
@@ -65,10 +65,12 @@
                 
                 // Create post HTML
                 postElement.innerHTML = `
-                  <h2 class="post-title"><a href="./post.html?id=${postFile.replace('.md', '')}">${meta.title}</a></h2>
+                  <a href="./post.html?id=${postFile.replace('.md', '')}" class="post-title">${meta.title}</a>
                   <div class="post-date">${formattedDate} • By ${meta.author}</div>
-                  <div class="post-summary">${meta.excerpt || markdownContent.substring(0, 200) + '...'}</div>
-                  <a href="./post.html?id=${postFile.replace('.md', '')}" class="read-more">Read more →</a>
+                  <p class="post-summary">${meta.excerpt || markdownContent.substring(0, 200) + '...'}</p>
+                  <div class="post-links">
+                    <a href="./post.html?id=${postFile.replace('.md', '')}" class="read-more">Read more →</a>
+                  </div>
                 `;
                 
                 return postElement;

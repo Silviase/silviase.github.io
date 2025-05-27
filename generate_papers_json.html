@@ -1,9 +1,9 @@
 ---
 layout: null
-permalink: /assets/js/publications_data.json
+permalink: /assets/js/papers_data.json
 ---
 [
-  {% assign pubs = site.publications | sort: "name" | reverse %}
+  {% assign pubs = site.papers | sort: "name" | reverse %}
   {% assign pubs_count = pubs | size %}
 
   {% for pub in pubs %}

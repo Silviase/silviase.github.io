@@ -1,7 +1,8 @@
 # _config.yml
 
 collections:
-  publications:
-    output: true # true にすると各論文のHTMLページが /publications/ファイル名.html として生成される
+  papers:
+    output: true # true にすると各論文のHTMLページが /papers/ファイル名.html として生成される
+    permalink: /papers/:name/
 
 future: true # 未来の日付の投稿もビルドするように設定
