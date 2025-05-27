@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const internationalContainer = document.getElementById("international-papers");
-  const domesticContainer = document.getElementById("domestic-papers");
+  const internationalContainer = document.getElementById("international-publications");
+  const domesticContainer = document.getElementById("domestic-publications");
 
   // Papersセクションがあればデータを読み込む
   if (internationalContainer || domesticContainer) {
@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 論文情報をJSONから読み込み、表示する関数
 function loadPapers() {
-  const internationalContainer = document.getElementById("international-papers");
-  const domesticContainer = document.getElementById("domestic-papers");
+  const internationalContainer = document.getElementById("international-publications");
+  const domesticContainer = document.getElementById("domestic-publications");
 
   // コンテナが存在しない場合は処理を中断
   if (!internationalContainer && !domesticContainer) {
