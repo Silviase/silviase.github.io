@@ -84,9 +84,9 @@
               postElements
                 .filter(el => el !== null)
                 .sort((a, b) => {
-                  const dateA = new Date(a.querySelector('.post-date').textContent.split('•')[0]);
-                  const dateB = new Date(b.querySelector('.post-date').textContent.split('•')[0]);
-                  return dateB - dateA;
+                  const postDateA = new Date(a.querySelector('.post-date').textContent.split('•')[0]);
+                  const postDateB = new Date(b.querySelector('.post-date').textContent.split('•')[0]);
+                  return postDateB - postDateA;
                 })
                 .forEach(element => {
                   blogPostsContainer.appendChild(element);

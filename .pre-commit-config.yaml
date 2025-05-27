@@ -1,14 +1,45 @@
 repos:
+  # Basic file hygiene
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.5.0
     hooks:
-      - id: trailing-whitespace        # Remove trailing whitespace
-      - id: end-of-file-fixer          # Ensure files end with newline
-      - id: check-merge-conflict       # Check for merge conflicts
-      - id: check-yaml                 # Validate YAML syntax
-      - id: check-added-large-files    # Prevent large file commits
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-merge-conflict
+      - id: check-yaml
+        exclude: '_site/.*'
+      - id: check-added-large-files
         args: ['--maxkb=5000']
-      - id: mixed-line-ending          # Fix mixed line endings
+      - id: mixed-line-ending
         args: ['--fix=lf']
-      # - id: no-commit-to-branch      # Prevent direct commits to master
-      #   args: ["--branch", "master"]
+      - id: check-json
+        exclude: '(_site/.*|posts/.*\.json$)'
+      - id: detect-private-key
+      - id: check-case-conflict
+
+  # YAML validation
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.33.0
+    hooks:
+      - id: yamllint
+        args: ['-d', '{extends: relaxed, rules: {line-length: disable, document-start: disable}}']
+        files: '\.(yaml|yml)$'
+        exclude: '_site/.*'
+
+  # Spell checking
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+      - id: codespell
+        args:
+          - '--skip=.git,*.pdf,*.svg,*.png,*.jpg,*.jpeg,_site,.sass-cache,.jekyll-cache'
+          - '--ignore-words-list=nd,te,dateA,dateB'
+        exclude: '_site/.*'
+
+  # File size and whitespace checks
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.5.4
+    hooks:
+      - id: remove-crlf
+      - id: remove-tabs
+        exclude: 'Makefile'
