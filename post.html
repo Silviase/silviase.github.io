@@ -50,26 +50,17 @@
       }
       
       // Load the post content
-      fetch(`./posts/${postId}.md`)
+      fetch(`./posts/${postId}.json`)
         .then((res) => {
           if (!res.ok) throw new Error(`Failed to load post with ID: ${postId}`);
-          return res.text();
+          return res.json();
         })
-        .then((data) => {
-          const yamlMatch = data.match(/^---([\s\S]*?)---\s*([\s\S]*)$/);
-          if (!yamlMatch) {
-            throw new Error("Invalid post format");
-          }
-
-          const yamlText = yamlMatch[1];
-          const markdownContent = yamlMatch[2];
-          const meta = jsyaml.load(yamlText);
-          
+        .then((postData) => {
           // Convert markdown to HTML
-          const htmlContent = marked.parse(markdownContent);
+          const htmlContent = marked.parse(postData.content);
           
           // Format the date
-          const postDate = new Date(meta.date);
+          const postDate = new Date(postData.date);
           const formattedDate = postDate.toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
@@ -78,8 +69,8 @@
           
           // Update content
           document.getElementById("post-detail").innerHTML = `
-            <h1 class="post-title">${meta.title}</h1>
-            <div class="post-date">${formattedDate} • By ${meta.author || 'Koki Maeda'}</div>
+            <h1 class="post-title">${postData.title}</h1>
+            <div class="post-date">${formattedDate} • By ${postData.author || 'Koki Maeda'}</div>
             
             <div class="post-content">
               ${htmlContent}
@@ -87,7 +78,7 @@
           `;
           
           // Update page title
-          document.title = `${meta.title} - Koki Maeda`;
+          document.title = `${postData.title} - Koki Maeda`;
         })
         .catch((error) => {
           console.error("Error loading post:", error);

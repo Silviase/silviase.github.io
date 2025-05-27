@@ -42,12 +42,8 @@
           // Process each post
           const loadPromises = postsList.map(postFile => {
             return fetch(`./posts/${postFile}`)
-              .then(response => response.text())
-              .then(content => {
-                // Parse frontmatter and content
-                const [, yamlText, markdownContent] = content.match(/^---([\s\S]*?)---\s*([\s\S]*)$/);
-                const meta = jsyaml.load(yamlText);
-                
+              .then(response => response.json())
+              .then(postData => {
                 // Create post element
                 const postElement = document.createElement('article');
                 postElement.className = 'blog-post';
@@ -56,7 +52,7 @@
                 postElement.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 
                 // Format the date
-                const postDate = new Date(meta.date);
+                const postDate = new Date(postData.date);
                 const formattedDate = postDate.toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
@@ -65,11 +61,11 @@
                 
                 // Create post HTML
                 postElement.innerHTML = `
-                  <a href="./post.html?id=${postFile.replace('.md', '')}" class="post-title">${meta.title}</a>
-                  <div class="post-date">${formattedDate} • By ${meta.author}</div>
-                  <p class="post-summary">${meta.excerpt || markdownContent.substring(0, 200) + '...'}</p>
+                  <a href="./post.html?id=${postFile.replace('.json', '')}" class="post-title">${postData.title}</a>
+                  <div class="post-date">${formattedDate} • By ${postData.author}</div>
+                  <p class="post-summary">${postData.excerpt || postData.content.substring(0, 200) + '...'}</p>
                   <div class="post-links">
-                    <a href="./post.html?id=${postFile.replace('.md', '')}" class="read-more">Read more →</a>
+                    <a href="./post.html?id=${postFile.replace('.json', '')}" class="read-more">Read more →</a>
                   </div>
                 `;
                 
