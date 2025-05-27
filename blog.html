@@ -38,7 +38,7 @@
         .then(response => response.json())
         .then(postsList => {
           const blogPostsContainer = document.getElementById('blog-posts-container');
-          
+
           // Process each post
           const loadPromises = postsList.map(postFile => {
             return fetch(`./posts/${postFile}`)
@@ -50,7 +50,7 @@
                 postElement.style.opacity = '0';
                 postElement.style.transform = 'translateY(20px)';
                 postElement.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                
+
                 // Format the date
                 const postDate = new Date(postData.date);
                 const formattedDate = postDate.toLocaleDateString('en-US', {
@@ -58,7 +58,7 @@
                   month: 'long',
                   day: 'numeric'
                 });
-                
+
                 // Create post HTML
                 postElement.innerHTML = `
                   <a href="./post.html?id=${postFile.replace('.json', '')}" class="post-title">${postData.title}</a>
@@ -68,7 +68,7 @@
                     <a href="./post.html?id=${postFile.replace('.json', '')}" class="read-more">Read more →</a>
                   </div>
                 `;
-                
+
                 return postElement;
               })
               .catch(error => {
@@ -76,7 +76,7 @@
                 return null;
               });
           });
-          
+
           // Wait for all posts to load, then add them to the container
           Promise.all(loadPromises)
             .then(postElements => {
@@ -91,7 +91,7 @@
                 .forEach(element => {
                   blogPostsContainer.appendChild(element);
                 });
-              
+
               // Trigger animation
               setTimeout(() => {
                 document.querySelectorAll('.blog-post').forEach(post => {

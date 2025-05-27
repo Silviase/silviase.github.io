@@ -18,7 +18,7 @@
         <a href="/blog.html">Blog</a>
       </nav>
     </header>
-    
+
     <div class="blog-post-full" id="publication-detail">
       <div class="loading">Loading publication details...</div>
     </div>
@@ -34,7 +34,7 @@
     document.addEventListener("DOMContentLoaded", function() {
       const urlParams = new URLSearchParams(window.location.search);
       const pubId = urlParams.get("pub");
-      
+
       if (!pubId) {
         document.getElementById("publication-detail").innerHTML = `
           <h2>Publication not found</h2>
@@ -54,30 +54,30 @@
           if (!yamlMatch) {
             throw new Error("Invalid publication format");
           }
-          
+
           const yamlText = yamlMatch[1];
           const markdownContent = yamlMatch[2];
           const meta = jsyaml.load(yamlText);
-          
+
           // マークダウンを簡易的にHTMLに変換（実際のサイトではもっと本格的なパーサーを使うべき）
           const htmlContent = convertMarkdownToHtml(markdownContent);
-          
+
           document.getElementById("publication-detail").innerHTML = `
             <h1 class="post-title">${meta.title}</h1>
             <div class="post-date">${meta.venue}</div>
             <p class="publication-description">${meta.description}</p>
-            
+
             <div class="pub-links" style="margin: 20px 0;">
               ${meta.pdf_link ? `<a href="${meta.pdf_link}" target="_blank">PDF</a>` : ""}
               ${meta.code_link ? `<a href="${meta.code_link}" target="_blank">Code</a>` : ""}
               <button id="copy-bibtex">Copy BibTeX</button>
             </div>
-            
+
             <div class="post-content">
               ${htmlContent}
             </div>
           `;
-          
+
           // BibTeXコピーボタンのイベントリスナを追加
           document.getElementById("copy-bibtex").addEventListener("click", () => {
             navigator.clipboard.writeText(meta.bibtex)
@@ -85,7 +85,7 @@
                 alert("BibTeX copied!");
               });
           });
-          
+
           // ページタイトルを設定
           document.title = `${meta.title} - Koki Maeda`;
         })
@@ -98,7 +98,7 @@
           `;
         });
     });
-    
+
     // 簡易的なマークダウンからHTMLへの変換関数
     function convertMarkdownToHtml(markdown) {
       let html = markdown
@@ -114,14 +114,14 @@
         .replace(/\n\n/g, '</p><p>')
         // リストの整形
         .replace(/<li>(.*?)<\/li>\n<li>/g, '<li>$1</li>\n<li>');
-      
+
       // リストをul要素で囲む
       if (html.includes('<li>')) {
         html = html.replace(/(<li>.*?<\/li>\n?)+/g, function(match) {
           return `<ul>${match}</ul>`;
         });
       }
-      
+
       // 最初と最後に段落タグを追加
       if (!html.startsWith('<')) {
         html = `<p>${html}`;
@@ -129,7 +129,7 @@
       if (!html.endsWith('>')) {
         html = `${html}</p>`;
       }
-      
+
       return html;
     }
   </script>

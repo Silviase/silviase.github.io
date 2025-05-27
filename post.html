@@ -24,7 +24,7 @@
     <div class="blog-post-full" id="post-detail">
       <div class="loading">Loading post details...</div>
     </div>
-    
+
     <div class="back-to-blog">
       <a href="./blog.html">← Back to Blog</a>
     </div>
@@ -40,7 +40,7 @@
     document.addEventListener("DOMContentLoaded", function() {
       const urlParams = new URLSearchParams(window.location.search);
       const postId = urlParams.get("id");
-      
+
       if (!postId) {
         document.getElementById("post-detail").innerHTML = `
           <h2>Post not found</h2>
@@ -48,7 +48,7 @@
         `;
         return;
       }
-      
+
       // Load the post content
       fetch(`./posts/${postId}.json`)
         .then((res) => {
@@ -58,7 +58,7 @@
         .then((postData) => {
           // Convert markdown to HTML
           const htmlContent = marked.parse(postData.content);
-          
+
           // Format the date
           const postDate = new Date(postData.date);
           const formattedDate = postDate.toLocaleDateString('en-US', {
@@ -66,17 +66,17 @@
             month: 'long',
             day: 'numeric'
           });
-          
+
           // Update content
           document.getElementById("post-detail").innerHTML = `
             <h1 class="post-title">${postData.title}</h1>
             <div class="post-date">${formattedDate} • By ${postData.author || 'Koki Maeda'}</div>
-            
+
             <div class="post-content">
               ${htmlContent}
             </div>
           `;
-          
+
           // Update page title
           document.title = `${postData.title} - Koki Maeda`;
         })
