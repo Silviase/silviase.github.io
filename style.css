@@ -41,7 +41,7 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: var(--bg-light);
   color: var(--text-medium);
   line-height: 1.6;
@@ -54,7 +54,9 @@ body {
 }
 
 /* Typography */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: var(--text-dark);
   font-weight: 600;
 }
@@ -67,7 +69,7 @@ h1 {
 }
 
 h1::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -5px;
   left: 0;
@@ -86,7 +88,7 @@ h2 {
 }
 
 h2::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
@@ -249,7 +251,7 @@ h3 {
 }
 
 .pub-card::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -338,7 +340,7 @@ h3 {
 }
 
 .timeline-item::before {
-  content: "";
+  content: '';
   position: absolute;
   left: -41px;
   top: 0;
@@ -395,18 +397,13 @@ h3 {
 }
 
 .badge::before {
-  content: "";
+  content: '';
   position: absolute;
   left: -100%;
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: all 0.6s ease;
 }
 
@@ -439,7 +436,7 @@ h3 {
 }
 
 .skill-category h3::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
@@ -509,7 +506,8 @@ h3 {
   transition: all 0.3s ease;
 }
 
-.site-nav a:hover, .site-nav a.active {
+.site-nav a:hover,
+.site-nav a.active {
   background-color: var(--accent);
   color: white;
 }
@@ -535,7 +533,7 @@ h3 {
 }
 
 .blog-post::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -585,7 +583,7 @@ h3 {
 
 .blog-post-full .post-date::before,
 .blog-post-full .post-date::after {
-  content: "";
+  content: '';
   flex: 1;
   height: 1px;
   background-color: var(--border-light);
@@ -840,93 +838,93 @@ button:focus {
 
 /* Paper meta styles */
 .paper-meta {
-    background: var(--bg-white);
-    padding: 2rem;
-    border-radius: var(--radius-md);
-    margin-bottom: 2rem;
-    box-shadow: var(--shadow-md);
+  background: var(--bg-white);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
 }
 
 .paper-meta .title {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--text-dark);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
 }
 
 .paper-meta .venue {
-    font-size: 1.2rem;
-    color: var(--text-light);
-    margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
 }
 
 .paper-meta .description {
-    margin: 1rem 0;
-    color: var(--text-medium);
+  margin: 1rem 0;
+  color: var(--text-medium);
 }
 
 .paper-meta .type {
-    display: inline-block;
-    padding: 0.3rem 0.8rem;
-    background: var(--badge-bg);
-    border-radius: var(--radius-sm);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    color: var(--text-medium);
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: var(--badge-bg);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: var(--text-medium);
 }
 
 .paper-meta .bibtex {
-    background: var(--bg-light);
-    padding: 1rem;
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-sm);
-    font-family: monospace;
-    white-space: pre-wrap;
-    margin: 1rem 0;
-    position: relative;
+  background: var(--bg-light);
+  padding: 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-family: monospace;
+  white-space: pre-wrap;
+  margin: 1rem 0;
+  position: relative;
 }
 
 .paper-meta .bibtex::before {
-    content: "BibTeX";
-    position: absolute;
-    top: -10px;
-    left: 10px;
-    background: var(--bg-white);
-    padding: 0 5px;
-    font-size: 0.8rem;
-    color: var(--text-light);
+  content: 'BibTeX';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: var(--bg-white);
+  padding: 0 5px;
+  font-size: 0.8rem;
+  color: var(--text-light);
 }
 
 .paper-meta .action-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .paper-meta .action-buttons a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    transition: all 0.2s;
-    color: var(--bg-white);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all 0.2s;
+  color: var(--bg-white);
 }
 
 .paper-meta .pdf-link {
-    background: var(--accent);
+  background: var(--accent);
 }
 
 .paper-meta .pdf-link:hover {
-    background: var(--primary);
-    transform: translateY(-2px);
+  background: var(--primary);
+  transform: translateY(-2px);
 }
 
 .paper-meta .code-link {
-    background: var(--primary);
+  background: var(--primary);
 }
 
 .paper-meta .code-link:hover {
-    background: var(--accent);
-    transform: translateY(-2px);
+  background: var(--accent);
+  transform: translateY(-2px);
 }

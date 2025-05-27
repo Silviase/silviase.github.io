@@ -1,75 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Publication Detail - Koki Maeda</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
-</head>
-<body>
-  <div class="container">
-    <header class="blog-header">
-      <h1>Publication Detail</h1>
-      <nav class="site-nav">
-        <a href="/">Home</a>
-        <a href="/publications-list.html" class="active">Publications</a>
-        <a href="/blog.html">Blog</a>
-      </nav>
-    </header>
-
-    <div class="blog-post-full" id="publication-detail">
-      <div class="loading">Loading publication details...</div>
-    </div>
-  </div>
-
-  <footer class="footer">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Publication Detail - Koki Maeda</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
+  </head>
+  <body>
     <div class="container">
-      <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
+      <header class="blog-header">
+        <h1>Publication Detail</h1>
+        <nav class="site-nav">
+          <a href="/">Home</a>
+          <a href="/publications-list.html" class="active">Publications</a>
+          <a href="/blog.html">Blog</a>
+        </nav>
+      </header>
+
+      <div class="blog-post-full" id="publication-detail">
+        <div class="loading">Loading publication details...</div>
+      </div>
     </div>
-  </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const pubId = urlParams.get("pub");
+    <footer class="footer">
+      <div class="container">
+        <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
+      </div>
+    </footer>
 
-      if (!pubId) {
-        document.getElementById("publication-detail").innerHTML = `
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const pubId = urlParams.get('pub');
+
+        if (!pubId) {
+          document.getElementById('publication-detail').innerHTML = `
           <h2>Publication not found</h2>
           <p>No publication ID specified. <a href="/publications-list.html">Return to publications list</a>.</p>
         `;
-        return;
-      }
+          return;
+        }
 
-      fetch(`./publications/${pubId}.md`)
-        .then((res) => {
-          if (!res.ok) throw new Error(`Failed to load publication with ID: ${pubId}`);
-          return res.text();
-        })
-        .then((data) => {
-          // YAMLフロントマターとマークダウンコンテンツを分離
-          const yamlMatch = data.match(/^---([\s\S]*?)---\s*([\s\S]*)$/);
-          if (!yamlMatch) {
-            throw new Error("Invalid publication format");
-          }
+        fetch(`./publications/${pubId}.md`)
+          .then((res) => {
+            if (!res.ok) throw new Error(`Failed to load publication with ID: ${pubId}`);
+            return res.text();
+          })
+          .then((data) => {
+            // YAMLフロントマターとマークダウンコンテンツを分離
+            const yamlMatch = data.match(/^---([\s\S]*?)---\s*([\s\S]*)$/);
+            if (!yamlMatch) {
+              throw new Error('Invalid publication format');
+            }
 
-          const yamlText = yamlMatch[1];
-          const markdownContent = yamlMatch[2];
-          const meta = jsyaml.load(yamlText);
+            const yamlText = yamlMatch[1];
+            const markdownContent = yamlMatch[2];
+            const meta = jsyaml.load(yamlText);
 
-          // マークダウンを簡易的にHTMLに変換（実際のサイトではもっと本格的なパーサーを使うべき）
-          const htmlContent = convertMarkdownToHtml(markdownContent);
+            // マークダウンを簡易的にHTMLに変換（実際のサイトではもっと本格的なパーサーを使うべき）
+            const htmlContent = convertMarkdownToHtml(markdownContent);
 
-          document.getElementById("publication-detail").innerHTML = `
+            document.getElementById('publication-detail').innerHTML = `
             <h1 class="post-title">${meta.title}</h1>
             <div class="post-date">${meta.venue}</div>
             <p class="publication-description">${meta.description}</p>
 
             <div class="pub-links" style="margin: 20px 0;">
-              ${meta.pdf_link ? `<a href="${meta.pdf_link}" target="_blank">PDF</a>` : ""}
-              ${meta.code_link ? `<a href="${meta.code_link}" target="_blank">Code</a>` : ""}
+              ${meta.pdf_link ? `<a href="${meta.pdf_link}" target="_blank">PDF</a>` : ''}
+              ${meta.code_link ? `<a href="${meta.code_link}" target="_blank">Code</a>` : ''}
               <button id="copy-bibtex">Copy BibTeX</button>
             </div>
 
@@ -78,60 +81,59 @@
             </div>
           `;
 
-          // BibTeXコピーボタンのイベントリスナを追加
-          document.getElementById("copy-bibtex").addEventListener("click", () => {
-            navigator.clipboard.writeText(meta.bibtex)
-              .then(() => {
-                alert("BibTeX copied!");
+            // BibTeXコピーボタンのイベントリスナを追加
+            document.getElementById('copy-bibtex').addEventListener('click', () => {
+              navigator.clipboard.writeText(meta.bibtex).then(() => {
+                alert('BibTeX copied!');
               });
-          });
+            });
 
-          // ページタイトルを設定
-          document.title = `${meta.title} - Koki Maeda`;
-        })
-        .catch((error) => {
-          console.error("Error loading publication:", error);
-          document.getElementById("publication-detail").innerHTML = `
+            // ページタイトルを設定
+            document.title = `${meta.title} - Koki Maeda`;
+          })
+          .catch((error) => {
+            console.error('Error loading publication:', error);
+            document.getElementById('publication-detail').innerHTML = `
             <h2>Error</h2>
             <p>Failed to load publication details: ${error.message}</p>
             <p><a href="/publications-list.html">Return to publications list</a>.</p>
           `;
-        });
-    });
+          });
+      });
 
-    // 簡易的なマークダウンからHTMLへの変換関数
-    function convertMarkdownToHtml(markdown) {
-      let html = markdown
-        // H2見出し
-        .replace(/## (.*?)\n/g, '<h2>$1</h2>\n')
-        // H3見出し
-        .replace(/### (.*?)\n/g, '<h3>$1</h3>\n')
-        // 太字
-        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        // 箇条書きリスト
-        .replace(/- (.*?)(?:\n|$)/g, '<li>$1</li>')
-        // 段落
-        .replace(/\n\n/g, '</p><p>')
-        // リストの整形
-        .replace(/<li>(.*?)<\/li>\n<li>/g, '<li>$1</li>\n<li>');
+      // 簡易的なマークダウンからHTMLへの変換関数
+      function convertMarkdownToHtml(markdown) {
+        let html = markdown
+          // H2見出し
+          .replace(/## (.*?)\n/g, '<h2>$1</h2>\n')
+          // H3見出し
+          .replace(/### (.*?)\n/g, '<h3>$1</h3>\n')
+          // 太字
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          // 箇条書きリスト
+          .replace(/- (.*?)(?:\n|$)/g, '<li>$1</li>')
+          // 段落
+          .replace(/\n\n/g, '</p><p>')
+          // リストの整形
+          .replace(/<li>(.*?)<\/li>\n<li>/g, '<li>$1</li>\n<li>');
 
-      // リストをul要素で囲む
-      if (html.includes('<li>')) {
-        html = html.replace(/(<li>.*?<\/li>\n?)+/g, function(match) {
-          return `<ul>${match}</ul>`;
-        });
+        // リストをul要素で囲む
+        if (html.includes('<li>')) {
+          html = html.replace(/(<li>.*?<\/li>\n?)+/g, function (match) {
+            return `<ul>${match}</ul>`;
+          });
+        }
+
+        // 最初と最後に段落タグを追加
+        if (!html.startsWith('<')) {
+          html = `<p>${html}`;
+        }
+        if (!html.endsWith('>')) {
+          html = `${html}</p>`;
+        }
+
+        return html;
       }
-
-      // 最初と最後に段落タグを追加
-      if (!html.startsWith('<')) {
-        html = `<p>${html}`;
-      }
-      if (!html.endsWith('>')) {
-        html = `${html}</p>`;
-      }
-
-      return html;
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>

@@ -1,0 +1,30 @@
+{
+  "name": "silviase.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "format": "prettier --write '**/*.{js,css,md,html,json,yml,yaml}' --ignore-path .gitignore",
+    "format:check": "prettier --check '**/*.{js,css,md,html,json,yml,yaml}' --ignore-path .gitignore",
+    "lint:md": "markdownlint '**/*.md' --fix --ignore node_modules --ignore _site",
+    "lint:md:check": "markdownlint '**/*.md' --ignore node_modules --ignore _site",
+    "lint": "npm run lint:md",
+    "fix": "npm run format && npm run lint:md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Silviase/Silviase.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Silviase/Silviase.github.io/issues"
+  },
+  "homepage": "https://github.com/Silviase/Silviase.github.io#readme",
+  "devDependencies": {
+    "markdownlint-cli": "^0.45.0",
+    "prettier": "^3.5.3"
+  }
+}

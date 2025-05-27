@@ -1,9 +1,9 @@
 ---
 layout: posts
-title: "Understanding Multimodal LLMs"
+title: 'Understanding Multimodal LLMs'
 date: 2025-03-20 14:00:00 +0900
 author: Koki Maeda
-excerpt: "A deep dive into how large language models are evolving to understand both text and images."
+excerpt: 'A deep dive into how large language models are evolving to understand both text and images.'
 ---
 
 ## The Evolution of Language Models
@@ -19,6 +19,7 @@ Large Language Models (LLMs) have revolutionized how we interact with AI. But th
 ### Recent Breakthroughs
 
 Recent models like GPT-4V and Gemini have shown impressive capabilities in:
+
 - Visual question answering
 - Image captioning with context
 - Cross-modal reasoning

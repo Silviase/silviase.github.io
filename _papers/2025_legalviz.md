@@ -1,21 +1,21 @@
 ---
 layout: papers
 id: 2025_legalviz
-title: "LegalViz: Legal Text Visualization by Text To Diagram Generation"
+title: 'LegalViz: Legal Text Visualization by Text To Diagram Generation'
 authors:
-  - "Eri Onami"
-  - "Taiki Miyanishi"
-  - "Koki Maeda"
-  - "Shuhei Kurita"
-venue: "Proceedings of the 2025 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)"
-description: "Novel approach for visualizing complex legal document structures through diagram generation from text."
+  - 'Eri Onami'
+  - 'Taiki Miyanishi'
+  - 'Koki Maeda'
+  - 'Shuhei Kurita'
+venue: 'Proceedings of the 2025 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)'
+description: 'Novel approach for visualizing complex legal document structures through diagram generation from text.'
 date: 2025-06-01
 firstpage: 1
 lastpage: 15
-pdf_link: "https://arxiv.org/pdf/2502.06147"
-code_link: ""
-type: "international"
-url: "https://silviase.com/publications/2025_legalviz.html"
+pdf_link: 'https://arxiv.org/pdf/2502.06147'
+code_link: ''
+type: 'international'
+url: 'https://silviase.com/publications/2025_legalviz.html'
 bibtex: |
   @inproceedings{onami2024legalviz,
     title = {LegalViz: Legal Text Visualization by Text To Diagram Generation},

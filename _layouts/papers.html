@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <meta name="citation_title" content="{{ page.title }}" />
     {% for author in page.authors %}
     <meta name="citation_author" content="{{ author }}" />
@@ -11,67 +11,72 @@
     <meta name="citation_publication_date" content="{{ page.date | date: '%Y/%m/%d' }}" />
     {% if page.firstpage %}
     <meta name="citation_firstpage" content="{{ page.firstpage }}" />
-    {% endif %}
-    {% if page.lastpage %}
+    {% endif %} {% if page.lastpage %}
     <meta name="citation_lastpage" content="{{ page.lastpage }}" />
     {% endif %}
-    <meta name="citation_abstract_html_url" content="{{ page.url | absolute_url }}">
+    <meta name="citation_abstract_html_url" content="{{ page.url | absolute_url }}" />
     {% if page.pdf_link %}
     <meta name="citation_pdf_url" content="{{ page.pdf_link }}" />
     {% endif %}
     <title>{{ page.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/style.css" />
     <script>
-      var shiftWindow = function() { scrollBy(0, -50) };
-      window.addEventListener("hashchange", shiftWindow);
-      function load() { if (window.location.hash) shiftWindow(); }
+      var shiftWindow = function () {
+        scrollBy(0, -50);
+      };
+      window.addEventListener('hashchange', shiftWindow);
+      function load() {
+        if (window.location.hash) shiftWindow();
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header class="blog-header">
-            <h1>Paper Detail</h1>
-            <nav class="site-nav">
-                <a href="/">Home</a>
-                <a href="/papers.html" class="active">Papers</a>
-                <a href="/blog.html">Blog</a>
-            </nav>
-        </header>
+      <header class="blog-header">
+        <h1>Paper Detail</h1>
+        <nav class="site-nav">
+          <a href="/">Home</a>
+          <a href="/papers.html" class="active">Papers</a>
+          <a href="/blog.html">Blog</a>
+        </nav>
+      </header>
 
-        <div class="paper-meta">
-            <h1 class="title">{{ page.title }}</h1>
-            <div class="venue">{{ page.venue }}</div>
-            <div class="description">{{ page.description }}</div>
-            <div class="type">{{ page.type }}</div>
+      <div class="paper-meta">
+        <h1 class="title">{{ page.title }}</h1>
+        <div class="venue">{{ page.venue }}</div>
+        <div class="description">{{ page.description }}</div>
+        <div class="type">{{ page.type }}</div>
 
-            <div class="action-buttons">
-                {% if page.pdf_link %}
-                <a href="{{ page.pdf_link }}" class="pdf-link">
-                    <i class="fas fa-file-pdf"></i>
-                    PDF
-                </a>
-                {% endif %}
-                {% if page.code_link %}
-                <a href="{{ page.code_link }}" class="code-link">
-                    <i class="fas fa-code"></i>
-                    Code
-                </a>
-                {% endif %}
-            </div>
-
-            <pre class="bibtex">{{ page.bibtex }}</pre>
+        <div class="action-buttons">
+          {% if page.pdf_link %}
+          <a href="{{ page.pdf_link }}" class="pdf-link">
+            <i class="fas fa-file-pdf"></i>
+            PDF
+          </a>
+          {% endif %} {% if page.code_link %}
+          <a href="{{ page.code_link }}" class="code-link">
+            <i class="fas fa-code"></i>
+            Code
+          </a>
+          {% endif %}
         </div>
 
-        <div class="paper-content">{{ content }}</div>
+        <pre class="bibtex">{{ page.bibtex }}</pre>
+      </div>
+
+      <div class="paper-content">{{ content }}</div>
     </div>
 
     <footer class="footer">
-        <div class="container">
-            <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
-        </div>
+      <div class="container">
+        <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>

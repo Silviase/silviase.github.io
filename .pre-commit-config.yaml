@@ -32,7 +32,7 @@ repos:
     hooks:
       - id: codespell
         args:
-          - '--skip=.git,*.pdf,*.svg,*.png,*.jpg,*.jpeg,_site,.sass-cache,.jekyll-cache'
+          - '--skip=.git,*.pdf,*.svg,*.png,*.jpg,*.jpeg,_site,.sass-cache,.jekyll-cache,node_modules'
           - '--ignore-words-list=nd,te,dateA,dateB'
         exclude: '_site/.*'
 
@@ -43,3 +43,19 @@ repos:
       - id: remove-crlf
       - id: remove-tabs
         exclude: 'Makefile'
+
+  # Local npm-based hooks
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        entry: npx prettier --write --ignore-path .gitignore
+        language: system
+        files: '\.(js|css|md|html|json|yml|yaml)$'
+        exclude: '(_site/.*|node_modules/.*)'
+      - id: markdownlint
+        name: markdownlint
+        entry: npx markdownlint --fix --ignore node_modules --ignore _site
+        language: system
+        files: '\.md$'
+        exclude: '(_site/.*|node_modules/.*)'

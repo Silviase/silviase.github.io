@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const internationalContainer = document.getElementById("international-publications");
-  const domesticContainer = document.getElementById("domestic-publications");
+document.addEventListener('DOMContentLoaded', function () {
+  const internationalContainer = document.getElementById('international-publications');
+  const domesticContainer = document.getElementById('domestic-publications');
 
   // Papersセクションがあればデータを読み込む
   if (internationalContainer || domesticContainer) {
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // スクロールアニメーションの初期化とイベントリスナー設定
   // (handleScrollAnimations関数は loadPublications のデータロード後に呼び出すのが良い)
-  window.addEventListener("scroll", handleScrollAnimations);
+  window.addEventListener('scroll', handleScrollAnimations);
 
   // 必要ならダークモードなどの他の初期化処理をここに追加
   // setupDarkModeToggle();
@@ -17,17 +17,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 論文情報をJSONから読み込み、表示する関数
 function loadPapers() {
-  const internationalContainer = document.getElementById("international-publications");
-  const domesticContainer = document.getElementById("domestic-publications");
+  const internationalContainer = document.getElementById('international-publications');
+  const domesticContainer = document.getElementById('domestic-publications');
 
   // コンテナが存在しない場合は処理を中断
   if (!internationalContainer && !domesticContainer) {
-    console.warn("Paper containers not found on this page.");
+    console.warn('Paper containers not found on this page.');
     return;
   }
 
   // Jekyllが生成したJSONデータをfetchする
-  fetch("./assets/js/papers_data.json") // Step 3で指定したパス
+  fetch('./assets/js/papers_data.json') // Step 3で指定したパス
     .then((res) => {
       if (!res.ok) {
         throw new Error(`Failed to load papers data (status: ${res.status})`);
@@ -46,22 +46,24 @@ function loadPapers() {
         const venue = meta.venue || '';
         const fullDescription = meta.description || '';
         // Truncate description to first 100 characters for index page
-        const isIndexPage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
-        const description = isIndexPage && fullDescription.length > 100
-          ? fullDescription.substring(0, 100) + '...'
-          : fullDescription;
+        const isIndexPage =
+          window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
+        const description =
+          isIndexPage && fullDescription.length > 100
+            ? fullDescription.substring(0, 100) + '...'
+            : fullDescription;
         const pdfLink = meta.pdf_link; // nullかもしれない
         const codeLink = meta.code_link; // nullかもしれない
         const bibtex = meta.bibtex || ''; // 空文字列かもしれない
         // 詳細ページのURL。Jekyllが生成した相対URLを使う
         const detailUrl = meta.url ? meta.url : '#';
 
-        const pubCard = document.createElement("div");
-        pubCard.className = "pub-card";
+        const pubCard = document.createElement('div');
+        pubCard.className = 'pub-card';
         // アニメーション用の初期スタイル
-        pubCard.style.opacity = "0";
-        pubCard.style.transform = "translateY(20px)";
-        pubCard.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        pubCard.style.opacity = '0';
+        pubCard.style.transform = 'translateY(20px)';
+        pubCard.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
 
         // カードのHTMLを生成
         pubCard.innerHTML = `
@@ -69,52 +71,52 @@ function loadPapers() {
           <div class="pub-venue">${venue}</div>
           <p>${description}</p>
           <div class="pub-links">
-            ${pdfLink ? `<a href="${pdfLink}" target="_blank">PDF</a>` : ""}
-            ${codeLink ? `<a href="${codeLink}" target="_blank">Code</a>` : ""}
-            ${bibtex ? `<button class="copy-bibtex-btn">Copy BibTeX</button>` : ""}
+            ${pdfLink ? `<a href="${pdfLink}" target="_blank">PDF</a>` : ''}
+            ${codeLink ? `<a href="${codeLink}" target="_blank">Code</a>` : ''}
+            ${bibtex ? `<button class="copy-bibtex-btn">Copy BibTeX</button>` : ''}
           </div>
         `;
 
         // BibTeXコピーボタンのイベントリスナー (BibTeXが存在する場合のみ)
         if (bibtex) {
-          const bibtexButton = pubCard.querySelector(".copy-bibtex-btn");
+          const bibtexButton = pubCard.querySelector('.copy-bibtex-btn');
           if (bibtexButton) {
-            bibtexButton.addEventListener("click", (e) => {
+            bibtexButton.addEventListener('click', (e) => {
               e.preventDefault(); // デフォルトの挙動を抑制
-              navigator.clipboard.writeText(bibtex)
+              navigator.clipboard
+                .writeText(bibtex)
                 .then(() => {
-                  alert("BibTeX copied!");
+                  alert('BibTeX copied!');
                 })
-                .catch(err => {
-                   console.error('Failed to copy BibTeX:', err);
-                   alert("Failed to copy BibTeX.");
+                .catch((err) => {
+                  console.error('Failed to copy BibTeX:', err);
+                  alert('Failed to copy BibTeX.');
                 });
             });
           }
         }
 
         // typeに基づいて適切なコンテナに追加
-        if (meta.type === "international" && internationalContainer) {
+        if (meta.type === 'international' && internationalContainer) {
           internationalContainer.appendChild(pubCard);
-        } else if (meta.type === "domestic" && domesticContainer) {
+        } else if (meta.type === 'domestic' && domesticContainer) {
           domesticContainer.appendChild(pubCard);
         } else {
           // どちらでもない場合や、片方のコンテナしかないページの場合のフォールバック
           // console.warn(`Paper "${title}" has type: ${meta.type}. Placing in international.`);
           if (internationalContainer) internationalContainer.appendChild(pubCard);
-          else if(domesticContainer) domesticContainer.appendChild(pubCard); // またはdomesticに入れるなど
+          else if (domesticContainer) domesticContainer.appendChild(pubCard); // またはdomesticに入れるなど
         }
       });
 
       // データがDOMに追加された後にアニメーション関数を呼び出す
       // 少し遅延させると確実
       setTimeout(handleScrollAnimations, 100);
-
     })
     .catch((error) => {
       console.error(`Error loading or processing papers data: ${error}`);
       // ユーザーにエラーを通知
-      const errorMessage = "<p>論文リストの読み込みに失敗しました。</p>";
+      const errorMessage = '<p>論文リストの読み込みに失敗しました。</p>';
       if (internationalContainer) internationalContainer.innerHTML = errorMessage;
       if (domesticContainer) domesticContainer.innerHTML = errorMessage;
     });
@@ -134,30 +136,29 @@ function isInViewport(element) {
 }
 
 function handleScrollAnimations() {
-  document.querySelectorAll(".pub-card, .timeline-item, .badge, .skill-item, .blog-post")
+  document
+    .querySelectorAll('.pub-card, .timeline-item, .badge, .skill-item, .blog-post')
     .forEach((el) => {
       // opacityが"0"の要素（まだ表示されていない要素）のみ処理
-      if (el.style.opacity === "0" && isInViewport(el)) {
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
+      if (el.style.opacity === '0' && isInViewport(el)) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
       }
     });
 }
 
 // ダークモード切り替えボタン設定
 function setupDarkModeToggle() {
-  if (!document.querySelector(".theme-toggle")) {
-    const themeToggle = document.createElement("button");
-    themeToggle.className = "theme-toggle";
-    themeToggle.innerHTML = "🌙";
-    themeToggle.setAttribute("aria-label", "Toggle dark mode");
+  if (!document.querySelector('.theme-toggle')) {
+    const themeToggle = document.createElement('button');
+    themeToggle.className = 'theme-toggle';
+    themeToggle.innerHTML = '🌙';
+    themeToggle.setAttribute('aria-label', 'Toggle dark mode');
     document.body.appendChild(themeToggle);
 
-    themeToggle.addEventListener("click", function () {
-      document.body.classList.toggle("dark-theme");
-      this.innerHTML = document.body.classList.contains("dark-theme")
-        ? "☀️"
-        : "🌙";
+    themeToggle.addEventListener('click', function () {
+      document.body.classList.toggle('dark-theme');
+      this.innerHTML = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
     });
   }
 }

@@ -1,20 +1,20 @@
 ---
 layout: papers
 id: 2022_impara
-title: "IMPARA: Impact-Based Metric for GEC Using Parallel Data"
+title: 'IMPARA: Impact-Based Metric for GEC Using Parallel Data'
 authors:
-  - "Koki Maeda"
-  - "Masahiro Kaneko"
-  - "Naoaki Okazaki"
-venue: "Proceedings of the 29th International Conference on Computational Linguistics (COLING 2022)"
-description: "Proposal of a new impact-based metric for grammatical error correction using parallel datasets."
+  - 'Koki Maeda'
+  - 'Masahiro Kaneko'
+  - 'Naoaki Okazaki'
+venue: 'Proceedings of the 29th International Conference on Computational Linguistics (COLING 2022)'
+description: 'Proposal of a new impact-based metric for grammatical error correction using parallel datasets.'
 date: 2022-10-12
 firstpage: 3578
 lastpage: 3588
-pdf_link: "https://aclanthology.org/2022.coling-1.316.pdf"
-code_link: "https://github.com/Silviase/IMPARA"
-url: "https://silviase.com/publications/2022_impara.html"
-type: "international"
+pdf_link: 'https://aclanthology.org/2022.coling-1.316.pdf'
+code_link: 'https://github.com/Silviase/IMPARA'
+url: 'https://silviase.com/publications/2022_impara.html'
+type: 'international'
 bibtex: |
   @inproceedings{maeda2022impara,
     title = {IMPARA: Impact-Based Metric for GEC Using Parallel Data},
