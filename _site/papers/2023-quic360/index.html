@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="citation_title" content="Query-based Image Captioning from Multi-context 360-degree Images" />
+    
+    <meta name="citation_author" content="Koki Maeda" />
+    
+    <meta name="citation_author" content="Shuhei Kurita" />
+    
+    <meta name="citation_author" content="Taiki Miyanishi" />
+    
+    <meta name="citation_author" content="Naoaki Okazaki" />
+    
+    <meta name="citation_conference_title" content="Findings of the Association for Computational Linguistics: EMNLP 2023" />
+    <meta name="citation_date" content="2023" />
+    <meta name="citation_publication_date" content="2023/12/06" />
+    
+    <meta name="citation_firstpage" content="6940" />
+    
+    
+    <meta name="citation_lastpage" content="6954" />
+    
+    <meta name="citation_abstract_html_url" content="/papers/2023-quic360/">
+    
+    <meta name="citation_pdf_url" content="https://aclanthology.org/2023.findings-emnlp.463.pdf" />
+    
+    <title>Query-based Image Captioning from Multi-context 360-degree Images</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script>
+      var shiftWindow = function() { scrollBy(0, -50) };
+      window.addEventListener("hashchange", shiftWindow);
+      function load() { if (window.location.hash) shiftWindow(); }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="blog-header">
+            <h1>Paper Detail</h1>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="/papers.html" class="active">Papers</a>
+                <a href="/blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <div class="paper-meta">
+            <h1 class="title">Query-based Image Captioning from Multi-context 360-degree Images</h1>
+            <div class="venue">Findings of the Association for Computational Linguistics: EMNLP 2023</div>
+            <div class="description">A novel image captioning approach that leverages queries and multi-context 360-degree imagery.</div>
+            <div class="type">international</div>
+
+            <div class="action-buttons">
+                
+                <a href="https://aclanthology.org/2023.findings-emnlp.463.pdf" class="pdf-link">
+                    <i class="fas fa-file-pdf"></i>
+                    PDF
+                </a>
+                
+                
+                <a href="https://github.com/Silviase/QuIC-360" class="code-link">
+                    <i class="fas fa-code"></i>
+                    Code
+                </a>
+                
+            </div>
+
+            <pre class="bibtex">@inproceedings{maeda2023quic360,
+  title = {Query-based Image Captioning from Multi-context 360-degree Images},
+  author = {Koki Maeda and Shuhei Kurita and Taiki Miyanishi and Naoaki Okazaki},
+  booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2023},
+  pages = {6940--6954},
+  year = {2023},
+  address = {Singapore},
+  publisher = {Association for Computational Linguistics}
+}
+</pre>
+        </div>
+
+        <div class="paper-content"><p><a href="/assets/papers/2023_quic360.pdf">PDF</a></p>
+
+<h2 id="abstract">Abstract</h2>
+
+<p>This paper introduces Query-based Image Captioning (QuIC) for 360-degree images, where a query (words or short phrases) specifies the context to describe. This task is more challenging than conventional image captioning, as it requires fine-grained scene understanding to select content consistent with the user’s intent based on the query. We constructed a dataset comprising 3,940 360-degree images and 18,459 pairs of queries and captions annotated manually. Experiments demonstrate that fine-tuning image captioning models on our dataset can generate more diverse and controllable captions from multiple contexts of 360-degree images.</p>
+
+<h2 id="methodology">Methodology</h2>
+
+<p>The proposed QuIC task involves generating captions for 360-degree images based on user-specified queries. We developed a dataset with manually annotated query-caption pairs to facilitate this task. The methodology includes fine-tuning existing image captioning models on this dataset to enable them to produce contextually relevant captions corresponding to the provided queries.</p>
+
+<h2 id="experimental-results">Experimental Results</h2>
+
+<p>Experiments show that models fine-tuned on our dataset can generate more diverse and controllable captions for 360-degree images. The results indicate that the QuIC approach effectively captures multiple contexts within 360-degree imagery, aligning with user-specified queries.</p>
+
+<h2 id="key-contributions">Key Contributions</h2>
+
+<ul>
+  <li>
+    <p><strong>Introduction of QuIC Task</strong>: We propose the novel task of Query-based Image Captioning for 360-degree images, addressing the challenge of describing specific contexts within panoramic imagery.</p>
+  </li>
+  <li>
+    <p><strong>Dataset Construction</strong>: We created a dataset consisting of 3,940 360-degree images and 18,459 manually annotated query-caption pairs to support research in this area.</p>
+  </li>
+  <li>
+    <p><strong>Model Fine-tuning</strong>: We demonstrate that fine-tuning image captioning models on our dataset enables the generation of diverse and contextually relevant captions based on user queries.</p>
+  </li>
+</ul>
+
+<h2 id="conclusion-and-future-work">Conclusion and Future Work</h2>
+
+<p>The QuIC task presents a promising direction for enhancing image captioning models to handle user-specified contexts within 360-degree images. Future work may explore the application of QuIC to other types of imagery and investigate more sophisticated models capable of understanding and generating captions for complex scenes.</p>
+</div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
+        </div>
+    </footer>
+</body>
+</html>

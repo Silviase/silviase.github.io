@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="citation_title" content="COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark" />
+    
+    <meta name="citation_author" content="Koki Maeda" />
+    
+    <meta name="citation_author" content="Tosho Hirasawa" />
+    
+    <meta name="citation_author" content="Atsushi Hashimoto" />
+    
+    <meta name="citation_author" content="Jun Harashima" />
+    
+    <meta name="citation_author" content="Leszek Rybicki" />
+    
+    <meta name="citation_author" content="Yusuke Fukasawa" />
+    
+    <meta name="citation_author" content="Yoshitaka Ushiku" />
+    
+    <meta name="citation_conference_title" content="Proceedings of The 18th European Conference on Computer Vision (ECCV 2024)" />
+    <meta name="citation_date" content="2024" />
+    <meta name="citation_publication_date" content="2024/09/29" />
+    
+    <meta name="citation_firstpage" content="1" />
+    
+    
+    <meta name="citation_lastpage" content="16" />
+    
+    <meta name="citation_abstract_html_url" content="/papers/2024-comkitchens/">
+    
+    <meta name="citation_pdf_url" content="https://doi.org/10.32130/rdata.6.1" />
+    
+    <title>COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script>
+      var shiftWindow = function() { scrollBy(0, -50) };
+      window.addEventListener("hashchange", shiftWindow);
+      function load() { if (window.location.hash) shiftWindow(); }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="blog-header">
+            <h1>Paper Detail</h1>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="/papers.html" class="active">Papers</a>
+                <a href="/blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <div class="paper-meta">
+            <h1 class="title">COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark</h1>
+            <div class="venue">Proceedings of The 18th European Conference on Computer Vision (ECCV 2024)</div>
+            <div class="description">Introducing a new vision-language dataset based on unedited overhead-view procedural cooking videos.</div>
+            <div class="type">international</div>
+
+            <div class="action-buttons">
+                
+                <a href="https://doi.org/10.32130/rdata.6.1" class="pdf-link">
+                    <i class="fas fa-file-pdf"></i>
+                    PDF
+                </a>
+                
+                
+                <a href="https://github.com/omron-sinicx/com_kitchens" class="code-link">
+                    <i class="fas fa-code"></i>
+                    Code
+                </a>
+                
+            </div>
+
+            <pre class="bibtex">@inproceedings{maeda2024comkitchens,
+  title = {COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark},
+  author = {Koki Maeda and Tosho Hirasawa and Atsushi Hashimoto and Jun Harashima and Leszek Rybicki and Yusuke Fukasawa and Yoshitaka Ushiku},
+  booktitle = {Proceedings of The 18th European Conference on Computer Vision (ECCV 2024)},
+  year = {2024},
+  address = {Milan, Italy},
+  publisher = {ECCV}
+}
+</pre>
+        </div>
+
+        <div class="paper-content"><h2 id="abstract">Abstract</h2>
+
+<p>COM Kitchens introduces a novel vision-language dataset aimed at overcoming the limitations of current procedural video datasets, typically sourced from the web or ego-centric views. The dataset comprises unedited, overhead-view cooking videos captured using modern smartphones, providing environmental diversity and detailed annotations. We introduce two novel vision-language tasks: Online Recipe Retrieval (OnRR) and Dense Video Captioning on unedited Overhead-View videos (DVC-OV). Our benchmarks demonstrate the dataset’s capacity to highlight limitations in existing models, thus paving the way for future research.</p>
+
+<h2 id="methodology">Methodology</h2>
+
+<p>Videos were collected by distributing smartphones to participants, who recorded themselves preparing recipes from the Cookpad Recipe Dataset. We provided comprehensive guidelines to ensure data consistency and privacy. Each video includes detailed manual annotations, forming structured visual action graphs that link textual instructions with visual elements via bounding boxes and edges, clearly indicating actions and ingredient transformations throughout the cooking process.</p>
+
+<h2 id="experimental-results">Experimental Results</h2>
+
+<p>Experiments on baseline models such as UniVL, CLIP4Clip, and X-CLIP demonstrated significant challenges in handling OnRR and DVC-OV tasks. None of these models effectively solved the feasible recipe retrieval subtask, although fine-tuning significantly improved the accuracy of the recipe stage identification subtask. Dense video captioning experiments using models like Vid2Seq revealed a notable domain gap between web videos and unedited overhead-view videos, underscoring the dataset’s unique challenges.</p>
+
+<h2 id="key-contributions">Key Contributions</h2>
+
+<ul>
+  <li>Introduction of an unedited, diverse fixed-view procedural cooking video dataset.</li>
+  <li>Manual annotation of structured visual action graphs for detailed event tracking.</li>
+  <li>Proposal of novel vision-language tasks tailored for practical application scenarios.</li>
+  <li>Benchmark analysis revealing critical limitations and gaps in current state-of-the-art models.</li>
+</ul>
+
+<h2 id="conclusion-and-future-work">Conclusion and Future Work</h2>
+
+<p>The COM Kitchens dataset addresses critical gaps in procedural video understanding by providing a comprehensive resource for the vision-language community. Future work includes expanding the dataset, exploring advanced models that leverage the unique structure of visual action graphs, and developing robust applications for practical, real-world scenarios.</p>
+</div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
+        </div>
+    </footer>
+</body>
+</html>

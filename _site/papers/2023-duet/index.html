@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="citation_title" content="DueT: Image-Text Contrastive Transfer Learning with Dual-adapter Tuning" />
+    
+    <meta name="citation_author" content="Taku Hasegawa" />
+    
+    <meta name="citation_author" content="Kyosuke Nishida" />
+    
+    <meta name="citation_author" content="Koki Maeda" />
+    
+    <meta name="citation_author" content="Kuniko Saito" />
+    
+    <meta name="citation_conference_title" content="Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP 2023)" />
+    <meta name="citation_date" content="2023" />
+    <meta name="citation_publication_date" content="2023/12/06" />
+    
+    <meta name="citation_firstpage" content="13607" />
+    
+    
+    <meta name="citation_lastpage" content="13624" />
+    
+    <meta name="citation_abstract_html_url" content="/papers/2023-duet/">
+    
+    <meta name="citation_pdf_url" content="https://aclanthology.org/2023.emnlp-main.839.pdf" />
+    
+    <title>DueT: Image-Text Contrastive Transfer Learning with Dual-adapter Tuning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script>
+      var shiftWindow = function() { scrollBy(0, -50) };
+      window.addEventListener("hashchange", shiftWindow);
+      function load() { if (window.location.hash) shiftWindow(); }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="blog-header">
+            <h1>Paper Detail</h1>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="/papers.html" class="active">Papers</a>
+                <a href="/blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <div class="paper-meta">
+            <h1 class="title">DueT: Image-Text Contrastive Transfer Learning with Dual-adapter Tuning</h1>
+            <div class="venue">Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP 2023)</div>
+            <div class="description">A method for enhancing image-text representation through contrastive learning and dual-adapter fine-tuning.</div>
+            <div class="type">international</div>
+
+            <div class="action-buttons">
+                
+                <a href="https://aclanthology.org/2023.emnlp-main.839.pdf" class="pdf-link">
+                    <i class="fas fa-file-pdf"></i>
+                    PDF
+                </a>
+                
+                
+                <a href="" class="code-link">
+                    <i class="fas fa-code"></i>
+                    Code
+                </a>
+                
+            </div>
+
+            <pre class="bibtex">@inproceedings{hasegawa2023duet,
+  title = {DueT: Image-Text Contrastive Transfer Learning with Dual-adapter Tuning},
+  author = {Taku Hasegawa and Kyosuke Nishida and Koki Maeda and Kuniko Saito},
+  booktitle = {Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP 2023)},
+  pages = {13607--13624},
+  year = {2023},
+  address = {Singapore},
+  publisher = {Association for Computational Linguistics}
+}
+</pre>
+        </div>
+
+        <div class="paper-content"><h2 id="abstract">Abstract</h2>
+
+<p>This paper presents DueT, a novel transfer learning method for vision and language models built by contrastive learning. In DueT, adapters are inserted into the image and text encoders, which have been initialized using models pre-trained on uni-modal corpora and then frozen. By training only these adapters, DueT enables efficient learning with a reduced number of trainable parameters. Moreover, unlike traditional adapters, those in DueT are equipped with a gating mechanism, enabling effective transfer and connection of knowledge acquired from pre-trained uni-modal encoders while preventing catastrophic forgetting. We report that DueT outperformed simple fine-tuning, the conventional method fixing only the image encoder and training only the text encoder, and the LoRA-based adapter method in accuracy and parameter efficiency for 0-shot image and text retrieval in both English and Japanese domains.</p>
+
+<h2 id="methodology">Methodology</h2>
+
+<p>DueT employs a dual-adapter tuning approach where adapters with gating mechanisms are inserted into both the image and text encoders. These encoders are initialized with models pre-trained on uni-modal corpora and kept frozen during training. Only the adapters are trained, which allows for efficient learning with fewer parameters. The gating mechanism facilitates the effective transfer of knowledge from the pre-trained encoders while preventing catastrophic forgetting.</p>
+
+<h2 id="experimental-results">Experimental Results</h2>
+
+<p>Experiments conducted in both English and Japanese domains demonstrated that DueT outperforms several baseline methods. Specifically, DueT achieved higher accuracy and better parameter efficiency compared to simple fine-tuning, the conventional method of fixing only the image encoder and training only the text encoder, and the LoRA-based adapter method in zero-shot image and text retrieval tasks.</p>
+
+<h2 id="key-contributions">Key Contributions</h2>
+
+<ul>
+  <li><strong>Transferability</strong>: DueT effectively transfers and connects knowledge acquired by pre-trained uni-modal encoders without catastrophic forgetting.</li>
+  <li><strong>Parameter Efficiency</strong>: The method achieves superior performance in image-text pre-training tasks while utilizing fewer trainable parameters.</li>
+</ul>
+
+<h2 id="conclusion-and-future-work">Conclusion and Future Work</h2>
+
+<p>DueT presents a promising approach to transfer learning in vision and language models by leveraging dual-adapter tuning with gating mechanisms. Future work may explore the application of DueT to other languages and domains, as well as its integration with different model architectures and training objectives.</p>
+</div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
+        </div>
+    </footer>
+</body>
+</html>

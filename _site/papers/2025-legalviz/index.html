@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="citation_title" content="LegalViz: Legal Text Visualization by Text To Diagram Generation" />
+    
+    <meta name="citation_author" content="Eri Onami" />
+    
+    <meta name="citation_author" content="Taiki Miyanishi" />
+    
+    <meta name="citation_author" content="Koki Maeda" />
+    
+    <meta name="citation_author" content="Shuhei Kurita" />
+    
+    <meta name="citation_conference_title" content="Proceedings of the 2025 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)" />
+    <meta name="citation_date" content="2025" />
+    <meta name="citation_publication_date" content="2025/06/01" />
+    
+    <meta name="citation_firstpage" content="1" />
+    
+    
+    <meta name="citation_lastpage" content="15" />
+    
+    <meta name="citation_abstract_html_url" content="/papers/2025-legalviz/">
+    
+    <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2502.06147" />
+    
+    <title>LegalViz: Legal Text Visualization by Text To Diagram Generation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script>
+      var shiftWindow = function() { scrollBy(0, -50) };
+      window.addEventListener("hashchange", shiftWindow);
+      function load() { if (window.location.hash) shiftWindow(); }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="blog-header">
+            <h1>Paper Detail</h1>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="/papers.html" class="active">Papers</a>
+                <a href="/blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <div class="paper-meta">
+            <h1 class="title">LegalViz: Legal Text Visualization by Text To Diagram Generation</h1>
+            <div class="venue">Proceedings of the 2025 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)</div>
+            <div class="description">Novel approach for visualizing complex legal document structures through diagram generation from text.</div>
+            <div class="type">international</div>
+
+            <div class="action-buttons">
+                
+                <a href="https://arxiv.org/pdf/2502.06147" class="pdf-link">
+                    <i class="fas fa-file-pdf"></i>
+                    PDF
+                </a>
+                
+                
+                <a href="" class="code-link">
+                    <i class="fas fa-code"></i>
+                    Code
+                </a>
+                
+            </div>
+
+            <pre class="bibtex">@inproceedings{onami2024legalviz,
+  title = {LegalViz: Legal Text Visualization by Text To Diagram Generation},
+  author = {Eri Onami and Taiki Miyanishi and Koki Maeda and Shuhei Kurita},
+  booktitle = {Proceedings of the 2025 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)},
+  year = {2025},
+  address = {Albuquerque, USA},
+  publisher = {Association for Computational Linguistics}
+}
+</pre>
+        </div>
+
+        <div class="paper-content"><h2 id="abstract">Abstract</h2>
+
+<p>LegalViz is a novel dataset and method designed to visualize complex legal documents as intuitive diagrams using Graphviz’s DOT language. The dataset comprises 7,010 pairs of professional legal texts and corresponding diagrams, covering 23 languages from EUR-LEX. LegalViz facilitates understanding of legal documents by highlighting essential entities, relationships, transactions, and underlying legal rules. Experimental results demonstrate that large language models fine-tuned with LegalViz significantly outperform traditional methods, validating the effectiveness of our approach.</p>
+
+<h2 id="methodology">Methodology</h2>
+
+<p>LegalViz introduces a diagrammatic representation using Graphviz’s DOT language, capturing essential components: legal entities, relationships, transactions, sources, and statements. The dataset was constructed by annotating legal judgments sourced from EUR-LEX across multiple languages, followed by translations reviewed using GPT-4, DeepL, and expert annotators. Few-shot and fine-tuned language models were employed and evaluated using metrics considering graph structure, textual similarity (via BERTScore), and legal content.</p>
+
+<h2 id="experimental-results">Experimental Results</h2>
+
+<p>Empirical studies compared fine-tuned models (Gemma-2-9B, CodeLlama-13B) with few-shot GPT models. Fine-tuned Gemma-2-9B achieved top performance, scoring highest in structural and textual accuracy. Finetuning notably improved models’ capability to accurately generate valid DOT diagrams, with Gemma-2-9B reaching 100% validity across test sets.</p>
+
+<h2 id="key-contributions">Key Contributions</h2>
+
+<ul>
+  <li>Creation of LegalViz, the first annotated dataset for legal diagram generation from text.</li>
+  <li>Introduction of novel graph and legal-content based evaluation metrics.</li>
+  <li>Demonstration of significant performance gains in multilingual and structurally complex legal text visualization tasks using fine-tuned large language models.</li>
+</ul>
+
+<h2 id="conclusion-and-future-work">Conclusion and Future Work</h2>
+
+<p>LegalViz successfully demonstrates how fine-tuned large language models can visualize complex legal texts effectively, enhancing accessibility for both professionals and laypersons. Future work includes expanding the dataset across additional jurisdictions, refining models for improved accuracy, and exploring interactive visualization capabilities.</p>
+</div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
+        </div>
+    </footer>
+</body>
+</html>

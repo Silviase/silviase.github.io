@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="citation_title" content="llm-jp-eval-mm: 日本語視覚言語モデルの自動評価基盤" />
+    
+    <meta name="citation_author" content="前田, 航希" />
+    
+    <meta name="citation_author" content="杉浦, 一瑳" />
+    
+    <meta name="citation_author" content="小田, 悠介" />
+    
+    <meta name="citation_author" content="栗田, 修平" />
+    
+    <meta name="citation_author" content="岡崎, 直観" />
+    
+    <meta name="citation_conference_title" content="言語処理学会第31回年次大会 (NLP2025)" />
+    <meta name="citation_date" content="2025" />
+    <meta name="citation_publication_date" content="2025/03/15" />
+    
+    <meta name="citation_firstpage" content="1303" />
+    
+    
+    <meta name="citation_lastpage" content="1308" />
+    
+    <meta name="citation_abstract_html_url" content="/papers/2025-d-llmjpevalmm/">
+    
+    <meta name="citation_pdf_url" content="/assets/papers/2025_d_llmjpevalmm.pdf" />
+    
+    <title>llm-jp-eval-mm: 日本語視覚言語モデルの自動評価基盤</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script>
+      var shiftWindow = function() { scrollBy(0, -50) };
+      window.addEventListener("hashchange", shiftWindow);
+      function load() { if (window.location.hash) shiftWindow(); }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="blog-header">
+            <h1>Paper Detail</h1>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="/papers.html" class="active">Papers</a>
+                <a href="/blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <div class="paper-meta">
+            <h1 class="title">llm-jp-eval-mm: 日本語視覚言語モデルの自動評価基盤</h1>
+            <div class="venue">言語処理学会第31回年次大会 (NLP2025)</div>
+            <div class="description">Methodology for quickly constructing multimodal datasets tailored for Japanese vision-language models.</div>
+            <div class="type">domestic</div>
+
+            <div class="action-buttons">
+                
+                <a href="/assets/papers/2025_d_llmjpevalmm.pdf" class="pdf-link">
+                    <i class="fas fa-file-pdf"></i>
+                    PDF
+                </a>
+                
+                
+                <a href="https://github.com/llm-jp/llm-jp-eval-mm" class="code-link">
+                    <i class="fas fa-code"></i>
+                    Code
+                </a>
+                
+            </div>
+
+            <pre class="bibtex">@inproceedings{maeda2025llm-jp-eval-mm,
+  author = {前田, 航希 and 杉浦, 一瑳 and 小田, 悠介 and 栗田, 修平 and 岡崎, 直観},
+  month = mar,
+  series = {言語処理学会第31回年次大会 (NLP2025)},
+  title = {{llm-jp-eval-mm: 日本語視覚言語モデルの自動評価基盤}},
+  year = {2025}
+}
+</pre>
+        </div>
+
+        <div class="paper-content"><p><a href="/assets/papers/2025_d_llmjpevalmm.pdf">PDF</a></p>
+
+<h2 id="abstract">Abstract</h2>
+
+<p>The research rapidly advances vision-language models (VLM), but evaluation frameworks for Japanese vision-language (V&amp;L) tasks are still inadequate. This paper introduces llm-jp-eval-mm, a toolkit for systematically evaluating Japanese multimodal tasks. It unifies six existing Japanese multimodal tasks, enabling consistent benchmarking across multiple metrics. The toolkit is publicly available, aiming to facilitate continuous improvement and evaluation of Japanese VLMs.</p>
+
+<h2 id="methodology">Methodology</h2>
+
+<p>llm-jp-eval-mm standardizes input/output formats across diverse datasets, separating inference from evaluation. It uses a modular class structure (Task and Scorer) allowing easy extension and incorporation of new tasks and models. Evaluation setups are simplified, removing YAML-based configurations, thus enhancing maintainability and usability.</p>
+
+<h2 id="experimental-results">Experimental Results</h2>
+
+<p>Evaluations were performed on 13 publicly available Japanese and multilingual VLMs. Among Japanese-specialized models, llm-jp-3 VILA exhibited top performance across most tasks. For multilingual models, Qwen2-VL showed superior results, particularly in multi-image tasks, indicating advantages of advanced training strategies.</p>
+
+<h2 id="key-contributions">Key Contributions</h2>
+
+<ul>
+  <li>A unified evaluation toolkit (llm-jp-eval-mm) for Japanese multimodal tasks.</li>
+  <li>Simplified integration of new models/tasks via modular implementation.</li>
+  <li>Comprehensive benchmarking of existing VLMs, highlighting performance gaps and advancements.</li>
+</ul>
+
+<h2 id="conclusion-and-future-work">Conclusion and Future Work</h2>
+
+<p>llm-jp-eval-mm is the pioneering framework for systematic Japanese VLM evaluation, revealing both the advancement and remaining gaps compared to large-scale commercial models like GPT-4o. Future work includes expanding dataset diversity (e.g., specialized domains, image generation) and extending evaluations to other modalities such as 3D vision, audio, video, and Vision-Language-Action (VLA).</p>
+</div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
+        </div>
+    </footer>
+</body>
+</html>

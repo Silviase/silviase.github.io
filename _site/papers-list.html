@@ -1,0 +1,119 @@
+<div class="container">
+  <header class="blog-header">
+    <h1>Publications</h1>
+    <p class="blog-description">Research in vision-language, evaluation metrics, and multimodal learning</p>
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/publications-list.html" class="active">Publications</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h2>International Conferences 🌎</h2>
+    <div class="publications" id="international-publications"></div>
+  </section>
+
+  <section class="section">
+    <h2>Domestic Conferences 🇯🇵</h2>
+    <div class="publications" id="domestic-publications"></div>
+  </section>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // script.js と同様の loadPublications, isInViewport, handleScrollAnimations 関数をここに定義
+  // または script.js を読み込むように変更してもOK
+
+  // --- script.js から必要な関数をコピー ---
+  function loadPublications() {
+    const internationalContainer = document.getElementById("international-publications");
+    const domesticContainer = document.getElementById("domestic-publications");
+    // ... (script.jsのloadPublications関数の中身をほぼそのままコピー) ...
+    // fetchのURLは './assets/js/publications_data.json'
+
+      fetch("./assets/js/publications_data.json") // パスを確認
+      .then((res) => {
+        if (!res.ok) { throw new Error(`Failed to load publications data (status: ${res.status})`); }
+        return res.json();
+      })
+      .then((publicationsData) => {
+          // ... (ループ処理、カード生成、コンテナへの追加) ...
+          publicationsData.forEach((meta) => {
+              const title = meta.title || 'No Title Provided';
+              const venue = meta.venue || '';
+              const description = meta.description || '';
+              const pdfLink = meta.pdf_link;
+              const codeLink = meta.code_link;
+              const bibtex = meta.bibtex || '';
+              const detailUrl = meta.url ? meta.url : '#'; // Jekyll生成の相対URL
+
+              const pubCard = document.createElement("div");
+              pubCard.className = "pub-card";
+              pubCard.style.opacity = "0";
+              pubCard.style.transform = "translateY(20px)";
+              pubCard.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+
+              pubCard.innerHTML = `
+                <a href="${detailUrl}" class="pub-title">${title}</a>
+                <div class="pub-venue">${venue}</div>
+                <p>${description}</p>
+                <div class="pub-links">
+                  ${pdfLink ? `<a href="${pdfLink}" target="_blank">PDF</a>` : ""}
+                  ${codeLink ? `<a href="${codeLink}" target="_blank">Code</a>` : ""}
+                  ${bibtex ? `<button class="copy-bibtex-btn">Copy BibTeX</button>` : ""}
+                </div>
+              `;
+              if (bibtex) {
+                  const bibtexButton = pubCard.querySelector(".copy-bibtex-btn");
+                  if(bibtexButton) {
+                      bibtexButton.addEventListener("click", (e) => {
+                          e.preventDefault();
+                          navigator.clipboard.writeText(bibtex).then(() => alert("BibTeX copied!")).catch(err => alert("Failed to copy."));
+                      });
+                  }
+              }
+              if (meta.type === "international" && internationalContainer) {
+                internationalContainer.appendChild(pubCard);
+              } else if (meta.type === "domestic" && domesticContainer) {
+                domesticContainer.appendChild(pubCard);
+              } else {
+                  if (internationalContainer) internationalContainer.appendChild(pubCard);
+                  else if(domesticContainer) domesticContainer.appendChild(pubCard);
+              }
+          });
+          setTimeout(handleScrollAnimations, 100);
+      })
+      .catch((error) => {
+          console.error(`Error loading publications data: ${error}`);
+          const errorMessage = "<p>Failed to load publications list.</p>";
+          if (internationalContainer) internationalContainer.innerHTML = errorMessage;
+          if (domesticContainer) domesticContainer.innerHTML = errorMessage;
+      });
+
+  }
+
+  function isInViewport(element) { /* ... script.jsと同じ ... */
+    if (!element) return false;
+    const rect = element.getBoundingClientRect();
+    return ( rect.top < (window.innerHeight || document.documentElement.clientHeight) && rect.bottom > 0 && rect.left < (window.innerWidth || document.documentElement.clientWidth) && rect.right > 0 );
+  }
+
+  function handleScrollAnimations() { /* ... script.jsと同じ ... */
+    document.querySelectorAll(".pub-card") // このページでは .pub-card のみ対象で良いかも
+      .forEach((el) => {
+        if (el.style.opacity === "0" && isInViewport(el)) {
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+        }
+      });
+  }
+  // --- コピーここまで ---
+
+  // 読み込み開始
+  loadPublications();
+
+  // スクロールイベント設定
+  window.addEventListener("scroll", handleScrollAnimations);
+});
+</script>

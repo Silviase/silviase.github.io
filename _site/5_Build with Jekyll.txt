@@ -1,0 +1,70 @@
+﻿2025-04-10T12:07:07.0774899Z ##[group]Run actions/jekyll-build-pages@v1
+2025-04-10T12:07:07.0775445Z with:
+2025-04-10T12:07:07.0775725Z   source: ./
+2025-04-10T12:07:07.0776022Z   destination: ./_site
+2025-04-10T12:07:07.0776354Z   future: false
+2025-04-10T12:07:07.0776603Z   build_revision: a9b84ad24a601194c695f92461174d5834df7eec
+2025-04-10T12:07:07.0777109Z   verbose: true
+2025-04-10T12:07:07.0777438Z   token: ***
+2025-04-10T12:07:07.0777615Z env:
+2025-04-10T12:07:07.0777784Z   GITHUB_PAGES: true
+2025-04-10T12:07:07.0777980Z ##[endgroup]
+2025-04-10T12:07:07.0869476Z ##[command]/usr/bin/docker run --name ghcrioactionsjekyllbuildpagesv1013_daa128 --label 9d76b9 --workdir /github/workspace --rm -e "GITHUB_PAGES" -e "INPUT_SOURCE" -e "INPUT_DESTINATION" -e "INPUT_FUTURE" -e "INPUT_BUILD_REVISION" -e "INPUT_VERBOSE" -e "INPUT_TOKEN" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_ID_TOKEN_REQUEST_URL" -e "ACTIONS_ID_TOKEN_REQUEST_TOKEN" -e "ACTIONS_RESULTS_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/silviase.github.io/silviase.github.io":"/github/workspace" ghcr.io/actions/jekyll-build-pages:v1.0.13
+2025-04-10T12:07:07.9921940Z To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
+2025-04-10T12:07:08.2719088Z [31m  Liquid Exception: The URL template doesn't have id keys. Check your permalink template! in /_layouts/publications.html[0m
+2025-04-10T12:07:08.2726337Z /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/url.rb:100:in `block in generate_url_from_drop': The URL template doesn't have id keys. Check your permalink template! (NoMethodError)
+2025-04-10T12:07:08.2727304Z 
+2025-04-10T12:07:08.2727456Z           raise NoMethodError,
+2025-04-10T12:07:08.2727804Z           ^^^^^
+2025-04-10T12:07:08.2728335Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/url.rb:95:in `gsub'
+2025-04-10T12:07:08.2729247Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/url.rb:95:in `generate_url_from_drop'
+2025-04-10T12:07:08.2730115Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/url.rb:62:in `generate_url'
+2025-04-10T12:07:08.2730940Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/url.rb:53:in `generated_url'
+2025-04-10T12:07:08.2731757Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/url.rb:39:in `to_s'
+2025-04-10T12:07:08.2732539Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/document.rb:211:in `url'
+2025-04-10T12:07:08.2733242Z 	from /usr/local/lib/ruby/3.3.0/forwardable.rb:240:in `url'
+2025-04-10T12:07:08.2733956Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/drops/drop.rb:52:in `public_send'
+2025-04-10T12:07:08.2734805Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/drops/drop.rb:52:in `[]'
+2025-04-10T12:07:08.2735962Z 	from /usr/local/bundle/gems/liquid-4.0.4/lib/liquid/context.rb:197:in `lookup_and_evaluate'
+2025-04-10T12:07:08.2736987Z 	from /usr/local/bundle/gems/liquid-4.0.4/lib/liquid/variable_lookup.rb:48:in `block in evaluate'
+2025-04-10T12:07:08.2738472Z 	from /usr/local/bundle/gems/liquid-4.0.4/lib/liquid/variable_lookup.rb:38:in `each_index'
+2025-04-10T12:07:08.2739472Z 	from /usr/local/bundle/gems/liquid-4.0.4/lib/liquid/variable_lookup.rb:38:in `evaluate'
+2025-04-10T12:07:08.2740702Z 	from /usr/local/bundle/gems/liquid-4.0.4/lib/liquid/context.rb:159:in `evaluate'
+2025-04-10T12:07:08.2741598Z 	from /usr/local/bundle/gems/liquid-4.0.4/lib/liquid/variable.rb:82:in `render'
+2025-04-10T12:07:08.2742554Z 	from /usr/local/bundle/gems/liquid-4.0.4/lib/liquid/block_body.rb:103:in `render_node_to_output'
+2025-04-10T12:07:08.2743513Z 	from /usr/local/bundle/gems/liquid-4.0.4/lib/liquid/block_body.rb:80:in `render'
+2025-04-10T12:07:08.2744453Z 	from /usr/local/bundle/gems/liquid-4.0.4/lib/liquid/template.rb:206:in `block in render'
+2025-04-10T12:07:08.2745634Z 	from /usr/local/bundle/gems/liquid-4.0.4/lib/liquid/template.rb:240:in `with_profiling'
+2025-04-10T12:07:08.2746562Z 	from /usr/local/bundle/gems/liquid-4.0.4/lib/liquid/template.rb:205:in `render'
+2025-04-10T12:07:08.2747438Z 	from /usr/local/bundle/gems/liquid-4.0.4/lib/liquid/template.rb:218:in `render!'
+2025-04-10T12:07:08.2748516Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/liquid_renderer/file.rb:30:in `block (2 levels) in render!'
+2025-04-10T12:07:08.2749700Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/liquid_renderer/file.rb:42:in `measure_bytes'
+2025-04-10T12:07:08.2750850Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/liquid_renderer/file.rb:29:in `block in render!'
+2025-04-10T12:07:08.2751982Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/liquid_renderer/file.rb:49:in `measure_time'
+2025-04-10T12:07:08.2753023Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/liquid_renderer/file.rb:28:in `render!'
+2025-04-10T12:07:08.2754062Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:126:in `render_liquid'
+2025-04-10T12:07:08.2754995Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:195:in `render_layout'
+2025-04-10T12:07:08.2756168Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:158:in `place_in_layouts'
+2025-04-10T12:07:08.2757164Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:88:in `render_document'
+2025-04-10T12:07:08.2758110Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/renderer.rb:62:in `run'
+2025-04-10T12:07:08.2759045Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:479:in `render_regenerated'
+2025-04-10T12:07:08.2760097Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:464:in `block (2 levels) in render_docs'
+2025-04-10T12:07:08.2761076Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:463:in `each'
+2025-04-10T12:07:08.2761993Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:463:in `block in render_docs'
+2025-04-10T12:07:08.2762965Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:462:in `each_value'
+2025-04-10T12:07:08.2763888Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:462:in `render_docs'
+2025-04-10T12:07:08.2764800Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:191:in `render'
+2025-04-10T12:07:08.2765901Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/site.rb:71:in `process'
+2025-04-10T12:07:08.2766878Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/command.rb:28:in `process_site'
+2025-04-10T12:07:08.2767864Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/commands/build.rb:65:in `build'
+2025-04-10T12:07:08.2768839Z 	from /usr/local/bundle/gems/jekyll-3.10.0/lib/jekyll/commands/build.rb:36:in `process'
+2025-04-10T12:07:08.2769953Z 	from /usr/local/bundle/gems/github-pages-232/bin/github-pages:70:in `block (3 levels) in <top (required)>'
+2025-04-10T12:07:08.2771137Z 	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary/command.rb:220:in `block in execute'
+2025-04-10T12:07:08.2772168Z 	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary/command.rb:220:in `each'
+2025-04-10T12:07:08.2773445Z 	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary/command.rb:220:in `execute'
+2025-04-10T12:07:08.2774400Z 	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary/program.rb:42:in `go'
+2025-04-10T12:07:08.2775494Z 	from /usr/local/bundle/gems/mercenary-0.3.6/lib/mercenary.rb:19:in `program'
+2025-04-10T12:07:08.2776808Z 	from /usr/local/bundle/gems/github-pages-232/bin/github-pages:6:in `<top (required)>'
+2025-04-10T12:07:08.2777618Z 	from /usr/local/bundle/bin/github-pages:25:in `load'
+2025-04-10T12:07:08.2778203Z 	from /usr/local/bundle/bin/github-pages:25:in `<main>'
+2025-04-10T12:07:08.2871849Z ##[error] Logging at level: debug Configuration file: /github/workspace/./_config.yml GitHub Pages: github-pages v232 GitHub Pages: jekyll v3.10.0 Theme: jekyll-theme-primer Theme source: /usr/local/bundle/gems/jekyll-theme-primer-0.6.0 Requiring: jekyll-github-metadata Requiring: jekyll-seo-tag Requiring: jekyll-coffeescript Requiring: jekyll-commonmark-ghpages Requiring: jekyll-gist Requiring: jekyll-github-metadata Requiring: jekyll-paginate Requiring: jekyll-relative-links Requiring: jekyll-optional-front-matter Requiring: jekyll-readme-index Requiring: jekyll-default-layout Requiring: jekyll-titles-from-headings GitHub Metadata: Initializing... Source: /github/workspace/./ Destination: /github/workspace/./_site Incremental build: disabled. Enable with --incremental Generating... Reading: _publications/2022_d_impara.md Reading: _publications/2022_impara.md Reading: _publications/2023_d_duet.md Reading: _publications/2023_d_quic360.md Reading: _publications/2023_duet.md Reading: _publications/2023_quic360.md Reading: _publications/2024_comkitchens.md Reading: _publications/2024_d_comkitchens.md Reading: _publications/2024_d_visual_context_caption.md Reading: _publications/2025_d_imitation_learning.md Reading: _publications/2025_d_legalviz.md Reading: _publications/2025_d_llmjp3vila.md Reading: _publications/2025_d_llmjpevalmm.md Reading: _publications/2025_d_news_llm.md Reading: _publications/2025_d_swallow_corpus_v2.md Reading: _publications/2025_legalviz.md Reading: _publications/2025_llmjp3vila.md Generating: JekyllOptionalFrontMatter::Generator finished in 3.2561e-05 seconds. Generating: JekyllReadmeIndex::Generator finished in 4.2039e-05 seconds. Generating: Jekyll::Paginate::Pagination finished in 2.2462e-05 seconds. Generating: JekyllRelativeLinks::Generator finished in 2.4386e-05 seconds. Generating: JekyllDefaultLayout::Generator finished in 0.001419667 seconds. Generating: JekyllTitlesFromHeadings::Generator finished in 1.6561e-05 seconds. Rendering: _publications/2022_d_impara.md Pre-Render Hooks: _publications/2022_d_impara.md Rendering Markup: _publications/2022_d_impara.md Requiring: kramdown-parser-gfm Rendering Layout: _publications/2022_d_impara.md Layout source: site github-pages 232 | Error: The URL template doesn't have id keys. Check your permalink template! 

@@ -1,0 +1,244 @@
+[
+  
+  
+
+  
+  {
+    "id": null,
+    "title": "Constructing Multimodal Datasets from Scratch for Rapid Development of a Japanese Visual Language Model",
+    "venue": "Proceedings of the 2025 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 3: System Demonstrations)",
+    "description": "Methodology for quickly constructing multimodal datasets tailored for Japanese vision-language models.",
+    "pdf_link": "https://arxiv.org/pdf/2410.22736",
+    "code_link": "https://huggingface.co/llm-jp/llm-jp-3-vila-14b",
+    "type": "international",
+    "bibtex": "@inproceedings{sasagawa2025llmjp3vila,\n  title = {Constructing Multimodal Datasets from Scratch for Rapid Development of a Japanese Visual Language Model},\n  author = {Keito Sasagawa and Koki Maeda and Issa Sugiura and Shuhei Kurita and Naoaki Okazaki and Daisuke Kawahara},\n  booktitle = {Proceedings of the 2025 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 3: System Demonstrations)},\n  year = {2025},\n  address = {Albuquerque, USA},\n  publisher = {Association for Computational Linguistics}\n}\n",
+    "url": "/papers/2025-llmjp3vila/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "LegalViz: Legal Text Visualization by Text To Diagram Generation",
+    "venue": "Proceedings of the 2025 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+    "description": "Novel approach for visualizing complex legal document structures through diagram generation from text.",
+    "pdf_link": "https://arxiv.org/pdf/2502.06147",
+    "code_link": "",
+    "type": "international",
+    "bibtex": "@inproceedings{onami2024legalviz,\n  title = {LegalViz: Legal Text Visualization by Text To Diagram Generation},\n  author = {Eri Onami and Taiki Miyanishi and Koki Maeda and Shuhei Kurita},\n  booktitle = {Proceedings of the 2025 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)},\n  year = {2025},\n  address = {Albuquerque, USA},\n  publisher = {Association for Computational Linguistics}\n}\n",
+    "url": "/papers/2025-legalviz/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "Swallowコーパスv2: 教育的な日本語ウェブコーパスの構築",
+    "venue": "言語処理学会第31回年次大会 (NLP2025)",
+    "description": "教育的な日本語ウェブコーパスの構築に関する研究",
+    "pdf_link": "/assets/papers/2025_d_swallow_corpus_v2.pdf",
+    "code_link": "https://github.com/swallow-llm/swallow-corpus",
+    "type": "domestic",
+    "bibtex": "@inproceedings{maeda2025swallow,\n  title={Swallowコーパスv2: 教育的な日本語ウェブコーパスの構築},\n  author={服部 翔 and 岡崎 直観 and 水木 栄 and 藤井 一喜 and 中村 泰士 and 大井 聖也 and 塩谷 泰平 and 齋藤 幸史郎 and Youmi Ma and 前田 航希 and 岡本 拓己 and 石田 茂樹 and 横田 理央 and 高村 大也},\n  booktitle={言語処理学会第31回年次大会 (NLP2025)},\n  year={2025},\n  address={長崎}\n}\n",
+    "url": "/papers/2025-d-swallow-corpus-v2/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "新聞記事からつくる時事と社会に強い日本語LLM",
+    "venue": "言語処理学会第31回年次大会 (NLP2025)",
+    "description": "新聞記事を用いた日本語LLMの強化に関する研究",
+    "pdf_link": "/assets/papers/2025_d_news_llm.pdf",
+    "code_link": "",
+    "type": "domestic",
+    "bibtex": "@inproceedings{maeda2025news,\n  title={新聞記事からつくる 時事と社会に強い日本語LLM},\n  author={服部 翔 and 水木 栄 and 藤井 一喜 and 中村 泰士 and 塩谷 泰平 and 植木 快 and 新妻 巧朗 and 川畑 輝 and 田森 秀明 and Youmi Ma and 前田 航希 and 大井 聖也 and 齋藤 幸史郎 and 岡本 拓己 and 石田 茂樹 and 横田 理央 and 高村 大也 and 岡崎 直観},\n  booktitle={言語処理学会第31回年次大会 (NLP2025)},\n  year={2025},\n  address={長崎}\n}\n",
+    "url": "/papers/2025-d-news-llm/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "llm-jp-eval-mm: 日本語視覚言語モデルの自動評価基盤",
+    "venue": "言語処理学会第31回年次大会 (NLP2025)",
+    "description": "Methodology for quickly constructing multimodal datasets tailored for Japanese vision-language models.",
+    "pdf_link": "/assets/papers/2025_d_llmjpevalmm.pdf",
+    "code_link": "https://github.com/llm-jp/llm-jp-eval-mm",
+    "type": "domestic",
+    "bibtex": "@inproceedings{maeda2025llm-jp-eval-mm,\n  author = {前田, 航希 and 杉浦, 一瑳 and 小田, 悠介 and 栗田, 修平 and 岡崎, 直観},\n  month = mar,\n  series = {言語処理学会第31回年次大会 (NLP2025)},\n  title = {{llm-jp-eval-mm: 日本語視覚言語モデルの自動評価基盤}},\n  year = {2025}\n}\n",
+    "url": "/papers/2025-d-llmjpevalmm/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "LLM-jp-3 VILA: 日本語マルチモーダルデータセット及び強力な日本語マルチモーダルモデルの構築",
+    "venue": "言語処理学会第31回年次大会 (NLP2025)",
+    "description": "日本語VLMの構築に関する研究",
+    "pdf_link": "/assets/papers/2025_d_llmjp3vila.pdf",
+    "code_link": "https://huggingface.co/llm-jp/llm-jp-3-vila-14b",
+    "type": "domestic",
+    "bibtex": "@inproceedings{sasagawa2025llmjp3vila_domestic,\n  author = {笹川 慶人 and 前田 航希 and 杉浦 一瑳 and 栗田 修平 and 岡崎 直観 and 河原 大輔},\n  title = {LLM-jp-3 VILA: 日本語マルチモーダルデータセット及び強力な日本語マルチモーダルモデルの構築},\n  booktitle = {言語処理学会第31回年次大会 (NLP2025)},\n  year = {2025},\n  month = mar,\n  address = {長崎}\n}\n",
+    "url": "/papers/2025-d-llmjp3vila/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "多言語での判例事実概要からの法的関係性のグラフ可視化",
+    "venue": "言語処理学会第31回年次大会 (NLP2025)",
+    "description": "法律文書の構造を可視化するテキストからの図表生成手法に関する研究",
+    "pdf_link": "/assets/papers/2025_d_legalviz.pdf",
+    "code_link": "",
+    "type": "domestic",
+    "bibtex": "@inproceedings{onami2025legalviz,\n  author = {大南 英理 and 宮西 大樹 and 前田 航希 and 栗田 修平},\n  title = {多言語での判例事実概要からの法的関係性のグラフ可視化},\n  booktitle = {言語処理学会第31回年次大会 (NLP2025)},\n  year = {2025},\n  month = mar,\n  address = {長崎}\n}\n",
+    "url": "/papers/2025-d-legalviz/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "模倣学習による大規模言語モデルの指示チューニング",
+    "venue": "言語処理学会第31回年次大会 (NLP2025)",
+    "description": "模倣学習による大規模言語モデルの指示チューニングに関する研究",
+    "pdf_link": "/assets/papers/2025_d_imitation_learning.pdf",
+    "code_link": "https://swallow-llm.github.io/llama3.1-swallow.ja",
+    "type": "domestic",
+    "bibtex": "@inproceedings{maeda2025imitation,\n  title={模倣学習による大規模言語モデルの指示チューニング},\n  author={Youmi Ma and 水木 栄 and 藤井 一喜 and 中村 泰士 and 大井 聖也 and 島田 比奈理 and 塩谷 泰平 and 齋藤 幸史郎 and 前田 航希 and 服部 翔 and 岡本 拓己 and 石田 茂樹 and 横田 理央 and 高村 大也 and 岡崎 直観},\n  booktitle={言語処理学会第31回年次大会 (NLP2025)},\n  year={2025},\n  address={長崎}\n}\n",
+    "url": "/papers/2025-d-imitation-learning/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "視覚的文脈を利用した視覚言語モデルによる画像キャプション生成自動評価手法",
+    "venue": "言語処理学会第30回年次大会 (NLP2024)",
+    "description": "視覚的文脈を利用した画像キャプション生成の自動評価手法に関する研究",
+    "pdf_link": "/assets/papers/2024_d_visual_context_caption.pdf",
+    "code_link": "https://github.com/Silviase/VisCE2",
+    "type": "domestic",
+    "bibtex": "@inproceedings{maeda2024visual,\n  title={視覚的文脈を利用した視覚言語モデルによる画像キャプション生成自動評価手法},\n  author={前田 航希 and 栗田 修平 and 宮西 大樹 and 岡崎 直観},\n  booktitle={言語処理学会第30回年次大会 (NLP2024)},\n  pages={1996--2001},\n  year={2024},\n  address={東京}\n}\n",
+    "url": "/papers/2024-d-visual-context-caption/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "調理作業理解のための言語資源付き固定視点映像データセットの構築",
+    "venue": "2024年度人工知能学会全国大会（第38回）",
+    "description": "調理作業理解のための言語資源付き固定視点映像データセットの構築に関する研究",
+    "pdf_link": "/assets/papers/2024_d_comkitchens.pdf",
+    "code_link": "https://github.com/omron-sinicx/com_kitchens",
+    "type": "domestic",
+    "bibtex": "@inproceedings{hashimoto2024comkitchens,\n  title={調理作業理解のための言語資源付き固定視点映像データセットの構築},\n  author={橋本 敦史 and 前田 航希 and 平澤 寅庄 and 原島 純 and RYBICKI Leszek and 深澤 祐援 and 牛久 祥孝},\n  booktitle={2024年度人工知能学会全国大会（第38回）},\n  year={2024},\n  address={浜松}\n}\n",
+    "url": "/papers/2024-d-comkitchens/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark",
+    "venue": "Proceedings of The 18th European Conference on Computer Vision (ECCV 2024)",
+    "description": "Introducing a new vision-language dataset based on unedited overhead-view procedural cooking videos.",
+    "pdf_link": "https://doi.org/10.32130/rdata.6.1",
+    "code_link": "https://github.com/omron-sinicx/com_kitchens",
+    "type": "international",
+    "bibtex": "@inproceedings{maeda2024comkitchens,\n  title = {COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark},\n  author = {Koki Maeda and Tosho Hirasawa and Atsushi Hashimoto and Jun Harashima and Leszek Rybicki and Yusuke Fukasawa and Yoshitaka Ushiku},\n  booktitle = {Proceedings of The 18th European Conference on Computer Vision (ECCV 2024)},\n  year = {2024},\n  address = {Milan, Italy},\n  publisher = {ECCV}\n}\n",
+    "url": "/papers/2024-comkitchens/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "Query-based Image Captioning from Multi-context 360-degree Images",
+    "venue": "Findings of the Association for Computational Linguistics: EMNLP 2023",
+    "description": "A novel image captioning approach that leverages queries and multi-context 360-degree imagery.",
+    "pdf_link": "https://aclanthology.org/2023.findings-emnlp.463.pdf",
+    "code_link": "https://github.com/Silviase/QuIC-360",
+    "type": "international",
+    "bibtex": "@inproceedings{maeda2023quic360,\n  title = {Query-based Image Captioning from Multi-context 360-degree Images},\n  author = {Koki Maeda and Shuhei Kurita and Taiki Miyanishi and Naoaki Okazaki},\n  booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2023},\n  pages = {6940--6954},\n  year = {2023},\n  address = {Singapore},\n  publisher = {Association for Computational Linguistics}\n}\n",
+    "url": "/papers/2023-quic360/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "DueT: Image-Text Contrastive Transfer Learning with Dual-adapter Tuning",
+    "venue": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP 2023)",
+    "description": "A method for enhancing image-text representation through contrastive learning and dual-adapter fine-tuning.",
+    "pdf_link": "https://aclanthology.org/2023.emnlp-main.839.pdf",
+    "code_link": "",
+    "type": "international",
+    "bibtex": "@inproceedings{hasegawa2023duet,\n  title = {DueT: Image-Text Contrastive Transfer Learning with Dual-adapter Tuning},\n  author = {Taku Hasegawa and Kyosuke Nishida and Koki Maeda and Kuniko Saito},\n  booktitle = {Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP 2023)},\n  pages = {13607--13624},\n  year = {2023},\n  address = {Singapore},\n  publisher = {Association for Computational Linguistics}\n}\n",
+    "url": "/papers/2023-duet/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "QuIC-360◦: 360◦ 画像に対するクエリ指向画像説明文生成のためのデータセット構築",
+    "venue": "言語処理学会第29回年次大会 (NLP2023)",
+    "description": "360◦ 画像に対するクエリ指向画像説明文生成のためのデータセット構築に関する研究",
+    "pdf_link": "/assets/papers/2023_d_quic360.pdf",
+    "code_link": "https://github.com/Silviase/QuIC-360",
+    "type": "domestic",
+    "bibtex": "@inproceedings{maeda2023quic360,\n  title={QuIC-360◦: 360◦ 画像に対するクエリ指向画像説明文生成のためのデータセット構築},\n  author={前田 航希 and 栗田 修平 and 宮西 大樹},\n  booktitle={言語処理学会第29回年次大会 (NLP2023)},\n  pages={3013--3018},\n  year={2023},\n  address={東京}\n}\n",
+    "url": "/papers/2023-d-quic360/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル",
+    "venue": "言語処理学会第29回年次大会 (NLP2023)",
+    "description": "視覚・言語のDual-adapter Tuningによる基盤モデルに関する研究",
+    "pdf_link": "/assets/papers/2023_d_duet.pdf",
+    "code_link": "",
+    "type": "domestic",
+    "bibtex": "@inproceedings{nishida2023duet,\n  title={DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル},\n  author={西田 京介 and 長谷川 拓 and 前田 航希 and 齋藤 邦子},\n  booktitle={言語処理学会第29回年次大会 (NLP2023)},\n  pages={1586--1591},\n  year={2023},\n  address={東京}\n}\n",
+    "url": "/papers/2023-d-duet/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "IMPARA: Impact-Based Metric for GEC Using Parallel Data",
+    "venue": "Proceedings of the 29th International Conference on Computational Linguistics (COLING 2022)",
+    "description": "Proposal of a new impact-based metric for grammatical error correction using parallel datasets.",
+    "pdf_link": "https://aclanthology.org/2022.coling-1.316.pdf",
+    "code_link": "https://github.com/Silviase/IMPARA",
+    "type": "international",
+    "bibtex": "@inproceedings{maeda2022impara,\n  title = {IMPARA: Impact-Based Metric for GEC Using Parallel Data},\n  author = {Koki Maeda and Masahiro Kaneko and Naoaki Okazaki},\n  booktitle = {Proceedings of the 29th International Conference on Computational Linguistics (COLING 2022)},\n  pages = {3578--3588},\n  year = {2022},\n  address = {Gyeongju, Republic of Korea},\n  publisher = {International Committee on Computational Linguistics}\n}\n",
+    "url": "/papers/2022-impara/"
+  }
+  
+  ,
+  
+  {
+    "id": null,
+    "title": "IMPARA: パラレルデータにおける修正の影響度に基づいた文法誤り訂正の自動評価法",
+    "venue": "言語処理学会第28回年次大会 (NLP2022)",
+    "description": "パラレルデータにおける修正の影響度に基づいた文法誤り訂正の自動評価法に関する研究",
+    "pdf_link": "/assets/papers/2022_d_impara.pdf",
+    "code_link": "https://github.com/Silviase/IMPARA",
+    "type": "domestic",
+    "bibtex": "@inproceedings{maeda2022impara,\n  title={IMPARA: パラレルデータにおける修正の影響度に基づいた文法誤り訂正の自動評価法},\n  author={前田 航希 and 金子 正弘 and 岡崎 直観},\n  booktitle={言語処理学会第28回年次大会 (NLP2022)},\n  pages={328--333},\n  year={2022},\n  address={東京}\n}\n",
+    "url": "/papers/2022-d-impara/"
+  }
+  
+  
+  
+]

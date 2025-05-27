@@ -1,0 +1,7 @@
+{
+  "title": "Understanding Multimodal LLMs",
+  "date": "2025-03-20 14:00:00 +0900",
+  "author": "Koki Maeda",
+  "excerpt": "A deep dive into how large language models are evolving to understand both text and images.",
+  "content": "## The Evolution of Language Models\n\nLarge Language Models (LLMs) have revolutionized how we interact with AI. But the next frontier is **multimodal understanding** - models that can process both text and images seamlessly.\n\n### Key Challenges\n\n1. **Alignment**: How do we align visual and textual representations?\n2. **Scale**: Training multimodal models requires massive computational resources\n3. **Evaluation**: How do we measure true understanding vs. pattern matching?\n\n### Recent Breakthroughs\n\nRecent models like GPT-4V and Gemini have shown impressive capabilities in:\n- Visual question answering\n- Image captioning with context\n- Cross-modal reasoning\n\n## What's Next?\n\nThe future of AI lies in models that can understand the world the way humans do - through multiple senses and modalities.\n\nStay tuned for more technical deep dives!"
+}
