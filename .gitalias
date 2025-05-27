@@ -1,0 +1,43 @@
+#!/bin/bash
+# Git aliases for common operations
+
+# Add all changes and commit with message
+gacp() {
+    if [ -z "$1" ]; then
+        echo "Usage: gacp \"commit message\""
+        return 1
+    fi
+    git add -A && git commit -m "$1" && git push origin master
+}
+
+# Quick status check
+gs() {
+    git status
+}
+
+# Add specific files
+ga() {
+    git add "$@"
+}
+
+# Commit with message
+gc() {
+    if [ -z "$1" ]; then
+        echo "Usage: gc \"commit message\""
+        return 1
+    fi
+    git commit -m "$1"
+}
+
+# Push to origin master
+gp() {
+    git push origin master
+}
+
+# Git log pretty
+gl() {
+    git log --oneline --graph --decorate -10
+}
+
+# Source this file in your shell to use:
+# source .gitalias

@@ -44,7 +44,12 @@ function loadPapers() {
         // JSONから取得したデータ（nullチェックも含む）
         const title = meta.title || 'No Title Provided';
         const venue = meta.venue || '';
-        const description = meta.description || '';
+        const fullDescription = meta.description || '';
+        // Truncate description to first 100 characters for index page
+        const isIndexPage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
+        const description = isIndexPage && fullDescription.length > 100 
+          ? fullDescription.substring(0, 100) + '...' 
+          : fullDescription;
         const pdfLink = meta.pdf_link; // nullかもしれない
         const codeLink = meta.code_link; // nullかもしれない
         const bibtex = meta.bibtex || ''; // 空文字列かもしれない
