@@ -1,0 +1,16 @@
+- name: Programming
+  items:
+    - Python
+    - PyTorch
+    - Java
+- name: Research Areas
+  items:
+    - Computer Vision
+    - Natural Language Processing
+    - Multimodal Learning
+    - Image Captioning
+    - Evaluation Metrics
+- name: Languages
+  items:
+    - 'Japanese (Native)'
+    - 'English (Professional)'

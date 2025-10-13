@@ -1,0 +1,10 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+{% if page.extra_css %} {% for css_path in page.extra_css %}
+<link rel="stylesheet" href="{{ css_path | relative_url }}" />
+{% endfor %} {% endif %} {% if page.layout == 'paper' %} {% include paper-meta.html %} {% endif %} {% seo %}

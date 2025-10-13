@@ -1,0 +1,18 @@
+<header class="site-header">
+  <div class="container">
+    <div class="site-branding">
+      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      {% if site.description %}
+      <p class="site-tagline">{{ site.description }}</p>
+      {% endif %}
+    </div>
+    <nav class="site-nav">
+      {% assign nav_items = site.data.navigation %} {% assign current_url = page.url | default: page.permalink |
+      default: page.path %} {% for item in nav_items %} {% assign item_url = item.url | relative_url %} {% assign
+      is_active = false %} {% if current_url == item.url %} {% assign is_active = true %} {% elsif item.url != '/' and
+      current_url and current_url != '/' and current_url contains item.url %} {% assign is_active = true %} {% endif %}
+      <a href="{{ item_url }}" class="{% if is_active %}active{% endif %}">{{ item.title }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

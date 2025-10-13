@@ -1,113 +1,177 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <meta name="citation_title" content="模倣学習による大規模言語モデルの指示チューニング" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+  
+<meta name="citation_title" content="模倣学習による大規模言語モデルの指示チューニング" />
+ 
+<meta name="citation_author" content="Youmi Ma" />
 
-    <meta name="citation_author" content="Youmi Ma" />
+<meta name="citation_author" content="水木, 栄" />
 
-    <meta name="citation_author" content="水木, 栄" />
+<meta name="citation_author" content="藤井, 一喜" />
 
-    <meta name="citation_author" content="藤井, 一喜" />
+<meta name="citation_author" content="中村, 泰士" />
 
-    <meta name="citation_author" content="中村, 泰士" />
+<meta name="citation_author" content="大井, 聖也" />
 
-    <meta name="citation_author" content="大井, 聖也" />
+<meta name="citation_author" content="島田, 比奈理" />
 
-    <meta name="citation_author" content="島田, 比奈理" />
+<meta name="citation_author" content="塩谷, 泰平" />
 
-    <meta name="citation_author" content="塩谷, 泰平" />
+<meta name="citation_author" content="齋藤, 幸史郎" />
 
-    <meta name="citation_author" content="齋藤, 幸史郎" />
+<meta name="citation_author" content="前田, 航希" />
 
-    <meta name="citation_author" content="前田, 航希" />
+<meta name="citation_author" content="服部, 翔" />
 
-    <meta name="citation_author" content="服部, 翔" />
+<meta name="citation_author" content="岡本, 拓己" />
 
-    <meta name="citation_author" content="岡本, 拓己" />
+<meta name="citation_author" content="石田, 茂樹" />
 
-    <meta name="citation_author" content="石田, 茂樹" />
+<meta name="citation_author" content="横田, 理央" />
 
-    <meta name="citation_author" content="横田, 理央" />
+<meta name="citation_author" content="高村, 大也" />
 
-    <meta name="citation_author" content="高村, 大也" />
+<meta name="citation_author" content="岡崎, 直観" />
+  
+<meta name="citation_conference_title" content="言語処理学会第31回年次大会 (NLP2025)" />
+  
+<meta name="citation_publication_date" content="2025/03/01" />
+<meta name="citation_date" content="2025" />
+ 
+<meta name="citation_firstpage" content="3446" />
+ 
+<meta name="citation_lastpage" content="3451" />
+ 
+<meta name="citation_abstract_html_url" content="https://silviase.github.io/papers/2025-d-imitation-learning/" />
+  
+<meta name="citation_pdf_url" content="https://silviase.github.io/assets/papers/2025_d_imitation_learning.pdf" />
 
-    <meta name="citation_author" content="岡崎, 直観" />
-
-    <meta name="citation_conference_title" content="言語処理学会第31回年次大会 (NLP2025)" />
-    <meta name="citation_date" content="2025" />
-    <meta name="citation_publication_date" content="2025/03/01" />
-
-    <meta name="citation_firstpage" content="3446" />
-
-
-    <meta name="citation_lastpage" content="3451" />
-
-    <meta name="citation_abstract_html_url" content="/papers/2025-d-imitation-learning/">
-
-    <meta name="citation_pdf_url" content="/assets/papers/2025_d_imitation_learning.pdf" />
-
-    <title>模倣学習による大規模言語モデルの指示チューニング</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/style.css">
-    <script>
-      var shiftWindow = function() { scrollBy(0, -50) };
-      window.addEventListener("hashchange", shiftWindow);
-      function load() { if (window.location.hash) shiftWindow(); }
-    </script>
-</head>
-<body>
-    <div class="container">
-        <header class="blog-header">
-            <h1>Paper Detail</h1>
-            <nav class="site-nav">
-                <a href="/">Home</a>
-                <a href="/papers.html" class="active">Papers</a>
-                <a href="/blog.html">Blog</a>
-            </nav>
-        </header>
-
-        <div class="paper-meta">
-            <h1 class="title">模倣学習による大規模言語モデルの指示チューニング</h1>
-            <div class="venue">言語処理学会第31回年次大会 (NLP2025)</div>
-            <div class="description">大規模言語モデル（LLM）の指示チューニングにおいて、高品質な指示応答データの作成は重要な課題である。本研究では、強力なLLMの出力を模倣することで、効率的に高品質な指示チューニングデータを構築する手法を提案する。具体的には、GPT-4等の先進的なモデルに対して多様な指示を与え、その応答を収集・精選することで、日本語LLMの性能向上を実現した。実験では、模倣学習により作成したデータで学習したモデルが、従来手法を上回る性能を示すことを確認した。</div>
-            <div class="type">domestic</div>
-
-            <div class="action-buttons">
-
-                <a href="/assets/papers/2025_d_imitation_learning.pdf" class="pdf-link">
-                    <i class="fas fa-file-pdf"></i>
-                    PDF
-                </a>
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>模倣学習による大規模言語モデルの指示チューニング | Koki Maeda</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="模倣学習による大規模言語モデルの指示チューニング" />
+<meta name="author" content="Youmi Ma" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="大規模言語モデル（LLM）の指示チューニングにおいて、高品質な指示応答データの作成は重要な課題である。本研究では、強力なLLMの出力を模倣することで、効率的に高品質な指示チューニングデータを構築する手法を提案する。具体的には、GPT-4等の先進的なモデルに対して多様な指示を与え、その応答を収集・精選することで、日本語LLMの性能向上を実現した。実験では、模倣学習により作成したデータで学習したモデルが、従来手法を上回る性能を示すことを確認した。" />
+<meta property="og:description" content="大規模言語モデル（LLM）の指示チューニングにおいて、高品質な指示応答データの作成は重要な課題である。本研究では、強力なLLMの出力を模倣することで、効率的に高品質な指示チューニングデータを構築する手法を提案する。具体的には、GPT-4等の先進的なモデルに対して多様な指示を与え、その応答を収集・精選することで、日本語LLMの性能向上を実現した。実験では、模倣学習により作成したデータで学習したモデルが、従来手法を上回る性能を示すことを確認した。" />
+<link rel="canonical" href="https://silviase.github.io/papers/2025-d-imitation-learning/" />
+<meta property="og:url" content="https://silviase.github.io/papers/2025-d-imitation-learning/" />
+<meta property="og:site_name" content="Koki Maeda" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-03-01T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="模倣学習による大規模言語モデルの指示チューニング" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Youmi Ma"},"dateModified":"2025-03-01T00:00:00+09:00","datePublished":"2025-03-01T00:00:00+09:00","description":"大規模言語モデル（LLM）の指示チューニングにおいて、高品質な指示応答データの作成は重要な課題である。本研究では、強力なLLMの出力を模倣することで、効率的に高品質な指示チューニングデータを構築する手法を提案する。具体的には、GPT-4等の先進的なモデルに対して多様な指示を与え、その応答を収集・精選することで、日本語LLMの性能向上を実現した。実験では、模倣学習により作成したデータで学習したモデルが、従来手法を上回る性能を示すことを確認した。","headline":"模倣学習による大規模言語モデルの指示チューニング","mainEntityOfPage":{"@type":"WebPage","@id":"https://silviase.github.io/papers/2025-d-imitation-learning/"},"url":"https://silviase.github.io/papers/2025-d-imitation-learning/"}</script>
+<!-- End Jekyll SEO tag -->
 
 
-                <a href="https://swallow-llm.github.io/llama3.1-swallow.ja" class="code-link">
-                    <i class="fas fa-code"></i>
-                    Code
-                </a>
+  </head>
+  <body class="layout-paper">
+    <div class="page-shell">
+      <header class="site-header">
+  <div class="container">
+    <div class="site-branding">
+      <a class="site-title" href="/">Koki Maeda</a>
+      
+      <p class="site-tagline">Doctoral student exploring multimodal vision-and-language systems, evaluation metrics, and context-aware captioning.</p>
+      
+    </div>
+    <nav class="site-nav">
+           
+      <a href="/" class="">Home</a>
+         
+      <a href="/cv/" class="">CV</a>
+         
+      <a href="/papers/" class="active">Papers</a>
+         
+      <a href="/blog/" class="">Blog</a>
+      
+    </nav>
+  </div>
+</header>
 
-            </div>
+      <main class="site-main"><article class="paper-detail">
+  <div class="container">
+    <nav class="back-nav">
+      <a href="/papers/">← Back to Papers</a>
+    </nav>
+    <header class="paper-header">
+      <h1 class="paper-title">模倣学習による大規模言語モデルの指示チューニング</h1>
+      
+      <p class="paper-authors">
+        
+        <span class="paper-author">Youmi Ma</span>,  
+        <span class="paper-author">水木, 栄</span>,  
+        <span class="paper-author">藤井, 一喜</span>,  
+        <span class="paper-author">中村, 泰士</span>,  
+        <span class="paper-author">大井, 聖也</span>,  
+        <span class="paper-author">島田, 比奈理</span>,  
+        <span class="paper-author">塩谷, 泰平</span>,  
+        <span class="paper-author">齋藤, 幸史郎</span>,  
+        <span class="paper-author">前田, 航希</span>,  
+        <span class="paper-author">服部, 翔</span>,  
+        <span class="paper-author">岡本, 拓己</span>,  
+        <span class="paper-author">石田, 茂樹</span>,  
+        <span class="paper-author">横田, 理央</span>,  
+        <span class="paper-author">高村, 大也</span>,  
+        <span class="paper-author">岡崎, 直観</span> 
+      </p>
+      
+      <p class="paper-publication">
+         言語処理学会第31回年次大会 (NLP2025)  
+        · March 2025 
+      </p>
+      
+      <p class="paper-summary">大規模言語モデル（LLM）の指示チューニングにおいて、高品質な指示応答データの作成は重要な課題である。本研究では、強力なLLMの出力を模倣することで、効率的に高品質な指示チューニングデータを構築する手法を提案する。具体的には、GPT-4等の先進的なモデルに対して多様な指示を与え、その応答を収集・精選することで、日本語LLMの性能向上を実現した。実験では、模倣学習により作成したデータで学習したモデルが、従来手法を上回る性能を示すことを確認した。</p>
+      
+      <div class="paper-actions">
+           
+        <a class="button" href="/assets/papers/2025_d_imitation_learning.pdf" target="_blank" rel="noopener">
+          <span aria-hidden="true">📄</span> PDF
+        </a>
+         
+        <a class="button" href="https://swallow-llm.github.io/llama3.1-swallow.ja" target="_blank" rel="noopener">
+          <span aria-hidden="true">💻</span> Code
+        </a>
+        
+      </div>
+    </header>
 
-            <pre class="bibtex">@inproceedings{maeda2025imitation,
+    
+    <section class="paper-bibtex">
+      <h2>BibTeX</h2>
+      <pre><code>@inproceedings{maeda2025imitation,
   title={模倣学習による大規模言語モデルの指示チューニング},
   author={Youmi Ma and 水木 栄 and 藤井 一喜 and 中村 泰士 and 大井 聖也 and 島田 比奈理 and 塩谷 泰平 and 齋藤 幸史郎 and 前田 航希 and 服部 翔 and 岡本 拓己 and 石田 茂樹 and 横田 理央 and 高村 大也 and 岡崎 直観},
   booktitle={言語処理学会第31回年次大会 (NLP2025)},
   year={2025},
   address={長崎}
-}
-</pre>
-        </div>
+}</code></pre>
+    </section>
+    
 
-        <div class="paper-content"><p><a href="/assets/papers/2025_d_imitation_learning.pdf">PDF</a></p>
-</div>
+    <section class="paper-content"><p><a href="/assets/papers/2025_d_imitation_learning.pdf">PDF</a></p>
+</section>
+  </div>
+</article>
+</main>
+      <footer class="site-footer">
+  <div class="container">
+    <p>© 2025 Koki Maeda · Built with Jekyll</p>
+  </div>
+</footer>
+
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
-        </div>
-    </footer>
-</body>
+    <script src="/assets/js/site.js"></script>
+    
+  </body>
 </html>

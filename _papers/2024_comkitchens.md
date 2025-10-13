@@ -1,33 +1,29 @@
 ---
-layout: papers
-id: 2024_comkitchens
-title: 'COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark'
+title: 'COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language
+  Benchmark'
 authors:
-  - 'Koki Maeda'
-  - 'Tosho Hirasawa'
-  - 'Atsushi Hashimoto'
-  - 'Jun Harashima'
-  - 'Leszek Rybicki'
-  - 'Yusuke Fukasawa'
-  - 'Yoshitaka Ushiku'
-venue: 'Proceedings of The 18th European Conference on Computer Vision (ECCV 2024)'
-description: 'Introducing a new vision-language dataset based on unedited overhead-view procedural cooking videos.'
+  - Koki Maeda
+  - Tosho Hirasawa
+  - Atsushi Hashimoto
+  - Jun Harashima
+  - Leszek Rybicki
+  - Yusuke Fukasawa
+  - Yoshitaka Ushiku
+venue: Proceedings of The 18th European Conference on Computer Vision (ECCV 2024)
+description: Introducing a new vision-language dataset based on unedited overhead-view
+  procedural cooking videos.
 date: 2024-09-29
+type: international
 firstpage: 1
 lastpage: 16
-pdf_link: 'https://doi.org/10.32130/rdata.6.1'
-code_link: 'https://github.com/omron-sinicx/com_kitchens'
-url: 'https://silviase.com/publications/2024_comkitchens.html'
-type: 'international'
-bibtex: |
-  @inproceedings{maeda2024comkitchens,
-    title = {COM Kitchens: An Unedited Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark},
-    author = {Koki Maeda and Tosho Hirasawa and Atsushi Hashimoto and Jun Harashima and Leszek Rybicki and Yusuke Fukasawa and Yoshitaka Ushiku},
-    booktitle = {Proceedings of The 18th European Conference on Computer Vision (ECCV 2024)},
-    year = {2024},
-    address = {Milan, Italy},
-    publisher = {ECCV}
-  }
+pdf: https://doi.org/10.32130/rdata.6.1
+code_link: https://github.com/omron-sinicx/com_kitchens
+bibtex: "@inproceedings{maeda2024comkitchens,\n  title = {COM Kitchens: An Unedited\
+  \ Overhead-view Procedural Videos Dataset as a Vision-Language Benchmark},\n  author\
+  \ = {Koki Maeda and Tosho Hirasawa and Atsushi Hashimoto and Jun Harashima and Leszek\
+  \ Rybicki and Yusuke Fukasawa and Yoshitaka Ushiku},\n  booktitle = {Proceedings\
+  \ of The 18th European Conference on Computer Vision (ECCV 2024)},\n  year = {2024},\n\
+  \  address = {Milan, Italy},\n  publisher = {ECCV}\n}"
 ---
 
 ## Abstract

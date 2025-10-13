@@ -2,7 +2,7 @@
   "name": "silviase.github.io",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
+  "main": "assets/js/site.js",
   "scripts": {
     "format": "prettier --write '**/*.{js,css,md,html,json,yml,yaml}' --ignore-path .gitignore",
     "format:check": "prettier --check '**/*.{js,css,md,html,json,yml,yaml}' --ignore-path .gitignore",
@@ -25,6 +25,6 @@
   "homepage": "https://github.com/Silviase/Silviase.github.io#readme",
   "devDependencies": {
     "markdownlint-cli": "^0.45.0",
-    "prettier": "^3.5.3"
+    "prettier": "^3.6.2"
   }
 }

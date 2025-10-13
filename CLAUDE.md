@@ -39,15 +39,18 @@ collections:
 
 ### Key Files
 
-- `_config.yml`: Jekyll configuration - defines collections and build settings
-- `script.js`: Custom JavaScript for site functionality
-- `style.css`: Site-wide styling
-- `posts/index.json`: Blog post index for dynamic loading
+- `_config.yml`: Jekyll configuration (collections, defaults, plugins)
+- `assets/css/main.css`: Global styling for every layout
+- `assets/js/site.js`: Lightweight enhancements (BibTeX copy helpers)
+- `_data/`: Structured content for navigation, profile, education, awards, and skills
 
 ### Layout Templates
 
-- `_layouts/posts.html`: Template for blog posts
-- `_layouts/papers.html`: Template for paper detail pages
+- `_layouts/default.html`: Base shell shared by all pages
+- `_layouts/home.html`: Landing page composition powered by `_data/*`
+- `_layouts/paper.html`: Detail view for individual papers (with metadata tags)
+- `_layouts/papers.html`: Publication index grouped by venue type
+- `_layouts/blog.html` & `_layouts/post.html`: Blog listing and individual post layout
 
 ### GitHub Actions
 

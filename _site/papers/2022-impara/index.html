@@ -1,72 +1,119 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <meta name="citation_title" content="IMPARA: Impact-Based Metric for GEC Using Parallel Data" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+  
+<meta name="citation_title" content="IMPARA: Impact-Based Metric for GEC Using Parallel Data" />
+ 
+<meta name="citation_author" content="Koki Maeda" />
 
-    <meta name="citation_author" content="Koki Maeda" />
+<meta name="citation_author" content="Masahiro Kaneko" />
 
-    <meta name="citation_author" content="Masahiro Kaneko" />
+<meta name="citation_author" content="Naoaki Okazaki" />
+  
+<meta name="citation_conference_title" content="Proceedings of the 29th International Conference on Computational Linguistics (COLING 2022)" />
+  
+<meta name="citation_publication_date" content="2022/10/12" />
+<meta name="citation_date" content="2022" />
+ 
+<meta name="citation_firstpage" content="3578" />
+ 
+<meta name="citation_lastpage" content="3588" />
+ 
+<meta name="citation_abstract_html_url" content="https://silviase.github.io/papers/2022-impara/" />
+  
+<meta name="citation_pdf_url" content="https://aclanthology.org/2022.coling-1.316.pdf" />
 
-    <meta name="citation_author" content="Naoaki Okazaki" />
-
-    <meta name="citation_conference_title" content="Proceedings of the 29th International Conference on Computational Linguistics (COLING 2022)" />
-    <meta name="citation_date" content="2022" />
-    <meta name="citation_publication_date" content="2022/10/12" />
-
-    <meta name="citation_firstpage" content="3578" />
-
-
-    <meta name="citation_lastpage" content="3588" />
-
-    <meta name="citation_abstract_html_url" content="/papers/2022-impara/">
-
-    <meta name="citation_pdf_url" content="https://aclanthology.org/2022.coling-1.316.pdf" />
-
-    <title>IMPARA: Impact-Based Metric for GEC Using Parallel Data</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/style.css">
-    <script>
-      var shiftWindow = function() { scrollBy(0, -50) };
-      window.addEventListener("hashchange", shiftWindow);
-      function load() { if (window.location.hash) shiftWindow(); }
-    </script>
-</head>
-<body>
-    <div class="container">
-        <header class="blog-header">
-            <h1>Paper Detail</h1>
-            <nav class="site-nav">
-                <a href="/">Home</a>
-                <a href="/papers.html" class="active">Papers</a>
-                <a href="/blog.html">Blog</a>
-            </nav>
-        </header>
-
-        <div class="paper-meta">
-            <h1 class="title">IMPARA: Impact-Based Metric for GEC Using Parallel Data</h1>
-            <div class="venue">Proceedings of the 29th International Conference on Computational Linguistics (COLING 2022)</div>
-            <div class="description">Proposal of a new impact-based metric for grammatical error correction using parallel datasets.</div>
-            <div class="type">international</div>
-
-            <div class="action-buttons">
-
-                <a href="https://aclanthology.org/2022.coling-1.316.pdf" class="pdf-link">
-                    <i class="fas fa-file-pdf"></i>
-                    PDF
-                </a>
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>IMPARA: Impact-Based Metric for GEC Using Parallel Data | Koki Maeda</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="IMPARA: Impact-Based Metric for GEC Using Parallel Data" />
+<meta name="author" content="Koki Maeda" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Proposal of a new impact-based metric for grammatical error correction using parallel datasets." />
+<meta property="og:description" content="Proposal of a new impact-based metric for grammatical error correction using parallel datasets." />
+<link rel="canonical" href="https://silviase.github.io/papers/2022-impara/" />
+<meta property="og:url" content="https://silviase.github.io/papers/2022-impara/" />
+<meta property="og:site_name" content="Koki Maeda" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-12T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="IMPARA: Impact-Based Metric for GEC Using Parallel Data" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Koki Maeda"},"dateModified":"2022-10-12T00:00:00+09:00","datePublished":"2022-10-12T00:00:00+09:00","description":"Proposal of a new impact-based metric for grammatical error correction using parallel datasets.","headline":"IMPARA: Impact-Based Metric for GEC Using Parallel Data","mainEntityOfPage":{"@type":"WebPage","@id":"https://silviase.github.io/papers/2022-impara/"},"url":"https://silviase.github.io/papers/2022-impara/"}</script>
+<!-- End Jekyll SEO tag -->
 
 
-                <a href="https://github.com/Silviase/IMPARA" class="code-link">
-                    <i class="fas fa-code"></i>
-                    Code
-                </a>
+  </head>
+  <body class="layout-paper">
+    <div class="page-shell">
+      <header class="site-header">
+  <div class="container">
+    <div class="site-branding">
+      <a class="site-title" href="/">Koki Maeda</a>
+      
+      <p class="site-tagline">Doctoral student exploring multimodal vision-and-language systems, evaluation metrics, and context-aware captioning.</p>
+      
+    </div>
+    <nav class="site-nav">
+           
+      <a href="/" class="">Home</a>
+         
+      <a href="/cv/" class="">CV</a>
+         
+      <a href="/papers/" class="active">Papers</a>
+         
+      <a href="/blog/" class="">Blog</a>
+      
+    </nav>
+  </div>
+</header>
 
-            </div>
+      <main class="site-main"><article class="paper-detail">
+  <div class="container">
+    <nav class="back-nav">
+      <a href="/papers/">← Back to Papers</a>
+    </nav>
+    <header class="paper-header">
+      <h1 class="paper-title">IMPARA: Impact-Based Metric for GEC Using Parallel Data</h1>
+      
+      <p class="paper-authors">
+        
+        <span class="paper-author">Koki Maeda</span>,  
+        <span class="paper-author">Masahiro Kaneko</span>,  
+        <span class="paper-author">Naoaki Okazaki</span> 
+      </p>
+      
+      <p class="paper-publication">
+         Proceedings of the 29th International Conference on Computational Linguistics (COLING 2022)  
+        · October 2022 
+      </p>
+      
+      <p class="paper-summary">Proposal of a new impact-based metric for grammatical error correction using parallel datasets.</p>
+      
+      <div class="paper-actions">
+           
+        <a class="button" href="https://aclanthology.org/2022.coling-1.316.pdf" target="_blank" rel="noopener">
+          <span aria-hidden="true">📄</span> PDF
+        </a>
+         
+        <a class="button" href="https://github.com/Silviase/IMPARA" target="_blank" rel="noopener">
+          <span aria-hidden="true">💻</span> Code
+        </a>
+        
+      </div>
+    </header>
 
-            <pre class="bibtex">@inproceedings{maeda2022impara,
+    
+    <section class="paper-bibtex">
+      <h2>BibTeX</h2>
+      <pre><code>@inproceedings{maeda2022impara,
   title = {IMPARA: Impact-Based Metric for GEC Using Parallel Data},
   author = {Koki Maeda and Masahiro Kaneko and Naoaki Okazaki},
   booktitle = {Proceedings of the 29th International Conference on Computational Linguistics (COLING 2022)},
@@ -74,43 +121,36 @@
   year = {2022},
   address = {Gyeongju, Republic of Korea},
   publisher = {International Committee on Computational Linguistics}
-}
-</pre>
-        </div>
+}</code></pre>
+    </section>
+    
 
-        <div class="paper-content"><h2 id="abstract">Abstract</h2>
+    <section class="paper-content"><h2 id="abstract">Abstract</h2>
 
 <p>The paper introduces <strong>IMPARA</strong> (Impact-based Metric for GEC using PARAllel data), a novel reference-less metric for automatic evaluation of grammatical error correction (GEC) systems. Unlike existing methods relying on manual assessments or multiple reference sentences, IMPARA uses parallel data (pairs of grammatical and ungrammatical sentences) to compute the impact of individual corrections. This approach significantly reduces data creation costs and adapts well across different domains and correction styles.</p>
 
 <h2 id="methodology">Methodology</h2>
 
 <ul>
-  <li>
-    <p><strong>Architecture</strong>:</p>
-
+  <li><strong>Architecture</strong>:
     <ul>
       <li>Combines a Quality Estimator (QE) and Similarity Estimator (SE), both based on BERT.</li>
       <li>QE assesses correction quality, and SE measures semantic similarity between original and corrected sentences.</li>
       <li>Score calculation is conditional on semantic similarity exceeding a threshold to ensure meaning preservation.</li>
     </ul>
   </li>
-  <li>
-    <p><strong>Quality Estimator (QE)</strong>:</p>
-
+  <li><strong>Quality Estimator (QE)</strong>:
     <ul>
       <li>Trained by generating pairs of partially corrected sentences, using their preference order based on impact scores computed through edit operations identified by ERRANT.</li>
       <li>QE output is calculated using a fine-tuned BERT model with a linear layer.</li>
     </ul>
   </li>
-  <li>
-    <p><strong>Similarity Estimator (SE)</strong>:</p>
-
+  <li><strong>Similarity Estimator (SE)</strong>:
     <ul>
       <li>Computes cosine similarity between sentence embeddings generated by a pre-trained BERT model.</li>
     </ul>
   </li>
-  <li>
-    <p><strong>Impact Calculation</strong>:</p>
+  <li><strong>Impact Calculation</strong>:
     <ul>
       <li>Edits are automatically extracted using ERRANT.</li>
       <li>Impact of each edit is defined by semantic changes measured using BERT embeddings.</li>
@@ -122,16 +162,13 @@
 <h2 id="experimental-results">Experimental Results</h2>
 
 <ul>
-  <li>
-    <p><strong>Evaluation</strong>:</p>
-
+  <li><strong>Evaluation</strong>:
     <ul>
       <li>Demonstrates IMPARA performs comparably or better than other reference-less metrics.</li>
       <li>High correlation with human assessments and significantly better adaptability to various domains and correction styles.</li>
     </ul>
   </li>
-  <li>
-    <p><strong>Datasets</strong>:</p>
+  <li><strong>Datasets</strong>:
     <ul>
       <li>Evaluated across multiple benchmarks including CoNLL-2014, JFLEG, CWEB, and FCE.</li>
     </ul>
@@ -148,13 +185,18 @@
 <h2 id="conclusion-and-future-work">Conclusion and Future Work</h2>
 
 <p>The paper proposes IMPARA as a practical and effective evaluation method. Future directions include enhancing interpretability and integrating synthetic parallel data to further reduce data creation costs and improve evaluation quality.</p>
-</div>
-    </div>
+</section>
+  </div>
+</article>
+</main>
+      <footer class="site-footer">
+  <div class="container">
+    <p>© 2025 Koki Maeda · Built with Jekyll</p>
+  </div>
+</footer>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
-        </div>
-    </footer>
-</body>
+    </div>
+    <script src="/assets/js/site.js"></script>
+    
+  </body>
 </html>

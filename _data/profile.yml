@@ -1,0 +1,23 @@
+name: Koki Maeda
+tagline: 'Doctoral Student · Vision and Language Researcher'
+bio: 'Exploring the intersection of computer vision and natural language processing, with a focus on multimodal evaluation metrics and context-aware image captioning.'
+image: /assets/face/202503.png
+contacts:
+  - label: Email
+    url: 'mailto:koki.maeda@nlp.c.titech.ac.jp'
+    icon: mail
+  - label: Google Scholar
+    url: 'https://scholar.google.com/citations?user=TOHpU1IAAAAJ'
+    icon: scholar
+  - label: GitHub
+    url: 'https://github.com/Silviase'
+    icon: github
+  - label: LinkedIn
+    url: 'https://linkedin.com/in/silviase'
+    icon: linkedin
+  - label: Blog
+    url: '/blog/'
+    icon: blog
+  - label: CV
+    url: '/cv/'
+    icon: cv

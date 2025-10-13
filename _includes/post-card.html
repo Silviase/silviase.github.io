@@ -1,0 +1,10 @@
+<article class="post-card">
+  <h3 class="post-title">
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </h3>
+  <p class="post-meta">{{ post.date | date: '%B %-d, %Y' }} {% if post.author %} · {{ post.author }} {% endif %}</p>
+  {% if post.excerpt %}
+  <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines }}</p>
+  {% endif %}
+  <a class="post-read-more" href="{{ post.url | relative_url }}">Read more →</a>
+</article>

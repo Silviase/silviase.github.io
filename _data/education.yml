@@ -1,0 +1,19 @@
+- years: '2024 – Present'
+  program: 'Ph.D., Tokyo Institute of Technology'
+  focus: 'Vision and Language, Evaluation'
+  advisors:
+    - 'Naoaki Okazaki'
+  description: 'Focusing on novel evaluation metrics for multimodal systems and cross-modal representation learning.'
+- years: '2022 – 2024'
+  program: 'M.Eng., Tokyo Institute of Technology'
+  focus: 'Vision and Language: Image Captioning'
+  advisors:
+    - 'Naoaki Okazaki'
+  description: 'Developed context-aware image captioning models that generate descriptions based on user preferences.'
+- years: '2018 – 2022'
+  program: 'B.Eng., Tokyo Institute of Technology'
+  focus: 'NLP: Grammatical Error Correction'
+  advisors:
+    - 'Naoaki Okazaki'
+    - 'Masahiro Kaneko (Mentor)'
+  description: 'Created improved evaluation metrics for grammatical error correction systems.'

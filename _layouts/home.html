@@ -1,0 +1,107 @@
+---
+layout: default
+---
+
+{% assign profile = site.data.profile %}
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-image">
+      <img src="{{ profile.image | relative_url }}" alt="{{ profile.name }}" loading="lazy" />
+    </div>
+    <div class="hero-content">
+      <h1>{{ profile.name }}</h1>
+      <p class="hero-tagline">{{ profile.tagline }}</p>
+      <p class="hero-bio">{{ profile.bio }}</p>
+      <div class="hero-links">
+        {% for link in profile.contacts %} {% assign link_href = link.url %} {% unless link_href contains '://' or
+        link_href contains 'mailto:' %} {% assign link_href = link_href | relative_url %} {% endunless %}
+        <a href="{{ link_href }}">
+          {% if link.icon %}
+          <span class="hero-link-icon" aria-hidden="true">
+            {% case link.icon %} {% when 'mail' %}📧 {% when 'scholar' %}🎓 {% when 'github' %}🐙 {% when 'linkedin'
+            %}💼 {% when 'blog' %}📝 {% when 'cv' %}📄 {% else %}🔗 {% endcase %}
+          </span>
+          {% endif %}
+          <span class="hero-link-label">{{ link.label }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section education">
+  <div class="container">
+    <h2>Education</h2>
+    <div class="timeline">
+      {% for item in site.data.education %}
+      <article class="timeline-item">
+        <p class="timeline-years">{{ item.years }}</p>
+        <h3 class="timeline-title">{{ item.program }}</h3>
+        <p class="timeline-focus">{{ item.focus }}</p>
+        {% if item.advisors %}
+        <p class="timeline-advisors">
+          <strong>Advisors:</strong>
+          {% for advisor in item.advisors %} {{ advisor }}{% unless forloop.last %}, {% endunless %} {% endfor %}
+        </p>
+        {% endif %}
+        <p class="timeline-description">{{ item.description }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="page-section publications">
+  <div class="container">
+    <h2>Recent Publications</h2>
+    <div class="paper-groups">
+      {% assign international = site.papers | where: 'type', 'international' | sort: 'date' | reverse %} {% assign
+      domestic = site.papers | where: 'type', 'domestic' | sort: 'date' | reverse %}
+      <div class="paper-group">
+        <h3>International Conferences</h3>
+        <div class="paper-list">
+          {% for paper in international limit:6 %} {% include paper-card.html paper=paper %} {% endfor %}
+        </div>
+      </div>
+      <div class="paper-group">
+        <h3>Domestic Conferences</h3>
+        <div class="paper-list">
+          {% for paper in domestic limit:6 %} {% include paper-card.html paper=paper %} {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="section-cta">
+      <a class="button" href="{{ '/papers/' | relative_url }}">Browse full publication list</a>
+    </div>
+  </div>
+</section>
+
+<section class="page-section awards">
+  <div class="container">
+    <h2>Awards & Fellowships</h2>
+    <ul class="badge-list">
+      {% for award in site.data.awards %}
+      <li class="badge">{{ award }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="page-section skills">
+  <div class="container">
+    <h2>Skills & Expertise</h2>
+    <div class="skills-grid">
+      {% for group in site.data.skills %}
+      <article class="skill-group">
+        <h3>{{ group.name }}</h3>
+        <ul>
+          {% for item in group.items %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

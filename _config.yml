@@ -1,8 +1,57 @@
-# _config.yml
+# Site settings
+title: 'Koki Maeda'
+description: 'Doctoral student exploring multimodal vision-and-language systems, evaluation metrics, and context-aware captioning.'
+url: 'https://silviase.github.io'
+baseurl: ''
+timezone: 'Asia/Tokyo'
+markdown: kramdown
+permalink: /blog/:title/
+future: true
 
+# Collections
 collections:
   papers:
-    output: true # true にすると各論文のHTMLページが /papers/ファイル名.html として生成される
-    permalink: /papers/:name/
+    output: true
+    permalink: /papers/:slug/
 
-future: true # 未来の日付の投稿もビルドするように設定
+# Default front matter values
+defaults:
+  - scope:
+      path: ''
+      type: 'pages'
+    values:
+      layout: page
+  - scope:
+      path: ''
+      type: 'posts'
+    values:
+      layout: post
+      author: 'Koki Maeda'
+  - scope:
+      path: ''
+      type: 'papers'
+    values:
+      layout: paper
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Sass / assets
+sass:
+  sass_dir: assets/css
+  style: expanded
+
+# Build settings
+exclude:
+  - node_modules
+  - vendor
+  - Gemfile.lock
+  - package-lock.json
+  - README.md
+  - CLAUDE.md
+  - AGENTS.md
+  - 5_Build with Jekyll.txt
+  - .cursor

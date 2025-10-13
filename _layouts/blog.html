@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<section class="page-section blog-index">
+  <div class="container">
+    <header class="section-header">
+      <h1>Blog</h1>
+      {% if page.intro %}
+      <p class="section-description">{{ page.intro }}</p>
+      {% endif %}
+    </header>
+    <div class="post-list">
+      {% assign posts = site.posts | sort: 'date' | reverse %} {% if posts.size == 0 %}
+      <p>No posts yet. Check back soon!</p>
+      {% endif %} {% for post in posts %} {% include post-card.html post=post %} {% endfor %}
+    </div>
+  </div>
+</section>

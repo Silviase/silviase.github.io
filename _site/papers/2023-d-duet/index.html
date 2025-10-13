@@ -1,92 +1,141 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <meta name="citation_title" content="DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+  
+<meta name="citation_title" content="DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル" />
+ 
+<meta name="citation_author" content="西田, 京介" />
 
-    <meta name="citation_author" content="西田, 京介" />
+<meta name="citation_author" content="長谷川, 拓" />
 
-    <meta name="citation_author" content="長谷川, 拓" />
+<meta name="citation_author" content="前田, 航希" />
 
-    <meta name="citation_author" content="前田, 航希" />
+<meta name="citation_author" content="齋藤, 邦子" />
+  
+<meta name="citation_conference_title" content="言語処理学会第29回年次大会 (NLP2023)" />
+  
+<meta name="citation_publication_date" content="2023/03/01" />
+<meta name="citation_date" content="2023" />
+ 
+<meta name="citation_firstpage" content="1586" />
+ 
+<meta name="citation_lastpage" content="1591" />
+ 
+<meta name="citation_abstract_html_url" content="https://silviase.github.io/papers/2023-d-duet/" />
+  
+<meta name="citation_pdf_url" content="https://silviase.github.io/assets/papers/2023_d_duet.pdf" />
 
-    <meta name="citation_author" content="齋藤, 邦子" />
-
-    <meta name="citation_conference_title" content="言語処理学会第29回年次大会 (NLP2023)" />
-    <meta name="citation_date" content="2023" />
-    <meta name="citation_publication_date" content="2023/03/01" />
-
-    <meta name="citation_firstpage" content="1586" />
-
-
-    <meta name="citation_lastpage" content="1591" />
-
-    <meta name="citation_abstract_html_url" content="/papers/2023-d-duet/">
-
-    <meta name="citation_pdf_url" content="/assets/papers/2023_d_duet.pdf" />
-
-    <title>DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/style.css">
-    <script>
-      var shiftWindow = function() { scrollBy(0, -50) };
-      window.addEventListener("hashchange", shiftWindow);
-      function load() { if (window.location.hash) shiftWindow(); }
-    </script>
-</head>
-<body>
-    <div class="container">
-        <header class="blog-header">
-            <h1>Paper Detail</h1>
-            <nav class="site-nav">
-                <a href="/">Home</a>
-                <a href="/papers.html" class="active">Papers</a>
-                <a href="/blog.html">Blog</a>
-            </nav>
-        </header>
-
-        <div class="paper-meta">
-            <h1 class="title">DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル</h1>
-            <div class="venue">言語処理学会第29回年次大会 (NLP2023)</div>
-            <div class="description">対照学習により構築する視覚・言語の基盤モデル CLIP の新たな転移学習方法として DueT を提案する．DueT は単一モーダルのコーパスで事前学習されたモデルにより画像・テキストエンコーダを初期化して固定し，両エンコーダに追加したゲート機構付のアダプタのみを学習する．英語・日本語ドメインの 0-shot 画像・テキスト検索において，単純な ﬁne-tuning や画像エンコーダのみ転移・固定する従来手法に比べ，提案手法が精度やパラメータ効率性の観点で優れていたことを報告する．</div>
-            <div class="type">domestic</div>
-
-            <div class="action-buttons">
-
-                <a href="/assets/papers/2023_d_duet.pdf" class="pdf-link">
-                    <i class="fas fa-file-pdf"></i>
-                    PDF
-                </a>
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル | Koki Maeda</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル" />
+<meta name="author" content="西田, 京介" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="対照学習により構築する視覚・言語の基盤モデル CLIP の新たな転移学習方法として DueT を提案する．DueT は単一モーダルのコーパスで事前学習されたモデルにより画像・テキストエンコーダを初期化して固定し，両エンコーダに追加したゲート機構付のアダプタのみを学習する．英語・日本語ドメインの 0-shot 画像・テキスト検索において，単純な ﬁne-tuning や画像エンコーダのみ転移・固定する従来手法に比べ，提案手法が精度やパラメータ効率性の観点で優れていたことを報告する．" />
+<meta property="og:description" content="対照学習により構築する視覚・言語の基盤モデル CLIP の新たな転移学習方法として DueT を提案する．DueT は単一モーダルのコーパスで事前学習されたモデルにより画像・テキストエンコーダを初期化して固定し，両エンコーダに追加したゲート機構付のアダプタのみを学習する．英語・日本語ドメインの 0-shot 画像・テキスト検索において，単純な ﬁne-tuning や画像エンコーダのみ転移・固定する従来手法に比べ，提案手法が精度やパラメータ効率性の観点で優れていたことを報告する．" />
+<link rel="canonical" href="https://silviase.github.io/papers/2023-d-duet/" />
+<meta property="og:url" content="https://silviase.github.io/papers/2023-d-duet/" />
+<meta property="og:site_name" content="Koki Maeda" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-03-01T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"西田, 京介"},"dateModified":"2023-03-01T00:00:00+09:00","datePublished":"2023-03-01T00:00:00+09:00","description":"対照学習により構築する視覚・言語の基盤モデル CLIP の新たな転移学習方法として DueT を提案する．DueT は単一モーダルのコーパスで事前学習されたモデルにより画像・テキストエンコーダを初期化して固定し，両エンコーダに追加したゲート機構付のアダプタのみを学習する．英語・日本語ドメインの 0-shot 画像・テキスト検索において，単純な ﬁne-tuning や画像エンコーダのみ転移・固定する従来手法に比べ，提案手法が精度やパラメータ効率性の観点で優れていたことを報告する．","headline":"DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル","mainEntityOfPage":{"@type":"WebPage","@id":"https://silviase.github.io/papers/2023-d-duet/"},"url":"https://silviase.github.io/papers/2023-d-duet/"}</script>
+<!-- End Jekyll SEO tag -->
 
 
-                <a href="" class="code-link">
-                    <i class="fas fa-code"></i>
-                    Code
-                </a>
+  </head>
+  <body class="layout-paper">
+    <div class="page-shell">
+      <header class="site-header">
+  <div class="container">
+    <div class="site-branding">
+      <a class="site-title" href="/">Koki Maeda</a>
+      
+      <p class="site-tagline">Doctoral student exploring multimodal vision-and-language systems, evaluation metrics, and context-aware captioning.</p>
+      
+    </div>
+    <nav class="site-nav">
+           
+      <a href="/" class="">Home</a>
+         
+      <a href="/cv/" class="">CV</a>
+         
+      <a href="/papers/" class="active">Papers</a>
+         
+      <a href="/blog/" class="">Blog</a>
+      
+    </nav>
+  </div>
+</header>
 
-            </div>
+      <main class="site-main"><article class="paper-detail">
+  <div class="container">
+    <nav class="back-nav">
+      <a href="/papers/">← Back to Papers</a>
+    </nav>
+    <header class="paper-header">
+      <h1 class="paper-title">DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル</h1>
+      
+      <p class="paper-authors">
+        
+        <span class="paper-author">西田, 京介</span>,  
+        <span class="paper-author">長谷川, 拓</span>,  
+        <span class="paper-author">前田, 航希</span>,  
+        <span class="paper-author">齋藤, 邦子</span> 
+      </p>
+      
+      <p class="paper-publication">
+         言語処理学会第29回年次大会 (NLP2023)  
+        · March 2023 
+      </p>
+      
+      <p class="paper-summary">対照学習により構築する視覚・言語の基盤モデル CLIP の新たな転移学習方法として DueT を提案する．DueT は単一モーダルのコーパスで事前学習されたモデルにより画像・テキストエンコーダを初期化して固定し，両エンコーダに追加したゲート機構付のアダプタのみを学習する．英語・日本語ドメインの 0-shot 画像・テキスト検索において，単純な ﬁne-tuning や画像エンコーダのみ転移・固定する従来手法に比べ，提案手法が精度やパラメータ効率性の観点で優れていたことを報告する．</p>
+      
+      <div class="paper-actions">
+           
+        <a class="button" href="/assets/papers/2023_d_duet.pdf" target="_blank" rel="noopener">
+          <span aria-hidden="true">📄</span> PDF
+        </a>
+         
+      </div>
+    </header>
 
-            <pre class="bibtex">@inproceedings{nishida2023duet,
+    
+    <section class="paper-bibtex">
+      <h2>BibTeX</h2>
+      <pre><code>@inproceedings{nishida2023duet,
   title={DueT: 視覚・言語のDual-adapter Tuningによる基盤モデル},
   author={西田 京介 and 長谷川 拓 and 前田 航希 and 齋藤 邦子},
   booktitle={言語処理学会第29回年次大会 (NLP2023)},
   pages={1586--1591},
   year={2023},
   address={東京}
-}
-</pre>
-        </div>
+}</code></pre>
+    </section>
+    
 
-        <div class="paper-content"><p><a href="/assets/papers/2023_d_duet.pdf">PDF</a></p>
-</div>
+    <section class="paper-content"><p><a href="/assets/papers/2023_d_duet.pdf">PDF</a></p>
+</section>
+  </div>
+</article>
+</main>
+      <footer class="site-footer">
+  <div class="container">
+    <p>© 2025 Koki Maeda · Built with Jekyll</p>
+  </div>
+</footer>
+
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
-        </div>
-    </footer>
-</body>
+    <script src="/assets/js/site.js"></script>
+    
+  </body>
 </html>

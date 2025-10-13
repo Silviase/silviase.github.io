@@ -1,0 +1,26 @@
+<article class="paper-card">
+  <h3 class="paper-title">
+    <a href="{{ paper.url | relative_url }}">{{ paper.title }}</a>
+  </h3>
+  <p class="paper-venue">
+    {% if paper.venue %} {{ paper.venue }} {% elsif paper.journal %} {{ paper.journal }} {% endif %} {% if paper.date %}
+    · {{ paper.date | date: '%Y' }} {% endif %}
+  </p>
+  {% if paper.description %}
+  <p class="paper-description">{{ paper.description }}</p>
+  {% endif %}
+  <p class="paper-authors">
+    {% for author in paper.authors %}
+    <span class="paper-author">{{ author }}</span>{% unless forloop.last %}, {% endunless %} {% endfor %}
+  </p>
+  <div class="paper-links">
+    {% assign pdf_url = paper.pdf | default: paper.pdf_link %} {% if pdf_url %} {% assign pdf_href = pdf_url %} {%
+    unless pdf_href contains '://' %} {% assign pdf_href = pdf_href | relative_url %} {% endunless %}
+    <a class="paper-link" href="{{ pdf_href }}" target="_blank" rel="noopener">PDF</a>
+    {% endif %} {% if paper.code_link %}
+    <a class="paper-link" href="{{ paper.code_link }}" target="_blank" rel="noopener">Code</a>
+    {% endif %} {% if paper.bibtex %}
+    <button class="paper-link copy-bibtex" data-bibtex="{{ paper.bibtex | escape }}">Copy BibTeX</button>
+    {% endif %}
+  </div>
+</article>

@@ -1,0 +1,86 @@
+international:
+  - id: 2025_whywe
+    date: 'October 2025'
+    location: 'Montreal, Canada'
+    pages: 'pages (to appear)'
+    page_count: '21 pages'
+    column: 'Double column'
+  - id: 2025_instruction_tuning
+    date: 'October 2025'
+    location: 'Montreal, Canada'
+    pages: 'pages (to appear)'
+    page_count: '17 pages'
+    column: 'Single column'
+  - id: 2025_llmjp3vila
+    date: '2025'
+    pages: 'pages (to appear)'
+    page_count: '15 pages'
+    column: 'Double column'
+  - id: 2025_legalviz
+    date: '2025'
+    page_count: '20 pages'
+    column: 'Double column'
+  - id: 2024_comkitchens
+    date: '2024'
+    page_count: '22 pages'
+    column: 'Single column'
+  - id: 2023_quic360
+    date: '2023'
+    pages: 'pages 6940–6954'
+    page_count: '15 pages'
+    column: 'Double column'
+  - id: 2022_impara
+    date: '2022'
+    pages: 'pages 3578–3588'
+    page_count: '11 pages'
+    column: 'Double column'
+
+domestic:
+  - id: 2025_d_llmjpevalmm
+    date: 'March 2025'
+    page_count: '6 pages'
+    column: 'Double column'
+  - id: 2024_mechaja
+    date: '2024'
+    pages: 'pages 1–7'
+    page_count: '7 pages'
+    column: 'Single column'
+  - id: 2025_d_llmjp3vila
+    date: 'March 2025'
+    page_count: '6 pages'
+    column: 'Double column'
+  - id: 2025_d_legalviz
+    date: 'March 2025'
+    page_count: '6 pages'
+    column: 'Double column'
+  - id: 2025_d_swallow_corpus_v2
+    date: 'March 2025'
+    page_count: '6 pages'
+    column: 'Double column'
+  - id: 2025_d_news_llm
+    date: 'March 2025'
+    page_count: '6 pages'
+    column: 'Double column'
+  - id: 2025_d_imitation_learning
+    date: 'March 2025'
+    page_count: '6 pages'
+    column: 'Double column'
+  - id: 2024_d_comkitchens
+    date: '2024'
+    page_count: '4 pages'
+    column: 'Double column'
+  - id: 2024_d_visual_context_caption
+    date: 'March 2024'
+    pages: 'pages 1996–2001'
+    page_count: '6 pages'
+    column: 'Double column'
+  - id: 2023_d_quic360
+    date: 'March 2023'
+    pages: 'pages 3013–3018'
+    page_count: '6 pages'
+    column: 'Double column'
+  - id: 2022_d_impara
+    date: 'March 2022'
+    pages: 'pages 328–333'
+    page_count: '6 pages'
+    column: 'Double column'

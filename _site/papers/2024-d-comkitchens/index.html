@@ -1,97 +1,153 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <meta name="citation_title" content="調理作業理解のための言語資源付き固定視点映像データセットの構築" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+  
+<meta name="citation_title" content="調理作業理解のための言語資源付き固定視点映像データセットの構築" />
+ 
+<meta name="citation_author" content="橋本, 敦史" />
 
-    <meta name="citation_author" content="橋本, 敦史" />
+<meta name="citation_author" content="前田, 航希" />
 
-    <meta name="citation_author" content="前田, 航希" />
+<meta name="citation_author" content="平澤, 寅庄" />
 
-    <meta name="citation_author" content="平澤, 寅庄" />
+<meta name="citation_author" content="原島, 純" />
 
-    <meta name="citation_author" content="原島, 純" />
+<meta name="citation_author" content="RYBICKI, Leszek" />
 
-    <meta name="citation_author" content="RYBICKI, Leszek" />
+<meta name="citation_author" content="深澤, 祐援" />
 
-    <meta name="citation_author" content="深澤, 祐援" />
+<meta name="citation_author" content="牛久, 祥孝" />
+  
+<meta name="citation_conference_title" content="2024年度人工知能学会全国大会（第38回）" />
+  
+<meta name="citation_publication_date" content="2024/05/01" />
+<meta name="citation_date" content="2024" />
+ 
+<meta name="citation_firstpage" content="1" />
+ 
+<meta name="citation_lastpage" content="4" />
+ 
+<meta name="citation_abstract_html_url" content="https://silviase.github.io/papers/2024-d-comkitchens/" />
+  
+<meta name="citation_pdf_url" content="https://silviase.github.io/assets/papers/2024_d_comkitchens.pdf" />
 
-    <meta name="citation_author" content="牛久, 祥孝" />
-
-    <meta name="citation_conference_title" content="2024年度人工知能学会全国大会（第38回）" />
-    <meta name="citation_date" content="2024" />
-    <meta name="citation_publication_date" content="2024/05/01" />
-
-    <meta name="citation_firstpage" content="1" />
-
-
-    <meta name="citation_lastpage" content="4" />
-
-    <meta name="citation_abstract_html_url" content="/papers/2024-d-comkitchens/">
-
-    <meta name="citation_pdf_url" content="/assets/papers/2024_d_comkitchens.pdf" />
-
-    <title>調理作業理解のための言語資源付き固定視点映像データセットの構築</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/style.css">
-    <script>
-      var shiftWindow = function() { scrollBy(0, -50) };
-      window.addEventListener("hashchange", shiftWindow);
-      function load() { if (window.location.hash) shiftWindow(); }
-    </script>
-</head>
-<body>
-    <div class="container">
-        <header class="blog-header">
-            <h1>Paper Detail</h1>
-            <nav class="site-nav">
-                <a href="/">Home</a>
-                <a href="/papers.html" class="active">Papers</a>
-                <a href="/blog.html">Blog</a>
-            </nav>
-        </header>
-
-        <div class="paper-meta">
-            <h1 class="title">調理作業理解のための言語資源付き固定視点映像データセットの構築</h1>
-            <div class="venue">2024年度人工知能学会全国大会（第38回）</div>
-            <div class="description">既存の調理映像データセットは主にウェブ動画や一人称視点に限定され、実際の調理環境の多様性を反映していない。本研究では、無編集の俯瞰視点調理映像と詳細な言語アノテーションを含む新たなデータセットCOM Kitchensを構築した。スマートフォンで撮影した多様な環境での調理映像に対し、視覚的行動グラフによる構造的アノテーションを付与し、オンラインレシピ検索と密な映像キャプション生成という2つの新しいタスクを提案。既存モデルによる評価実験により、本データセットが視覚言語理解の新たな課題を提供することを示した。</div>
-            <div class="type">domestic</div>
-
-            <div class="action-buttons">
-
-                <a href="/assets/papers/2024_d_comkitchens.pdf" class="pdf-link">
-                    <i class="fas fa-file-pdf"></i>
-                    PDF
-                </a>
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>調理作業理解のための言語資源付き固定視点映像データセットの構築 | Koki Maeda</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="調理作業理解のための言語資源付き固定視点映像データセットの構築" />
+<meta name="author" content="橋本, 敦史" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="既存の調理映像データセットは主にウェブ動画や一人称視点に限定され、実際の調理環境の多様性を反映していない。本研究では、無編集の俯瞰視点調理映像と詳細な言語アノテーションを含む新たなデータセットCOM Kitchensを構築した。スマートフォンで撮影した多様な環境での調理映像に対し、視覚的行動グラフによる構造的アノテーションを付与し、オンラインレシピ検索と密な映像キャプション生成という2つの新しいタスクを提案。既存モデルによる評価実験により、本データセットが視覚言語理解の新たな課題を提供することを示した。" />
+<meta property="og:description" content="既存の調理映像データセットは主にウェブ動画や一人称視点に限定され、実際の調理環境の多様性を反映していない。本研究では、無編集の俯瞰視点調理映像と詳細な言語アノテーションを含む新たなデータセットCOM Kitchensを構築した。スマートフォンで撮影した多様な環境での調理映像に対し、視覚的行動グラフによる構造的アノテーションを付与し、オンラインレシピ検索と密な映像キャプション生成という2つの新しいタスクを提案。既存モデルによる評価実験により、本データセットが視覚言語理解の新たな課題を提供することを示した。" />
+<link rel="canonical" href="https://silviase.github.io/papers/2024-d-comkitchens/" />
+<meta property="og:url" content="https://silviase.github.io/papers/2024-d-comkitchens/" />
+<meta property="og:site_name" content="Koki Maeda" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-05-01T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="調理作業理解のための言語資源付き固定視点映像データセットの構築" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"橋本, 敦史"},"dateModified":"2024-05-01T00:00:00+09:00","datePublished":"2024-05-01T00:00:00+09:00","description":"既存の調理映像データセットは主にウェブ動画や一人称視点に限定され、実際の調理環境の多様性を反映していない。本研究では、無編集の俯瞰視点調理映像と詳細な言語アノテーションを含む新たなデータセットCOM Kitchensを構築した。スマートフォンで撮影した多様な環境での調理映像に対し、視覚的行動グラフによる構造的アノテーションを付与し、オンラインレシピ検索と密な映像キャプション生成という2つの新しいタスクを提案。既存モデルによる評価実験により、本データセットが視覚言語理解の新たな課題を提供することを示した。","headline":"調理作業理解のための言語資源付き固定視点映像データセットの構築","mainEntityOfPage":{"@type":"WebPage","@id":"https://silviase.github.io/papers/2024-d-comkitchens/"},"url":"https://silviase.github.io/papers/2024-d-comkitchens/"}</script>
+<!-- End Jekyll SEO tag -->
 
 
-                <a href="https://github.com/omron-sinicx/com_kitchens" class="code-link">
-                    <i class="fas fa-code"></i>
-                    Code
-                </a>
+  </head>
+  <body class="layout-paper">
+    <div class="page-shell">
+      <header class="site-header">
+  <div class="container">
+    <div class="site-branding">
+      <a class="site-title" href="/">Koki Maeda</a>
+      
+      <p class="site-tagline">Doctoral student exploring multimodal vision-and-language systems, evaluation metrics, and context-aware captioning.</p>
+      
+    </div>
+    <nav class="site-nav">
+           
+      <a href="/" class="">Home</a>
+         
+      <a href="/cv/" class="">CV</a>
+         
+      <a href="/papers/" class="active">Papers</a>
+         
+      <a href="/blog/" class="">Blog</a>
+      
+    </nav>
+  </div>
+</header>
 
-            </div>
+      <main class="site-main"><article class="paper-detail">
+  <div class="container">
+    <nav class="back-nav">
+      <a href="/papers/">← Back to Papers</a>
+    </nav>
+    <header class="paper-header">
+      <h1 class="paper-title">調理作業理解のための言語資源付き固定視点映像データセットの構築</h1>
+      
+      <p class="paper-authors">
+        
+        <span class="paper-author">橋本, 敦史</span>,  
+        <span class="paper-author">前田, 航希</span>,  
+        <span class="paper-author">平澤, 寅庄</span>,  
+        <span class="paper-author">原島, 純</span>,  
+        <span class="paper-author">RYBICKI, Leszek</span>,  
+        <span class="paper-author">深澤, 祐援</span>,  
+        <span class="paper-author">牛久, 祥孝</span> 
+      </p>
+      
+      <p class="paper-publication">
+         2024年度人工知能学会全国大会（第38回）  
+        · May 2024 
+      </p>
+      
+      <p class="paper-summary">既存の調理映像データセットは主にウェブ動画や一人称視点に限定され、実際の調理環境の多様性を反映していない。本研究では、無編集の俯瞰視点調理映像と詳細な言語アノテーションを含む新たなデータセットCOM Kitchensを構築した。スマートフォンで撮影した多様な環境での調理映像に対し、視覚的行動グラフによる構造的アノテーションを付与し、オンラインレシピ検索と密な映像キャプション生成という2つの新しいタスクを提案。既存モデルによる評価実験により、本データセットが視覚言語理解の新たな課題を提供することを示した。</p>
+      
+      <div class="paper-actions">
+           
+        <a class="button" href="/assets/papers/2024_d_comkitchens.pdf" target="_blank" rel="noopener">
+          <span aria-hidden="true">📄</span> PDF
+        </a>
+         
+        <a class="button" href="https://github.com/omron-sinicx/com_kitchens" target="_blank" rel="noopener">
+          <span aria-hidden="true">💻</span> Code
+        </a>
+        
+      </div>
+    </header>
 
-            <pre class="bibtex">@inproceedings{hashimoto2024comkitchens,
+    
+    <section class="paper-bibtex">
+      <h2>BibTeX</h2>
+      <pre><code>@inproceedings{hashimoto2024comkitchens,
   title={調理作業理解のための言語資源付き固定視点映像データセットの構築},
   author={橋本 敦史 and 前田 航希 and 平澤 寅庄 and 原島 純 and RYBICKI Leszek and 深澤 祐援 and 牛久 祥孝},
   booktitle={2024年度人工知能学会全国大会（第38回）},
   year={2024},
   address={浜松}
-}
-</pre>
-        </div>
+}</code></pre>
+    </section>
+    
 
-        <div class="paper-content"><p><a href="/assets/papers/2024_d_comkitchens.pdf">PDF</a></p>
-</div>
+    <section class="paper-content"><p><a href="/assets/papers/2024_d_comkitchens.pdf">PDF</a></p>
+</section>
+  </div>
+</article>
+</main>
+      <footer class="site-footer">
+  <div class="container">
+    <p>© 2025 Koki Maeda · Built with Jekyll</p>
+  </div>
+</footer>
+
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 Koki Maeda • Last Updated: March 2025</p>
-        </div>
-    </footer>
-</body>
+    <script src="/assets/js/site.js"></script>
+    
+  </body>
 </html>
