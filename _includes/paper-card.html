@@ -11,7 +11,20 @@
   {% endif %}
   <p class="paper-authors">
     {% for author in paper.authors %}
-    <span class="paper-author">{{ author }}</span>{% unless forloop.last %}, {% endunless %} {% endfor %}
+    {% capture author_name -%}
+      {%- assign name = author | replace: ', ', ' ' | replace: ',', ' ' | strip -%}
+      {%- assign highlight = false -%}
+      {%- if name contains 'Koki Maeda' -%}
+        {%- assign highlight = true -%}
+      {%- elsif name contains '前田' and name contains '航希' -%}
+        {%- assign highlight = true -%}
+      {%- endif -%}
+      {%- if highlight -%}
+        {%- assign name = '<strong><u>' | append: name | append: '</u></strong>' -%}
+      {%- endif -%}
+      {{- name -}}
+    {%- endcapture %}
+    <span class="paper-author">{{ author_name | strip }}</span>{% unless forloop.last %}, {% endunless %} {% endfor %}
   </p>
   <div class="paper-links">
     {% assign pdf_url = paper.pdf | default: paper.pdf_link %} {% if pdf_url %} {% assign pdf_href = pdf_url %} {%
