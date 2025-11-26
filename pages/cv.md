@@ -198,6 +198,43 @@ lang: en
   </ol>
 </section>
 
+{% assign invited = site.data.invited_talks %}
+{% if invited %}
+  <section class="cv-section">
+    <h2>Invited Talks &amp; Workshops</h2>
+    <ol class="cv-pub-list">
+      {% for talk in invited %}
+        {% assign details = '' %}
+        {% if talk.event %}
+          {% assign details = details | append: talk.event %}
+        {% endif %}
+        {% if talk.location %}
+          {% if details != '' %}{% assign details = details | append: ' · ' %}{% endif %}
+          {% assign details = details | append: talk.location %}
+        {% endif %}
+        {% if talk.date %}
+          {% if details != '' %}{% assign details = details | append: ' · ' %}{% endif %}
+          {% assign details = details | append: talk.date %}
+        {% endif %}
+        {% if talk.note %}
+          {% if details != '' %}{% assign details = details | append: ' · ' %}{% endif %}
+          {% assign details = details | append: talk.note %}
+        {% endif %}
+        <li class="cv-pub-item">
+          {% if talk.url %}
+            <span class="cv-pub-title"><a href="{{ talk.url }}">{{ talk.title }}</a></span>
+          {% else %}
+            <span class="cv-pub-title">{{ talk.title }}</span>
+          {% endif %}
+          {% if details != '' %}
+            <span class="cv-pub-meta"> · {{ details }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+{% endif %}
+
 <section class="cv-section">
   <h2>Awards &amp; Fellowships</h2>
   <ul class="cv-list">

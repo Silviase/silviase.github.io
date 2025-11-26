@@ -1,0 +1,15 @@
+# Add invited talks, workshops, and symposium presentations here.
+# Example:
+# - title: "Multimodal Reasoning for Japanese Cultural Contexts"
+#   event: "Keynote, Vision-Language Workshop @ ABC 2024"
+#   location: "Kyoto, Japan"
+#   date: "2024-03-15"
+#   note: "Keynote address"
+#   url: "https://example.com/slides.pdf"
+
+- title: "評価の観点から見る国産VLMの現状"
+  event: "Japanese Symposium on Open Large Language Models"
+  location: "Tokyo, Japan"
+  date: "2025-11-26"
+  note: "Poster Presentation, Oral Session"
+  url: "https://llmc.nii.ac.jp/llmc_sympo2025/"
