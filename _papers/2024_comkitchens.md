@@ -14,6 +14,7 @@ description: Introducing a new vision-language dataset based on unedited overhea
   procedural cooking videos.
 date: 2024-09-29
 type: international
+featured: true
 firstpage: 1
 lastpage: 16
 pdf: https://doi.org/10.32130/rdata.6.1

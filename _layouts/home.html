@@ -3,6 +3,10 @@ layout: default
 ---
 
 {% assign profile = site.data.profile %}
+{% assign themes = site.data.research_themes %}
+{% assign featured_papers = site.papers | where: 'featured', true | sort: 'date' | reverse %}
+{% assign recent_papers = site.papers | sort: 'date' | reverse | where_exp: 'paper', 'paper.featured != true' %}
+
 <section class="hero">
   <div class="container hero-grid">
     <div class="hero-image">
@@ -13,22 +17,116 @@ layout: default
       <p class="hero-tagline">{{ profile.tagline }}</p>
       <p class="hero-bio">{{ profile.bio }}</p>
       <div class="hero-links">
-        {% for link in profile.contacts %} {% assign link_href = link.url %} {% unless link_href contains '://' or
-        link_href contains 'mailto:' %} {% assign link_href = link_href | relative_url %} {% endunless %}
-        <a href="{{ link_href }}">
-          {% if link.icon %}
-          <span class="hero-link-icon" aria-hidden="true">
-            {% case link.icon %} {% when 'mail' %}📧 {% when 'scholar' %}🎓 {% when 'github' %}🐙 {% when 'linkedin'
-            %}💼 {% when 'blog' %}📝 {% when 'cv' %}📄 {% else %}🔗 {% endcase %}
-          </span>
-          {% endif %}
-          <span class="hero-link-label">{{ link.label }}</span>
-        </a>
+        {% for link in profile.contacts %}
+          {% assign link_href = link.url %}
+          {% unless link_href contains '://' or link_href contains 'mailto:' %}
+            {% assign link_href = link_href | relative_url %}
+          {% endunless %}
+          <a href="{{ link_href }}">
+            {% if link.icon %}
+              <span class="hero-link-icon" aria-hidden="true">
+                {% case link.icon %}
+                  {% when 'mail' %}📧
+                  {% when 'scholar' %}🎓
+                  {% when 'github' %}🐙
+                  {% when 'linkedin' %}💼
+                  {% when 'blog' %}📝
+                  {% when 'cv' %}📄
+                  {% else %}🔗
+                {% endcase %}
+              </span>
+            {% endif %}
+            <span class="hero-link-label">{{ link.label }}</span>
+          </a>
         {% endfor %}
       </div>
     </div>
   </div>
 </section>
+
+{% if themes %}
+<section class="page-section research">
+  <div class="container">
+    <h2>Research Themes</h2>
+    <div class="pill-grid">
+      {% for item in themes %}
+      <article class="pill-card">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="page-section publications">
+  <div class="container">
+    <h2>Featured Publications</h2>
+    <div class="paper-list condensed">
+      {% if featured_papers and featured_papers.size > 0 %}
+        {% for paper in featured_papers limit:3 %}
+          {% include paper-card.html paper=paper %}
+        {% endfor %}
+      {% else %}
+        <p class="muted">Add <code>featured: true</code> to a paper to highlight it here.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="page-section publications">
+  <div class="container">
+    <h2>Recent Publications</h2>
+    <div class="paper-list condensed">
+      {% assign recent_count = 0 %}
+      {% for paper in recent_papers %}
+        {% if recent_count < 3 %}
+          {% include paper-card.html paper=paper %}
+          {% assign recent_count = recent_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="section-cta">
+      <a class="button ghost" href="{{ '/papers/' | relative_url }}">Browse full publication list</a>
+    </div>
+  </div>
+</section>
+
+{% assign talks = site.data.invited_talks %}
+{% if talks and talks.size > 0 %}
+<section class="page-section talks">
+  <div class="container">
+    <h2>Talks &amp; Workshops</h2>
+    <ol class="talk-list">
+      {% for talk in talks limit:3 %}
+        {% assign details = '' %}
+        {% if talk.event %}
+          {% assign details = details | append: talk.event %}
+        {% endif %}
+        {% if talk.location %}
+          {% if details != '' %}{% assign details = details | append: ' · ' %}{% endif %}
+          {% assign details = details | append: talk.location %}
+        {% endif %}
+        {% if talk.date %}
+          {% if details != '' %}{% assign details = details | append: ' · ' %}{% endif %}
+          {% assign details = details | append: talk.date %}
+        {% endif %}
+        <li>
+          {% if talk.url %}
+            <a href="{{ talk.url }}">{{ talk.title }}</a>
+          {% else %}
+            {{ talk.title }}
+          {% endif %}
+          {% if details != '' %}
+            <span class="talk-meta"> · {{ details }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+{% endif %}
 
 <section class="page-section education">
   <div class="container">
@@ -52,34 +150,9 @@ layout: default
   </div>
 </section>
 
-<section class="page-section publications">
-  <div class="container">
-    <h2>Recent Publications</h2>
-    <div class="paper-groups">
-      {% assign international = site.papers | where: 'type', 'international' | sort: 'date' | reverse %} {% assign
-      domestic = site.papers | where: 'type', 'domestic' | sort: 'date' | reverse %}
-      <div class="paper-group">
-        <h3>International Conferences</h3>
-        <div class="paper-list">
-          {% for paper in international limit:6 %} {% include paper-card.html paper=paper %} {% endfor %}
-        </div>
-      </div>
-      <div class="paper-group">
-        <h3>Domestic Conferences</h3>
-        <div class="paper-list">
-          {% for paper in domestic limit:6 %} {% include paper-card.html paper=paper %} {% endfor %}
-        </div>
-      </div>
-    </div>
-    <div class="section-cta">
-      <a class="button" href="{{ '/papers/' | relative_url }}">Browse full publication list</a>
-    </div>
-  </div>
-</section>
-
 <section class="page-section awards">
   <div class="container">
-    <h2>Awards & Fellowships</h2>
+    <h2>Awards &amp; Fellowships</h2>
     <ul class="badge-list">
       {% for award in site.data.awards %}
       <li class="badge">{{ award }}</li>
@@ -90,7 +163,7 @@ layout: default
 
 <section class="page-section skills">
   <div class="container">
-    <h2>Skills & Expertise</h2>
+    <h2>Skills &amp; Expertise</h2>
     <div class="skills-grid">
       {% for group in site.data.skills %}
       <article class="skill-group">

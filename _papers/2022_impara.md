@@ -10,6 +10,7 @@ description: Proposal of a new impact-based metric for grammatical error correct
   using parallel datasets.
 date: 2022-10-12
 type: international
+featured: true
 firstpage: 3578
 lastpage: 3588
 pdf: https://aclanthology.org/2022.coling-1.316.pdf

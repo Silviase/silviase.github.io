@@ -1,0 +1,6 @@
+- title: Multimodal Evaluation & Metrics
+  description: Building reliable evaluation protocols for vision-language models, with a focus on grounding and cultural nuance in Japanese contexts.
+- title: Instruction-Tuned Multimodal LLMs
+  description: Curating instruction datasets and training recipes that keep open-weight models aligned and deployable.
+- title: Structured Generation & Understanding
+  description: Teaching models to produce and consume structured outputs such as captions, diagrams, and graphs for real-world tasks.
