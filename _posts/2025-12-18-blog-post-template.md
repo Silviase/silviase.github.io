@@ -43,7 +43,11 @@ I need you to create an English design prompt that can be fed into a model for a
 
 たとえば、ShinkaEvolveフレームワークで貨物輸送の最適化タスクを実装した際、口頭説明だけでは理解を得るまでに時間がかかりました。タスクの詳細は [タスクのREADME.md](https://github.com/Silviase/ShinkaEvolve/tree/supply_chain/examples/supply_chain) に記載していますが、同じ内容を図として提示すると、議論の前提を短時間で共有できました。以下はREADMEの内容をそのままChatGPTに入力し、Nano Banana Proで生成した図です。
 
-<img width="1200" alt="image.png (1.2 MB)" src="../assets/images/blog/20251218/task_description.png">
+<img
+  width="1200"
+  alt="task_description.png (1.2 MB)"
+  src="{{ '/assets/images/blog/20251218/task_description.png' | relative_url }}"
+>
 
 図を補足しながら説明することで、輸送の流れを可視化したGIFなどを組み合わせる際にも理解が得られやすくなります。
 
