@@ -200,10 +200,7 @@ a:focus {
   color: var(--primary);
   font-size: 0.9rem;
   font-weight: 500;
-  transition:
-    border 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .hero-link-icon {
@@ -223,8 +220,6 @@ a:focus {
 .hero-links a:hover,
 .hero-links a:focus {
   border-color: var(--accent);
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-2px);
   text-decoration: none;
 }
 
@@ -261,14 +256,6 @@ a:focus {
   border-radius: var(--radius-md);
   border: 1px solid rgba(17, 24, 39, 0.04);
   box-shadow: var(--shadow-sm);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.timeline-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.1);
 }
 
 .timeline-years {
@@ -315,14 +302,6 @@ a:focus {
   border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
   box-shadow: none;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.paper-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.1);
 }
 
 .paper-card .paper-title {
@@ -435,14 +414,6 @@ a:focus {
   border: 1px solid rgba(17, 24, 39, 0.05);
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.skill-group:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.1);
 }
 
 .skill-group h3 {
@@ -521,14 +492,6 @@ a:focus {
   border-radius: var(--radius-md);
   border: 1px solid rgba(17, 24, 39, 0.05);
   box-shadow: var(--shadow-sm);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.post-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.1);
 }
 
 .post-card.compact {

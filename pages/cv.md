@@ -75,6 +75,27 @@ lang: en
   </ul>
 </section>
 
+{% assign experience = site.data.experience %}
+{% if experience and experience.size > 0 %}
+
+<section class="cv-section">
+  <h2>Experience</h2>
+  <ul class="cv-timeline">
+    {% for item in experience %}
+      <li class="cv-timeline-item">
+        <div class="cv-timeline-years">{{ item.years }}</div>
+        <div>
+          <h3>{{ item.role }}, {{ item.organization }}</h3>
+          {% if item.description and item.description != '' %}
+            <p>{{ item.description }}</p>
+          {% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
 {% assign cvpubs = site.data.cv_publications %}
 {% assign international_count = cvpubs.international | size %}
 

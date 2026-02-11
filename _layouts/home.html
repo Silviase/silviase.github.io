@@ -2,9 +2,7 @@
 layout: default
 ---
 
-{% assign profile = site.data.profile %} {% assign themes = site.data.research_themes %} {% assign featured_papers =
-site.papers | where: 'featured', true | sort: 'date' | reverse %} {% assign recent_papers = site.papers | sort: 'date' |
-reverse | where_exp: 'paper', 'paper.featured != true' %}
+{% assign profile = site.data.profile %} {% assign themes = site.data.research_themes %}
 
 <section class="hero">
   <div class="container hero-grid">
@@ -44,26 +42,13 @@ reverse | where_exp: 'paper', 'paper.featured != true' %}
     </div>
   </div>
 </section>
-{% endif %}
+{% endif %} {% assign all_papers = site.papers | sort: 'date' | reverse %}
 
 <section class="page-section publications">
   <div class="container">
-    <h2>Featured Publications</h2>
+    <h2>Publications</h2>
     <div class="paper-list condensed">
-      {% if featured_papers and featured_papers.size > 0 %} {% for paper in featured_papers limit:3 %} {% include
-      paper-card.html paper=paper %} {% endfor %} {% else %}
-      <p class="muted">Add <code>featured: true</code> to a paper to highlight it here.</p>
-      {% endif %}
-    </div>
-  </div>
-</section>
-
-<section class="page-section publications">
-  <div class="container">
-    <h2>Recent Publications</h2>
-    <div class="paper-list condensed">
-      {% assign recent_count = 0 %} {% for paper in recent_papers %} {% if recent_count < 3 %} {% include
-      paper-card.html paper=paper %} {% assign recent_count = recent_count | plus: 1 %} {% endif %} {% endfor %}
+      {% for paper in all_papers limit:5 %} {% include paper-card.html paper=paper %} {% endfor %}
     </div>
     <div class="section-cta">
       <a class="button ghost" href="{{ '/papers/' | relative_url }}">Browse full publication list</a>
@@ -90,6 +75,23 @@ reverse | where_exp: 'paper', 'paper.featured != true' %}
       </li>
       {% endfor %}
     </ol>
+  </div>
+</section>
+{% endif %} {% assign experience = site.data.experience %} {% if experience and experience.size > 0 %}
+<section class="page-section experience">
+  <div class="container">
+    <h2>Experience</h2>
+    <div class="timeline">
+      {% for item in experience %}
+      <article class="timeline-item">
+        <p class="timeline-years">{{ item.years }}</p>
+        <h3 class="timeline-title">{{ item.role }}, {{ item.organization }}</h3>
+        {% if item.description and item.description != '' %}
+        <p class="timeline-description">{{ item.description }}</p>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
   </div>
 </section>
 {% endif %}
