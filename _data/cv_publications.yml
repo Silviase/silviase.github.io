@@ -1,4 +1,9 @@
 international:
+  - id: 2026_hatch
+    date: 'February 2026'
+    pages: 'arXiv preprint'
+    page_count: '15 pages'
+    column: 'Double column'
   - id: 2025_whywe
     date: 'October 2025'
     location: 'Montreal, Canada'
