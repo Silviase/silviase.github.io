@@ -1,7 +1,7 @@
 # Site settings
 title: 'Koki Maeda'
 description: 'Doctoral student exploring multimodal vision-and-language systems, evaluation metrics, and context-aware captioning.'
-url: 'https://silviase.github.io'
+url: 'https://silviase.com'
 baseurl: ''
 timezone: 'Asia/Tokyo'
 markdown: kramdown
@@ -16,6 +16,10 @@ collections:
 
 # Default front matter values
 defaults:
+  - scope:
+      path: ''
+    values:
+      image: /assets/face/202503.png
   - scope:
       path: ''
       type: 'pages'
@@ -39,10 +43,23 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# SEO
+author: Koki Maeda
+locale: en_US
+twitter:
+  card: summary
+  username: silviasetitech
+social:
+  name: Koki Maeda
+  links:
+    - https://github.com/Silviase
+    - https://scholar.google.com/citations?user=TOHpU1IAAAAJ
+    - https://linkedin.com/in/silviase
+
 # Sass / assets
 sass:
   sass_dir: assets/css
-  style: expanded
+  style: compressed
 
 # Build settings
 exclude:
@@ -53,5 +70,4 @@ exclude:
   - README.md
   - CLAUDE.md
   - AGENTS.md
-  - 5_Build with Jekyll.txt
   - .cursor

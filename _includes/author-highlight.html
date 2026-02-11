@@ -1,0 +1,6 @@
+{%- for author in include.authors -%} {%- assign name = author | replace: ', ', ' ' | replace: ',', ' ' | strip -%} {%-
+assign highlight = false -%} {%- if name contains 'Koki Maeda' -%} {%- assign highlight = true -%} {%- elsif name
+contains '前田' and name contains '航希' -%} {%- assign highlight = true -%} {%- endif -%} {%- if highlight -%} {%-
+assign name = '<strong><u>' | append: name | append: '</u></strong
+>' -%} {%- endif -%} {%- if forloop.last -%} {{- name -}}{{ include.last_sep -}} {%- else -%} {{- name -}}, {% endif -%}
+{%- endfor -%}

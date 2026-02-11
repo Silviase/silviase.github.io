@@ -87,48 +87,8 @@ lang: en
       {% assign paper = site.papers | where: 'slug', entry.id | first %}
       {% assign authors = paper.authors | default: entry.authors %}
       {% assign venue = paper.venue | default: paper.journal %}
-      {% capture author_line -%}
-        {%- for author in authors -%}
-          {%- assign name = author | replace: ', ', ' ' | replace: ',', ' ' | strip -%}
-          {%- assign highlight = false -%}
-          {%- if name contains 'Koki Maeda' -%}
-            {%- assign highlight = true -%}
-          {%- elsif name contains '前田' and name contains '航希' -%}
-            {%- assign highlight = true -%}
-          {%- endif -%}
-          {%- if highlight -%}
-            {%- assign name = '<strong><u>' | append: name | append: '</u></strong>' -%}
-          {%- endif -%}
-          {{- name -}}{%- if forloop.last -%}.{%- else -%}, {% endif -%}
-        {%- endfor -%}
-      {%- endcapture %}
-      {% assign meta_string = '' %}
-      {% if entry.location %}
-        {% if meta_string != '' %}{% assign meta_string = meta_string | append: '||' %}{% endif %}
-        {% assign meta_string = meta_string | append: entry.location %}
-      {% endif %}
-      {% if entry.date %}
-        {% if meta_string != '' %}{% assign meta_string = meta_string | append: '||' %}{% endif %}
-        {% assign meta_string = meta_string | append: entry.date %}
-      {% endif %}
-      {% if venue %}
-        {% if meta_string != '' %}{% assign meta_string = meta_string | append: '||' %}{% endif %}
-        {% assign meta_string = meta_string | append: venue %}
-      {% endif %}
-      {% if entry.pages %}
-        {% if meta_string != '' %}{% assign meta_string = meta_string | append: '||' %}{% endif %}
-        {% assign meta_string = meta_string | append: entry.pages %}
-      {% endif %}
-      {% if entry.page_count %}
-        {% if meta_string != '' %}{% assign meta_string = meta_string | append: '||' %}{% endif %}
-        {% assign meta_string = meta_string | append: entry.page_count %}
-      {% endif %}
-      {% if entry.column %}
-        {% if meta_string != '' %}{% assign meta_string = meta_string | append: '||' %}{% endif %}
-        {% assign meta_string = meta_string | append: entry.column %}
-      {% endif %}
-      {% assign meta_parts = meta_string | split: '||' %}
-      {% assign meta_line = meta_parts | join: ' · ' %}
+      {% capture author_line %}{% include author-highlight.html authors=authors last_sep="." %}{% endcapture %}
+      {% include cv-pub-meta.html entry=entry venue=venue %}
       <li class="cv-pub-item">
         <span class="cv-pub-authors">{{ author_line | strip }}</span>
         <span class="cv-pub-title"> <em>{{ paper.title }}</em></span>
@@ -145,48 +105,8 @@ lang: en
       {% assign paper = site.papers | where: 'slug', entry.id | first %}
       {% assign authors = paper.authors | default: entry.authors %}
       {% assign venue = paper.venue | default: paper.journal %}
-      {% capture author_line -%}
-        {%- for author in authors -%}
-          {%- assign name = author | replace: ', ', ' ' | replace: ',', ' ' | strip -%}
-          {%- assign highlight = false -%}
-          {%- if name contains 'Koki Maeda' -%}
-            {%- assign highlight = true -%}
-          {%- elsif name contains '前田' and name contains '航希' -%}
-            {%- assign highlight = true -%}
-          {%- endif -%}
-          {%- if highlight -%}
-            {%- assign name = '<strong><u>' | append: name | append: '</u></strong>' -%}
-          {%- endif -%}
-          {{- name -}}{%- if forloop.last -%}.{%- else -%}, {% endif -%}
-        {%- endfor -%}
-      {%- endcapture %}
-      {% assign meta_string = '' %}
-      {% if entry.location %}
-        {% if meta_string != '' %}{% assign meta_string = meta_string | append: '||' %}{% endif %}
-        {% assign meta_string = meta_string | append: entry.location %}
-      {% endif %}
-      {% if entry.date %}
-        {% if meta_string != '' %}{% assign meta_string = meta_string | append: '||' %}{% endif %}
-        {% assign meta_string = meta_string | append: entry.date %}
-      {% endif %}
-      {% if venue %}
-        {% if meta_string != '' %}{% assign meta_string = meta_string | append: '||' %}{% endif %}
-        {% assign meta_string = meta_string | append: venue %}
-      {% endif %}
-      {% if entry.pages %}
-        {% if meta_string != '' %}{% assign meta_string = meta_string | append: '||' %}{% endif %}
-        {% assign meta_string = meta_string | append: entry.pages %}
-      {% endif %}
-      {% if entry.page_count %}
-        {% if meta_string != '' %}{% assign meta_string = meta_string | append: '||' %}{% endif %}
-        {% assign meta_string = meta_string | append: entry.page_count %}
-      {% endif %}
-      {% if entry.column %}
-        {% if meta_string != '' %}{% assign meta_string = meta_string | append: '||' %}{% endif %}
-        {% assign meta_string = meta_string | append: entry.column %}
-      {% endif %}
-      {% assign meta_parts = meta_string | split: '||' %}
-      {% assign meta_line = meta_parts | join: ' · ' %}
+      {% capture author_line %}{% include author-highlight.html authors=authors last_sep="." %}{% endcapture %}
+      {% include cv-pub-meta.html entry=entry venue=venue %}
       <li class="cv-pub-item">
         <span class="cv-pub-authors">{{ author_line | strip }}</span>
         <span class="cv-pub-title"> <em>{{ paper.title }}</em></span>

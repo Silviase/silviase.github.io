@@ -1,0 +1,13 @@
+{%- assign meta_string = '' -%} {%- if include.entry.location -%} {%- if meta_string != '' -%}{%- assign meta_string =
+meta_string | append: '||' -%}{%- endif -%} {%- assign meta_string = meta_string | append: include.entry.location -%}
+{%- endif -%} {%- if include.entry.date -%} {%- if meta_string != '' -%}{%- assign meta_string = meta_string | append:
+'||' -%}{%- endif -%} {%- assign meta_string = meta_string | append: include.entry.date -%} {%- endif -%} {%- if
+include.venue -%} {%- if meta_string != '' -%}{%- assign meta_string = meta_string | append: '||' -%}{%- endif -%} {%-
+assign meta_string = meta_string | append: include.venue -%} {%- endif -%} {%- if include.entry.pages -%} {%- if
+meta_string != '' -%}{%- assign meta_string = meta_string | append: '||' -%}{%- endif -%} {%- assign meta_string =
+meta_string | append: include.entry.pages -%} {%- endif -%} {%- if include.entry.page_count -%} {%- if meta_string != ''
+-%}{%- assign meta_string = meta_string | append: '||' -%}{%- endif -%} {%- assign meta_string = meta_string | append:
+include.entry.page_count -%} {%- endif -%} {%- if include.entry.column -%} {%- if meta_string != '' -%}{%- assign
+meta_string = meta_string | append: '||' -%}{%- endif -%} {%- assign meta_string = meta_string | append:
+include.entry.column -%} {%- endif -%} {%- assign meta_parts = meta_string | split: '||' -%} {%- assign meta_line =
+meta_parts | join: ' · ' -%}

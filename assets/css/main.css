@@ -11,6 +11,9 @@
   --shadow-sm: 0 6px 18px rgba(17, 24, 39, 0.06);
   --radius-sm: 8px;
   --radius-md: 14px;
+  --radius-pill: 999px;
+  --code-bg: #0f172a;
+  --code-text: #e2e8f0;
 }
 
 *,
@@ -100,7 +103,7 @@ a:focus {
 
 .site-nav a {
   padding: 0.35rem 0.85rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: transparent;
   color: var(--text-muted);
   font-size: 0.95rem;
@@ -176,7 +179,7 @@ a:focus {
   align-items: center;
   gap: 0.4rem;
   padding: 0.45rem 0.9rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--primary);
@@ -223,7 +226,7 @@ a:focus {
   left: 0;
   width: 3.5rem;
   height: 3px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--accent);
 }
 
@@ -315,7 +318,7 @@ a:focus {
   padding: 0.4rem 0.95rem;
   font-size: 0.9rem;
   font-weight: 600;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   border: 1px solid var(--accent);
   color: var(--accent);
   background: rgba(18, 149, 127, 0.08);
@@ -377,7 +380,7 @@ a:focus {
 .awards .badge {
   padding: 0.35rem 0.85rem;
   background: var(--primary-light);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: var(--primary);
   font-size: 0.9rem;
   font-weight: 500;
@@ -558,8 +561,8 @@ a:focus {
 }
 
 .paper-bibtex pre {
-  background: #0f172a;
-  color: #e2e8f0;
+  background: var(--code-bg);
+  color: var(--code-text);
   padding: 1rem;
   border-radius: var(--radius-sm);
   overflow-x: auto;
