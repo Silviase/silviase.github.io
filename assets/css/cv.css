@@ -146,6 +146,20 @@
   gap: 0.35rem;
 }
 
+.cv-timeline-item--with-logo {
+  grid-template-columns: 28px 1fr;
+  gap: 0.35rem 0.75rem;
+  align-items: start;
+}
+
+.cv-timeline-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-top: 0.1rem;
+}
+
 .cv-timeline-years {
   font-weight: 600;
   color: var(--cv-timeline-accent);

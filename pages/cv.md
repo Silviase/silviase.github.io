@@ -82,9 +82,12 @@ lang: en
   <h2>Experience</h2>
   <ul class="cv-timeline">
     {% for item in experience %}
-      <li class="cv-timeline-item">
-        <div class="cv-timeline-years">{{ item.years }}</div>
+      <li class="cv-timeline-item cv-timeline-item--with-logo">
+        {% if item.logo %}
+          <img class="cv-timeline-logo" src="{{ item.logo | relative_url }}" alt="{{ item.organization }}" loading="lazy" />
+        {% endif %}
         <div>
+          <div class="cv-timeline-years">{{ item.years }}</div>
           <h3>{{ item.role }}, {{ item.organization }}</h3>
           {% if item.description and item.description != '' %}
             <p>{{ item.description }}</p>

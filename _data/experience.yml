@@ -1,4 +1,46 @@
 - years: 'Jan 2026 – Present'
-  role: Research Intern
+  role: Applied Research Engineer (Internship)
   organization: Sakana AI
+  logo: /assets/logos/sakana.ico
   description: ''
+
+- years: 'Jun 2024 – Present'
+  role: Research Assistant
+  organization: National Institute of Informatics
+  logo: /assets/logos/nii.ico
+  description: ''
+
+- years: 'Jul 2024 – Mar 2025'
+  role: Engineering Internship
+  organization: Sherpa & Company
+  description: ''
+
+- years: 'Jul 2022 – Aug 2024'
+  role: Research Part-timer
+  organization: RIKEN AIP
+  logo: /assets/logos/riken.ico
+  description: 'Vision and Language research at the Language Information Access Technology Team.'
+
+- years: 'Jun 2023 – Jan 2024'
+  role: Research Internship
+  organization: OMRON SINIC X
+  logo: /assets/logos/omron-sinicx.ico
+  description: ''
+
+- years: 'Dec 2021 – Dec 2022'
+  role: Research Assistant
+  organization: Tokyo Institute of Technology
+  logo: /assets/logos/titech.ico
+  description: ''
+
+- years: 'Aug 2022 – Sep 2022'
+  role: Summer Internship
+  organization: NTT Research Institute
+  logo: /assets/logos/ntt.ico
+  description: 'Parameter-efficient pre-training methods for CLIP in Vision and Language tasks.'
+
+- years: 'Feb 2021 – Mar 2022'
+  role: Strategic AI Group
+  organization: Future Corporation
+  logo: /assets/logos/future.ico
+  description: 'SNS data analysis and annotation guideline creation.'

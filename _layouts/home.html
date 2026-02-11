@@ -83,12 +83,17 @@ layout: default
     <h2>Experience</h2>
     <div class="timeline">
       {% for item in experience %}
-      <article class="timeline-item">
-        <p class="timeline-years">{{ item.years }}</p>
-        <h3 class="timeline-title">{{ item.role }}, {{ item.organization }}</h3>
-        {% if item.description and item.description != '' %}
-        <p class="timeline-description">{{ item.description }}</p>
+      <article class="timeline-item timeline-item--with-logo">
+        {% if item.logo %}
+        <img class="timeline-logo" src="{{ item.logo | relative_url }}" alt="{{ item.organization }}" loading="lazy" />
         {% endif %}
+        <div>
+          <p class="timeline-years">{{ item.years }}</p>
+          <h3 class="timeline-title">{{ item.role }}, {{ item.organization }}</h3>
+          {% if item.description and item.description != '' %}
+          <p class="timeline-description">{{ item.description }}</p>
+          {% endif %}
+        </div>
       </article>
       {% endfor %}
     </div>
