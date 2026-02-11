@@ -281,19 +281,57 @@ a:focus {
   margin: 0.6rem 0 0;
 }
 
-.timeline-item--with-logo {
+.exp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: 36px 1fr;
-  gap: 1rem;
-  align-items: start;
+  gap: 0;
 }
 
-.timeline-logo {
-  width: 36px;
-  height: 36px;
+.exp-item {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 0.85rem;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.exp-item:last-child {
+  border-bottom: none;
+}
+
+.exp-logo {
+  width: 32px;
+  height: 32px;
   object-fit: contain;
   border-radius: 6px;
-  margin-top: 0.15rem;
+}
+
+.exp-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.exp-header {
+  display: flex;
+  gap: 0.4rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.exp-org {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.exp-years {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
 }
 
 .paper-groups {
@@ -664,6 +702,13 @@ a:focus {
 
   .timeline-item {
     text-align: left;
+  }
+}
+
+@media (max-width: 720px) {
+  .exp-body {
+    flex-direction: column;
+    gap: 0.15rem;
   }
 }
 

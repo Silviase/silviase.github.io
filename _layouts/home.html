@@ -81,22 +81,22 @@ layout: default
 <section class="page-section experience">
   <div class="container">
     <h2>Experience</h2>
-    <div class="timeline">
+    <ul class="exp-list">
       {% for item in experience %}
-      <article class="timeline-item timeline-item--with-logo">
+      <li class="exp-item">
         {% if item.logo %}
-        <img class="timeline-logo" src="{{ item.logo | relative_url }}" alt="{{ item.organization }}" loading="lazy" />
+        <img class="exp-logo" src="{{ item.logo | relative_url }}" alt="{{ item.organization }}" loading="lazy" />
         {% endif %}
-        <div>
-          <p class="timeline-years">{{ item.years }}</p>
-          <h3 class="timeline-title">{{ item.role }}, {{ item.organization }}</h3>
-          {% if item.description and item.description != '' %}
-          <p class="timeline-description">{{ item.description }}</p>
-          {% endif %}
+        <div class="exp-body">
+          <div class="exp-header">
+            <strong>{{ item.role }}</strong>
+            <span class="exp-org">{{ item.organization }}</span>
+          </div>
+          <span class="exp-years">{{ item.years }}</span>
         </div>
-      </article>
+      </li>
       {% endfor %}
-    </div>
+    </ul>
   </div>
 </section>
 {% endif %}
