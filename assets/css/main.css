@@ -290,11 +290,10 @@ a:focus {
 }
 
 .exp-item {
-  display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: 0.85rem;
+  display: flex;
   align-items: center;
-  padding: 0.75rem 0;
+  gap: 0.75rem;
+  padding: 0.65rem 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -303,32 +302,29 @@ a:focus {
 }
 
 .exp-logo {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
   object-fit: contain;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
-.exp-body {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
+.exp-role {
+  font-weight: 600;
 }
 
-.exp-header {
-  display: flex;
-  gap: 0.4rem;
-  align-items: baseline;
-  flex-wrap: wrap;
+.exp-org::before {
+  content: '·';
+  margin: 0 0.35rem;
+  color: var(--text-muted);
 }
 
 .exp-org {
   color: var(--text-muted);
-  font-size: 0.95rem;
 }
 
 .exp-years {
+  margin-left: auto;
   color: var(--text-muted);
   font-size: 0.85rem;
   white-space: nowrap;
@@ -706,9 +702,15 @@ a:focus {
 }
 
 @media (max-width: 720px) {
-  .exp-body {
-    flex-direction: column;
-    gap: 0.15rem;
+  .exp-item {
+    flex-wrap: wrap;
+  }
+
+  .exp-years {
+    margin-left: 0;
+    flex-basis: 100%;
+    padding-left: calc(28px + 0.75rem);
+    font-size: 0.8rem;
   }
 }
 
