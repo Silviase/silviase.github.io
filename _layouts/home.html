@@ -86,9 +86,11 @@ layout: default
       <li class="exp-item">
         {% if item.logo %}
         <img class="exp-logo" src="{{ item.logo | relative_url }}" alt="{{ item.organization }}" loading="lazy" />
+        {% else %}
+        <span></span>
         {% endif %}
-        <span class="exp-role">{{ item.role }}</span>
         <span class="exp-org">{{ item.organization }}</span>
+        <span class="exp-role">{{ item.role }}</span>
         <span class="exp-years">{{ item.years }}</span>
       </li>
       {% endfor %}
