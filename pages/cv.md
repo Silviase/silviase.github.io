@@ -120,6 +120,7 @@ lang: en
 
 {% assign invited = site.data.invited_talks %}
 {% if invited %}
+
   <section class="cv-section">
     <h2>Invited Talks &amp; Workshops</h2>
     <ol class="cv-pub-list">

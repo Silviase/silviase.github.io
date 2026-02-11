@@ -7,9 +7,9 @@
 #   note: "Keynote address"
 #   url: "https://example.com/slides.pdf"
 
-- title: "評価の観点から見る国産VLMの現状"
-  event: "Japanese Symposium on Open Large Language Models"
-  location: "Tokyo, Japan"
-  date: "2025-11-26"
-  note: "Poster Presentation, Oral Session"
-  url: "https://llmc.nii.ac.jp/llmc_sympo2025/"
+- title: '評価の観点から見る国産VLMの現状'
+  event: 'Japanese Symposium on Open Large Language Models'
+  location: 'Tokyo, Japan'
+  date: '2025-11-26'
+  note: 'Poster Presentation, Oral Session'
+  url: 'https://llmc.nii.ac.jp/llmc_sympo2025/'

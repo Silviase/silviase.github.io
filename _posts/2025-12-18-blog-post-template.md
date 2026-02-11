@@ -27,8 +27,8 @@ excerpt: 'Nano Banana ProとChatGPTでFig.1を効率的に準備する'
 4. 生成された画像を取得し、議論や資料作成に活用します。
 
 ```plaintext
-For my research paper, I would like to propose the following task. 
-To clearly visualize the task overview in Figure 1, 
+For my research paper, I would like to propose the following task.
+To clearly visualize the task overview in Figure 1,
 I need you to create an English design prompt that can be fed into a model for automatic generation.
 {{description}}
 ```
@@ -44,9 +44,10 @@ I need you to create an English design prompt that can be fed into a model for a
 たとえば、ShinkaEvolveフレームワークで貨物輸送の最適化タスクを実装した際、口頭説明だけでは理解を得るまでに時間がかかりました。タスクの詳細は [タスクのREADME.md](https://github.com/Silviase/ShinkaEvolve/tree/supply_chain/examples/supply_chain) に記載していますが、同じ内容を図として提示すると、議論の前提を短時間で共有できました。以下はREADMEの内容をそのままChatGPTに入力し、Nano Banana Proで生成した図です。
 
 <img
-  width="1200"
-  alt="task_description.png (1.2 MB)"
-  src="{{ '/assets/images/blog/20251218/task_description.png' | relative_url }}"
+width="1200"
+alt="task_description.png (1.2 MB)"
+src="{{ '/assets/images/blog/20251218/task_description.png' | relative_url }}"
+
 >
 
 図を補足しながら説明することで、輸送の流れを可視化したGIFなどを組み合わせる際にも理解が得られやすくなります。
@@ -55,11 +56,11 @@ I need you to create an English design prompt that can be fed into a model for a
 
 利点だけでなく、次のような制約も認識しておきたいところです。
 
-* **具体的な事例を含むFig.1は自動生成が難しい**  
+- **具体的な事例を含むFig.1は自動生成が難しい**  
   例示が必要な場合は、別途自分で素材を用意するなどの工夫が求められます。
-* **生成品質はあくまでドラフトレベル**  
+- **生成品質はあくまでドラフトレベル**  
   練り上げたFig.1より情報量や精緻さで劣ることが多いです。出力を参考に、最終図を整える前提で活用してください。
-* **内容に誤りが混入する可能性がある**  
+- **内容に誤りが混入する可能性がある**  
   ChatGPTとGeminiを経由するため、まとめの段階で誤りが入り込む場合があります。必ず人手で検証してください。
 
 ## 本質

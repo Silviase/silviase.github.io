@@ -26,11 +26,11 @@ layout: default
         {% assign pdf_url = page.pdf | default: page.pdf_link %} {% if pdf_url %} {% assign pdf_href = pdf_url %} {%
         unless pdf_href contains '://' %} {% assign pdf_href = pdf_href | relative_url %} {% endunless %}
         <a class="button" href="{{ pdf_href }}" target="_blank" rel="noopener">
-          <span aria-hidden="true">📄</span> PDF
+          <span aria-hidden="true">{% include icon.html name="cv" %}</span> PDF
         </a>
         {% endif %} {% if page.code_link %}
         <a class="button" href="{{ page.code_link }}" target="_blank" rel="noopener">
-          <span aria-hidden="true">💻</span> Code
+          <span aria-hidden="true">{% include icon.html name="github" %}</span> Code
         </a>
         {% endif %}
       </div>
