@@ -105,7 +105,7 @@ lang: en
 <section class="cv-section">
   <h2>Publications</h2>
 
-  <h3>International Conferences &amp; Workshops</h3>
+  <h3>International Publications &amp; Preprints</h3>
   <ol class="cv-pub-list">
     {% for entry in cvpubs.international %}
       {% assign paper = site.papers | where: 'slug', entry.id | first %}
