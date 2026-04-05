@@ -721,10 +721,6 @@ a:focus {
   margin: 0;
 }
 
-.muted {
-  color: var(--text-muted);
-}
-
 .site-footer {
   background: var(--surface);
   border-top: 1px solid var(--border);
