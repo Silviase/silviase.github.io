@@ -9,6 +9,9 @@ authors:
   - Naoaki Okazaki
 venue: arXiv preprint
 date: 2026-02-09
+description: Proposes a framework for evaluating human-like multi-image spatial reasoning
+  in multi-modal large language models, analyzing how models establish correspondence
+  across images and translate spatial understanding into actions.
 type: international
 pdf: /assets/papers/hatch-2026.pdf
 bibtex: |
