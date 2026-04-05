@@ -528,6 +528,12 @@ a:focus {
   margin-bottom: 1rem;
 }
 
+.paper-group--featured {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
 .post-list {
   display: grid;
   gap: 1.5rem;
