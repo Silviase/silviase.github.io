@@ -18,7 +18,7 @@ authors:
   - Naoaki Okazaki
 venue: The 1st Workshop on Multilingual and Equitable Language Technologies (MELT)
 date: 2025-07-22
-type: domestic
+type: international
 firstpage: 1
 lastpage: 15
 bibtex: '@inproceedings{}'
