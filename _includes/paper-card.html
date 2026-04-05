@@ -1,4 +1,4 @@
-<article class="paper-card">
+<article class="paper-card" data-year="{{ paper.date | date: '%Y' }}" data-type="{{ paper.type }}">
   <h3 class="paper-title">
     <a href="{{ paper.url | relative_url }}">{{ paper.title }}</a>
   </h3>
