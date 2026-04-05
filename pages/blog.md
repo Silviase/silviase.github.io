@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Blog
+title: Research Notes
 permalink: /blog/
-intro: 'Long-form notes on multimodal research, evaluation, and community updates.'
+intro: 'Practical tips, tool reviews, and lessons learned from multimodal and NLP research. For formal publications, see <a href="/papers/">Papers</a>.'
 ---
