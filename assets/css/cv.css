@@ -224,6 +224,30 @@
   color: var(--cv-bullet);
 }
 
+[data-theme='dark'] .layout-cv {
+  --cv-title: #ededed;
+  --cv-heading: #d0d0d0;
+  --cv-text: #d0d0d0;
+  --cv-text-muted: #a0a0a0;
+  --cv-text-secondary: #b0b0b0;
+  --cv-timeline-accent: #18e299;
+  --cv-link: #a0a0a0;
+  --cv-link-hover: #ededed;
+  --cv-bullet: #18e299;
+  --cv-shadow: rgba(0, 0, 0, 0.4);
+  --cv-shadow-photo: rgba(0, 0, 0, 0.5);
+
+  background: var(--bg);
+}
+
+[data-theme='dark'] .cv-container {
+  background: var(--surface);
+}
+
+[data-theme='dark'] .cv-contact a {
+  color: var(--cv-text-muted);
+}
+
 @media (max-width: 720px) {
   .cv-header {
     flex-direction: column;
