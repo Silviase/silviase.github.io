@@ -11,7 +11,7 @@ venue: '情報処理学会 第263回自然言語処理研究会 研究報告 (20
 date: 2024-11-01
 type: domestic
 description: '視覚言語モデルにおける日本文化・日常生活知識理解を評価するための MECHA-Ja ベンチマークを提案。'
-pdf: /assets/papers/2024_mechaja.pdf
+pdf:
 bibtex: |
   @inproceedings{maeda2024mechaja,
     title = {日本の文化常識・日常生活知識理解のための視覚言語ベンチマーク MECHA-Ja の構築},
