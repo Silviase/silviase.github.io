@@ -17,7 +17,9 @@
     {% endif %} {% if paper.code_link %}
     <a class="paper-link" href="{{ paper.code_link }}" target="_blank" rel="noopener">Code</a>
     {% endif %} {% if paper.bibtex %}
-    <button class="paper-link copy-bibtex" data-bibtex="{{ paper.bibtex | escape }}">Copy BibTeX</button>
+    <button class="paper-link copy-bibtex" data-bibtex="{{ paper.bibtex | escape }}">
+      {% include t.html key="btn_copy_bibtex" %}
+    </button>
     {% endif %}
   </div>
 </article>
