@@ -11,9 +11,13 @@
       default: page.path %} {% for item in nav_items %} {% assign item_url = item.url | relative_url %} {% assign
       is_active = false %} {% if current_url == item.url %} {% assign is_active = true %} {% elsif item.url != '/' and
       current_url and current_url != '/' and current_url contains item.url %} {% assign is_active = true %} {% endif %}
-      <a href="{{ item_url }}" class="{% if is_active %}active{% endif %}">{{ item.title }}</a>
+      <a href="{{ item_url }}" class="{% if is_active %}active{% endif %}">{% include t.html key=item.i18n_key %}</a>
       {% endfor %}
       <div class="site-controls">
+        <button class="lang-toggle" type="button" aria-label="Switch language">
+          <span class="lang-label-en">JP</span>
+          <span class="lang-inactive">EN</span>
+        </button>
         <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
           <svg
             class="icon-sun"

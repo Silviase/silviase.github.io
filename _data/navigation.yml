@@ -1,8 +1,8 @@
-- title: Home
+- i18n_key: nav_home
   url: /
-- title: CV
+- i18n_key: nav_cv
   url: /cv/
-- title: Papers
+- i18n_key: nav_papers
   url: /papers/
-- title: Notes
+- i18n_key: nav_notes
   url: /blog/

@@ -12,6 +12,10 @@
       <main class="site-main">{{ content }}</main>
       {% include footer.html %}
     </div>
+    <div hidden>
+      <span data-i18n-key="btn_copied">{% include t.html key="btn_copied" %}</span>
+      <span data-i18n-key="btn_copy_failed">{% include t.html key="btn_copy_failed" %}</span>
+    </div>
     <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
     {% if page.extra_js %} {% for script in page.extra_js %}
     <script src="{{ script | relative_url }}"></script>

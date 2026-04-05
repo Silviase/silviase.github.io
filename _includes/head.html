@@ -4,10 +4,15 @@
   (function () {
     try {
       var t = localStorage.getItem('theme');
+      var l = localStorage.getItem('lang');
     } catch (e) {
       return;
     }
     if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    if (l === 'ja') {
+      document.documentElement.setAttribute('data-lang', 'ja');
+      document.documentElement.lang = 'ja';
+    }
   })();
 </script>
 <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml" />

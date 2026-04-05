@@ -1,0 +1,100 @@
+# UI labels — Single Source of Truth for EN/JP translations
+# Usage: {% include t.html key="nav_home" %}
+
+# Navigation
+nav_home:
+  en: Home
+  ja: ホーム
+nav_cv:
+  en: CV
+  ja: 履歴書
+nav_papers:
+  en: Papers
+  ja: 論文一覧
+nav_notes:
+  en: Notes
+  ja: ノート
+
+# Home page sections
+section_research:
+  en: Research Themes
+  ja: 研究テーマ
+section_publications:
+  en: Publications
+  ja: 論文
+section_talks:
+  en: 'Talks &amp; Workshops'
+  ja: '招待講演・ワークショップ'
+section_experience:
+  en: Experience
+  ja: 職歴・インターン
+section_education:
+  en: Education
+  ja: 学歴
+section_awards:
+  en: 'Awards &amp; Fellowships'
+  ja: '受賞・フェローシップ'
+section_skills:
+  en: 'Skills &amp; Expertise'
+  ja: 'スキル・専門分野'
+
+# Buttons & links
+btn_browse_papers:
+  en: Browse full publication list
+  ja: 論文一覧を見る
+btn_copy_bibtex:
+  en: Copy BibTeX
+  ja: BibTeX をコピー
+btn_copied:
+  en: Copied!
+  ja: コピーしました！
+btn_copy_failed:
+  en: Copy failed
+  ja: コピー失敗
+
+# Papers page
+papers_title:
+  en: Papers
+  ja: 論文一覧
+papers_recent:
+  en: Recent Work
+  ja: 最近の研究
+papers_international:
+  en: 'International Publications &amp; Preprints'
+  ja: '国際会議・プレプリント'
+papers_domestic:
+  en: Domestic Conferences
+  ja: 国内会議
+papers_filter_type:
+  en: Type
+  ja: 種別
+papers_filter_all:
+  en: All
+  ja: すべて
+papers_filter_international:
+  en: International
+  ja: 国際
+papers_filter_domestic:
+  en: Domestic
+  ja: 国内
+papers_filter_year:
+  en: Year
+  ja: 年度
+papers_filter_all_years:
+  en: All years
+  ja: すべての年度
+
+# Blog
+blog_no_posts:
+  en: No posts yet. Check back soon!
+  ja: まだ記事はありません。もう少々お待ちください！
+
+# Footer
+footer_built_with:
+  en: Built with Jekyll
+  ja: Jekyll で構築
+
+# Education
+label_advisors:
+  en: 'Advisors:'
+  ja: '指導教員：'

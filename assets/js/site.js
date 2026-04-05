@@ -1,7 +1,26 @@
+var I18N_DATA = {};
+
 document.addEventListener('DOMContentLoaded', () => {
+  buildI18nMap();
   wireCopyButtons();
   wireThemeToggle();
+  wireLangToggle();
 });
+
+function buildI18nMap() {
+  document.querySelectorAll('[data-i18n-key]').forEach((el) => {
+    var key = el.getAttribute('data-i18n-key');
+    var en = el.querySelector('[data-i18n="en"]');
+    var ja = el.querySelector('[data-i18n="ja"]');
+    if (en && ja) I18N_DATA[key] = { en: en.textContent.trim(), ja: ja.textContent.trim() };
+  });
+}
+
+function i18nText(key, fallback) {
+  var lang = document.documentElement.getAttribute('data-lang') || 'en';
+  var entry = I18N_DATA[key];
+  return entry ? entry[lang] || entry.en : fallback;
+}
 
 function wireCopyButtons() {
   const buttons = document.querySelectorAll('.copy-bibtex');
@@ -15,10 +34,10 @@ function wireCopyButtons() {
 
       try {
         await navigator.clipboard.writeText(bibtex);
-        showCopyFeedback(button, 'Copied!', 2000);
+        showCopyFeedback(button, i18nText('btn_copied', 'Copied!'), 2000);
       } catch (error) {
         console.error('Failed to copy BibTeX', error);
-        showCopyFeedback(button, 'Copy failed', 2000);
+        showCopyFeedback(button, i18nText('btn_copy_failed', 'Copy failed'), 2000);
       }
     });
   });
@@ -47,15 +66,45 @@ function wireThemeToggle() {
   });
 }
 
+function wireLangToggle() {
+  const toggle = document.querySelector('.lang-toggle');
+  if (!toggle) return;
+
+  syncI18nOptions();
+
+  toggle.addEventListener('click', () => {
+    const isJa = document.documentElement.getAttribute('data-lang') === 'ja';
+    if (isJa) {
+      document.documentElement.removeAttribute('data-lang');
+      document.documentElement.lang = 'en';
+    } else {
+      document.documentElement.setAttribute('data-lang', 'ja');
+      document.documentElement.lang = 'ja';
+    }
+    try {
+      localStorage.setItem('lang', isJa ? 'en' : 'ja');
+    } catch (e) {
+      /* private browsing */
+    }
+    syncI18nOptions();
+  });
+}
+
+function syncI18nOptions() {
+  var lang = document.documentElement.getAttribute('data-lang') || 'en';
+  document.querySelectorAll('[data-i18n-en][data-i18n-ja]').forEach(function (el) {
+    el.textContent = el.getAttribute('data-i18n-' + lang);
+  });
+}
+
 function showCopyFeedback(button, message, duration) {
-  const original = button.dataset.originalLabel || button.textContent;
-  if (!button.dataset.originalLabel) {
-    button.dataset.originalLabel = original;
+  if (!button.dataset.originalHtml) {
+    button.dataset.originalHtml = button.innerHTML;
   }
   button.textContent = message;
   button.disabled = true;
   setTimeout(() => {
-    button.textContent = button.dataset.originalLabel;
+    button.innerHTML = button.dataset.originalHtml;
     button.disabled = false;
   }, duration);
 }
