@@ -45,6 +45,11 @@ international:
     column: 'Double column'
 
 domestic:
+  - id: 2026_d_jawildtext
+    date: 'March 2026'
+    pages: 'pages 613–618'
+    page_count: '6 pages'
+    column: 'Double column'
   - id: 2025_d_llmjpevalmm
     date: 'March 2025'
     page_count: '6 pages'
