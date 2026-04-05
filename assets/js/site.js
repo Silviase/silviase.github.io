@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   wireCopyButtons();
+  wireThemeToggle();
 });
 
 function wireCopyButtons() {
@@ -20,6 +21,29 @@ function wireCopyButtons() {
         showCopyFeedback(button, 'Copy failed', 2000);
       }
     });
+  });
+}
+
+function wireThemeToggle() {
+  const toggle = document.querySelector('.theme-toggle');
+  if (!toggle) return;
+
+  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+
+  toggle.addEventListener('click', () => {
+    isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    try {
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    } catch (e) {
+      /* private browsing */
+    }
+    toggle.setAttribute('aria-label', isDark ? 'Switch to dark mode' : 'Switch to light mode');
   });
 }
 
