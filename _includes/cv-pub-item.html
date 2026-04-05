@@ -1,0 +1,12 @@
+{%- assign entry = include.cvpubs | where: 'id', include.paper.slug | first -%} {%- if entry -%} {%- assign authors =
+include.paper.authors -%} {%- assign venue = include.paper.venue | default: include.paper.journal -%} {%- capture
+author_line -%}{%- include author-highlight.html authors=authors last_sep="." -%}{%- endcapture -%} {%- include
+cv-pub-meta.html entry=entry venue=venue -%}
+<li class="cv-pub-item">
+  <span class="cv-pub-authors">{{ author_line | strip }}</span>
+  <span class="cv-pub-title"> <em>{{ include.paper.title }}</em></span>
+  {%- if meta_line %}
+  <span class="cv-pub-meta"> · {{ meta_line | strip }}</span>
+  {%- endif %}
+</li>
+{%- endif -%}

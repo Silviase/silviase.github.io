@@ -109,40 +109,14 @@ lang: en
   <h3>International Publications &amp; Preprints</h3>
   <ol class="cv-pub-list">
     {% for paper in international %}
-      {% assign entry = cvpubs | where: 'id', paper.slug | first %}
-      {% if entry %}
-        {% assign authors = paper.authors %}
-        {% assign venue = paper.venue | default: paper.journal %}
-        {% capture author_line %}{% include author-highlight.html authors=authors last_sep="." %}{% endcapture %}
-        {% include cv-pub-meta.html entry=entry venue=venue %}
-        <li class="cv-pub-item">
-          <span class="cv-pub-authors">{{ author_line | strip }}</span>
-          <span class="cv-pub-title"> <em>{{ paper.title }}</em></span>
-          {% if meta_line %}
-            <span class="cv-pub-meta"> · {{ meta_line | strip }}</span>
-          {% endif %}
-        </li>
-      {% endif %}
+      {% include cv-pub-item.html paper=paper cvpubs=cvpubs %}
     {% endfor %}
   </ol>
 
   <h3>Domestic Conferences</h3>
   <ol class="cv-pub-list" start="{{ international | size | plus: 1 }}">
     {% for paper in domestic %}
-      {% assign entry = cvpubs | where: 'id', paper.slug | first %}
-      {% if entry %}
-        {% assign authors = paper.authors %}
-        {% assign venue = paper.venue | default: paper.journal %}
-        {% capture author_line %}{% include author-highlight.html authors=authors last_sep="." %}{% endcapture %}
-        {% include cv-pub-meta.html entry=entry venue=venue %}
-        <li class="cv-pub-item">
-          <span class="cv-pub-authors">{{ author_line | strip }}</span>
-          <span class="cv-pub-title"> <em>{{ paper.title }}</em></span>
-          {% if meta_line %}
-            <span class="cv-pub-meta"> · {{ meta_line | strip }}</span>
-          {% endif %}
-        </li>
-      {% endif %}
+      {% include cv-pub-item.html paper=paper cvpubs=cvpubs %}
     {% endfor %}
   </ol>
 </section>
