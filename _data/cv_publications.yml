@@ -33,6 +33,9 @@ international:
     date: '2024'
     page_count: '22 pages'
     column: 'Single column'
+  - id: 2024_visce2
+    date: 'February 2024'
+    pages: 'arXiv preprint'
   - id: 2023_quic360
     date: '2023'
     pages: 'pages 6940–6954'
