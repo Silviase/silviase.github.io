@@ -2,8 +2,10 @@
 layout: default
 ---
 
-{% assign international = site.papers | where: 'type', 'international' | sort: 'date' | reverse %} {% assign domestic =
-site.papers | where: 'type', 'domestic' | sort: 'date' | reverse %} {% assign recent = international | slice: 0, 3 %}
+{% assign all_papers = site.papers | sort: 'date' | reverse %} {% assign international = site.papers | where: 'type',
+'international' | sort: 'date' | reverse %} {% assign domestic = site.papers | where: 'type', 'domestic' | sort: 'date'
+| reverse %} {% assign recent = international | slice: 0, 3 %} {% assign years = all_papers | map: 'date' | map: 'year'
+| uniq %}
 
 <section class="page-section papers-index">
   <div class="container">
@@ -19,17 +21,81 @@ site.papers | where: 'type', 'domestic' | sort: 'date' | reverse %} {% assign re
       <div class="paper-list">{% for paper in recent %} {% include paper-card.html paper=paper %} {% endfor %}</div>
     </div>
 
-    <div class="paper-groups">
-      <div class="paper-group">
+    <nav class="paper-filters" aria-label="Filter publications">
+      <div class="filter-group">
+        <span class="filter-label">Type</span>
+        <button class="filter-btn active" data-filter-type="all">All</button>
+        <button class="filter-btn" data-filter-type="international">International</button>
+        <button class="filter-btn" data-filter-type="domestic">Domestic</button>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Year</span>
+        <select class="filter-select" data-filter-year>
+          <option value="all">All years</option>
+          {% for year in years %}
+          <option value="{{ year }}">{{ year }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </nav>
+
+    <div class="paper-groups" id="paper-archive">
+      <div class="paper-group" data-group-type="international">
         <h2>International Publications &amp; Preprints</h2>
         <div class="paper-list">
           {% for paper in international %} {% include paper-card.html paper=paper %} {% endfor %}
         </div>
       </div>
-      <div class="paper-group">
+      <div class="paper-group" data-group-type="domestic">
         <h2>Domestic Conferences</h2>
         <div class="paper-list">{% for paper in domestic %} {% include paper-card.html paper=paper %} {% endfor %}</div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    var typeFilter = 'all';
+    var yearFilter = 'all';
+    var typeBtns = document.querySelectorAll('[data-filter-type]');
+    var yearSelect = document.querySelector('[data-filter-year]');
+    var groups = document.querySelectorAll('#paper-archive .paper-group');
+
+    function apply() {
+      groups.forEach(function (group) {
+        var groupType = group.getAttribute('data-group-type');
+        var cards = group.querySelectorAll('.paper-card');
+        var visible = 0;
+        cards.forEach(function (card) {
+          var matchType = typeFilter === 'all' || card.getAttribute('data-type') === typeFilter;
+          var matchYear = yearFilter === 'all' || card.getAttribute('data-year') === yearFilter;
+          var show = matchType && matchYear;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        if (typeFilter !== 'all' && groupType !== typeFilter) {
+          group.style.display = 'none';
+        } else {
+          group.style.display = visible > 0 ? '' : 'none';
+        }
+      });
+    }
+
+    typeBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        typeBtns.forEach(function (b) {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+        typeFilter = btn.getAttribute('data-filter-type');
+        apply();
+      });
+    });
+
+    yearSelect.addEventListener('change', function () {
+      yearFilter = this.value;
+      apply();
+    });
+  })();
+</script>
