@@ -1,3 +1,11 @@
+- id: 2026_jammeval
+  date: 'April 2026'
+  pages: 'arXiv preprint'
+  page_count: '16 pages'
+- id: 2026_jagle
+  date: 'April 2026'
+  pages: 'arXiv preprint'
+  page_count: '18 pages'
 - id: 2026_jawildtext
   date: 'March 2026'
   pages: 'arXiv preprint'
