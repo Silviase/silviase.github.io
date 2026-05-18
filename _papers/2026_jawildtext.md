@@ -3,15 +3,16 @@ title: 'JaWildText: A Benchmark for Vision-Language Models on Japanese Scene Tex
 authors:
   - Koki Maeda
   - Naoaki Okazaki
-venue: arXiv preprint
+venue: International Conference on Document Analysis and Recognition (ICDAR 2026)
 description: A diagnostic benchmark for evaluating Japanese scene text understanding in vision-language models across STVQA, receipt KIE, and handwriting OCR.
 date: 2026-03-30
 type: international
 pdf: https://arxiv.org/pdf/2603.27942
 bibtex: |
-  @misc{maeda2026jawildtext,
+  @inproceedings{maeda2026jawildtext,
     title={JaWildText: A Benchmark for Vision-Language Models on Japanese Scene Text Understanding},
     author={Koki Maeda and Naoaki Okazaki},
+    booktitle={International Conference on Document Analysis and Recognition (ICDAR 2026)},
     year={2026},
     eprint={2603.27942},
     archivePrefix={arXiv},
