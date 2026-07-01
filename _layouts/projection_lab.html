@@ -1,0 +1,109 @@
+---
+---
+
+<!doctype html>
+<html lang="{{ page.lang | default: 'ja' }}">
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="layout-{{ page.layout | default: 'default' }}">
+    <main class="site-main">
+      <section class="projection-lab" data-projection-lab>
+        <div class="projection-shell">
+          <header class="projection-header">
+            <div>
+              <p class="projection-kicker">Dimensionality Reduction Lab</p>
+              <h1>3D データを、<span class="projection-nowrap">キューブ</span>の外から投影する</h1>
+            </div>
+            <p>
+              3 次元から 2 次元への次元削減は、点群をどの向きから眺めて平面へ落とすかを選ぶことに近い操作です。 PCA
+              は分散が最大になる向きを機械的に選びます。自分の直感とどれだけ一致するかを比べられます。
+            </p>
+          </header>
+
+          <div class="projection-toolbar" aria-label="Projection controls">
+            <label>
+              <span>データ</span>
+              <select data-dataset-select>
+                <option value="clusters">3 つの塊</option>
+                <option value="curve">曲がった軌道</option>
+              </select>
+            </label>
+            <button type="button" data-reroll>新しい点群</button>
+            <button type="button" data-reset-view>正面へ戻す</button>
+            <button type="button" data-pca-view>正解を見る</button>
+          </div>
+
+          <div class="projection-workbench">
+            <section class="projection-panel projection-panel--scene" aria-label="3D point cloud">
+              <div class="projection-panel-head">
+                <h2>3D キューブ</h2>
+                <span data-view-label>直感の投影</span>
+              </div>
+              <div class="projection-scene" data-scene></div>
+            </section>
+
+            <section class="projection-panel projection-panel--plot" aria-label="Projection comparison">
+              <div class="projection-panel-head">
+                <h2>2D 投影</h2>
+                <span data-answer-state>正解は非表示</span>
+              </div>
+              <canvas class="projection-canvas" data-projection-canvas width="960" height="520"></canvas>
+            </section>
+          </div>
+
+          <div class="projection-lower">
+            <section class="projection-panel projection-panel--sliders" aria-label="View controls">
+              <h2>投影の向き</h2>
+              <label>
+                <span>水平角</span>
+                <input type="range" min="-180" max="180" value="38" step="1" data-yaw />
+                <output data-yaw-value>38 deg</output>
+              </label>
+              <label>
+                <span>仰角</span>
+                <input type="range" min="-180" max="180" value="22" step="1" data-pitch />
+                <output data-pitch-value>22 deg</output>
+              </label>
+              <label>
+                <span>面内回転</span>
+                <input type="range" min="-180" max="180" value="0" step="1" data-roll />
+                <output data-roll-value>0 deg</output>
+              </label>
+            </section>
+
+            <section class="projection-panel projection-panel--metrics" aria-label="Projection metrics">
+              <h2>ずれの見方</h2>
+              <div class="projection-metrics">
+                <div>
+                  <span>あなたの保持分散</span>
+                  <strong data-user-variance>--</strong>
+                </div>
+                <div>
+                  <span>PCA の保持分散</span>
+                  <strong data-pca-variance>--</strong>
+                </div>
+                <div>
+                  <span>PCA 面との角度</span>
+                  <strong data-plane-angle>--</strong>
+                </div>
+                <div>
+                  <span>直感スコア</span>
+                  <strong data-intuition-score>--</strong>
+                </div>
+              </div>
+            </section>
+
+            <section class="projection-panel projection-panel--note">
+              <h2>読み取り</h2>
+              <p data-observation>立方体の外側で視点を動かすと、同じ 3D 点群でも 2D 上の広がり方が大きく変わります。</p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="{{ '/assets/js/projection-lab.js' | relative_url }}"></script>
+  </body>
+</html>
