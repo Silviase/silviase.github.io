@@ -11,6 +11,9 @@ nav_cv:
 nav_papers:
   en: Papers
   ja: 論文一覧
+nav_sandbox:
+  en: Sandbox
+  ja: サンドボックス
 nav_notes:
   en: Notes
   ja: ノート

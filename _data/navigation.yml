@@ -4,5 +4,7 @@
   url: /cv/
 - i18n_key: nav_papers
   url: /papers/
+- i18n_key: nav_sandbox
+  url: /sandbox/
 - i18n_key: nav_notes
   url: /blog/
