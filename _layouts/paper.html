@@ -28,6 +28,8 @@ layout: default
         <a class="button" href="{{ pdf_href }}" target="_blank" rel="noopener">
           <span aria-hidden="true">{% include icon.html name="cv" %}</span> PDF
         </a>
+        {% endif %} {% if page.doi %}
+        <a class="button" href="https://doi.org/{{ page.doi }}" target="_blank" rel="noopener"> DOI </a>
         {% endif %} {% if page.code_link %}
         <a class="button" href="{{ page.code_link }}" target="_blank" rel="noopener">
           <span aria-hidden="true">{% include icon.html name="github" %}</span> Code

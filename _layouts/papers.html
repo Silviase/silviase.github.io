@@ -2,10 +2,10 @@
 layout: default
 ---
 
-{% assign all_papers = site.papers | sort: 'date' | reverse %} {% assign international = site.papers | where: 'type',
-'international' | sort: 'date' | reverse %} {% assign domestic = site.papers | where: 'type', 'domestic' | sort: 'date'
-| reverse %} {% assign recent = international | slice: 0, 3 %} {% assign years = all_papers | map: 'date' | map: 'year'
-| uniq %}
+{% assign all_papers = site.papers | sort: 'date' | reverse %} {% assign journals = site.papers | where: 'type',
+'journal' | sort: 'date' | reverse %} {% assign international = site.papers | where: 'type', 'international' | sort:
+'date' | reverse %} {% assign domestic = site.papers | where: 'type', 'domestic' | sort: 'date' | reverse %} {% assign
+recent = all_papers | slice: 0, 3 %}
 
 <section class="page-section papers-index">
   <div class="container">
@@ -25,6 +25,7 @@ layout: default
       <div class="filter-group">
         <span class="filter-label">{% include t.html key="papers_filter_type" %}</span>
         <button class="filter-btn active" data-filter-type="all">{% include t.html key="papers_filter_all" %}</button>
+        <button class="filter-btn" data-filter-type="journal">{% include t.html key="papers_filter_journal" %}</button>
         <button class="filter-btn" data-filter-type="international">
           {% include t.html key="papers_filter_international" %}
         </button>
@@ -42,14 +43,19 @@ layout: default
           >
             {{ site.data.i18n.papers_filter_all_years.en }}
           </option>
-          {% for year in years %}
-          <option value="{{ year }}">{{ year }}</option>
-          {% endfor %}
+          {% assign years_seen = '' %} {% for paper in all_papers %} {% assign paper_year = paper.date | date: '%Y' %}
+          {% assign year_token = '|' | append: paper_year | append: '|' %} {% unless years_seen contains year_token %}
+          <option value="{{ paper_year }}">{{ paper_year }}</option>
+          {% assign years_seen = years_seen | append: year_token %} {% endunless %} {% endfor %}
         </select>
       </div>
     </nav>
 
     <div class="paper-groups" id="paper-archive">
+      <div class="paper-group" data-group-type="journal">
+        <h2>{% include t.html key="papers_journals" %}</h2>
+        <div class="paper-list">{% for paper in journals %} {% include paper-card.html paper=paper %} {% endfor %}</div>
+      </div>
       <div class="paper-group" data-group-type="international">
         <h2>{% include t.html key="papers_international" %}</h2>
         <div class="paper-list">

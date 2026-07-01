@@ -59,6 +59,9 @@ papers_title:
 papers_recent:
   en: Recent Work
   ja: 最近の研究
+papers_journals:
+  en: Journal Articles
+  ja: ジャーナル論文
 papers_international:
   en: 'International Publications &amp; Preprints'
   ja: '国際会議・プレプリント'
@@ -71,6 +74,9 @@ papers_filter_type:
 papers_filter_all:
   en: All
   ja: すべて
+papers_filter_journal:
+  en: Journal
+  ja: ジャーナル
 papers_filter_international:
   en: International
   ja: 国際

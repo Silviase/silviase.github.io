@@ -14,6 +14,8 @@
     {% assign pdf_url = paper.pdf | default: paper.pdf_link %} {% if pdf_url %} {% assign pdf_href = pdf_url %} {%
     unless pdf_href contains '://' %} {% assign pdf_href = pdf_href | relative_url %} {% endunless %}
     <a class="paper-link" href="{{ pdf_href }}" target="_blank" rel="noopener">PDF</a>
+    {% endif %} {% if paper.doi %}
+    <a class="paper-link" href="https://doi.org/{{ paper.doi }}" target="_blank" rel="noopener">DOI</a>
     {% endif %} {% if paper.code_link %}
     <a class="paper-link" href="{{ paper.code_link }}" target="_blank" rel="noopener">Code</a>
     {% endif %} {% if paper.bibtex %}

@@ -100,30 +100,44 @@ lang: en
 {% endif %}
 
 {% assign cvpubs = site.data.cv_publications %}
+{% assign journals = site.papers | where: 'type', 'journal' | sort: 'date' | reverse %}
 {% assign international = site.papers | where: 'type', 'international' | sort: 'date' | reverse %}
 {% assign international_conferences = international | where_exp: 'paper', "paper.venue != 'arXiv preprint'" %}
 {% assign arxiv_preprints = international | where_exp: 'paper', "paper.venue == 'arXiv preprint'" %}
 {% assign domestic = site.papers | where: 'type', 'domestic' | sort: 'date' | reverse %}
+{% assign journal_count = journals | size %}
+{% assign international_conference_count = international_conferences | size %}
+{% assign international_count = international | size %}
+{% assign international_start = journal_count | plus: 1 %}
+{% assign arxiv_start = journal_count | plus: international_conference_count | plus: 1 %}
+{% assign domestic_start = journal_count | plus: international_count | plus: 1 %}
 
 <section class="cv-section">
   <h2>Publications</h2>
 
-  <h3>International Conferences</h3>
+  <h3>Journal Articles</h3>
   <ol class="cv-pub-list">
+    {% for paper in journals %}
+      {% include cv-pub-item.html paper=paper cvpubs=cvpubs %}
+    {% endfor %}
+  </ol>
+
+  <h3>International Conferences</h3>
+  <ol class="cv-pub-list" start="{{ international_start }}">
     {% for paper in international_conferences %}
       {% include cv-pub-item.html paper=paper cvpubs=cvpubs %}
     {% endfor %}
   </ol>
 
   <h3>arXiv Preprints</h3>
-  <ol class="cv-pub-list" start="{{ international_conferences | size | plus: 1 }}">
+  <ol class="cv-pub-list" start="{{ arxiv_start }}">
     {% for paper in arxiv_preprints %}
       {% include cv-pub-item.html paper=paper cvpubs=cvpubs %}
     {% endfor %}
   </ol>
 
   <h3>Domestic Conferences</h3>
-  <ol class="cv-pub-list" start="{{ international | size | plus: 1 }}">
+  <ol class="cv-pub-list" start="{{ domestic_start }}">
     {% for paper in domestic %}
       {% include cv-pub-item.html paper=paper cvpubs=cvpubs %}
     {% endfor %}

@@ -11,12 +11,17 @@ for file in "$PAPERS_DIR"/*.md; do
   front=$(sed -n '/^---$/,/^---$/p' "$file")
 
   # Required fields
-  for field in title authors venue date type; do
+  for field in title authors date type; do
     if ! echo "$front" | grep -q "^${field}:"; then
       echo "ERROR [$slug]: missing required field '$field'"
       errors=$((errors + 1))
     fi
   done
+
+  if ! echo "$front" | grep -qE "^(venue|journal):"; then
+    echo "ERROR [$slug]: missing required field 'venue' or 'journal'"
+    errors=$((errors + 1))
+  fi
 
   # Check for placeholder BibTeX
   if echo "$front" | grep -qE "bibtex:\s*'@\w+\{\}'"; then
@@ -26,8 +31,8 @@ for file in "$PAPERS_DIR"/*.md; do
 
   # Check type value
   type_val=$(echo "$front" | grep '^type:' | sed 's/type:\s*//' | tr -d '[:space:]')
-  if [ -n "$type_val" ] && [ "$type_val" != "international" ] && [ "$type_val" != "domestic" ]; then
-    echo "ERROR [$slug]: invalid type '$type_val' (expected international or domestic)"
+  if [ -n "$type_val" ] && [ "$type_val" != "international" ] && [ "$type_val" != "domestic" ] && [ "$type_val" != "journal" ]; then
+    echo "ERROR [$slug]: invalid type '$type_val' (expected international, domestic, or journal)"
     errors=$((errors + 1))
   fi
 done
