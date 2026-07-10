@@ -27,7 +27,7 @@ extra_css:
       <p class="sandbox-panel-label">Dimensionality Reduction</p>
       <h2>Projection Lab</h2>
       <p>
-        3D 点群をキューブの外から眺めるように投影し、自分の直感的な投影と PCA の投影を比較します。
+        3D 点群を眺める向きを選んで 1 本の軸へ射影し、自分の直感的な軸と PCA の第 1 主成分を比較します。
       </p>
       <a class="button" href="{{ '/sandbox/projection-lab/' | relative_url }}">Open demo</a>
     </div>

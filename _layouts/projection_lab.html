@@ -13,11 +13,13 @@
           <header class="projection-header">
             <div>
               <p class="projection-kicker">Dimensionality Reduction Lab</p>
-              <h1>3D データを、<span class="projection-nowrap">キューブ</span>の外から投影する</h1>
+              <h1>3D データを、1 本の<span class="projection-nowrap">軸</span>へ射影する</h1>
             </div>
             <p>
-              3 次元から 2 次元への次元削減は、点群をどの向きから眺めて平面へ落とすかを選ぶことに近い操作です。 PCA
-              は分散が最大になる向きを機械的に選びます。自分の直感とどれだけ一致するかを比べられます。
+              3 次元から 1
+              次元への次元削減は、点群をどの向きの軸に落とすかを選ぶ操作です。画面の横方向がそのまま射影軸になります。
+              PCA は分散が最大になる向き（第 1
+              主成分）を機械的に選びます。自分の直感とどれだけ一致するかを比べられます。
             </p>
           </header>
 
@@ -38,14 +40,14 @@
             <section class="projection-panel projection-panel--scene" aria-label="3D point cloud">
               <div class="projection-panel-head">
                 <h2>3D キューブ</h2>
-                <span data-view-label>直感の投影</span>
+                <span data-view-label>直感の軸</span>
               </div>
               <div class="projection-scene" data-scene></div>
             </section>
 
             <section class="projection-panel projection-panel--plot" aria-label="Projection comparison">
               <div class="projection-panel-head">
-                <h2>2D 投影</h2>
+                <h2>1D 射影</h2>
                 <span data-answer-state>正解は非表示</span>
               </div>
               <canvas class="projection-canvas" data-projection-canvas width="960" height="520"></canvas>
@@ -54,7 +56,7 @@
 
           <div class="projection-lower">
             <section class="projection-panel projection-panel--sliders" aria-label="View controls">
-              <h2>投影の向き</h2>
+              <h2>射影軸の向き</h2>
               <label>
                 <span>水平角</span>
                 <input type="range" min="-180" max="180" value="38" step="1" data-yaw />
@@ -64,11 +66,6 @@
                 <span>仰角</span>
                 <input type="range" min="-180" max="180" value="22" step="1" data-pitch />
                 <output data-pitch-value>22 deg</output>
-              </label>
-              <label>
-                <span>面内回転</span>
-                <input type="range" min="-180" max="180" value="0" step="1" data-roll />
-                <output data-roll-value>0 deg</output>
               </label>
             </section>
 
@@ -84,8 +81,8 @@
                   <strong data-pca-variance>--</strong>
                 </div>
                 <div>
-                  <span>PCA 面との角度</span>
-                  <strong data-plane-angle>--</strong>
+                  <span>PC1 との角度</span>
+                  <strong data-axis-angle>--</strong>
                 </div>
                 <div>
                   <span>直感スコア</span>
@@ -96,7 +93,7 @@
 
             <section class="projection-panel projection-panel--note">
               <h2>読み取り</h2>
-              <p data-observation>立方体の外側で視点を動かすと、同じ 3D 点群でも 2D 上の広がり方が大きく変わります。</p>
+              <p data-observation>立方体の外側で視点を動かすと、同じ 3D 点群でも軸上の広がり方が大きく変わります。</p>
             </section>
           </div>
         </div>

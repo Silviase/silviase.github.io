@@ -8,13 +8,11 @@
   const datasetSelect = root.querySelector('[data-dataset-select]');
   const yawInput = root.querySelector('[data-yaw]');
   const pitchInput = root.querySelector('[data-pitch]');
-  const rollInput = root.querySelector('[data-roll]');
   const yawValue = root.querySelector('[data-yaw-value]');
   const pitchValue = root.querySelector('[data-pitch-value]');
-  const rollValue = root.querySelector('[data-roll-value]');
   const userVariance = root.querySelector('[data-user-variance]');
   const pcaVariance = root.querySelector('[data-pca-variance]');
-  const planeAngle = root.querySelector('[data-plane-angle]');
+  const axisAngle = root.querySelector('[data-axis-angle]');
   const intuitionScore = root.querySelector('[data-intuition-score]');
   const observation = root.querySelector('[data-observation]');
   const viewLabel = root.querySelector('[data-view-label]');
@@ -28,9 +26,9 @@
     points: [],
     centered: [],
     colors: [],
+    jitter: [],
     yaw: 38,
     pitch: 22,
-    roll: 0,
     basis: null,
     pca: null,
     revealed: false,
@@ -44,7 +42,8 @@
     camera: null,
     pointCloud: null,
     cube: null,
-    frame: null,
+    axis: null,
+    pcaAxis: null,
     raf: 0,
   };
 
@@ -91,11 +90,18 @@
     three.scene.add(axisLine([-1.16, -1.16, -1.16], [-1.16, 1.16, -1.16], axisMaterialY));
     three.scene.add(axisLine([-1.16, -1.16, -1.16], [-1.16, -1.16, 1.16], axisMaterialZ));
 
-    three.frame = new THREE.LineSegments(
+    three.axis = new THREE.LineSegments(
+      new THREE.BufferGeometry(),
+      new THREE.LineBasicMaterial({ color: 0x0fa76e, transparent: true, opacity: 0.9 })
+    );
+    three.scene.add(three.axis);
+
+    three.pcaAxis = new THREE.LineSegments(
       new THREE.BufferGeometry(),
       new THREE.LineBasicMaterial({ color: 0xd65f2e, transparent: true, opacity: 0.9 })
     );
-    three.scene.add(three.frame);
+    three.pcaAxis.visible = false;
+    three.scene.add(three.pcaAxis);
   }
 
   function axisLine(a, b, material) {
@@ -120,7 +126,8 @@
     });
 
     root.querySelector('[data-reset-view]').addEventListener('click', () => {
-      setAngles(38, 22, 0);
+      setAngles(38, 22);
+      state.basis = basisFromAngles(state.yaw, state.pitch);
       updateAll();
     });
 
@@ -129,12 +136,11 @@
       updateAll('user');
     });
 
-    [yawInput, pitchInput, rollInput].forEach((input) => {
+    [yawInput, pitchInput].forEach((input) => {
       input.addEventListener('input', () => {
         state.yaw = Number(yawInput.value);
         state.pitch = Number(pitchInput.value);
-        state.roll = Number(rollInput.value);
-        state.basis = basisFromAngles(state.yaw, state.pitch, state.roll);
+        state.basis = basisFromAngles(state.yaw, state.pitch);
         updateAll('user');
       });
     });
@@ -150,8 +156,8 @@
       const dx = event.clientX - state.lastPointer.x;
       const dy = event.clientY - state.lastPointer.y;
       state.lastPointer = { x: event.clientX, y: event.clientY };
-      setAngles(state.yaw + dx * 0.45, state.pitch + dy * 0.32, state.roll);
-      state.basis = basisFromAngles(state.yaw, state.pitch, state.roll);
+      setAngles(state.yaw + dx * 0.45, state.pitch + dy * 0.32);
+      state.basis = basisFromAngles(state.yaw, state.pitch);
       updateAll('user');
     });
 
@@ -166,9 +172,11 @@
     const generated = makeDataset(state.dataset, state.seed);
     state.points = generated.points;
     state.colors = generated.colors;
+    const jitterRandom = mulberry32(state.seed + 999);
+    state.jitter = state.points.map(() => jitterRandom() * 2 - 1);
     state.centered = centerPoints(state.points);
     state.pca = computePca(state.centered);
-    state.basis = basisFromAngles(state.yaw, state.pitch, state.roll);
+    state.basis = basisFromAngles(state.yaw, state.pitch);
     updatePointCloud();
     updateAll('user');
   }
@@ -201,10 +209,10 @@
 
   function updateAll(mode) {
     syncControls();
-    updateCameraAndFrame();
+    updateCameraAndAxes();
     drawProjection();
     updateMetrics();
-    viewLabel.textContent = mode === 'pca' ? 'PCA 投影' : '直感の投影';
+    viewLabel.textContent = mode === 'pca' ? 'PCA の軸' : '直感の軸';
     answerState.textContent = state.revealed ? '直感 vs PCA' : '正解は非表示';
     answerButton.textContent = state.revealed ? '正解を表示中' : '正解を見る';
   }
@@ -212,13 +220,11 @@
   function syncControls() {
     yawInput.value = String(Math.round(state.yaw));
     pitchInput.value = String(Math.round(state.pitch));
-    rollInput.value = String(Math.round(state.roll));
     yawValue.value = `${Math.round(state.yaw)} deg`;
     pitchValue.value = `${Math.round(state.pitch)} deg`;
-    rollValue.value = `${Math.round(state.roll)} deg`;
   }
 
-  function updateCameraAndFrame() {
+  function updateCameraAndAxes() {
     const b = state.basis;
     const aspect = Math.max(sceneHost.clientWidth / Math.max(sceneHost.clientHeight, 1), 0.5);
     const viewSize = 3.15;
@@ -231,29 +237,23 @@
     three.camera.lookAt(0, 0, 0);
     three.camera.updateProjectionMatrix();
 
-    const s = 1.38;
-    const corners = [
-      add(scale(b.u, -s), scale(b.v, -s)),
-      add(scale(b.u, s), scale(b.v, -s)),
-      add(scale(b.u, s), scale(b.v, s)),
-      add(scale(b.u, -s), scale(b.v, s)),
-    ];
-    const framePositions = [
-      ...corners[0],
-      ...corners[1],
-      ...corners[1],
-      ...corners[2],
-      ...corners[2],
-      ...corners[3],
-      ...corners[3],
-      ...corners[0],
-    ];
-    three.frame.geometry.setAttribute(
-      'position',
-      new THREE.Float32BufferAttribute(framePositions, 3)
-    );
-    three.frame.geometry.attributes.position.needsUpdate = true;
-    three.frame.geometry.computeBoundingSphere();
+    setAxisGeometry(three.axis, b.u, b.v);
+    if (state.pca) {
+      setAxisGeometry(three.pcaAxis, state.pca.u, perpendicular(state.pca.u));
+    }
+    three.pcaAxis.visible = state.revealed;
+  }
+
+  function setAxisGeometry(line, direction, tickDirection) {
+    const s = 1.7;
+    const positions = [...scale(direction, -s), ...scale(direction, s)];
+    [-1, -0.5, 0.5, 1].forEach((t) => {
+      const p = scale(direction, t);
+      positions.push(...add(p, scale(tickDirection, -0.06)), ...add(p, scale(tickDirection, 0.06)));
+    });
+    line.geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    line.geometry.attributes.position.needsUpdate = true;
+    line.geometry.computeBoundingSphere();
   }
 
   function drawProjection() {
@@ -275,21 +275,29 @@
     const gap = 20;
     const panelW = (cssWidth - gap * 3) / 2;
     const panelH = cssHeight - 40;
+    const userProjected = project(state.centered, state.basis.u);
+    const pcaProjected = project(state.centered, state.pca.u);
+    const maxAbs = Math.max(
+      0.75,
+      ...userProjected.map((value) => Math.abs(value)),
+      ...pcaProjected.map((value) => Math.abs(value))
+    );
     drawPlot(
       { x: gap, y: 20, w: panelW, h: panelH },
-      project(state.centered, state.basis),
-      'あなたの投影',
-      readCssColor('--accent', '#0fa76e')
+      userProjected,
+      'あなたの射影',
+      readCssColor('--accent', '#0fa76e'),
+      maxAbs
     );
     const answerRect = { x: gap * 2 + panelW, y: 20, w: panelW, h: panelH };
     if (state.revealed) {
-      drawPlot(answerRect, project(state.centered, state.pca), 'PCA 投影', '#d65f2e');
+      drawPlot(answerRect, pcaProjected, 'PCA の射影', '#d65f2e', maxAbs);
     } else {
       drawHiddenPlot(answerRect);
     }
   }
 
-  function drawPlot(rect, projected, title, color) {
+  function drawPlot(rect, projected, title, color, maxAbs) {
     const { x, y, w, h } = rect;
     plotCtx.save();
     roundedRect(x, y, w, h, 8);
@@ -298,8 +306,7 @@
     plotCtx.strokeStyle = readCssColor('--border-medium', 'rgba(0,0,0,.08)');
     plotCtx.stroke();
 
-    const maxAbs = Math.max(0.75, ...projected.flat().map((value) => Math.abs(value)));
-    const scaleFactor = (0.42 * Math.min(w, h)) / maxAbs;
+    const scaleFactor = (0.44 * w) / maxAbs;
     const cx = x + w / 2;
     const cy = y + h / 2 + 8;
 
@@ -308,14 +315,20 @@
     plotCtx.beginPath();
     plotCtx.moveTo(x + 12, cy);
     plotCtx.lineTo(x + w - 12, cy);
-    plotCtx.moveTo(cx, y + 36);
-    plotCtx.lineTo(cx, y + h - 12);
+    plotCtx.moveTo(cx, cy - 6);
+    plotCtx.lineTo(cx, cy + 6);
     plotCtx.stroke();
 
-    projected.forEach((point, index) => {
+    projected.forEach((value, index) => {
       plotCtx.beginPath();
       plotCtx.fillStyle = rgbFromUnit(state.colors[index], 0.74);
-      plotCtx.arc(cx + point[0] * scaleFactor, cy - point[1] * scaleFactor, 3.1, 0, Math.PI * 2);
+      plotCtx.arc(
+        cx + value * scaleFactor,
+        cy + state.jitter[index] * h * 0.16,
+        3.1,
+        0,
+        Math.PI * 2
+      );
       plotCtx.fill();
     });
 
@@ -338,7 +351,7 @@
 
     plotCtx.fillStyle = readCssColor('--primary', '#111111');
     plotCtx.font = '700 14px Inter, system-ui, sans-serif';
-    plotCtx.fillText('PCA 投影', x + 14, y + 24);
+    plotCtx.fillText('PCA の射影', x + 14, y + 24);
     plotCtx.fillStyle = '#d65f2e';
     plotCtx.fillRect(x + 14, y + 32, 38, 3);
 
@@ -347,14 +360,14 @@
     plotCtx.textAlign = 'center';
     plotCtx.fillText('正解を見るまで非表示', x + w / 2, y + h / 2 - 6);
     plotCtx.font = '500 12px Inter, system-ui, sans-serif';
-    plotCtx.fillText('左の投影を調整してから確認', x + w / 2, y + h / 2 + 18);
+    plotCtx.fillText('左の射影を調整してから確認', x + w / 2, y + h / 2 + 18);
     plotCtx.restore();
   }
 
   function updateMetrics() {
-    const userRetained = retainedVariance(state.centered, state.basis, state.pca.total);
-    const pcaRetained = (state.pca.values[0] + state.pca.values[1]) / state.pca.total || 0;
-    const angle = planeNormalAngle(state.basis.n, state.pca.n);
+    const userRetained = retainedVariance(state.centered, state.basis.u, state.pca.total);
+    const pcaRetained = state.pca.values[0] / state.pca.total || 0;
+    const angle = axisAngleDeg(state.basis.u, state.pca.u);
     const score = Math.round(
       clamp((1 - angle / 90) * 82 + (userRetained / pcaRetained) * 18, 0, 100)
     );
@@ -362,30 +375,30 @@
     if (!state.revealed) {
       userVariance.textContent = '--';
       pcaVariance.textContent = '--';
-      planeAngle.textContent = '--';
+      axisAngle.textContent = '--';
       intuitionScore.textContent = '--';
       observation.textContent =
-        '左の 3D キューブを動かして、よさそうな投影を先に選んでください。正解を見ると PCA 投影とスコアを表示します。';
+        '左の 3D キューブを動かして、点群が最も広がって見える軸（画面の横方向）を先に選んでください。正解を見ると PCA の第 1 主成分とスコアを表示します。';
       return;
     }
 
     userVariance.textContent = formatPercent(userRetained);
     pcaVariance.textContent = formatPercent(pcaRetained);
-    planeAngle.textContent = `${angle.toFixed(1)} deg`;
+    axisAngle.textContent = `${angle.toFixed(1)} deg`;
     intuitionScore.textContent = String(score);
 
     if (angle < 8) {
       observation.textContent =
-        '直感の投影面は PCA とほぼ一致しています。点群の最大の広がりをかなり正確に捉えています。';
+        '直感の軸は第 1 主成分とほぼ一致しています。点群の最大の広がりをかなり正確に捉えています。';
     } else if (userRetained > pcaRetained * 0.92) {
       observation.textContent =
-        'PCA とは角度が少し違いますが、失っている分散は小さい状態です。複数の良い見方がある点群です。';
+        '第 1 主成分とは向きが少し違いますが、失っている分散は小さい状態です。分散がほぼ同じ軸が複数ある点群です。';
     } else if (state.dataset === 'clusters') {
       observation.textContent =
-        'PCA は全体の分散を優先します。塊の分離が見やすい投影と、分散が最大の投影はずれることがあります。';
+        'PCA は全体の分散を優先します。塊の分離が見やすい軸と、分散が最大の軸はずれることがあります。';
     } else {
       observation.textContent =
-        '視点を少し回すだけで保持分散が変わります。PCA はこの探索を分散最大化として自動で解いています。';
+        '軸の向きを少し変えるだけで保持分散が変わります。PCA はこの探索を分散最大化として自動で解いています。';
     }
   }
 
@@ -399,7 +412,7 @@
     const width = Math.max(sceneHost.clientWidth, 320);
     const height = Math.max(sceneHost.clientHeight, 320);
     three.renderer.setSize(width, height, false);
-    updateCameraAndFrame();
+    updateCameraAndAxes();
     drawProjection();
   }
 
@@ -533,38 +546,35 @@
     }));
   }
 
-  function setAngles(yaw, pitch, roll) {
+  function setAngles(yaw, pitch) {
     state.yaw = normalizeDeg(yaw);
     state.pitch = normalizeDeg(pitch);
-    state.roll = normalizeDeg(roll);
   }
 
-  function basisFromAngles(yawDeg, pitchDeg, rollDeg) {
+  function basisFromAngles(yawDeg, pitchDeg) {
     const yaw = degToRad(yawDeg);
     const pitch = degToRad(pitchDeg);
-    const roll = degToRad(rollDeg);
-    const rotate = (vector) => rotateZ(rotateX(rotateY(vector, yaw), pitch), roll);
+    const rotate = (vector) => rotateX(rotateY(vector, yaw), pitch);
     const u = normalize(rotate([1, 0, 0]));
     const v = normalize(rotate([0, 1, 0]));
     const n = normalize(rotate([0, 0, 1]));
     return { u, v, n };
   }
 
-  function project(points, basis) {
-    return points.map((point) => [dot(point, basis.u), dot(point, basis.v)]);
+  function project(points, axis) {
+    return points.map((point) => dot(point, axis));
   }
 
-  function retainedVariance(points, basis, total) {
+  function retainedVariance(points, axis, total) {
     let sum = 0;
     points.forEach((point) => {
-      const x = dot(point, basis.u);
-      const y = dot(point, basis.v);
-      sum += x * x + y * y;
+      const x = dot(point, axis);
+      sum += x * x;
     });
     return sum / Math.max(points.length - 1, 1) / total;
   }
 
-  function planeNormalAngle(a, b) {
+  function axisAngleDeg(a, b) {
     const cosine = Math.abs(dot(normalize(a), normalize(b)));
     return radToDeg(Math.acos(clamp(cosine, -1, 1)));
   }
@@ -662,12 +672,6 @@
     const c = Math.cos(angle);
     const s = Math.sin(angle);
     return [a[0] * c + a[2] * s, a[1], -a[0] * s + a[2] * c];
-  }
-
-  function rotateZ(a, angle) {
-    const c = Math.cos(angle);
-    const s = Math.sin(angle);
-    return [a[0] * c - a[1] * s, a[0] * s + a[1] * c, a[2]];
   }
 
   function length(a) {
