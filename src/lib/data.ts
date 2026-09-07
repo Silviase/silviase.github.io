@@ -9,25 +9,51 @@ function data<T>(name: string): T {
 }
 export const profile = data<{
   name: string;
+  tagline_ja: string;
+  bio_ja: string;
   tagline: string;
   bio: string;
   image: string;
   contacts: { label: string; url: string; icon: string }[];
 }>('profile');
-export const themes = data<{ title: string; description: string }[]>('research_themes');
-export const education =
-  data<
-    { years: string; program: string; focus: string; advisors: string[]; description: string }[]
-  >('education');
-export const experience =
-  data<{ years: string; role: string; organization: string; logo?: string; description: string }[]>(
-    'experience'
+export const themes =
+  data<{ title: string; description: string; title_ja: string; description_ja: string }[]>(
+    'research_themes'
   );
-export const awards = data<string[]>('awards');
-export const skills = data<{ name: string; items: string[] }[]>('skills');
+export const education = data<
+  {
+    years_ja: string;
+    program_ja: string;
+    focus_ja: string;
+    advisors_ja: string[];
+    description_ja: string;
+    years: string;
+    program: string;
+    focus: string;
+    advisors: string[];
+    description: string;
+  }[]
+>('education');
+export const experience = data<
+  {
+    years_ja: string;
+    role_ja: string;
+    organization_ja: string;
+    description_ja: string;
+    years: string;
+    role: string;
+    organization: string;
+    logo?: string;
+    description: string;
+  }[]
+>('experience');
+export const awards = data<{ en: string; ja: string }[]>('awards');
+export const skills =
+  data<{ name: string; items: string[]; name_ja: string; items_ja: string[] }[]>('skills');
 export const talks = data<
   {
     title: string;
+    details_ja: string;
     event?: string;
     location?: string;
     date?: string;

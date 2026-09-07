@@ -1,4 +1,6 @@
 ---
+import Localized from '../components/Localized.astro';
+import T from '../components/T.astro';
 import Base from '../layouts/Base.astro';
 import Background from '../components/Background.astro';
 import { profile, cvPublications } from '../lib/data';
@@ -7,15 +9,15 @@ const papers = (await getCollection('papers')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 const groups = [
-  { title: 'Journal Articles', papers: papers.filter((p) => p.data.type === 'journal') },
+  { title: 'papers_journals', papers: papers.filter((p) => p.data.type === 'journal') },
   {
-    title: 'International Conferences',
+    title: 'papers_conferences',
     papers: papers.filter(
       (p) => p.data.type === 'international' && p.data.venue !== 'arXiv preprint'
     ),
   },
-  { title: 'arXiv Preprints', papers: papers.filter((p) => p.data.venue === 'arXiv preprint') },
-  { title: 'Domestic Conferences', papers: papers.filter((p) => p.data.type === 'domestic') },
+  { title: 'papers_preprints', papers: papers.filter((p) => p.data.venue === 'arXiv preprint') },
+  { title: 'papers_domestic', papers: papers.filter((p) => p.data.type === 'domestic') },
 ];
 let start = 1;
 ---
@@ -23,13 +25,17 @@ let start = 1;
 <Base title="Curriculum Vitae"
   ><div class="container cv-page">
     <header class="page-heading">
-      <p class="eyebrow">CURRICULUM VITAE</p><div class="heading-row">
-        <h1>{profile.name}<span class="blue">.</span></h1><button
+      <p class="eyebrow"><Localized en="CURRICULUM VITAE" ja="経歴・研究業績" /></p><div
+        class="heading-row"
+      >
+        <h1><Localized en={profile.name} ja="前田 航希" /><span class="blue">.</span></h1><button
           class="button print-button"
           type="button"
-          data-print>Print / Save PDF ↗</button
+          data-print><Localized en="Print / Save PDF ↗" ja="印刷 / PDF を保存 ↗" /></button
         >
-      </div><p>{profile.tagline}</p><div class="hero-links">
+      </div><p><Localized en={profile.tagline} ja={profile.tagline_ja} /></p><div
+        class="hero-links"
+      >
         {
           profile.contacts
             .filter((link) => !['Blog', 'CV'].includes(link.label))
@@ -37,18 +43,28 @@ let start = 1;
         }
       </div>
     </header><section class="cv-summary">
-      <h2>Research focus</h2><p>{profile.bio}</p><ul>
+      <h2><Localized en="Research focus" ja="研究内容" /></h2><p>
+        <Localized en={profile.bio} ja={profile.bio_ja} />
+      </p><ul>
         <li>
-          Designing instruction-tuned multimodal LLMs and evaluation pipelines that balance academic
-          rigor with deployability.
+          <Localized
+            en="Designing instruction-tuned multimodal LLMs and evaluation pipelines that balance academic
+          rigor with deployability."
+            ja="学術的な厳密さと実環境での利用を両立する、指示チューニング済みマルチモーダル大規模言語モデルと評価手法の設計。"
+          />
         </li><li>
-          Building curated Japanese-language datasets for captioning, reasoning, and cultural
-          understanding in vision-language systems.
+          <Localized
+            en="Building curated Japanese-language datasets for captioning, reasoning, and cultural
+          understanding in vision-language systems."
+            ja="画像説明生成・推論・文化理解に向けた、日本語の高品質な視覚言語データセットの構築。"
+          />
         </li>
       </ul>
     </section><Background /><section class="section cv-publications">
       <div class="section-heading">
-        <span class="section-index">PUBLICATIONS</span><h2>Full publication list</h2>
+        <span class="section-index"><Localized en="PUBLICATIONS" ja="研究業績" /></span><h2>
+          <Localized en="Full publication list" ja="全研究業績" />
+        </h2>
       </div>{
         groups.map((group) => {
           const first = start;
@@ -56,7 +72,9 @@ let start = 1;
           return (
             <section>
               <>
-                <h3>{group.title}</h3>
+                <h3>
+                  <T id={group.title} />
+                </h3>
                 <ol start={first}>
                   {group.papers.map((paper) => {
                     const entry = cvPublications.find((e) => e.id === paper.id);

@@ -1,4 +1,5 @@
 ---
+import Localized from '../components/Localized.astro';
 import '../styles/global.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
@@ -14,7 +15,7 @@ interface Props {
   lang?: string;
   article?: boolean;
 }
-const { title, description = profile.bio, lang = 'en', article = false } = Astro.props;
+const { title, description = profile.bio, article = false } = Astro.props;
 const pageTitle = title ? `${title} — ${profile.name}` : `${profile.name} — Vision & Language`;
 const nav = [
   ['/', 'nav_home'],
@@ -27,7 +28,7 @@ const path = Astro.url.pathname === '/404/' ? '/404.html' : Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang="en" data-lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -54,20 +55,33 @@ const path = Astro.url.pathname === '/404/' ? '/404.html' : Astro.url.pathname;
       try {
         if (localStorage.getItem('theme') === 'dark')
           document.documentElement.dataset.theme = 'dark';
-        if (localStorage.getItem('lang') === 'ja') document.documentElement.dataset.lang = 'ja';
+        const lang = localStorage.getItem('lang') === 'ja' ? 'ja' : 'en';
+        document.documentElement.dataset.lang = lang;
+        document.documentElement.lang = lang;
       } catch {}
     </script>
     <slot name="head" />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main"><Localized en="Skip to content" ja="本文へ移動" /></a>
     <header class="site-header container">
-      <a class="wordmark" href="/" aria-label="Koki Maeda, home"
+      <a
+        class="wordmark"
+        href="/"
+        aria-label="Koki Maeda, home"
+        data-en="Koki Maeda, home"
+        data-ja="前田 航希、ホーム"
+        data-translate-attribute="aria-label"
         ><span class="brand-mark" aria-hidden="true"></span>silviase<span class="wordmark-dot"
           >.</span
         ></a
       >
-      <nav aria-label="Main navigation">
+      <nav
+        aria-label="Main navigation"
+        data-en="Main navigation"
+        data-ja="メインナビゲーション"
+        data-translate-attribute="aria-label"
+      >
         {
           nav.map(([href, key]) => (
             <a
@@ -82,9 +96,10 @@ const path = Astro.url.pathname === '/404/' ? '/404.html' : Astro.url.pathname;
         }
       </nav>
       <div class="header-tools">
-        <button class="lang-toggle" type="button" aria-label="Switch interface language"
-          >EN <span aria-hidden="true">/</span> JP</button
-        >
+        <div class="language-switch" role="group" aria-label="Language / 言語">
+          <button type="button" data-language="en" aria-pressed="true" lang="en">EN</button>
+          <button type="button" data-language="ja" aria-pressed="false" lang="ja">日本語</button>
+        </div>
         <button class="theme-toggle" type="button" aria-label="Switch to dark mode"
           ><svg
             viewBox="0 0 24 24"
@@ -104,7 +119,7 @@ const path = Astro.url.pathname === '/404/' ? '/404.html' : Astro.url.pathname;
       <a href="/">Koki Maeda <span class="muted">/ silviase</span></a><span
         >Vision &amp; Language</span
       ><a href="https://github.com/Silviase/Silviase.github.io"
-        >Source <span aria-hidden="true">↗</span></a
+        ><Localized en="Source ↗" ja="ソースコード ↗" /></a
       >
     </footer>
     <script src="../scripts/site.ts"></script>

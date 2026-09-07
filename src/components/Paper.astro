@@ -1,4 +1,5 @@
 ---
+import Localized from '../components/Localized.astro';
 import type { CollectionEntry } from 'astro:content';
 interface Props {
   paper: CollectionEntry<'papers'>;
@@ -38,15 +39,24 @@ const shortVenue = venue?.match(/\(([^)]+)\)/)?.[1] || venue;
     </p>
     {!compact && p.description && <p class="paper-description">{p.description}</p>}
     <div class="paper-links">
-      <a href={`/papers/${paper.id}/`}>Details <span aria-hidden="true">↗</span></a>{
+      <a href={`/papers/${paper.id}/`}><Localized en="Details ↗" ja="詳細 ↗" /></a>{
         (p.pdf || p.pdf_link) && <a href={p.pdf || p.pdf_link}>PDF</a>
-      }{p.code_link && <a href={p.code_link}>Code</a>}{
+      }{
+        p.code_link && (
+          <a href={p.code_link}>
+            <Localized en="Code" ja="コード" />
+          </a>
+        )
+      }{
         p.bibtex && (
           <button
             type="button"
             class="copy-bibtex"
             data-bibtex={p.bibtex}
             aria-label={`Copy BibTeX for ${p.title}`}
+            data-en={`Copy BibTeX for ${p.title}`}
+            data-ja={`${p.title} の BibTeX をコピー`}
+            data-translate-attribute="aria-label"
             aria-live="polite"
           >
             BibTeX

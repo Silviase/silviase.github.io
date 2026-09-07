@@ -1,6 +1,15 @@
 - title: Multimodal Evaluation & Metrics
-  description: Building reliable evaluation protocols for vision-language models, with a focus on grounding and cultural nuance in Japanese contexts.
+  description: Building reliable evaluation protocols for vision-language models,
+    with a focus on grounding and cultural nuance in Japanese contexts.
+  title_ja: マルチモーダルモデルの評価
+  description_ja: 画像と言語の対応や、日本語の文化的なニュアンスを捉える、信頼性の高い視覚言語モデルの評価手法を開発しています。
 - title: Instruction-Tuned Multimodal LLMs
-  description: Curating instruction datasets and training recipes that keep open-weight models aligned and deployable.
+  description: Curating instruction datasets and training recipes that keep
+    open-weight models aligned and deployable.
+  title_ja: 指示チューニングによるマルチモーダル大規模言語モデル
+  description_ja: オープンウェイトモデルが指示に沿って動作し、実環境でも活用できるよう、指示データセットの整備と学習手法の開発に取り組んでいます。
 - title: Structured Generation & Understanding
-  description: Teaching models to produce and consume structured outputs such as captions, diagrams, and graphs for real-world tasks.
+  description: Teaching models to produce and consume structured outputs such as
+    captions, diagrams, and graphs for real-world tasks.
+  title_ja: 構造化された情報の生成と理解
+  description_ja: 画像説明文・図・グラフなどの構造を持つ情報を生成・理解するモデルを通じて、実世界の課題への応用を目指しています。

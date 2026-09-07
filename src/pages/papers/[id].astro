@@ -1,4 +1,5 @@
 ---
+import Localized from '../../components/Localized.astro';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { dateLabel } from '../../lib/data';
@@ -15,7 +16,8 @@ const { Content } = await render(paper);
 
 <Base title={p.title} description={p.description} article
   ><article class="container article-page">
-    <a class="back-link" href="/papers/">← All publications</a><header class="page-heading">
+    <a class="back-link" href="/papers/"><Localized en="← All publications" ja="← 論文一覧へ" /></a
+    ><header class="page-heading">
       <p class="eyebrow">{p.type} / {dateLabel(p.date)}</p><h1 class="article-title">
         {p.title}
       </h1><p class="authors">{p.authors.join(', ')}</p><p class="blue">{p.venue || p.journal}</p>{
@@ -24,11 +26,15 @@ const { Content } = await render(paper);
         {
           (p.pdf || p.pdf_link) && (
             <a class="button" href={p.pdf || p.pdf_link}>
-              Read PDF ↗
+              <Localized en="Read PDF ↗" ja="PDF を読む ↗" />
             </a>
           )
         }{p.doi && <a href={`https://doi.org/${p.doi}`}>DOI ↗</a>}{
-          p.code_link && <a href={p.code_link}>Code ↗</a>
+          p.code_link && (
+            <a href={p.code_link}>
+              <Localized en="Code ↗" ja="コード ↗" />
+            </a>
+          )
         }
       </div>
     </header><div class="prose"><Content /></div>{
@@ -37,9 +43,11 @@ const { Content } = await render(paper);
           <>
             <div class="heading-row">
               <>
-                <h2>Citation</h2>
+                <h2>
+                  <Localized en="Citation" ja="引用情報" />
+                </h2>
                 <button class="copy-bibtex" type="button" data-bibtex={p.bibtex} aria-live="polite">
-                  Copy BibTeX
+                  <Localized en="Copy BibTeX" ja="BibTeX をコピー" />
                 </button>
               </>
             </div>

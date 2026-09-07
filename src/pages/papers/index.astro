@@ -1,4 +1,5 @@
 ---
+import Localized from '../../components/Localized.astro';
 import Base from '../../layouts/Base.astro';
 import Paper from '../../components/Paper.astro';
 import T from '../../components/T.astro';
@@ -17,26 +18,38 @@ const groups = [
 <Base title="Papers"
   ><div class="container">
     <header class="page-heading">
-      <p class="eyebrow">RESEARCH / PUBLICATIONS</p><h1>
+      <p class="eyebrow"><Localized en="RESEARCH / PUBLICATIONS" ja="研究 / 論文一覧" /></p><h1>
         <T id="papers_title" /><span class="blue">.</span>
-      </h1><p>Publications, preprints, and the work behind them.</p>
+      </h1><p>
+        <Localized
+          en="Publications, preprints, and the work behind them."
+          ja="論文・プレプリントと、各研究の詳細を紹介します。"
+        />
+      </p>
     </header>
     <div class="paper-filters" data-filters hidden>
       <label class="search-label"
-        >Search<input
+        ><Localized en="Search" ja="検索" /><input
           type="search"
           placeholder="Title, author, or venue"
+          data-en="Title, author, or venue"
+          data-ja="タイトル・著者・発表先"
+          data-translate-attribute="placeholder"
           data-search-input
         /></label
       ><label
         ><T id="papers_filter_type" /><select data-type-filter
-          ><option value="">All types</option><option value="journal">Journal</option><option
-            value="international">International</option
-          ><option value="domestic">Domestic</option></select
+          ><option value="" data-en="All types" data-ja="すべての種別">All types</option><option
+            value="journal"
+            data-en="Journal"
+            data-ja="学術誌">Journal</option
+          ><option value="international" data-en="International" data-ja="国際会議・プレプリント"
+            >International</option
+          ><option value="domestic" data-en="Domestic" data-ja="国内会議">Domestic</option></select
         ></label
       ><label
         ><T id="papers_filter_year" /><select data-year-filter
-          ><option value="">All years</option>{
+          ><option value="" data-en="All years" data-ja="すべての年">All years</option>{
             years.map((year) => <option value={year}>{year}</option>)
           }</select
         ></label
@@ -59,7 +72,12 @@ const groups = [
         </section>
       ))
     }
-    <p data-empty hidden>No publications match these filters. Try another search.</p>
+    <p data-empty hidden>
+      <Localized
+        en="No publications match these filters. Try another search."
+        ja="条件に一致する論文はありません。検索語や絞り込み条件を変更してください。"
+      />
+    </p>
   </div></Base
 >
 <script>
@@ -83,8 +101,12 @@ const groups = [
       group.hidden = !group.querySelector('[data-paper]:not([hidden])');
     });
     document.querySelector('[data-result-count]')!.textContent =
-      `${count} publication${count === 1 ? '' : 's'}`;
+      document.documentElement.dataset.lang === 'ja'
+        ? `${count} 件の論文`
+        : `${count} publication${count === 1 ? '' : 's'}`;
     document.querySelector<HTMLElement>('[data-empty]')!.hidden = count > 0;
   }
   filters.addEventListener('input', update);
+  document.addEventListener('languagechange', update);
+  update();
 </script>

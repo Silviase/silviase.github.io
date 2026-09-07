@@ -107,3 +107,11 @@ footer_built_with:
 label_advisors:
   en: 'Advisors:'
   ja: '指導教員：'
+
+papers_preprints:
+  en: arXiv Preprints
+  ja: arXiv プレプリント
+
+papers_conferences:
+  en: International Conferences
+  ja: 国際会議

@@ -1,4 +1,5 @@
 ---
+import Localized from '../../components/Localized.astro';
 import Base from '../../layouts/Base.astro';
 ---
 
@@ -6,7 +7,10 @@ import Base from '../../layouts/Base.astro';
   ><div class="container">
     <header class="page-heading">
       <p class="eyebrow">EXPERIMENTS / INTERACTIVE</p><h1>Sandbox<span class="blue">.</span></h1><p>
-        研究のアイデアを、触れて理解する。
+        <Localized
+          en="Explore research ideas through interactive experiments."
+          ja="研究のアイデアを、触れて理解する。"
+        />
       </p>
     </header><a class="demo-card" href="/sandbox/projection-lab/"
       ><div class="demo-preview" aria-hidden="true">
@@ -19,9 +23,11 @@ import Base from '../../layouts/Base.astro';
         }<span class="demo-caption mono">3D → 1D</span>
       </div><div class="demo-copy">
         <p class="eyebrow">DIMENSIONALITY REDUCTION</p><h2>Projection Lab ↗</h2><p>
-          3D 点群を眺める向きを選び、自分の直感的な軸と PCA の第 1
-          主成分を比較するインタラクティブデモ。
-        </p><span class="text-link">Open experiment →</span>
+          <Localized
+            en="Choose a view of a 3D point cloud and compare your intuitive axis with the first principal component from PCA."
+            ja="3D 点群を眺める向きを選び、自分の直感的な軸と PCA の第1主成分を比較するインタラクティブデモ。"
+          />
+        </p><span class="text-link"><Localized en="Open experiment →" ja="デモを開く →" /></span>
       </div></a
     >
   </div></Base

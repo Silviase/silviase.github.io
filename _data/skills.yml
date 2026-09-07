@@ -1,8 +1,10 @@
 - name: Programming
-  items:
+  items: &a1
     - Python
     - PyTorch
     - Java
+  name_ja: プログラミング
+  items_ja: *a1
 - name: Research Areas
   items:
     - Computer Vision
@@ -10,7 +12,18 @@
     - Multimodal Learning
     - Image Captioning
     - Evaluation Metrics
+  name_ja: 研究分野
+  items_ja:
+    - コンピュータビジョン
+    - 自然言語処理
+    - マルチモーダル学習
+    - 画像説明生成
+    - 評価指標
 - name: Languages
   items:
-    - 'Japanese (Native)'
-    - 'English (Professional)'
+    - Japanese (Native)
+    - English (Professional)
+  name_ja: 言語
+  items_ja:
+    - 日本語（母語）
+    - 英語（業務・研究）

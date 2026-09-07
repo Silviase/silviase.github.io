@@ -1,4 +1,5 @@
 ---
+import Localized from '../../components/Localized.astro';
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import { dateLabel } from '../../lib/data';
@@ -10,9 +11,16 @@ const posts = (await getCollection('posts')).sort(
 <Base title="Research Notes"
   ><div class="container">
     <header class="page-heading">
-      <p class="eyebrow">IDEAS / PROCESS / TOOLS</p><h1>
-        Research notes<span class="blue">.</span>
-      </h1><p>Practical tips and lessons from multimodal and NLP research.</p>
+      <p class="eyebrow">
+        <Localized en="IDEAS / PROCESS / TOOLS" ja="アイデア / 研究過程 / ツール" />
+      </p><h1>
+        <Localized en="Research notes" ja="研究ノート" /><span class="blue">.</span>
+      </h1><p>
+        <Localized
+          en="Practical tips and lessons from multimodal and NLP research."
+          ja="マルチモーダル・自然言語処理の研究で得た知見や、実践に役立つヒントをまとめています。"
+        />
+      </p>
     </header><div class="notes-list">
       {
         posts.map((post) => (

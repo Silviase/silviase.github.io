@@ -1,47 +1,74 @@
-- years: 'Jan 2026 – Present'
+- years: Jan 2026 – Present
   role: Applied Research Engineer (Internship)
   organization: Sakana AI
   logo: /assets/logos/sakana.png
-  description: ''
-
-- years: 'Jun 2024 – Present'
+  description: ""
+  years_ja: 2026年1月 – 現在
+  role_ja: 応用研究エンジニア（インターン）
+  organization_ja: Sakana AI
+  description_ja: ""
+- years: Jun 2024 – Present
   role: Research Assistant
   organization: National Institute of Informatics
   logo: /assets/logos/nii.png
-  description: ''
-
-- years: 'Jul 2024 – Mar 2025'
+  description: ""
+  years_ja: 2024年6月 – 現在
+  role_ja: リサーチアシスタント
+  organization_ja: 国立情報学研究所
+  description_ja: ""
+- years: Jul 2024 – Mar 2025
   role: Engineering Internship
   organization: Cierpa & Company
   logo: /assets/logos/cierpa.png
-  description: ''
-
-- years: 'Jul 2022 – Aug 2024'
+  description: ""
+  years_ja: 2024年7月 – 2025年3月
+  role_ja: エンジニアリング・インターン
+  organization_ja: Cierpa & Company
+  description_ja: ""
+- years: Jul 2022 – Aug 2024
   role: Research Part-timer
   organization: RIKEN AIP
   logo: /assets/logos/riken.png
-  description: 'Vision and Language research at the Language Information Access Technology Team.'
-
-- years: 'Jun 2023 – Jan 2024'
+  description: Vision and Language research at the Language Information Access
+    Technology Team.
+  years_ja: 2022年7月 – 2024年8月
+  role_ja: 研究パートタイマー
+  organization_ja: 理化学研究所 革新知能統合研究センター（AIP）
+  description_ja: 言語情報アクセス技術チームで視覚と言語の研究に従事。
+- years: Jun 2023 – Jan 2024
   role: Research Internship
   organization: OMRON SINIC X
   logo: /assets/logos/omron-sinicx.png
-  description: ''
-
-- years: 'Dec 2021 – Dec 2022'
+  description: ""
+  years_ja: 2023年6月 – 2024年1月
+  role_ja: 研究インターン
+  organization_ja: OMRON SINIC X
+  description_ja: ""
+- years: Dec 2021 – Dec 2022
   role: Research Assistant
   organization: Tokyo Institute of Technology
   logo: /assets/logos/titech.png
-  description: ''
-
-- years: 'Aug 2022 – Sep 2022'
+  description: ""
+  years_ja: 2021年12月 – 2022年12月
+  role_ja: リサーチアシスタント
+  organization_ja: 東京工業大学
+  description_ja: ""
+- years: Aug 2022 – Sep 2022
   role: Summer Internship
   organization: NTT Research Institute
   logo: /assets/logos/ntt.png
-  description: 'Parameter-efficient pre-training methods for CLIP in Vision and Language tasks.'
-
-- years: 'Feb 2021 – Mar 2022'
+  description: Parameter-efficient pre-training methods for CLIP in Vision and
+    Language tasks.
+  years_ja: 2022年8月 – 2022年9月
+  role_ja: サマーインターン
+  organization_ja: NTT 研究所
+  description_ja: 視覚言語タスクに向けた、CLIP のパラメータ効率のよい事前学習手法を研究。
+- years: Feb 2021 – Mar 2022
   role: Strategic AI Group
   organization: Future Corporation
   logo: /assets/logos/future.png
-  description: 'SNS data analysis and annotation guideline creation.'
+  description: SNS data analysis and annotation guideline creation.
+  years_ja: 2021年2月 – 2022年3月
+  role_ja: Strategic AI Group
+  organization_ja: フューチャー株式会社
+  description_ja: SNS データの分析とアノテーションガイドラインの作成。

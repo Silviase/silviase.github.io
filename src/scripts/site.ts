@@ -10,7 +10,13 @@ const themeToggle = document.querySelector<HTMLButtonElement>('.theme-toggle');
 function syncThemeLabel() {
   themeToggle?.setAttribute(
     'aria-label',
-    html.dataset.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+    html.dataset.lang === 'ja'
+      ? html.dataset.theme === 'dark'
+        ? 'ライトモードに切り替える'
+        : 'ダークモードに切り替える'
+      : html.dataset.theme === 'dark'
+        ? 'Switch to light mode'
+        : 'Switch to dark mode'
   );
 }
 syncThemeLabel();
@@ -20,23 +26,34 @@ themeToggle?.addEventListener('click', () => {
   remember('theme', theme);
   syncThemeLabel();
 });
-const langToggle = document.querySelector<HTMLButtonElement>('.lang-toggle');
-function syncLangLabel() {
-  langToggle?.setAttribute(
-    'aria-label',
-    html.dataset.lang === 'ja' ? 'Switch interface to English' : '表示を日本語に切り替える'
-  );
-}
-syncLangLabel();
-langToggle?.addEventListener('click', () => {
-  const lang = html.dataset.lang === 'ja' ? 'en' : 'ja';
+const languageButtons = document.querySelectorAll<HTMLButtonElement>('[data-language]');
+function syncLanguage() {
+  const lang = html.dataset.lang === 'ja' ? 'ja' : 'en';
   html.dataset.lang = lang;
-  remember('lang', lang);
-  syncLangLabel();
-});
+  html.lang = lang;
+  languageButtons.forEach((button) =>
+    button.setAttribute('aria-pressed', String(button.dataset.language === lang))
+  );
+  document.querySelectorAll<HTMLElement>('[data-en][data-ja]').forEach((element) => {
+    const text = lang === 'ja' ? element.dataset.ja! : element.dataset.en!;
+    const attribute = element.dataset.translateAttribute;
+    if (attribute) element.setAttribute(attribute, text);
+    else element.textContent = text;
+  });
+  syncThemeLabel();
+  document.dispatchEvent(new Event('languagechange'));
+}
+syncLanguage();
+languageButtons.forEach((button) =>
+  button.addEventListener('click', () => {
+    html.dataset.lang = button.dataset.language!;
+    remember('lang', html.dataset.lang);
+    syncLanguage();
+  })
+);
 document.querySelectorAll<HTMLButtonElement>('.copy-bibtex').forEach((button) => {
   button.addEventListener('click', async () => {
-    const original = button.textContent;
+    const original = [...button.childNodes].map((node) => node.cloneNode(true));
     const japanese = html.dataset.lang === 'ja';
     try {
       await navigator.clipboard.writeText(button.dataset.bibtex!);
@@ -46,7 +63,7 @@ document.querySelectorAll<HTMLButtonElement>('.copy-bibtex').forEach((button) =>
     }
     button.disabled = true;
     window.setTimeout(() => {
-      button.textContent = original;
+      button.replaceChildren(...original);
       button.disabled = false;
     }, 2000);
   });

@@ -218,8 +218,32 @@ main {
   font-family: var(--font-mono);
   font-size: 11px;
 }
-.lang-toggle span {
-  color: var(--gray-400);
+.language-switch {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+}
+.header-tools .language-switch button {
+  justify-content: center;
+  min-width: 38px;
+  min-height: 34px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+}
+html[data-lang='en'] [data-language='en'],
+html[data-lang='ja'] [data-language='ja'] {
+  background: var(--blue-700);
+  color: var(--surface);
+  font-weight: 700;
+  box-shadow: 0 1px 3px #0003;
+}
+.language-switch button:focus-visible {
+  outline: 2px solid var(--blue-600);
+  outline-offset: 3px;
 }
 [data-i18n='ja'] {
   display: none;

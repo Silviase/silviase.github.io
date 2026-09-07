@@ -1,22 +1,38 @@
 ---
 import { education, experience, awards, skills, talks } from '../lib/data';
+import Localized from './Localized.astro';
 import T from './T.astro';
 ---
 
 <section class="section">
   <div class="section-heading">
-    <span class="section-index">03 / BACKGROUND</span><h2><T id="section_experience" /></h2>
+    <span class="section-index"><Localized en="03 / BACKGROUND" ja="03 / 経歴" /></span><h2>
+      <T id="section_experience" />
+    </h2>
   </div><div class="timeline">
     {
       experience.map((item) => (
         <article class="timeline-row">
           <>
-            <p class="mono muted">{item.years}</p>
+            <p class="mono muted">
+              <Localized en={item.years} ja={item.years_ja} />
+            </p>
             <div class="organization">
               {item.logo && <img src={item.logo} alt="" width="40" height="40" loading="lazy" />}
               <div>
-                <p>{item.role}</p>
-                {item.description && <p class="muted">{item.description}</p>}
+                <>
+                  <h3>
+                    <Localized en={item.organization} ja={item.organization_ja} />
+                  </h3>
+                  <p>
+                    <Localized en={item.role} ja={item.role_ja} />
+                  </p>
+                </>
+                {item.description && (
+                  <p class="muted">
+                    <Localized en={item.description} ja={item.description_ja} />
+                  </p>
+                )}
               </div>
             </div>
           </>
@@ -27,20 +43,31 @@ import T from './T.astro';
 </section>
 <section class="section">
   <div class="section-heading">
-    <span class="section-index">04 / EDUCATION</span><h2><T id="section_education" /></h2>
+    <span class="section-index"><Localized en="04 / EDUCATION" ja="04 / 学歴" /></span><h2>
+      <T id="section_education" />
+    </h2>
   </div><div class="timeline">
     {
       education.map((item) => (
         <article class="timeline-row">
           <>
-            <p class="mono muted">{item.years}</p>
+            <p class="mono muted">
+              <Localized en={item.years} ja={item.years_ja} />
+            </p>
             <div>
               <>
-                <h3>{item.program}</h3>
-                <p>{item.focus}</p>
-                <p class="muted">{item.description}</p>
+                <h3>
+                  <Localized en={item.program} ja={item.program_ja} />
+                </h3>
+                <p>
+                  <Localized en={item.focus} ja={item.focus_ja} />
+                </p>
                 <p class="muted">
-                  <T id="label_advisors" /> {item.advisors.join(', ')}
+                  <Localized en={item.description} ja={item.description_ja} />
+                </p>
+                <p class="muted">
+                  <T id="label_advisors" />{' '}
+                  <Localized en={item.advisors.join(', ')} ja={item.advisors_ja?.join('、')} />
                 </p>
               </>
             </div>
@@ -56,7 +83,9 @@ import T from './T.astro';
       <>
         <div class="section-heading">
           <>
-            <span class="section-index">05 / COMMUNITY</span>
+            <span class="section-index">
+              <Localized en="05 / COMMUNITY" ja="05 / 講演・発表" />
+            </span>
             <h2>
               <T id="section_talks" />
             </h2>
@@ -69,7 +98,10 @@ import T from './T.astro';
               <div>
                 <h3>{talk.url ? <a href={talk.url}>{talk.title} ↗</a> : talk.title}</h3>
                 <p class="muted">
-                  {[talk.event, talk.location, talk.note].filter(Boolean).join(' · ')}
+                  <Localized
+                    en={[talk.event, talk.location, talk.note].filter(Boolean).join(' · ')}
+                    ja={talk.details_ja}
+                  />
                 </p>
               </div>
             </article>
@@ -82,17 +114,34 @@ import T from './T.astro';
 <section class="section two-column">
   <div>
     <div class="section-heading">
-      <span class="section-index">06 / RECOGNITION</span><h2><T id="section_awards" /></h2>
-    </div><ul class="plain-list">{awards.map((award) => <li>{award}</li>)}</ul>
+      <span class="section-index"><Localized en="06 / RECOGNITION" ja="06 / 受賞・支援" /></span><h2
+      >
+        <T id="section_awards" />
+      </h2>
+    </div><ul class="plain-list">
+      {
+        awards.map((award) => (
+          <li>
+            <Localized en={award.en} ja={award.ja} />
+          </li>
+        ))
+      }
+    </ul>
   </div><div>
     <div class="section-heading">
-      <span class="section-index">07 / TOOLKIT</span><h2><T id="section_skills" /></h2>
+      <span class="section-index"><Localized en="07 / TOOLKIT" ja="07 / 専門分野" /></span><h2>
+        <T id="section_skills" />
+      </h2>
     </div>{
       skills.map((group) => (
         <div class="skill-group">
           <>
-            <h3>{group.name}</h3>
-            <p class="muted">{group.items.join(' · ')}</p>
+            <h3>
+              <Localized en={group.name} ja={group.name_ja} />
+            </h3>
+            <p class="muted">
+              <Localized en={group.items.join(' · ')} ja={group.items_ja?.join('・')} />
+            </p>
           </>
         </div>
       ))

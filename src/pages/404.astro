@@ -1,11 +1,14 @@
 ---
+import Localized from '../components/Localized.astro';
 import Base from '../layouts/Base.astro';
 ---
 
 <Base title="Page not found"
   ><div class="container page-heading">
-    <p class="eyebrow">404 / PAGE NOT FOUND</p><h1>A missing link<span class="blue">.</span></h1><p>
-      This page could not be found.
-    </p><a class="button" href="/">Back to home ↗</a>
+    <p class="eyebrow">404 / PAGE NOT FOUND</p><h1>
+      <Localized en="A missing link" ja="ページが見つかりません" /><span class="blue">.</span>
+    </h1><p>
+      <Localized en="This page could not be found." ja="指定されたページは見つかりませんでした。" />
+    </p><a class="button" href="/"><Localized en="Back to home ↗" ja="ホームへ戻る ↗" /></a>
   </div></Base
 >
