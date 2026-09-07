@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+output/
+.playwright-cli/
+package-lock.json
+_papers/
+_posts/
+_data/
+public/
+.cursor/

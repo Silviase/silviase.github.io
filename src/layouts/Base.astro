@@ -1,0 +1,112 @@
+---
+import '../styles/global.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/noto-sans-jp/400.css';
+import T from '../components/T.astro';
+import { profile } from '../lib/data';
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+  article?: boolean;
+}
+const { title, description = profile.bio, lang = 'en', article = false } = Astro.props;
+const pageTitle = title ? `${title} — ${profile.name}` : `${profile.name} — Vision & Language`;
+const nav = [
+  ['/', 'nav_home'],
+  ['/papers/', 'nav_papers'],
+  ['/cv/', 'nav_cv'],
+  ['/sandbox/', 'nav_sandbox'],
+  ['/blog/', 'nav_notes'],
+];
+const path = Astro.url.pathname === '/404/' ? '/404.html' : Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    {path === '/404.html' && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#2563eb" />
+    <title>{pageTitle}</title>
+    <link rel="canonical" href={new URL(path, Astro.site)} />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Koki Maeda — Research Notes"
+      href="/feed.xml"
+    />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={new URL(path, Astro.site)} />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:image" content={new URL(profile.image, Astro.site)} />
+    <meta name="twitter:card" content="summary" />
+    <script is:inline>
+      try {
+        if (localStorage.getItem('theme') === 'dark')
+          document.documentElement.dataset.theme = 'dark';
+        if (localStorage.getItem('lang') === 'ja') document.documentElement.dataset.lang = 'ja';
+      } catch {}
+    </script>
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header container">
+      <a class="wordmark" href="/" aria-label="Koki Maeda, home"
+        ><span class="brand-mark" aria-hidden="true"></span>silviase<span class="wordmark-dot"
+          >.</span
+        ></a
+      >
+      <nav aria-label="Main navigation">
+        {
+          nav.map(([href, key]) => (
+            <a
+              href={href}
+              aria-current={
+                (href === '/' ? path === '/' : path.startsWith(href)) ? 'page' : undefined
+              }
+            >
+              <T id={key} />
+            </a>
+          ))
+        }
+      </nav>
+      <div class="header-tools">
+        <button class="lang-toggle" type="button" aria-label="Switch interface language"
+          >EN <span aria-hidden="true">/</span> JP</button
+        >
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode"
+          ><svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+            ><path d="M20.5 14.1A8.5 8.5 0 0 1 9.9 3.5a8.5 8.5 0 1 0 10.6 10.6Z"></path></svg
+          ></button
+        >
+      </div>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer container">
+      <a href="/">Koki Maeda <span class="muted">/ silviase</span></a><span
+        >Vision &amp; Language</span
+      ><a href="https://github.com/Silviase/Silviase.github.io"
+        >Source <span aria-hidden="true">↗</span></a
+      >
+    </footer>
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

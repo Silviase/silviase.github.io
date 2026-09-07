@@ -1,5 +1,5 @@
 # UI labels — Single Source of Truth for EN/JP translations
-# Usage: {% include t.html key="nav_home" %}
+# Used by src/components/T.astro
 
 # Navigation
 nav_home:
@@ -100,8 +100,8 @@ blog_no_posts:
 
 # Footer
 footer_built_with:
-  en: Built with Jekyll
-  ja: Jekyll で構築
+  en: Built with Astro
+  ja: Astro で構築
 
 # Education
 label_advisors:

@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+import Paper from '../../components/Paper.astro';
+import T from '../../components/T.astro';
+import { getCollection } from 'astro:content';
+const papers = (await getCollection('papers')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const years = [...new Set(papers.map((p) => p.data.date.getUTCFullYear()))];
+const groups = [
+  ['journal', 'papers_journals'],
+  ['international', 'papers_international'],
+  ['domestic', 'papers_domestic'],
+];
+---
+
+<Base title="Papers"
+  ><div class="container">
+    <header class="page-heading">
+      <p class="eyebrow">RESEARCH / PUBLICATIONS</p><h1>
+        <T id="papers_title" /><span class="blue">.</span>
+      </h1><p>Publications, preprints, and the work behind them.</p>
+    </header>
+    <div class="paper-filters" data-filters hidden>
+      <label class="search-label"
+        >Search<input
+          type="search"
+          placeholder="Title, author, or venue"
+          data-search-input
+        /></label
+      ><label
+        ><T id="papers_filter_type" /><select data-type-filter
+          ><option value="">All types</option><option value="journal">Journal</option><option
+            value="international">International</option
+          ><option value="domestic">Domestic</option></select
+        ></label
+      ><label
+        ><T id="papers_filter_year" /><select data-year-filter
+          ><option value="">All years</option>{
+            years.map((year) => <option value={year}>{year}</option>)
+          }</select
+        ></label
+      >
+    </div>
+    <p class="result-count mono muted" data-result-count aria-live="polite">
+      {papers.length} publications
+    </p>
+    {
+      groups.map(([type, label]) => (
+        <section class="publication-group" data-paper-group>
+          <h2>
+            <T id={label} />
+          </h2>
+          {papers
+            .filter((p) => p.data.type === type)
+            .map((paper) => (
+              <Paper paper={paper} />
+            ))}
+        </section>
+      ))
+    }
+    <p data-empty hidden>No publications match these filters. Try another search.</p>
+  </div></Base
+>
+<script>
+  const filters = document.querySelector<HTMLElement>('[data-filters]')!;
+  filters.hidden = false;
+  const search = document.querySelector<HTMLInputElement>('[data-search-input]')!;
+  const type = document.querySelector<HTMLSelectElement>('[data-type-filter]')!;
+  const year = document.querySelector<HTMLSelectElement>('[data-year-filter]')!;
+  const rows = [...document.querySelectorAll<HTMLElement>('[data-paper]')];
+  function update() {
+    let count = 0;
+    for (const row of rows) {
+      row.hidden = !(
+        row.dataset.search!.includes(search.value.trim().toLowerCase()) &&
+        (!type.value || row.dataset.type === type.value) &&
+        (!year.value || row.dataset.year === year.value)
+      );
+      if (!row.hidden) count++;
+    }
+    document.querySelectorAll<HTMLElement>('[data-paper-group]').forEach((group) => {
+      group.hidden = !group.querySelector('[data-paper]:not([hidden])');
+    });
+    document.querySelector('[data-result-count]')!.textContent =
+      `${count} publication${count === 1 ? '' : 's'}`;
+    document.querySelector<HTMLElement>('[data-empty]')!.hidden = count > 0;
+  }
+  filters.addEventListener('input', update);
+</script>

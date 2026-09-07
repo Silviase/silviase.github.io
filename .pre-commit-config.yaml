@@ -7,13 +7,13 @@ repos:
       - id: end-of-file-fixer
       - id: check-merge-conflict
       - id: check-yaml
-        exclude: '_site/.*'
+        exclude: 'dist/.*'
       - id: check-added-large-files
         args: ['--maxkb=5000']
       - id: mixed-line-ending
         args: ['--fix=lf']
       - id: check-json
-        exclude: '(_site/.*|posts/.*\.json$)'
+        exclude: '(dist/.*|posts/.*\.json$)'
       - id: detect-private-key
       - id: check-case-conflict
 
@@ -24,7 +24,7 @@ repos:
       - id: yamllint
         args: ['-d', '{extends: relaxed, rules: {line-length: disable, document-start: disable}}']
         files: '\.(yaml|yml)$'
-        exclude: '_site/.*'
+        exclude: 'dist/.*'
 
   # Spell checking
   - repo: https://github.com/codespell-project/codespell
@@ -32,9 +32,9 @@ repos:
     hooks:
       - id: codespell
         args:
-          - '--skip=.git,*.pdf,*.svg,*.png,*.jpg,*.jpeg,_site,.sass-cache,.jekyll-cache,node_modules'
+          - '--skip=.git,*.pdf,*.svg,*.png,*.jpg,*.jpeg,dist,.sass-cache,.jekyll-cache,node_modules'
           - '--ignore-words-list=nd,te,dateA,dateB'
-        exclude: '_site/.*'
+        exclude: 'dist/.*'
 
   # File size and whitespace checks
   - repo: https://github.com/Lucas-C/pre-commit-hooks
@@ -51,11 +51,11 @@ repos:
         name: prettier
         entry: npx prettier --write --ignore-path .gitignore
         language: system
-        files: '\.(js|css|md|html|json|yml|yaml)$'
-        exclude: '(_site/.*|node_modules/.*)'
+        files: '\.(astro|ts|js|mjs|css|md|html|json|yml|yaml)$'
+        exclude: '(dist/.*|node_modules/.*)'
       - id: markdownlint
         name: markdownlint
-        entry: npx markdownlint --fix --ignore node_modules --ignore _site
+        entry: npx markdownlint --fix --ignore node_modules --ignore dist
         language: system
         files: '\.md$'
-        exclude: '(_site/.*|node_modules/.*)'
+        exclude: '(dist/.*|node_modules/.*)'

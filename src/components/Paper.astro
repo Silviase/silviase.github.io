@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  paper: CollectionEntry<'papers'>;
+  compact?: boolean;
+}
+const { paper, compact = false } = Astro.props;
+const p = paper.data;
+const venue = p.venue || p.journal;
+const shortVenue = venue?.match(/\(([^)]+)\)/)?.[1] || venue;
+---
+
+<article
+  class:list={['paper-row', { compact }]}
+  data-paper
+  data-type={p.type}
+  data-year={p.date.getUTCFullYear()}
+  data-search={`${p.title} ${p.authors.join(' ')} ${venue}`.toLowerCase()}
+>
+  <div class="paper-meta">
+    <span class="mono">{p.date.getUTCFullYear()}</span><span class="venue-label">{shortVenue}</span>
+  </div>
+  <div class="paper-info">
+    <h3><a href={`/papers/${paper.id}/`}>{p.title}</a></h3>
+    <p class="authors">
+      {
+        p.authors.map((author, i) => (
+          <>
+            {i > 0 && ', '}
+            {['Koki Maeda', 'Maeda, Koki', '前田 航希', '前田, 航希'].includes(author) ? (
+              <strong>{author}</strong>
+            ) : (
+              author
+            )}
+          </>
+        ))
+      }
+    </p>
+    {!compact && p.description && <p class="paper-description">{p.description}</p>}
+    <div class="paper-links">
+      <a href={`/papers/${paper.id}/`}>Details <span aria-hidden="true">↗</span></a>{
+        (p.pdf || p.pdf_link) && <a href={p.pdf || p.pdf_link}>PDF</a>
+      }{p.code_link && <a href={p.code_link}>Code</a>}{
+        p.bibtex && (
+          <button
+            type="button"
+            class="copy-bibtex"
+            data-bibtex={p.bibtex}
+            aria-label={`Copy BibTeX for ${p.title}`}
+            aria-live="polite"
+          >
+            BibTeX
+          </button>
+        )
+      }
+    </div>
+  </div>
+</article>

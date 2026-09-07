@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { dateLabel } from '../../lib/data';
+export async function getStaticPaths() {
+  return (await getCollection('posts')).map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Base title={post.data.title} description={post.data.excerpt} lang="ja" article
+  ><article class="container article-page">
+    <a class="back-link" href="/blog/">← All research notes</a><header class="page-heading">
+      <p class="eyebrow">{dateLabel(post.data.date)} / {post.data.author}</p><h1
+        class="article-title"
+      >
+        {post.data.title}
+      </h1><p>{post.data.excerpt}</p>
+    </header><div class="prose"><Content /></div>
+  </article></Base
+>

@@ -19,6 +19,13 @@
       "options": {
         "printWidth": 120
       }
+    },
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
     }
-  ]
+  ],
+  "plugins": ["prettier-plugin-astro"]
 }

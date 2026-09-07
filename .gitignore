@@ -7,7 +7,6 @@ Thumbs.db
 *.swp
 *~
 node_modules/
-package-lock.json
 vendor/
 drafts/
 .venv/
@@ -15,3 +14,8 @@ pyproject.toml
 uv.lock
 .python-version
 main.py
+
+dist/
+.astro/
+output/
+.playwright-cli/

@@ -1,0 +1,101 @@
+---
+import { education, experience, awards, skills, talks } from '../lib/data';
+import T from './T.astro';
+---
+
+<section class="section">
+  <div class="section-heading">
+    <span class="section-index">03 / BACKGROUND</span><h2><T id="section_experience" /></h2>
+  </div><div class="timeline">
+    {
+      experience.map((item) => (
+        <article class="timeline-row">
+          <>
+            <p class="mono muted">{item.years}</p>
+            <div class="organization">
+              {item.logo && <img src={item.logo} alt="" width="40" height="40" loading="lazy" />}
+              <div>
+                <p>{item.role}</p>
+                {item.description && <p class="muted">{item.description}</p>}
+              </div>
+            </div>
+          </>
+        </article>
+      ))
+    }
+  </div>
+</section>
+<section class="section">
+  <div class="section-heading">
+    <span class="section-index">04 / EDUCATION</span><h2><T id="section_education" /></h2>
+  </div><div class="timeline">
+    {
+      education.map((item) => (
+        <article class="timeline-row">
+          <>
+            <p class="mono muted">{item.years}</p>
+            <div>
+              <>
+                <h3>{item.program}</h3>
+                <p>{item.focus}</p>
+                <p class="muted">{item.description}</p>
+                <p class="muted">
+                  <T id="label_advisors" /> {item.advisors.join(', ')}
+                </p>
+              </>
+            </div>
+          </>
+        </article>
+      ))
+    }
+  </div>
+</section>
+{
+  talks.length > 0 && (
+    <section class="section">
+      <>
+        <div class="section-heading">
+          <>
+            <span class="section-index">05 / COMMUNITY</span>
+            <h2>
+              <T id="section_talks" />
+            </h2>
+          </>
+        </div>
+        <div>
+          {talks.map((talk) => (
+            <article class="timeline-row">
+              <p class="mono muted">{talk.date}</p>
+              <div>
+                <h3>{talk.url ? <a href={talk.url}>{talk.title} ↗</a> : talk.title}</h3>
+                <p class="muted">
+                  {[talk.event, talk.location, talk.note].filter(Boolean).join(' · ')}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </>
+    </section>
+  )
+}
+<section class="section two-column">
+  <div>
+    <div class="section-heading">
+      <span class="section-index">06 / RECOGNITION</span><h2><T id="section_awards" /></h2>
+    </div><ul class="plain-list">{awards.map((award) => <li>{award}</li>)}</ul>
+  </div><div>
+    <div class="section-heading">
+      <span class="section-index">07 / TOOLKIT</span><h2><T id="section_skills" /></h2>
+    </div>{
+      skills.map((group) => (
+        <div class="skill-group">
+          <>
+            <h3>{group.name}</h3>
+            <p class="muted">{group.items.join(' · ')}</p>
+          </>
+        </div>
+      ))
+    }
+  </div>
+</section>

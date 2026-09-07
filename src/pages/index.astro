@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import Paper from '../components/Paper.astro';
+import Background from '../components/Background.astro';
+import T from '../components/T.astro';
+import { profile, themes } from '../lib/data';
+import { getCollection } from 'astro:content';
+const papers = (await getCollection('papers')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Base>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">RESEARCHER / VISION &amp; LANGUAGE</p><h1>
+          Koki Maeda<span class="japanese-name" lang="ja">前田 航希</span>
+        </h1><p class="hero-tagline">{profile.tagline}</p><p class="hero-bio">{profile.bio}</p><div
+          class="hero-links"
+        >
+          {
+            profile.contacts
+              .filter((link) => !['Blog', 'CV'].includes(link.label))
+              .map((link) => (
+                <a href={link.url}>
+                  {link.label}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              ))
+          }
+        </div><a class="text-link hero-cta" href="/papers/"
+          >Explore my research <span aria-hidden="true">↓</span></a
+        >
+      </div>
+      <figure class="hero-portrait">
+        <div class="portrait-frame">
+          <img src={profile.image} alt="Koki Maeda" width="380" height="440" fetchpriority="high" />
+        </div><figcaption>
+          <span class="mono">TOKYO, JAPAN</span><span aria-hidden="true">35.68° N / 139.76° E</span>
+        </figcaption>
+      </figure>
+    </section>
+    <section class="section research">
+      <div class="section-heading">
+        <span class="section-index">01 / RESEARCH</span><h2>
+          Understanding across<br />vision and language<span class="blue">.</span>
+        </h2>
+      </div><div class="research-grid">
+        {
+          themes.map((theme, i) => (
+            <article>
+              <>
+                <span class="mono research-number">0{i + 1}</span>
+                <h3>{theme.title}</h3>
+                <p>{theme.description}</p>
+              </>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-heading heading-row">
+        <div>
+          <span class="section-index">02 / PUBLICATIONS</span><h2><T id="papers_recent" /></h2>
+        </div><a class="text-link" href="/papers/"
+          ><T id="btn_browse_papers" /> <span aria-hidden="true">↗</span></a
+        >
+      </div><div class="paper-list">
+        {papers.slice(0, 5).map((paper) => <Paper paper={paper} compact />)}
+      </div>
+    </section>
+    <Background />
+  </div>
+</Base>

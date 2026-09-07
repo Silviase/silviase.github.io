@@ -1,0 +1,102 @@
+---
+import Base from '../../layouts/Base.astro';
+import '../../styles/projection-lab.css';
+---
+
+<Base title="Projection Lab" lang="ja"
+  ><div class="container"><a class="back-link" href="/sandbox/">← Sandbox</a></div>
+  <section class="projection-lab" data-projection-lab>
+    <div class="projection-shell">
+      <header class="projection-header">
+        <div>
+          <p class="projection-kicker">Dimensionality Reduction Lab</p>
+          <h1>3D データを、1 本の<span class="projection-nowrap">軸</span>へ射影する</h1>
+        </div>
+        <p>
+          3 次元から 1
+          次元への次元削減は、点群をどの向きの軸に落とすかを選ぶ操作です。画面の横方向がそのまま射影軸になります。
+          PCA は分散が最大になる向き（第 1
+          主成分）を機械的に選びます。自分の直感とどれだけ一致するかを比べられます。
+        </p>
+      </header>
+
+      <div class="projection-toolbar" aria-label="Projection controls">
+        <label>
+          <span>データ</span>
+          <select data-dataset-select>
+            <option value="clusters">3 つの塊</option>
+            <option value="curve">曲がった軌道</option>
+          </select>
+        </label>
+        <button type="button" data-reroll>新しい点群</button>
+        <button type="button" data-reset-view>正面へ戻す</button>
+        <button type="button" data-pca-view>正解を見る</button>
+      </div>
+
+      <div class="projection-workbench">
+        <section class="projection-panel projection-panel--scene" aria-label="3D point cloud">
+          <div class="projection-panel-head">
+            <h2>3D キューブ</h2>
+            <span data-view-label>直感の軸</span>
+          </div>
+          <div class="projection-scene" data-scene></div>
+        </section>
+
+        <section class="projection-panel projection-panel--plot" aria-label="Projection comparison">
+          <div class="projection-panel-head">
+            <h2>1D 射影</h2>
+            <span data-answer-state>正解は非表示</span>
+          </div>
+          <canvas class="projection-canvas" data-projection-canvas width="960" height="520"
+          ></canvas>
+        </section>
+      </div>
+
+      <div class="projection-lower">
+        <section class="projection-panel projection-panel--sliders" aria-label="View controls">
+          <h2>射影軸の向き</h2>
+          <label>
+            <span>水平角</span>
+            <input type="range" min="-180" max="180" value="38" step="1" data-yaw />
+            <output data-yaw-value>38 deg</output>
+          </label>
+          <label>
+            <span>仰角</span>
+            <input type="range" min="-180" max="180" value="22" step="1" data-pitch />
+            <output data-pitch-value>22 deg</output>
+          </label>
+        </section>
+
+        <section class="projection-panel projection-panel--metrics" aria-label="Projection metrics">
+          <h2>ずれの見方</h2>
+          <div class="projection-metrics">
+            <div>
+              <span>あなたの保持分散</span>
+              <strong data-user-variance>--</strong>
+            </div>
+            <div>
+              <span>PCA の保持分散</span>
+              <strong data-pca-variance>--</strong>
+            </div>
+            <div>
+              <span>PC1 との角度</span>
+              <strong data-axis-angle>--</strong>
+            </div>
+            <div>
+              <span>直感スコア</span>
+              <strong data-intuition-score>--</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="projection-panel projection-panel--note">
+          <h2>読み取り</h2>
+          <p data-observation>
+            立方体の外側で視点を動かすと、同じ 3D 点群でも軸上の広がり方が大きく変わります。
+          </p>
+        </section>
+      </div>
+    </div>
+  </section>
+</Base>
+<script src="../../scripts/projection-lab.js"></script>

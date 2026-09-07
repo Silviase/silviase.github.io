@@ -46,7 +46,7 @@ I need you to create an English design prompt that can be fed into a model for a
 <img
 width="1200"
 alt="task_description.png (1.2 MB)"
-src="{{ '/assets/images/blog/20251218/task_description.png' | relative_url }}"
+src="/assets/images/blog/20251218/task_description.png"
 
 >
 

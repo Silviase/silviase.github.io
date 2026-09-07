@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import Background from '../components/Background.astro';
+import { profile, cvPublications } from '../lib/data';
+import { getCollection } from 'astro:content';
+const papers = (await getCollection('papers')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const groups = [
+  { title: 'Journal Articles', papers: papers.filter((p) => p.data.type === 'journal') },
+  {
+    title: 'International Conferences',
+    papers: papers.filter(
+      (p) => p.data.type === 'international' && p.data.venue !== 'arXiv preprint'
+    ),
+  },
+  { title: 'arXiv Preprints', papers: papers.filter((p) => p.data.venue === 'arXiv preprint') },
+  { title: 'Domestic Conferences', papers: papers.filter((p) => p.data.type === 'domestic') },
+];
+let start = 1;
+---
+
+<Base title="Curriculum Vitae"
+  ><div class="container cv-page">
+    <header class="page-heading">
+      <p class="eyebrow">CURRICULUM VITAE</p><div class="heading-row">
+        <h1>{profile.name}<span class="blue">.</span></h1><button
+          class="button print-button"
+          type="button"
+          data-print>Print / Save PDF ↗</button
+        >
+      </div><p>{profile.tagline}</p><div class="hero-links">
+        {
+          profile.contacts
+            .filter((link) => !['Blog', 'CV'].includes(link.label))
+            .map((link) => <a href={link.url}>{link.label} ↗</a>)
+        }
+      </div>
+    </header><section class="cv-summary">
+      <h2>Research focus</h2><p>{profile.bio}</p><ul>
+        <li>
+          Designing instruction-tuned multimodal LLMs and evaluation pipelines that balance academic
+          rigor with deployability.
+        </li><li>
+          Building curated Japanese-language datasets for captioning, reasoning, and cultural
+          understanding in vision-language systems.
+        </li>
+      </ul>
+    </section><Background /><section class="section cv-publications">
+      <div class="section-heading">
+        <span class="section-index">PUBLICATIONS</span><h2>Full publication list</h2>
+      </div>{
+        groups.map((group) => {
+          const first = start;
+          start += group.papers.length;
+          return (
+            <section>
+              <>
+                <h3>{group.title}</h3>
+                <ol start={first}>
+                  {group.papers.map((paper) => {
+                    const entry = cvPublications.find((e) => e.id === paper.id);
+                    return (
+                      <li>
+                        <p>{paper.data.authors.join(', ')}</p>
+                        <a href={`/papers/${paper.id}/`}>
+                          <strong>{paper.data.title}</strong>
+                        </a>
+                        <p class="muted">
+                          {[
+                            paper.data.venue || paper.data.journal,
+                            entry?.date,
+                            entry?.location,
+                            entry?.pages,
+                            entry?.page_count,
+                            entry?.column,
+                          ]
+                            .filter(Boolean)
+                            .join(' · ')}
+                        </p>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </>
+            </section>
+          );
+        })
+      }
+    </section>
+  </div></Base
+>
+<script>
+  document.querySelector('[data-print]')?.addEventListener('click', () => window.print());
+</script>

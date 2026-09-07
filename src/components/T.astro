@@ -1,0 +1,16 @@
+---
+import { translations } from '../lib/data';
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+const text = translations[id];
+---
+
+<span data-i18n-key={id}
+  ><span data-i18n="en" set:html={text.en} /><span
+    data-i18n="ja"
+    lang="ja"
+    set:html={text.ja}
+  /></span
+>
