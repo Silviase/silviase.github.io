@@ -8,16 +8,21 @@ authors:
   - 徳久 良子
   - 岡崎 直観
 venue: '情報処理学会 第263回自然言語処理研究会 研究報告 (2024-NL-263)'
-date: 2024-11-01
+date: 2025-03-09
 type: domestic
 description: '視覚言語モデルにおける日本文化・日常生活知識理解を評価するための MECHA-Ja ベンチマークを提案。'
 pdf:
+code_link: https://huggingface.co/datasets/llm-jp/MECHA-ja
 bibtex: |
   @inproceedings{maeda2024mechaja,
     title = {日本の文化常識・日常生活知識理解のための視覚言語ベンチマーク MECHA-Ja の構築},
     author = {前田 航希 and 長谷川 騎平 and 栗田 修平 and 小田 悠介 and 徳久 良子 and 岡崎 直観},
     booktitle = {情報処理学会 第263回自然言語処理研究会 研究報告 (2024-NL-263)},
-    year = {2024}
+    number = {28},
+    pages = {1--7},
+    year = {2025},
+    month = mar,
+    address = {長崎}
   }
 ---
 
