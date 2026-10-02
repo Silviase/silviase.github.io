@@ -1,0 +1,767 @@
+---
+import Base from '../layouts/Base.astro';
+import Localized from '../components/Localized.astro';
+import { beverageLabels } from '../lib/beverage-labels';
+
+const labelsJson = JSON.stringify(beverageLabels);
+---
+
+<Base title="Beverage origins" description="A map of beverage labels and their verified origins.">
+  <div class="container label-page" data-labels={labelsJson}>
+    <header class="page-heading">
+      <p class="eyebrow"><Localized en="A PERSONAL COLLECTION" ja="個人のコレクション" /></p>
+      <h1><Localized en="Beverage origins" ja="お酒の産地" /></h1>
+      <p>
+        <Localized
+          en="Explore craft beer, wine, sake, and other bottles by origin. France has a dedicated view for wine regions."
+          ja="クラフトビール、ワイン、日本酒などを産地から眺めるマップです。フランスはワイン産地を見やすい専用表示にしています。"
+        />
+      </p>
+    </header>
+
+    <section class="label-explorer" aria-labelledby="map-heading">
+      <div class="explorer-toolbar">
+        <div class="explorer-group">
+          <span class="filter-label"><Localized en="AREA" ja="エリア" /></span>
+          <div class="segmented" role="group" aria-label="Map area">
+            <button type="button" data-area="world" aria-pressed="false"
+              ><Localized en="World" ja="世界" /></button
+            >
+            <button type="button" data-area="japan" aria-pressed="false"
+              ><Localized en="Japan" ja="日本" /></button
+            >
+            <button type="button" data-area="france" aria-pressed="true"
+              ><Localized en="France" ja="フランス" /></button
+            >
+          </div>
+        </div>
+        <div class="explorer-group category-group">
+          <label class="filter-label" for="category-filter"
+            ><Localized en="DRINK" ja="種類" /></label
+          >
+          <select id="category-filter" aria-label="Filter by beverage type">
+            <option value="all" data-en="All drinks" data-ja="すべて">All drinks</option>
+            <option value="craft-beer" data-en="Craft beer" data-ja="クラフトビール"
+              >Craft beer</option
+            >
+            <option value="wine" data-en="Wine" data-ja="ワイン" selected>Wine</option>
+            <option value="sake" data-en="Sake" data-ja="日本酒">Sake</option>
+            <option value="other" data-en="Other" data-ja="その他">Other</option>
+          </select>
+        </div>
+        <p class="label-count" id="label-count" aria-live="polite">—</p>
+      </div>
+
+      <div class="explorer-facets">
+        <div class="explorer-group">
+          <label class="filter-label" for="label-search"><Localized en="SEARCH" ja="検索" /></label>
+          <input
+            id="label-search"
+            type="search"
+            placeholder="Name, producer, style…"
+            data-en="Name, producer, style…"
+            data-ja="名前・生産者・スタイル…"
+            data-translate-attribute="placeholder"
+          />
+        </div>
+        <div class="explorer-group">
+          <label class="filter-label" id="origin-filter-label" for="origin-filter">REGION</label>
+          <select id="origin-filter"><option value="all">All</option></select>
+        </div>
+        <div class="explorer-group">
+          <label class="filter-label" id="producer-filter-label" for="producer-filter"
+            >PRODUCER</label
+          >
+          <select id="producer-filter"><option value="all">All</option></select>
+        </div>
+        <p class="collection-hierarchy" id="collection-hierarchy"></p>
+      </div>
+
+      <div class="explorer-layout">
+        <div class="mobile-view-toggle" role="group" aria-label="Explore map or labels">
+          <button type="button" data-mobile-view="map" aria-pressed="true"
+            ><Localized en="Map" ja="地図" /></button
+          >
+          <button type="button" data-mobile-view="list" aria-pressed="false"
+            ><Localized en="Labels" ja="ラベル" /></button
+          >
+        </div>
+        <div class="map-frame">
+          <div class="map-heading-row">
+            <div>
+              <span class="section-index"><Localized en="ORIGIN MAP" ja="産地マップ" /></span>
+              <h2 id="map-heading"><Localized en="France" ja="フランス" /></h2>
+            </div>
+            <span class="map-coordinate-note"
+              ><Localized
+                en="Facility and approximate origin references"
+                ja="施設・概略産地の参照点"
+              /></span
+            >
+            <div class="map-controls" role="group" aria-label="Map controls">
+              <button type="button" data-map-zoom="out" aria-label="Zoom out">−</button>
+              <button type="button" data-map-zoom="in" aria-label="Zoom in">+</button>
+              <button type="button" data-map-zoom="reset">
+                <Localized en="Reset" ja="リセット" />
+              </button>
+            </div>
+          </div>
+          <div class="map-viewport" role="group" aria-label="Interactive origin map">
+            <svg
+              class="origin-map"
+              id="origin-map"
+              viewBox="-180 -85 360 170"
+              role="group"
+              aria-label="Country boundaries and beverage origins"
+            >
+              <rect class="map-water" x="-180" y="-90" width="360" height="180"></rect>
+              <use href="/assets/maps/natural-earth-admin-0-50m.svg#countries"></use>
+              <g id="river-layer"
+                ><use href="/assets/maps/natural-earth-france-rivers.svg#rivers"></use></g
+              >
+              <g id="river-labels" aria-hidden="true"></g>
+              <g id="label-pins"></g>
+            </svg>
+            <div
+              class="wine-region-views"
+              id="wine-region-views"
+              role="group"
+              aria-label="Broad French wine region views"
+              hidden
+            >
+              <button type="button" data-wine-view="france">France</button>
+              <button type="button" data-wine-view="rhone">Rhône</button>
+              <button type="button" data-wine-view="loire">Loire</button>
+              <button type="button" data-wine-view="burgundy">Burgundy</button>
+              <span
+                ><Localized
+                  en="Broad map views, not appellation boundaries"
+                  ja="広域表示（AOC境界ではありません）"
+                /></span
+              >
+            </div>
+            <p class="map-error" id="map-error" hidden>
+              <Localized
+                en="The map boundaries could not be loaded. Label details are still available in the list."
+                ja="地図データを読み込めませんでした。ラベルは一覧から確認できます。"
+              />
+            </p>
+            <p class="map-empty" id="map-empty" hidden>
+              <span class="map-empty-icon" aria-hidden="true">◎</span>
+              <strong
+                data-en="No labels on this map yet"
+                data-ja="このマップにはまだラベルがありません">No labels on this map yet</strong
+              >
+              <span
+                class="empty-hint"
+                data-en="Verified origins will appear here as the collection is added."
+                data-ja="コレクションを追加すると、確認済みの産地がここに表示されます。"
+                >Verified origins will appear here as the collection is added.</span
+              >
+            </p>
+          </div>
+          <div class="map-legend">
+            <span class="legend-pin" aria-hidden="true"></span>
+            <Localized en="Verified origin" ja="確認済みの産地" />
+            <a
+              class="map-attribution"
+              href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/"
+              target="_blank"
+              rel="noreferrer">Natural Earth · Admin 0 Countries · 1:50m · public domain ↗</a
+            >
+            <a
+              class="map-attribution"
+              href="https://www.naturalearthdata.com/downloads/50m-physical-vectors/50m-rivers-lake-centerlines/"
+              target="_blank"
+              rel="noreferrer">River layer: Natural Earth 1:50m</a
+            >
+          </div>
+        </div>
+
+        <aside class="label-sidebar" aria-label="Beverage labels">
+          <div class="sidebar-heading">
+            <span class="section-index"><Localized en="COLLECTION" ja="コレクション" /></span>
+            <h2><Localized en="Labels" ja="ラベル" /></h2>
+          </div>
+          <div class="labels-list" id="labels-list" aria-live="polite">
+            <p class="loading-state"><Localized en="Loading labels…" ja="ラベルを読み込み中…" /></p>
+          </div>
+          <p class="privacy-note">
+            <Localized
+              en="Pins can mark a facility, a locality, or a broad wine origin. Each label shows the coordinate precision and supporting notes."
+              ja="ピンは施設・市区町村・広域産地の参照点です。各ラベルに座標の精度と確認メモを記載しています。"
+            />
+          </p>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <style is:global>
+    .label-page {
+      padding-bottom: 84px;
+    }
+    .label-page .page-heading {
+      padding-bottom: 38px;
+    }
+    .label-explorer {
+      border: 1px solid var(--gray-200);
+      background: var(--surface);
+    }
+    .explorer-toolbar {
+      display: flex;
+      align-items: end;
+      flex-wrap: wrap;
+      gap: 22px;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .explorer-group {
+      display: grid;
+      gap: 7px;
+    }
+    .filter-label {
+      color: var(--gray-500);
+      font: 10px/1.4 var(--font-mono);
+      letter-spacing: 0.08em;
+    }
+    .segmented {
+      display: inline-flex;
+      padding: 3px;
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      gap: 2px;
+    }
+    .segmented button {
+      border: 0;
+      background: transparent;
+      color: var(--gray-500);
+      border-radius: 5px;
+      min-height: 36px;
+      padding: 6px 13px;
+      font-size: 12px;
+    }
+    .segmented button[aria-pressed='true'] {
+      color: var(--surface);
+      background: var(--blue-700);
+    }
+    .category-group {
+      margin-left: auto;
+    }
+    .category-group select {
+      min-height: 42px;
+      min-width: 146px;
+      padding: 7px 34px 7px 12px;
+      color: var(--gray-700);
+      background: var(--surface);
+      border: 1px solid var(--gray-200);
+      border-radius: 7px;
+    }
+    .label-count {
+      margin-left: 3px;
+      color: var(--gray-500);
+      font: 11px var(--font-mono);
+      white-space: nowrap;
+    }
+    .explorer-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      min-height: 510px;
+    }
+    .map-frame {
+      min-width: 0;
+      padding: 25px 27px 18px;
+      border-right: 1px solid var(--gray-200);
+    }
+    .map-heading-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .map-heading-row .section-index,
+    .sidebar-heading .section-index {
+      margin-bottom: 4px;
+    }
+    .map-heading-row h2,
+    .sidebar-heading h2 {
+      font-size: 23px;
+    }
+    .map-controls {
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+      margin-left: auto;
+    }
+    .map-controls button {
+      min-width: 34px;
+      min-height: 34px;
+      padding: 4px 8px;
+      border: 1px solid var(--gray-200);
+      border-radius: 5px;
+      background: var(--surface);
+      color: var(--gray-700);
+      font-size: 12px;
+    }
+    .map-controls button:hover {
+      border-color: var(--blue-600);
+      color: var(--blue-700);
+    }
+    .map-coordinate-note {
+      font-size: 11px;
+      color: var(--gray-500);
+    }
+    .map-viewport {
+      position: relative;
+      margin-top: 18px;
+      min-height: 344px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+    }
+    .origin-map {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 344px;
+      background: #f1f5f4;
+    }
+    .map-water {
+      fill: #f1f5f4;
+    }
+    :root[data-theme='dark'] .origin-map,
+    :root[data-theme='dark'] .map-water {
+      background: #101821;
+      fill: #101821;
+    }
+    .map-error {
+      position: absolute;
+      z-index: 1;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--gray-200);
+      background: var(--surface);
+      color: var(--gray-700);
+      font-size: 11px;
+    }
+    .map-empty {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 30px;
+      text-align: center;
+      background: color-mix(in srgb, var(--surface) 82%, transparent);
+      color: var(--gray-500);
+      font-size: 12px;
+    }
+    .map-empty strong {
+      color: var(--gray-950);
+      font-size: 14px;
+    }
+    .map-empty-icon {
+      color: var(--blue-600);
+      font-size: 25px;
+      line-height: 1;
+    }
+    .map-legend {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 13px;
+      color: var(--gray-500);
+      font-size: 11px;
+    }
+    .map-attribution {
+      margin-left: auto;
+      color: var(--gray-500);
+      font-size: 9px;
+      text-align: right;
+    }
+    .legend-pin {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue-600);
+      border: 2px solid var(--surface);
+      box-shadow: 0 0 0 1px var(--blue-600);
+    }
+    .origin-pin {
+      cursor: pointer;
+      fill: var(--blue-700);
+      stroke: var(--surface);
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+    .origin-pin-group {
+      cursor: pointer;
+    }
+    .river-name {
+      fill: #247b99;
+      stroke: var(--surface);
+      stroke-width: 3;
+      paint-order: stroke;
+      font-family: var(--font-sans);
+      font-style: italic;
+      font-size: 10px;
+      pointer-events: none;
+    }
+    .origin-pin-group:focus-visible .origin-pin {
+      stroke: var(--gray-950);
+      stroke-width: 2.5;
+    }
+    .origin-pin:focus-visible {
+      stroke: var(--gray-950);
+      stroke-width: 2.5;
+    }
+    .origin-pin-count {
+      pointer-events: none;
+      fill: #fff;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+    .label-sidebar {
+      display: flex;
+      flex-direction: column;
+      padding: 25px 21px 18px;
+      min-width: 0;
+    }
+    .sidebar-heading {
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .labels-list {
+      flex: 1;
+      padding-top: 12px;
+      max-height: 580px;
+      overflow-y: auto;
+      padding-inline: 5px;
+    }
+    .loading-state,
+    .empty-list,
+    .load-error {
+      padding: 16px 0;
+      color: var(--gray-500);
+      font-size: 12px;
+    }
+    .label-card {
+      padding: 13px 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .origin-group {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-200);
+      scroll-margin: 12px;
+    }
+    .origin-group:focus,
+    .origin-group.is-selected {
+      outline: 2px solid var(--blue-600);
+      outline-offset: 5px;
+    }
+    .origin-group-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 7px;
+    }
+    .origin-group-heading h3 {
+      font-size: 12px;
+    }
+    .coordinate-precision {
+      font-size: 10px !important;
+      color: var(--gray-500) !important;
+    }
+    .origin-group-count {
+      color: var(--gray-500);
+      font: 9px var(--font-mono);
+      white-space: nowrap;
+    }
+    .label-card h3 {
+      font-size: 14px;
+    }
+    .label-card p {
+      margin-top: 4px;
+      color: var(--gray-500);
+      font-size: 11px;
+    }
+    .label-card img {
+      display: block;
+      width: 100%;
+      max-height: 150px;
+      margin-top: 10px;
+      object-fit: contain;
+      background: var(--gray-50);
+    }
+    .label-source {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--blue-700);
+      font-size: 11px;
+    }
+    .category-tag {
+      display: inline-block;
+      margin-bottom: 6px;
+      color: var(--blue-700);
+      font: 9px var(--font-mono);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .privacy-note {
+      margin-top: 18px;
+      padding-top: 13px;
+      border-top: 1px solid var(--gray-200);
+      color: var(--gray-500);
+      font-size: 10px;
+      line-height: 1.55;
+    }
+    .mobile-view-toggle {
+      display: none;
+    }
+    .explorer-facets {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: 16px;
+      padding: 14px 22px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .explorer-facets .explorer-group {
+      flex: 1 1 160px;
+      max-width: 300px;
+    }
+    .explorer-facets select,
+    .explorer-facets input {
+      width: 100%;
+      min-height: 38px;
+      max-width: 100%;
+      padding: 5px 9px;
+      border: 1px solid var(--gray-200);
+      border-radius: 5px;
+      background: var(--surface);
+      color: var(--gray-700);
+    }
+    .collection-hierarchy {
+      color: var(--gray-500);
+      font-size: 10px;
+      margin: 0 0 10px auto;
+    }
+    .collection-region {
+      padding: 13px 0 6px;
+      color: var(--blue-700);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+    .label-name {
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+    .label-card .label-producer {
+      margin: 0 0 3px;
+      color: var(--gray-700);
+      font-size: 10px;
+    }
+    .label-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+    }
+    .label-evidence {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--gray-500);
+    }
+    .label-evidence summary {
+      cursor: pointer;
+    }
+    .label-evidence p {
+      line-height: 1.8;
+    }
+    .uncertainty-tag {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 3px 6px;
+      border: 1px solid var(--gray-200);
+      border-radius: 4px;
+      color: var(--gray-700);
+      font-size: 10px;
+    }
+    .selection-reset {
+      width: 100%;
+      padding: 9px;
+      color: var(--blue-700);
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 5px;
+      font-size: 11px;
+    }
+    .map-empty[hidden],
+    .map-error[hidden] {
+      display: none;
+    }
+    .origin-map {
+      touch-action: none;
+      cursor: grab;
+    }
+    .origin-map:active {
+      cursor: grabbing;
+    }
+    .map-heading-row {
+      flex-wrap: wrap;
+    }
+    .map-legend {
+      flex-wrap: wrap;
+    }
+    .map-attribution {
+      margin-left: 0;
+    }
+    .label-page .map-controls button,
+    .label-page .wine-region-views button {
+      min-height: 38px;
+    }
+    .wine-region-views {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px;
+    }
+    .wine-region-views[hidden] {
+      display: none;
+    }
+    .wine-region-views button {
+      padding: 6px 9px;
+      border: 1px solid var(--gray-200);
+      border-radius: 5px;
+      background: var(--surface);
+      color: var(--gray-700);
+      font-size: 10px;
+    }
+    .wine-region-views span {
+      padding: 5px;
+      background: color-mix(in srgb, var(--surface) 90%, transparent);
+      color: var(--gray-500);
+      font-size: 9px;
+    }
+    @media (max-width: 850px) {
+      .explorer-layout {
+        grid-template-columns: 1fr;
+      }
+      .map-frame {
+        border-right: 0;
+        border-bottom: 1px solid var(--gray-200);
+      }
+      .label-sidebar {
+        min-height: 220px;
+      }
+    }
+    @media (max-width: 600px) {
+      .explorer-facets {
+        padding: 12px 14px;
+        gap: 10px;
+      }
+      .explorer-facets .explorer-group {
+        flex-basis: 130px;
+      }
+      .collection-hierarchy {
+        width: 100%;
+        margin: 0;
+      }
+      .map-coordinate-note {
+        display: none;
+      }
+      .map-controls {
+        margin-left: auto;
+      }
+      .map-legend .map-attribution {
+        font-size: 8px;
+      }
+      .labels-list {
+        max-height: none;
+      }
+      .label-page {
+        padding-bottom: 54px;
+      }
+      .label-page .page-heading {
+        padding-top: 50px;
+      }
+      .label-page .page-heading h1 {
+        font-size: 44px;
+      }
+      .explorer-toolbar {
+        align-items: start;
+        gap: 14px;
+        padding: 15px;
+      }
+      .mobile-view-toggle {
+        display: flex;
+        gap: 4px;
+        grid-column: 1;
+        padding: 10px 14px 0;
+      }
+      .mobile-view-toggle button {
+        flex: 1;
+        min-height: 38px;
+        border: 1px solid var(--gray-200);
+        background: var(--surface);
+        color: var(--gray-700);
+        border-radius: 5px;
+      }
+      .mobile-view-toggle button[aria-pressed='true'] {
+        background: var(--blue-700);
+        color: var(--surface);
+      }
+      .explorer-layout[data-mobile-view='map'] .label-sidebar {
+        display: none;
+      }
+      .explorer-layout[data-mobile-view='list'] .map-frame {
+        display: none;
+      }
+      .category-group {
+        margin-left: 0;
+      }
+      .label-count {
+        align-self: end;
+        margin-left: auto;
+        padding-bottom: 12px;
+      }
+      .segmented button {
+        padding-inline: 10px;
+      }
+      .map-frame {
+        padding: 19px 14px 15px;
+      }
+      .map-viewport,
+      .origin-map {
+        min-height: 280px;
+      }
+      .map-heading-row {
+        align-items: end;
+      }
+      .map-coordinate-note {
+        max-width: 130px;
+        text-align: right;
+      }
+      .label-sidebar {
+        padding-inline: 16px;
+      }
+    }
+  </style>
+
+  <script is:inline src="/scripts/labels.js" defer></script>
+</Base>
