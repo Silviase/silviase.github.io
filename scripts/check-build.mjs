@@ -2,6 +2,26 @@ import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 const read = (path) => readFileSync(path, 'utf8');
+function routeFromBuildFile(file) {
+  return (
+    '/' +
+    file
+      .replaceAll('\\', '/')
+      .replace(/^dist\//, '')
+      .replace(/index\.html$/, '')
+  );
+}
+for (const [file, route] of [
+  ['dist/404.html', '/404.html'],
+  ['dist\\404.html', '/404.html'],
+  ['dist\\labels\\index.html', '/labels/'],
+  ['dist/papers/example/index.html', '/papers/example/'],
+])
+  assert.equal(
+    routeFromBuildFile(file),
+    route,
+    'Build routes must be portable across path separators'
+  );
 function walk(dir) {
   return readdirSync(dir).flatMap((name) => {
     const path = join(dir, name);
@@ -17,6 +37,7 @@ const required = [
   'blog/index.html',
   'sandbox/index.html',
   'sandbox/projection-lab/index.html',
+  'labels/index.html',
   '404.html',
   ...papers.map((name) => `papers/${name.replace(/\.md$/, '')}/index.html`),
   ...posts.map(
@@ -31,11 +52,30 @@ assert.ok(existsSync('dist/.nojekyll'));
 assert.match(read('dist/sitemap-index.xml'), /https:\/\/silviase\.com\/sitemap-0\.xml/);
 assert.match(read('dist/feed.xml'), /https:\/\/silviase\.com\/blog\//);
 assert.equal((read('dist/papers/index.html').match(/data-paper /g) || []).length, papers.length);
+const catalog = JSON.parse(read('_data/beverage-labels.json'));
+const serializedCatalog = read('dist/labels/index.html').match(/data-labels="([^"]*)"/)?.[1];
+assert.ok(serializedCatalog, 'Label route must include its catalog');
+const decodedCatalog = serializedCatalog
+  .replaceAll('&quot;', '"')
+  .replaceAll('&#39;', "'")
+  .replaceAll('&lt;', '<')
+  .replaceAll('&gt;', '>')
+  .replaceAll('&amp;', '&');
+assert.deepEqual(
+  JSON.parse(decodedCatalog),
+  catalog,
+  'Every manifest record must reach the built label route'
+);
+assert.equal(
+  new Set(catalog.map((label) => label.id)).size,
+  catalog.length,
+  'Label IDs must be unique'
+);
 const errors = [];
 const htmlFiles = walk('dist').filter((path) => path.endsWith('.html'));
 for (const file of htmlFiles) {
   const html = read(file);
-  const route = '/' + file.replace(/^dist\//, '').replace(/index\.html$/, '');
+  const route = routeFromBuildFile(file);
   const url = new URL(route, 'https://silviase.com');
   assert.ok(html.includes(`rel="canonical" href="${url.href}"`), `Wrong canonical: ${file}`);
   assert.ok(!/<script[^>]+src="https?:/i.test(html), `External script in ${file}`);
