@@ -13,10 +13,19 @@ export interface BeverageLabel {
   /** Unique per beverage variant; alternate photos of one item share one entry. */
   id: string;
   name: string;
+  /** Verified Japanese wording; keep the original name available for search. */
+  nameJa?: string;
   producer?: string;
+  producerJa?: string;
   category: BeverageCategory;
   vintage?: string;
   style?: string;
+  /** Product-specific facts, never inferred from an appellation alone. */
+  appellation?: string;
+  wineRegion?: string;
+  terroir?: string;
+  metadataSources?: string[];
+  displayNote?: { en: string; ja: string };
   officialSourceUrl?: string;
   origin: {
     country: string;
@@ -36,14 +45,22 @@ export interface BeverageLabel {
 }
 
 const sourceUrl = z.url({ protocol: /^https$/ });
+const translatedText = z.object({ en: z.string().min(1), ja: z.string().min(1) }).strict();
 const labelSchema = z
   .object({
     id: z.string().regex(/^[a-z0-9-]+$/),
     name: z.string().min(1),
+    nameJa: z.string().min(1).optional(),
     producer: z.string().optional(),
+    producerJa: z.string().min(1).optional(),
     category: z.enum(['craft-beer', 'wine', 'sake', 'other']),
     vintage: z.string().optional(),
     style: z.string().optional(),
+    appellation: z.string().min(1).optional(),
+    wineRegion: z.string().min(1).optional(),
+    terroir: z.string().min(1).optional(),
+    metadataSources: z.array(sourceUrl).min(1).optional(),
+    displayNote: translatedText.optional(),
     officialSourceUrl: sourceUrl.optional(),
     origin: z
       .object({
@@ -63,7 +80,11 @@ const labelSchema = z
     confidence: z.enum(['high', 'medium', 'low']).optional(),
     note: z.string().optional(),
   })
-  .strict();
+  .strict()
+  .refine((item) => !item.terroir || Boolean(item.metadataSources?.length), {
+    message: 'Terroir descriptions require product-specific source links.',
+    path: ['metadataSources'],
+  });
 
 export const beverageLabels: BeverageLabel[] = z.array(labelSchema).parse(catalog);
 if (new Set(beverageLabels.map((label) => label.id)).size !== beverageLabels.length) {

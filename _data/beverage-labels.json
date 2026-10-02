@@ -73,9 +73,9 @@
     "id": "hiran-kagura-kimoto",
     "name": "飛鸞 神楽 / HIRAN KAGURA",
     "producer": "Mori Sake Brewery",
-    "style": "生酛造り・山田錦100%・原酒",
+    "style": "純米・生酛・山田錦",
     "category": "sake",
-    "officialSourceUrl": "https://mori-shuzou.jp/",
+    "officialSourceUrl": "https://mori-shuzou.jp/nihonshu/hiran-%E7%A5%9E%E6%A5%BDkagura/",
     "origin": {
       "country": "日本",
       "countryCode": "JP",
@@ -90,7 +90,9 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "nameJa": "飛鸞 神楽",
+    "producerJa": "森酒造場"
   },
   {
     "id": "uchu-369-tdh-dipa",
@@ -166,9 +168,9 @@
     "name": "おだやか 雄町 うすにごり生",
     "producer": "Niida Honke",
     "vintage": "23BY",
-    "style": "純米吟醸・雄町・うすにごり生",
+    "style": "純米吟醸・雄町・うすにごり生酒",
     "category": "sake",
-    "officialSourceUrl": "https://1711.jp/company/",
+    "officialSourceUrl": "https://niida1711.shop/items/5ed7561034ef01251b91d3f4",
     "origin": {
       "country": "日本",
       "countryCode": "JP",
@@ -183,14 +185,16 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "nameJa": "おだやか 雄町 うすにごり生",
+    "producerJa": "仁井田本家"
   },
   {
     "id": "niida-shizenshu-shibori-2024by",
     "name": "にいだしぜんしゅ しぼり生 木桶仕込み あらばしり",
     "producer": "Niida Honke",
     "vintage": "2024BY",
-    "style": "しぼり生・木桶仕込み・あらばしり",
+    "style": "木桶仕込み・しぼり生・あらばしり",
     "category": "sake",
     "officialSourceUrl": "https://1711.jp/company/",
     "origin": {
@@ -207,7 +211,9 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "nameJa": "にいだしぜんしゅ しぼり生 木桶仕込み あらばしり",
+    "producerJa": "仁井田本家"
   },
   {
     "id": "blacktide-snake-2025",
@@ -237,9 +243,9 @@
     "id": "bev-75db5efb5a4e",
     "name": "神蔵 KAGURA 純米 クリア",
     "producer": "Matsui Shuzo",
-    "style": "Junmai; unfiltered, undiluted, unpasteurized",
+    "style": "純米・無濾過・無加水・生酒",
     "category": "sake",
-    "officialSourceUrl": "https://matsuishuzo.com/?mode=f2",
+    "officialSourceUrl": "https://matsuishuzo.com/?pid=165496652",
     "origin": {
       "country": "日本",
       "countryCode": "JP",
@@ -254,7 +260,9 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "nameJa": "神蔵 純米 クリア",
+    "producerJa": "松井酒造"
   },
   {
     "id": "bev-88fba7aaf655",
@@ -421,9 +429,9 @@
     "id": "bev-f89aa7524d4a",
     "name": "よこやま SILVER7 純米吟醸 生酒",
     "producer": "Omoya Shuzo",
-    "style": "Junmai Ginjo Namazake",
+    "style": "純米吟醸・無濾過生原酒",
     "category": "sake",
-    "officialSourceUrl": "https://www.omoyashuzo.com/english/product.html",
+    "officialSourceUrl": "https://www.omoyashuzo.com/product.html",
     "origin": {
       "country": "日本",
       "countryCode": "JP",
@@ -438,7 +446,9 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "よこやまを造る横山蔵。焼酎蔵の本社とは別所在地 / 醸造所・生産施設"
+    "note": "よこやまを造る横山蔵。焼酎蔵の本社とは別所在地 / 醸造所・生産施設",
+    "nameJa": "よこやま SILVER7 純米吟醸 生酒",
+    "producerJa": "重家酒造"
   },
   {
     "id": "bev-14395deedd41",
@@ -460,7 +470,14 @@
       "precisionLabel": "産地・畑周辺の代表点（概略）"
     },
     "confidence": "medium",
-    "note": "Vintage and wine color unverified / フランス政府APIの自治体代表点。畑区画や生産者所在地のピンではありません / 産地・畑周辺の代表点（概略）"
+    "note": "Vintage and wine color unverified / フランス政府APIの自治体代表点。畑区画や生産者所在地のピンではありません / 産地・畑周辺の代表点（概略）",
+    "displayNote": {
+      "en": "Vintage and wine color to confirm",
+      "ja": "年と赤・白の別は確認中"
+    },
+    "appellation": "シャサーニュ・モンラッシェ・プルミエ・クリュ",
+    "wineRegion": "ブルゴーニュ／コート・ド・ボーヌ",
+    "metadataSources": ["https://www.chassagne-montrachet.com/producteurs/"]
   },
   {
     "id": "bev-d0caaccf5749",
@@ -513,9 +530,9 @@
     "id": "bev-3cc29d37e2d9",
     "name": "Yokoyama SILVER 超辛7",
     "producer": "Omoya Shuzo",
-    "style": "Junmai ginjo, unfiltered unpasteurized undiluted sake",
+    "style": "純米吟醸・無濾過生原酒",
     "category": "sake",
-    "officialSourceUrl": "https://www.omoyashuzo.com/sake.html",
+    "officialSourceUrl": "https://www.omoyashuzo.com/product.html",
     "origin": {
       "country": "日本",
       "countryCode": "JP",
@@ -530,14 +547,16 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "よこやまを造る横山蔵。焼酎蔵の本社とは別所在地 / 醸造所・生産施設"
+    "note": "よこやまを造る横山蔵。焼酎蔵の本社とは別所在地 / 醸造所・生産施設",
+    "nameJa": "よこやま SILVER 超辛7",
+    "producerJa": "重家酒造"
   },
   {
     "id": "bev-1ed85631141a",
     "name": "Puligny-Montrachet Les Reuchaux",
     "producer": "Domaine Vincent Legou",
     "vintage": "2020",
-    "style": "White wine; Chardonnay",
+    "style": "白ワイン（シャルドネ）",
     "category": "wine",
     "officialSourceUrl": "https://domainevincentlegou.bio/en/",
     "origin": {
@@ -554,7 +573,13 @@
       "precisionLabel": "産地・畑周辺の代表点（概略）"
     },
     "confidence": "high",
-    "note": "フランス政府APIの自治体代表点。Les Reuchauxの正確な畑区画は未確認 / 産地・畑周辺の代表点（概略）"
+    "note": "フランス政府APIの自治体代表点。Les Reuchauxの正確な畑区画は未確認 / 産地・畑周辺の代表点（概略）",
+    "appellation": "ピュリニー・モンラッシェ",
+    "wineRegion": "ブルゴーニュ／コート・ド・ボーヌ",
+    "metadataSources": [
+      "https://domainevincentlegou.bio/puligny-montrachet/",
+      "https://domainevincentlegou.bio/vins/"
+    ]
   },
   {
     "id": "bev-a5cda0084436",
@@ -576,7 +601,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "medium",
-    "note": "Exact cuvée unknown; may duplicate another HIRAN product once complete labels are available / 醸造所・生産施設"
+    "note": "Exact cuvée unknown; may duplicate another HIRAN product once complete labels are available / 醸造所・生産施設",
+    "nameJa": "飛鸞",
+    "producerJa": "森酒造場",
+    "displayNote": {
+      "en": "Exact bottling to confirm",
+      "ja": "銘柄の詳細は確認中"
+    }
   },
   {
     "id": "bev-89b6e51f3221",
@@ -767,7 +798,7 @@
     "name": "Pouilly-Loché 1ère Réserve",
     "producer": "Céline &amp; Laurent Tripoz",
     "vintage": "2021",
-    "style": "White wine",
+    "style": "白ワイン（シャルドネ）",
     "category": "wine",
     "officialSourceUrl": "https://www.tripoz.fr/wp-content/uploads/2020/10/2019-pouilly-loche-reserve-fiche-technique.pdf",
     "origin": {
@@ -784,7 +815,14 @@
       "precisionLabel": "産地・畑周辺の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Loché locality reference point for Pouilly-Loché appellation, not an exact vineyard parcel or winery address. / 産地・畑周辺の代表点（概略）"
+    "note": "Loché locality reference point for Pouilly-Loché appellation, not an exact vineyard parcel or winery address. / 産地・畑周辺の代表点（概略）",
+    "appellation": "プイィ・ロシェ",
+    "wineRegion": "ブルゴーニュ／マコネ",
+    "metadataSources": [
+      "https://www.tripoz.fr/wp-content/uploads/2023/07/PL21.pdf",
+      "https://www.tripoz.fr/vins/pouilly-loche/"
+    ],
+    "terroir": "丘陵の粘土石灰質土壌"
   },
   {
     "id": "bev-e5d23f4e2798",
@@ -928,7 +966,7 @@
     "id": "bev-d5f94d275d59",
     "name": "黒松仙醸 城花 (Joka)",
     "producer": "Senjo",
-    "style": "Junmai Ginjo Muroka Nama Genshu",
+    "style": "純米吟醸・無濾過生原酒",
     "category": "sake",
     "officialSourceUrl": "https://www.senjyo.co.jp/about/",
     "origin": {
@@ -945,7 +983,9 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "MapFan reference point for the Kamiyamada neighborhood, not exact brewery. Production site is 上山田2432; historic Nishitakato shop is a different location. / 市区町村・地域の代表点（概略）"
+    "note": "MapFan reference point for the Kamiyamada neighborhood, not exact brewery. Production site is 上山田2432; historic Nishitakato shop is a different location. / 市区町村・地域の代表点（概略）",
+    "nameJa": "黒松仙醸 城花",
+    "producerJa": "仙醸"
   },
   {
     "id": "bev-cd9f70103007",
@@ -975,7 +1015,7 @@
     "name": "Kerner",
     "producer": "Furano Wine",
     "vintage": "2021",
-    "style": "White wine",
+    "style": "白ワイン（ケルナー）",
     "category": "wine",
     "officialSourceUrl": "https://www.furanowine.jp/lineup.html",
     "origin": {
@@ -992,7 +1032,9 @@
       "precisionLabel": "広域産地の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Furano grape-growing area represented by locality reference point. Official winery says locally grown Furano grapes; exact Kerner 2021 vineyard parcel not established. This is not an exact winery or vineyard pin. / 広域産地の代表点（概略）"
+    "note": "Furano grape-growing area represented by locality reference point. Official winery says locally grown Furano grapes; exact Kerner 2021 vineyard parcel not established. This is not an exact winery or vineyard pin. / 広域産地の代表点（概略）",
+    "wineRegion": "北海道／富良野",
+    "metadataSources": ["https://www.furanowine.jp/lineup.html", "https://furanowine.jp/"]
   },
   {
     "id": "bev-cf5a287d6ae6",
@@ -1044,9 +1086,9 @@
     "id": "bev-277a3ca84e40",
     "name": "国士無双 モシリ (Kokushimuso Mosir)",
     "producer": "Takasago Shuzo",
-    "style": "Junmai",
+    "style": "純米酒・吟風",
     "category": "sake",
-    "officialSourceUrl": "https://takasagoshuzo.com/",
+    "officialSourceUrl": "https://takasagoshuzo-store.com/view/item/000000000013?category_page_id=kokushimusou",
     "origin": {
       "country": "日本",
       "countryCode": "JP",
@@ -1061,7 +1103,9 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Asahikawa locality reference point, not exact brewery. Official Takasago address 宮下通17丁目右1号; this is Hokkaido Takasago, not Fuji-Takasago in Shizuoka. / 市区町村・地域の代表点（概略）"
+    "note": "Asahikawa locality reference point, not exact brewery. Official Takasago address 宮下通17丁目右1号; this is Hokkaido Takasago, not Fuji-Takasago in Shizuoka. / 市区町村・地域の代表点（概略）",
+    "nameJa": "国士無双 モシリ",
+    "producerJa": "髙砂酒造"
   },
   {
     "id": "bev-a5a78cbf7348",
@@ -1090,7 +1134,7 @@
     "id": "bev-a69d45c5e678",
     "name": "綾音 (Ayane)",
     "producer": "Wakamiya Shuzo",
-    "style": "Junmai Ginjo",
+    "style": "純米吟醸・五百万石",
     "category": "sake",
     "officialSourceUrl": "https://wakamiyasyuzou.stores.jp/items/620354ed1dca326a27c3e645",
     "origin": {
@@ -1107,7 +1151,9 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "Exact destination coordinates linked by Kyoto tourism federation for Wakamiya Shuzo, matching official address 味方町薬師前4. / 醸造所・生産施設"
+    "note": "Exact destination coordinates linked by Kyoto tourism federation for Wakamiya Shuzo, matching official address 味方町薬師前4. / 醸造所・生産施設",
+    "nameJa": "綾音",
+    "producerJa": "若宮酒造"
   },
   {
     "id": "bev-7e9e27969d31",
@@ -1160,7 +1206,7 @@
     "name": "Silène Crozes-Hermitage",
     "producer": "J.L. Chave Sélection",
     "vintage": "2023",
-    "style": "Red wine",
+    "style": "赤ワイン",
     "category": "wine",
     "officialSourceUrl": "https://www.vins-rhone.com/en/cotes-du-rhone-cru-aoc-crozes-hermitage",
     "origin": {
@@ -1177,14 +1223,17 @@
       "precisionLabel": "産地・畑周辺の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Approximate representative midpoint between Gervans and Larnage locality coordinates. Official importer identifies Silène hillside vineyards in both communes; not a vineyard-parcel centroid. Crozes-Hermitage covers multiple communes; Mauves is the producer address, not this wine’s grape origin. / 産地・畑周辺の代表点（概略）"
+    "note": "Approximate representative midpoint between Gervans and Larnage locality coordinates. Official importer identifies Silène hillside vineyards in both communes; not a vineyard-parcel centroid. Crozes-Hermitage covers multiple communes; Mauves is the producer address, not this wine’s grape origin. / 産地・畑周辺の代表点（概略）",
+    "appellation": "クローズ・エルミタージュ",
+    "wineRegion": "ローヌ／北ローヌ",
+    "metadataSources": ["https://www.vins-rhone.com/en/cotes-du-rhone-cru-aoc-crozes-hermitage"]
   },
   {
     "id": "bev-6aafb06b6132",
     "name": "Les Hauts Pémions Monnières-Saint-Fiacre Muscadet Sèvre et Maine",
     "producer": "Christophe Drouard",
     "vintage": "2022",
-    "style": "White wine",
+    "style": "白ワイン（ムロン・ド・ブルゴーニュ）",
     "category": "wine",
     "officialSourceUrl": "https://www.domaineleshautspemions.fr/le-domaine.html",
     "origin": {
@@ -1201,7 +1250,14 @@
       "precisionLabel": "産地・畑周辺の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Monnières locality reference point represents the appellation; it is not a single estate vineyard. INAO lists Maisdon-sur-Sèvre, Monnières and Saint-Fiacre-sur-Maine in the geographical designation. / 産地・畑周辺の代表点（概略）"
+    "note": "Monnières locality reference point represents the appellation; it is not a single estate vineyard. INAO lists Maisdon-sur-Sèvre, Monnières and Saint-Fiacre-sur-Maine in the geographical designation. / 産地・畑周辺の代表点（概略）",
+    "appellation": "ミュスカデ・セーヴル・エ・メーヌ／モニエール・サン・フィアクル",
+    "wineRegion": "ロワール／ペイ・ナンテ",
+    "metadataSources": [
+      "https://www.domaineleshautspemions.fr/monniegraveres-saint-fiacre.html",
+      "https://www.domaineleshautspemions.fr/le-domaine.html"
+    ],
+    "terroir": "片麻岩・正片麻岩・角閃岩の土壌"
   },
   {
     "id": "bev-a0fdace2ee99",
@@ -1254,7 +1310,7 @@
     "name": "Circa Saint-Joseph",
     "producer": "J.L. Chave Sélection",
     "vintage": "2023",
-    "style": "White wine",
+    "style": "白ワイン",
     "category": "wine",
     "officialSourceUrl": "https://www.vins-rhone.com/en/cotes-du-rhone-cru-aoc-saint-joseph",
     "origin": {
@@ -1271,7 +1327,15 @@
       "precisionLabel": "産地・畑周辺の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Approximate Mauves locality point for Circa vineyard area, based on importer’s explicit old-vine Roussanne/granitic slopes of Mauves statement. Not selected merely from winery address; not an exact parcel. Saint-Joseph as a whole spans 26 communes. / 産地・畑周辺の代表点（概略）"
+    "note": "Approximate Mauves locality point for Circa vineyard area, based on importer’s explicit old-vine Roussanne/granitic slopes of Mauves statement. Not selected merely from winery address; not an exact parcel. Saint-Joseph as a whole spans 26 communes. / 産地・畑周辺の代表点（概略）",
+    "appellation": "サン・ジョセフ",
+    "wineRegion": "ローヌ／北ローヌ",
+    "metadataSources": [
+      "https://www.vins-rhone.com/en/cotes-du-rhone-cru-aoc-saint-joseph",
+      "https://www.vinmonopolet.no/Land/Frankrike/Rh%C3%B4ne/Saint-Joseph/J-L-Chave-S%C3%A9lection-Circa-Saint-Joseph-Blanc-2023/p/20037101",
+      "https://nobleselection.kork.ca/qc/fr/nos-domaines/jl-chave-selection/saint-joseph-circa/2024/14999839",
+      "https://www.saq.com/en/14999839"
+    ]
   },
   {
     "id": "bev-051ca628d98c",
@@ -1301,7 +1365,7 @@
     "name": "Bourgogne Pinot Noir",
     "producer": "Bruno Desaunay-Bissey",
     "vintage": "2022",
-    "style": "Red wine",
+    "style": "赤ワイン（ピノ・ノワール）",
     "category": "wine",
     "officialSourceUrl": "https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/bourgogne%2C2458%2C9253.html?args=Y29tcF9pZD0yMjc4JmFjdGlvbj12aWV3RmljaGUmaWQ9MjI1Jnw%3D",
     "origin": {
@@ -1318,7 +1382,12 @@
       "precisionLabel": "広域産地の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Broad geographic Burgundy reference point only, not an appellation polygon centroid or a vineyard. Bourgogne AOC spans Yonne, Côte-d’Or and Saône-et-Loire; exact grape parcels for this 2022 wine not verified. Flagey-Échezeaux is winery locality and must not be presented as proven grape origin. / 広域産地の代表点（概略）"
+    "note": "Broad geographic Burgundy reference point only, not an appellation polygon centroid or a vineyard. Bourgogne AOC spans Yonne, Côte-d’Or and Saône-et-Loire; exact grape parcels for this 2022 wine not verified. Flagey-Échezeaux is winery locality and must not be presented as proven grape origin. / 広域産地の代表点（概略）",
+    "appellation": "ブルゴーニュ",
+    "wineRegion": "ブルゴーニュ",
+    "metadataSources": [
+      "https://www.bourgogne-wines.com/wine-and-terroir/bourgogne-and-its-appellations/bourgogne,2458,9253.html?&amp;args=Y29tcF9pZD0yMjc4JmFjdGlvbj12aWV3RmljaGUmaWQ9MjI1Jnw%3D"
+    ]
   },
   {
     "id": "bev-fc95bc0cbebd",
@@ -1394,7 +1463,7 @@
     "name": "HIRAN Infinity ∞ 2025",
     "producer": "Mori Sake Brewery",
     "vintage": "2025 release",
-    "style": "Kimoto genshu",
+    "style": "生酛・低アルコール（12％）",
     "category": "sake",
     "officialSourceUrl": "https://note.com/hiran_official/n/ncde750d15992",
     "origin": {
@@ -1411,153 +1480,15 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "nameJa": "飛鸞 Infinity ∞ 2025",
+    "producerJa": "森酒造場"
   },
   {
     "id": "bev-69b835166427",
     "name": "亀泉 貴賓 (Kameizumi Kihin)",
     "producer": "Kameizumi Shuzo",
-    "style": "Junmai Daiginjo Genshu, nama",
-    "category": "sake",
-    "officialSourceUrl": "https://kameizumi.co.jp/ch/product/",
-    "origin": {
-      "country": "日本",
-      "countryCode": "JP",
-      "region": "高知県",
-      "locality": "土佐市",
-      "latitude": 33.4776069,
-      "longitude": 133.3874725,
-      "verified": true,
-      "precision": "producer",
-      "sourceUrl": "https://www.kameizumi.co.jp/contact/",
-      "coordinateSourceUrl": "https://mapfan.com/spots/SWIQ%2CJ%2C3I1S7",
-      "precisionLabel": "醸造所・生産施設"
-    },
-    "confidence": "high",
-    "note": "醸造所・生産施設"
-  },
-  {
-    "id": "bev-8fdc9f49346d",
-    "name": "Bourgogne Côte-d’Or",
-    "producer": "Domaine Pierre Guillemot",
-    "vintage": "2023",
-    "style": "Red wine; Pinot Noir",
-    "category": "wine",
-    "officialSourceUrl": "https://www.mairie-savignylesbeaune.fr/domaine-pierre-guillemot/",
-    "origin": {
-      "country": "フランス",
-      "countryCode": "FR",
-      "region": "ブルゴーニュ（コート・ドール）",
-      "locality": "ブルゴーニュ・コート・ドール（広域）",
-      "latitude": 47.1667,
-      "longitude": 4.85,
-      "verified": true,
-      "precision": "region",
-      "sourceUrl": "https://www.inao.gouv.fr/node/8660",
-      "coordinateSourceUrl": "https://www.getty.edu/vow/TGNFullDisplay?english=Clonmacnoise&amp;find=&amp;nation=ireland&amp;place=&amp;subjectid=1110696",
-      "precisionLabel": "広域産地の代表点（概略）"
-    },
-    "confidence": "high",
-    "note": "Broad Côte d’Or geographic reference, not an exact vineyard or winery pin. Appellation spans Côte de Nuits and Côte de Beaune. Importer specifies the 2023 wine comes from a parcel spanning Savigny into Chorey, but precise parcel coordinates were not established. Do not label pin as winery location. / 広域産地の代表点（概略）"
-  },
-  {
-    "id": "bev-d8e87b6829d8",
-    "name": "AKABU Junmai Daiginjo",
-    "producer": "Akabu Shuzo",
-    "style": "Junmai daiginjo",
-    "category": "sake",
-    "officialSourceUrl": "https://www.akabu1.com/",
-    "origin": {
-      "country": "日本",
-      "countryCode": "JP",
-      "region": "岩手県",
-      "locality": "盛岡市",
-      "latitude": 39.6774692,
-      "longitude": 141.1290937,
-      "verified": true,
-      "precision": "producer",
-      "sourceUrl": "https://www.akabu1.com/about/",
-      "coordinateSourceUrl": "https://www.yawaragimizu.com/sake/kura-list.php?sakaguraid=03017",
-      "precisionLabel": "醸造所・生産施設"
-    },
-    "confidence": "high",
-    "note": "Google map embedded on sake-directory page explicitly identifies 赤武酒造株式会社復活蔵 at the official Morioka address. Coordinates extracted from the named place data, not the west-shifted viewport center. / 醸造所・生産施設"
-  },
-  {
-    "id": "bev-db9d025e3bd0",
-    "name": "Morishima Omachi Junmai Daiginjo Shiboritate",
-    "producer": "Morishima Sake Brewery",
-    "style": "Junmai daiginjo; unpasteurized genshu",
-    "category": "sake",
-    "officialSourceUrl": "https://morishima-sake.jp/ja/",
-    "origin": {
-      "country": "日本",
-      "countryCode": "JP",
-      "region": "茨城県",
-      "locality": "日立市",
-      "latitude": 36.6521506,
-      "longitude": 140.6987671,
-      "verified": true,
-      "precision": "producer",
-      "sourceUrl": "https://www.morishima-sake.jp/ja/about.html",
-      "coordinateSourceUrl": "https://maps.app.goo.gl/VrheKkj5xdbgCvdx9",
-      "precisionLabel": "醸造所・生産施設"
-    },
-    "confidence": "high",
-    "note": "醸造所・生産施設"
-  },
-  {
-    "id": "bev-88d911a371f9",
-    "name": "Arbois Grand Curoulet Savagnin Ouillé",
-    "producer": "Domaine du Pélican",
-    "vintage": "2023",
-    "style": "White wine; Savagnin ouillé",
-    "category": "wine",
-    "officialSourceUrl": "https://domainedupelican.fr/pages/nos-vins",
-    "origin": {
-      "country": "フランス",
-      "countryCode": "FR",
-      "region": "ジュラ",
-      "locality": "アルボワ（グラン・キュルレ）",
-      "latitude": 46.903611,
-      "longitude": 5.774722,
-      "verified": true,
-      "precision": "locality",
-      "sourceUrl": "https://domainedupelican.fr/pages/histoire",
-      "coordinateSourceUrl": "https://fr.wikipedia.org/wiki/Arbois",
-      "precisionLabel": "産地・畑周辺の代表点（概略）"
-    },
-    "confidence": "high",
-    "note": "Arbois locality reference point, not a surveyed Grand Curoulet parcel. Official producer confirms Grand Curoulet is in Arbois; the winery itself is in Montigny-lès-Arsures and is deliberately not used as grape origin. / 産地・畑周辺の代表点（概略）"
-  },
-  {
-    "id": "bev-5b67a2cdbeb3",
-    "name": "Matsuzakari Pure Ibaraki Kuranama",
-    "producer": "Okabe",
-    "style": "Tokubetsu junmai nama",
-    "category": "sake",
-    "officialSourceUrl": "https://www.matsuzakari.co.jp/2021/02/14/sk-014/",
-    "origin": {
-      "country": "日本",
-      "countryCode": "JP",
-      "region": "茨城県",
-      "locality": "常陸太田市",
-      "latitude": 36.5234687,
-      "longitude": 140.5412993,
-      "verified": true,
-      "precision": "producer",
-      "sourceUrl": "https://www.matsuzakari.co.jp/about/",
-      "coordinateSourceUrl": "https://www.matsuzakari.co.jp/about/",
-      "precisionLabel": "醸造所・生産施設"
-    },
-    "confidence": "high",
-    "note": "醸造所・生産施設"
-  },
-  {
-    "id": "bev-8797636a0898",
-    "name": "Kameizumi CEL-24",
-    "producer": "Kameizumi Shuzo",
-    "style": "Junmai ginjo genshu; unpasteurized",
+    "style": "純米大吟醸・山田錦",
     "category": "sake",
     "officialSourceUrl": "https://www.kameizumi.co.jp/product/",
     "origin": {
@@ -1574,13 +1505,178 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "nameJa": "亀泉 貴賓",
+    "producerJa": "亀泉酒造"
+  },
+  {
+    "id": "bev-8fdc9f49346d",
+    "name": "Bourgogne Côte-d’Or",
+    "producer": "Domaine Pierre Guillemot",
+    "vintage": "2023",
+    "style": "赤ワイン（ピノ・ノワール）",
+    "category": "wine",
+    "officialSourceUrl": "https://www.mairie-savignylesbeaune.fr/domaine-pierre-guillemot/",
+    "origin": {
+      "country": "フランス",
+      "countryCode": "FR",
+      "region": "ブルゴーニュ（コート・ドール）",
+      "locality": "ブルゴーニュ・コート・ドール（広域）",
+      "latitude": 47.1667,
+      "longitude": 4.85,
+      "verified": true,
+      "precision": "region",
+      "sourceUrl": "https://www.inao.gouv.fr/node/8660",
+      "coordinateSourceUrl": "https://www.getty.edu/vow/TGNFullDisplay?english=Clonmacnoise&amp;find=&amp;nation=ireland&amp;place=&amp;subjectid=1110696",
+      "precisionLabel": "広域産地の代表点（概略）"
+    },
+    "confidence": "high",
+    "note": "Broad Côte d’Or geographic reference, not an exact vineyard or winery pin. Appellation spans Côte de Nuits and Côte de Beaune. Importer specifies the 2023 wine comes from a parcel spanning Savigny into Chorey, but precise parcel coordinates were not established. Do not label pin as winery location. / 広域産地の代表点（概略）",
+    "appellation": "ブルゴーニュ・コート・ドール",
+    "wineRegion": "ブルゴーニュ／コート・ドール",
+    "metadataSources": [
+      "https://kermitlynch.com/newsletters/12-25_december25.pdf",
+      "https://kermitlynch.com/files/domaine-pierre-guillemot.pdf",
+      "https://www.inao.gouv.fr/node/8660"
+    ]
+  },
+  {
+    "id": "bev-d8e87b6829d8",
+    "name": "AKABU Junmai Daiginjo",
+    "producer": "Akabu Shuzo",
+    "style": "純米大吟醸",
+    "category": "sake",
+    "officialSourceUrl": "https://www.akabu1.com/",
+    "origin": {
+      "country": "日本",
+      "countryCode": "JP",
+      "region": "岩手県",
+      "locality": "盛岡市",
+      "latitude": 39.6774692,
+      "longitude": 141.1290937,
+      "verified": true,
+      "precision": "producer",
+      "sourceUrl": "https://www.akabu1.com/about/",
+      "coordinateSourceUrl": "https://www.yawaragimizu.com/sake/kura-list.php?sakaguraid=03017",
+      "precisionLabel": "醸造所・生産施設"
+    },
+    "confidence": "high",
+    "note": "Google map embedded on sake-directory page explicitly identifies 赤武酒造株式会社復活蔵 at the official Morioka address. Coordinates extracted from the named place data, not the west-shifted viewport center. / 醸造所・生産施設",
+    "nameJa": "赤武（AKABU）純米大吟醸",
+    "producerJa": "赤武酒造"
+  },
+  {
+    "id": "bev-db9d025e3bd0",
+    "name": "Morishima Omachi Junmai Daiginjo Shiboritate",
+    "producer": "Morishima Sake Brewery",
+    "style": "純米大吟醸・雄町・生原酒",
+    "category": "sake",
+    "officialSourceUrl": "https://morishima-sake.jp/ja/morishima.html",
+    "origin": {
+      "country": "日本",
+      "countryCode": "JP",
+      "region": "茨城県",
+      "locality": "日立市",
+      "latitude": 36.6521506,
+      "longitude": 140.6987671,
+      "verified": true,
+      "precision": "producer",
+      "sourceUrl": "https://www.morishima-sake.jp/ja/about.html",
+      "coordinateSourceUrl": "https://maps.app.goo.gl/VrheKkj5xdbgCvdx9",
+      "precisionLabel": "醸造所・生産施設"
+    },
+    "confidence": "high",
+    "note": "醸造所・生産施設",
+    "nameJa": "森嶋 雄町 純米大吟醸 しぼりたて生",
+    "producerJa": "森島酒造"
+  },
+  {
+    "id": "bev-88d911a371f9",
+    "name": "Arbois Grand Curoulet Savagnin Ouillé",
+    "producer": "Domaine du Pélican",
+    "vintage": "2023",
+    "style": "白ワイン（サヴァニャン／ウイエ）",
+    "category": "wine",
+    "officialSourceUrl": "https://domainedupelican.fr/pages/nos-vins",
+    "origin": {
+      "country": "フランス",
+      "countryCode": "FR",
+      "region": "ジュラ",
+      "locality": "アルボワ（グラン・キュルレ）",
+      "latitude": 46.903611,
+      "longitude": 5.774722,
+      "verified": true,
+      "precision": "locality",
+      "sourceUrl": "https://domainedupelican.fr/pages/histoire",
+      "coordinateSourceUrl": "https://fr.wikipedia.org/wiki/Arbois",
+      "precisionLabel": "産地・畑周辺の代表点（概略）"
+    },
+    "confidence": "high",
+    "note": "Arbois locality reference point, not a surveyed Grand Curoulet parcel. Official producer confirms Grand Curoulet is in Arbois; the winery itself is in Montigny-lès-Arsures and is deliberately not used as grape origin. / 産地・畑周辺の代表点（概略）",
+    "appellation": "アルボワ",
+    "wineRegion": "ジュラ／アルボワ",
+    "metadataSources": [
+      "https://domainedupelican.fr/pages/nos-vins",
+      "https://domainedupelican.fr/products/arbois-gcs?variant=57020131574137",
+      "https://domainedupelican.fr/pages/histoire"
+    ],
+    "terroir": "グラン・キュルレの灰色・多色の泥灰土"
+  },
+  {
+    "id": "bev-5b67a2cdbeb3",
+    "name": "Matsuzakari Pure Ibaraki Kuranama",
+    "producer": "Okabe",
+    "style": "特別純米・生酒・ひたち錦",
+    "category": "sake",
+    "officialSourceUrl": "https://www.matsuzakari.co.jp/2021/02/14/sk-014/",
+    "origin": {
+      "country": "日本",
+      "countryCode": "JP",
+      "region": "茨城県",
+      "locality": "常陸太田市",
+      "latitude": 36.5234687,
+      "longitude": 140.5412993,
+      "verified": true,
+      "precision": "producer",
+      "sourceUrl": "https://www.matsuzakari.co.jp/about/",
+      "coordinateSourceUrl": "https://www.matsuzakari.co.jp/about/",
+      "precisionLabel": "醸造所・生産施設"
+    },
+    "confidence": "high",
+    "note": "醸造所・生産施設",
+    "nameJa": "松盛 ピュア茨城 蔵なま",
+    "producerJa": "岡部合名会社"
+  },
+  {
+    "id": "bev-8797636a0898",
+    "name": "Kameizumi CEL-24",
+    "producer": "Kameizumi Shuzo",
+    "style": "純米吟醸・生原酒",
+    "category": "sake",
+    "officialSourceUrl": "https://www.kameizumi.co.jp/product/",
+    "origin": {
+      "country": "日本",
+      "countryCode": "JP",
+      "region": "高知県",
+      "locality": "土佐市",
+      "latitude": 33.4776069,
+      "longitude": 133.3874725,
+      "verified": true,
+      "precision": "producer",
+      "sourceUrl": "https://www.kameizumi.co.jp/contact/",
+      "coordinateSourceUrl": "https://mapfan.com/spots/SWIQ%2CJ%2C3I1S7",
+      "precisionLabel": "醸造所・生産施設"
+    },
+    "confidence": "high",
+    "note": "醸造所・生産施設",
+    "nameJa": "亀泉 CEL-24",
+    "producerJa": "亀泉酒造"
   },
   {
     "id": "bev-554984397368",
     "name": "Wakakoma Kirekoma +17",
     "producer": "Wakakoma Shuzo",
-    "style": "Unfiltered unpasteurized genshu",
+    "style": "無加圧採り・無濾過生原酒",
     "category": "sake",
     "officialSourceUrl": "https://wakakoma.com/",
     "origin": {
@@ -1597,13 +1693,15 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "This is Wakakoma Shuzo in Oyama, Tochigi, not the similarly named brewery in Toyama. / 醸造所・生産施設"
+    "note": "This is Wakakoma Shuzo in Oyama, Tochigi, not the similarly named brewery in Toyama. / 醸造所・生産施設",
+    "nameJa": "若駒 キレコマ+17",
+    "producerJa": "若駒酒造"
   },
   {
     "id": "bev-8d532c74474a",
     "name": "Chassagne-Montrachet 1er Cru La Maltroie",
     "producer": "Domaine Fontaine-Gagnard",
-    "style": "White wine",
+    "style": "白ワイン（シャルドネ）",
     "category": "wine",
     "officialSourceUrl": "https://mobile.domaine-fontaine-gagnard.com/chassagne-montrachet-1er-cru-la-maltroie",
     "origin": {
@@ -1620,7 +1718,13 @@
       "precisionLabel": "産地・畑周辺の代表点（概略）"
     },
     "confidence": "high",
-    "note": "フランス政府APIの自治体代表点。畑区画や生産者所在地のピンではありません / 産地・畑周辺の代表点（概略）"
+    "note": "フランス政府APIの自治体代表点。畑区画や生産者所在地のピンではありません / 産地・畑周辺の代表点（概略）",
+    "appellation": "シャサーニュ・モンラッシェ・プルミエ・クリュ／ラ・マルトロワ",
+    "wineRegion": "ブルゴーニュ／コート・ド・ボーヌ",
+    "metadataSources": [
+      "https://www.polanerselections.com/producers/fontaine-gagnard/",
+      "https://www.bourgogne-wines.com/our-wines-our-terroir/all-bourgogne-wines/gallery_files/site/321/402/19992/25639.pdf"
+    ]
   },
   {
     "id": "bev-2fbf06d03f83",
@@ -1718,7 +1822,7 @@
     "id": "bev-5be2bf8c0ff9",
     "name": "Kameizumi Hyogo Yamadanishiki CEL-19",
     "producer": "Kameizumi Shuzo",
-    "style": "Junmai daiginjo",
+    "style": "純米大吟醸・山田錦・CEL-19酵母",
     "category": "sake",
     "officialSourceUrl": "https://www.kameizumi.co.jp/product/",
     "origin": {
@@ -1735,7 +1839,9 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "nameJa": "亀泉 兵庫山田錦 CEL-19",
+    "producerJa": "亀泉酒造"
   },
   {
     "id": "bev-17cfdf742815",
@@ -1764,7 +1870,7 @@
     "id": "bev-ec38926f21b1",
     "name": "Shichida Natsujun",
     "producer": "Tenzan Sake Brewery",
-    "style": "Junmai",
+    "style": "純米酒・夏季限定",
     "category": "sake",
     "officialSourceUrl": "https://tenzan.co.jp/product/shichida-natsujyun/",
     "origin": {
@@ -1781,14 +1887,16 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "nameJa": "七田 夏純",
+    "producerJa": "天山酒造"
   },
   {
     "id": "bev-17a52b16845c",
     "name": "Riesling Aus der Steillage Lieblich",
     "producer": "Moselland",
     "vintage": "2025",
-    "style": "Sweet white wine; Riesling",
+    "style": "甘口白ワイン（リースリング）",
     "category": "wine",
     "officialSourceUrl": "https://en.moselland.de/moselland-riesling-wines-en/",
     "origin": {
@@ -1805,7 +1913,11 @@
       "precisionLabel": "広域産地の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Regional reference point at Bernkastel-Kues in the Middle Mosel, not the Moselland winery or an identified vineyard. Label/producer establish Mosel only; exact grapes site within Mosel is unknown. / 広域産地の代表点（概略）"
+    "note": "Regional reference point at Bernkastel-Kues in the Middle Mosel, not the Moselland winery or an identified vineyard. Label/producer establish Mosel only; exact grapes site within Mosel is unknown. / 広域産地の代表点（概略）",
+    "appellation": "モーゼル",
+    "wineRegion": "モーゼル",
+    "metadataSources": ["https://www.moselland.de/produkte/10032300/"],
+    "terroir": "日当たりのよいスレート質の急斜面"
   },
   {
     "id": "bev-07b16108c04b",
@@ -1926,9 +2038,9 @@
     "id": "bev-2b3cd1887044",
     "name": "Mizutoriki Kakushizake",
     "producer": "Kakuboshi",
-    "style": "Tokubetsu junmai",
+    "style": "特別純米酒",
     "category": "sake",
-    "officialSourceUrl": "https://shunsentanbou.pref.miyagi.jp/buy/detail_146.html",
+    "officialSourceUrl": "https://kakuboshi.mystrikingly.com/",
     "origin": {
       "country": "日本",
       "countryCode": "JP",
@@ -1943,7 +2055,9 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "Kakuboshi moved production to Hakusan in August 2021. Maps current manufacturing site at 上東側根245, not the historic Uomachi retail/head-office address. Bottle production date unverified. / 醸造所・生産施設"
+    "note": "Kakuboshi moved production to Hakusan in August 2021. Maps current manufacturing site at 上東側根245, not the historic Uomachi retail/head-office address. Bottle production date unverified. / 醸造所・生産施設",
+    "nameJa": "水鳥記 隠し酒",
+    "producerJa": "角星"
   },
   {
     "id": "bev-c00a19571e54",
@@ -2019,7 +2133,7 @@
     "name": "Dürnsteiner Grüner Veltliner",
     "producer": "F.X. Pichler",
     "vintage": "2024",
-    "style": "Dry white wine; Grüner Veltliner",
+    "style": "白ワイン（グリューナー・フェルトリーナー）",
     "category": "wine",
     "officialSourceUrl": "https://fx-pichler.at/en/vineyards-wines/",
     "origin": {
@@ -2036,6 +2150,10 @@
       "precisionLabel": "産地・畑周辺の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Dürnstein village/municipality reference point. Official producer describes Dürnsteiner as a blend of multiple terraced and plain vineyards in the municipality, so no single vineyard point is asserted. / 産地・畑周辺の代表点（概略）"
+    "note": "Dürnstein village/municipality reference point. Official producer describes Dürnsteiner as a blend of multiple terraced and plain vineyards in the municipality, so no single vineyard point is asserted. / 産地・畑周辺の代表点（概略）",
+    "appellation": "ヴァッハウ／デュルンシュタイン",
+    "wineRegion": "ヴァッハウ",
+    "metadataSources": ["https://fx-pichler.at/en/vineyards-wines/"],
+    "terroir": "デュルンシュタインの山の段々畑と平地の複数畑をブレンド"
   }
 ]

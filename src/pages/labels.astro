@@ -6,45 +6,25 @@ import { beverageLabels } from '../lib/beverage-labels';
 const labelsJson = JSON.stringify(beverageLabels);
 ---
 
-<Base title="Beverage origins" description="A map of beverage labels and their verified origins.">
+<Base title="Drinks I've had" description="A personal record of drinks I've had.">
   <div class="container label-page" data-labels={labelsJson}>
     <header class="page-heading">
-      <p class="eyebrow"><Localized en="A PERSONAL COLLECTION" ja="個人のコレクション" /></p>
-      <h1><Localized en="Beverage origins" ja="お酒の産地" /></h1>
-      <p>
-        <Localized
-          en="Explore craft beer, wine, sake, and other bottles by origin. France has a dedicated view for wine regions."
-          ja="クラフトビール、ワイン、日本酒などを産地から眺めるマップです。フランスはワイン産地を見やすい専用表示にしています。"
-        />
-      </p>
+      <p class="eyebrow"><Localized en="DRINK JOURNAL" ja="お酒の記録" /></p>
+      <h1><Localized en="Drinks I've had" ja="飲んだお酒" /></h1>
     </header>
 
-    <section class="label-explorer" aria-labelledby="map-heading">
+    <section class="label-explorer" aria-labelledby="collection-heading">
       <div class="explorer-toolbar">
-        <div class="explorer-group">
-          <span class="filter-label"><Localized en="AREA" ja="エリア" /></span>
-          <div class="segmented" role="group" aria-label="Map area">
-            <button type="button" data-area="world" aria-pressed="false"
-              ><Localized en="World" ja="世界" /></button
-            >
-            <button type="button" data-area="japan" aria-pressed="false"
-              ><Localized en="Japan" ja="日本" /></button
-            >
-            <button type="button" data-area="france" aria-pressed="true"
-              ><Localized en="France" ja="フランス" /></button
-            >
-          </div>
-        </div>
         <div class="explorer-group category-group">
           <label class="filter-label" for="category-filter"
-            ><Localized en="DRINK" ja="種類" /></label
+            ><Localized en="DRINKS" ja="お酒" /></label
           >
           <select id="category-filter" aria-label="Filter by beverage type">
-            <option value="all" data-en="All drinks" data-ja="すべて">All drinks</option>
+            <option value="all" data-en="All drinks" data-ja="すべて" selected>All drinks</option>
             <option value="craft-beer" data-en="Craft beer" data-ja="クラフトビール"
               >Craft beer</option
             >
-            <option value="wine" data-en="Wine" data-ja="ワイン" selected>Wine</option>
+            <option value="wine" data-en="Wine" data-ja="ワイン">Wine</option>
             <option value="sake" data-en="Sake" data-ja="日本酒">Sake</option>
             <option value="other" data-en="Other" data-ja="その他">Other</option>
           </select>
@@ -64,40 +44,47 @@ const labelsJson = JSON.stringify(beverageLabels);
             data-translate-attribute="placeholder"
           />
         </div>
-        <div class="explorer-group">
-          <label class="filter-label" id="origin-filter-label" for="origin-filter">REGION</label>
-          <select id="origin-filter"><option value="all">All</option></select>
-        </div>
-        <div class="explorer-group">
-          <label class="filter-label" id="producer-filter-label" for="producer-filter"
-            >PRODUCER</label
-          >
-          <select id="producer-filter"><option value="all">All</option></select>
-        </div>
-        <p class="collection-hierarchy" id="collection-hierarchy"></p>
+        <details class="collection-filters">
+          <summary id="filter-summary"><Localized en="Filters" ja="絞り込み" /></summary>
+          <div class="collection-filter-fields">
+            <div class="explorer-group">
+              <label class="filter-label" id="origin-filter-label" for="origin-filter">REGION</label
+              >
+              <select id="origin-filter"><option value="all">All</option></select>
+            </div>
+            <div class="explorer-group">
+              <label class="filter-label" id="producer-filter-label" for="producer-filter"
+                >PRODUCER</label
+              >
+              <select id="producer-filter"><option value="all">All</option></select>
+            </div>
+          </div>
+        </details>
       </div>
 
       <div class="explorer-layout">
-        <div class="mobile-view-toggle" role="group" aria-label="Explore map or labels">
-          <button type="button" data-mobile-view="map" aria-pressed="true"
+        <div class="mobile-view-toggle" role="group" aria-label="Drinks or map">
+          <button type="button" data-mobile-view="list" aria-pressed="true"
+            ><Localized en="Drinks" ja="お酒" /></button
+          >
+          <button type="button" data-mobile-view="map" aria-pressed="false"
             ><Localized en="Map" ja="地図" /></button
           >
-          <button type="button" data-mobile-view="list" aria-pressed="false"
-            ><Localized en="Labels" ja="ラベル" /></button
-          >
         </div>
-        <div class="map-frame">
+        <section class="label-sidebar" aria-labelledby="collection-heading">
+          <div class="sidebar-heading">
+            <h2 id="collection-heading"><Localized en="The drinks" ja="お酒" /></h2>
+          </div>
+          <div class="labels-list" id="labels-list" aria-live="polite">
+            <p class="loading-state"><Localized en="Loading…" ja="読み込み中…" /></p>
+          </div>
+        </section>
+
+        <aside class="map-frame" aria-labelledby="map-heading">
           <div class="map-heading-row">
             <div>
-              <span class="section-index"><Localized en="ORIGIN MAP" ja="産地マップ" /></span>
-              <h2 id="map-heading"><Localized en="France" ja="フランス" /></h2>
+              <h2 id="map-heading"><Localized en="Map" ja="地図" /></h2>
             </div>
-            <span class="map-coordinate-note"
-              ><Localized
-                en="Facility and approximate origin references"
-                ja="施設・概略産地の参照点"
-              /></span
-            >
             <div class="map-controls" role="group" aria-label="Map controls">
               <button type="button" data-map-zoom="out" aria-label="Zoom out">−</button>
               <button type="button" data-map-zoom="in" aria-label="Zoom in">+</button>
@@ -105,6 +92,17 @@ const labelsJson = JSON.stringify(beverageLabels);
                 <Localized en="Reset" ja="リセット" />
               </button>
             </div>
+          </div>
+          <div class="segmented map-areas" role="group" aria-label="Map area">
+            <button type="button" data-area="world" aria-pressed="true"
+              ><Localized en="World" ja="世界" /></button
+            >
+            <button type="button" data-area="japan" aria-pressed="false"
+              ><Localized en="Japan" ja="日本" /></button
+            >
+            <button type="button" data-area="france" aria-pressed="false"
+              ><Localized en="France" ja="フランス" /></button
+            >
           </div>
           <div class="map-viewport" role="group" aria-label="Interactive origin map">
             <svg
@@ -126,72 +124,48 @@ const labelsJson = JSON.stringify(beverageLabels);
               class="wine-region-views"
               id="wine-region-views"
               role="group"
-              aria-label="Broad French wine region views"
+              aria-label="Wine regions"
               hidden
             >
-              <button type="button" data-wine-view="france">France</button>
-              <button type="button" data-wine-view="rhone">Rhône</button>
-              <button type="button" data-wine-view="loire">Loire</button>
-              <button type="button" data-wine-view="burgundy">Burgundy</button>
-              <span
-                ><Localized
-                  en="Broad map views, not appellation boundaries"
-                  ja="広域表示（AOC境界ではありません）"
-                /></span
+              <button type="button" data-wine-view="rhone"
+                ><Localized en="Rhône" ja="ローヌ" /></button
+              >
+              <button type="button" data-wine-view="loire"
+                ><Localized en="Loire" ja="ロワール" /></button
+              >
+              <button type="button" data-wine-view="burgundy"
+                ><Localized en="Burgundy" ja="ブルゴーニュ" /></button
               >
             </div>
             <p class="map-error" id="map-error" hidden>
               <Localized
-                en="The map boundaries could not be loaded. Label details are still available in the list."
-                ja="地図データを読み込めませんでした。ラベルは一覧から確認できます。"
+                en="The map couldn't be loaded. The drinks are still here."
+                ja="地図を読み込めませんでした。お酒の記録は表示できます。"
               />
             </p>
             <p class="map-empty" id="map-empty" hidden>
               <span class="map-empty-icon" aria-hidden="true">◎</span>
-              <strong
-                data-en="No labels on this map yet"
-                data-ja="このマップにはまだラベルがありません">No labels on this map yet</strong
-              >
-              <span
-                class="empty-hint"
-                data-en="Verified origins will appear here as the collection is added."
-                data-ja="コレクションを追加すると、確認済みの産地がここに表示されます。"
-                >Verified origins will appear here as the collection is added.</span
+              <strong data-en="No drinks here yet" data-ja="このあたりの記録はまだありません"
+                >No drinks here yet</strong
               >
             </p>
           </div>
           <div class="map-legend">
             <span class="legend-pin" aria-hidden="true"></span>
-            <Localized en="Verified origin" ja="確認済みの産地" />
+            <Localized en="Origin" ja="産地" />
             <a
               class="map-attribution"
               href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/"
               target="_blank"
-              rel="noreferrer">Natural Earth · Admin 0 Countries · 1:50m · public domain ↗</a
+              rel="noreferrer">Natural Earth</a
             >
             <a
               class="map-attribution"
               href="https://www.naturalearthdata.com/downloads/50m-physical-vectors/50m-rivers-lake-centerlines/"
               target="_blank"
-              rel="noreferrer">River layer: Natural Earth 1:50m</a
+              rel="noreferrer"><Localized en="Rivers" ja="河川" /></a
             >
           </div>
-        </div>
-
-        <aside class="label-sidebar" aria-label="Beverage labels">
-          <div class="sidebar-heading">
-            <span class="section-index"><Localized en="COLLECTION" ja="コレクション" /></span>
-            <h2><Localized en="Labels" ja="ラベル" /></h2>
-          </div>
-          <div class="labels-list" id="labels-list" aria-live="polite">
-            <p class="loading-state"><Localized en="Loading labels…" ja="ラベルを読み込み中…" /></p>
-          </div>
-          <p class="privacy-note">
-            <Localized
-              en="Pins can mark a facility, a locality, or a broad wine origin. Each label shows the coordinate precision and supporting notes."
-              ja="ピンは施設・市区町村・広域産地の参照点です。各ラベルに座標の精度と確認メモを記載しています。"
-            />
-          </p>
         </aside>
       </div>
     </section>
@@ -202,7 +176,7 @@ const labelsJson = JSON.stringify(beverageLabels);
       padding-bottom: 84px;
     }
     .label-page .page-heading {
-      padding-bottom: 38px;
+      padding-bottom: 30px;
     }
     .label-explorer {
       border: 1px solid var(--gray-200);
@@ -211,9 +185,8 @@ const labelsJson = JSON.stringify(beverageLabels);
     .explorer-toolbar {
       display: flex;
       align-items: end;
-      flex-wrap: wrap;
-      gap: 22px;
-      padding: 18px 22px;
+      gap: 20px;
+      padding: 18px 24px;
       border-bottom: 1px solid var(--gray-200);
     }
     .explorer-group {
@@ -223,34 +196,11 @@ const labelsJson = JSON.stringify(beverageLabels);
     .filter-label {
       color: var(--gray-500);
       font: 10px/1.4 var(--font-mono);
-      letter-spacing: 0.08em;
-    }
-    .segmented {
-      display: inline-flex;
-      padding: 3px;
-      border: 1px solid var(--gray-200);
-      border-radius: 8px;
-      gap: 2px;
-    }
-    .segmented button {
-      border: 0;
-      background: transparent;
-      color: var(--gray-500);
-      border-radius: 5px;
-      min-height: 36px;
-      padding: 6px 13px;
-      font-size: 12px;
-    }
-    .segmented button[aria-pressed='true'] {
-      color: var(--surface);
-      background: var(--blue-700);
-    }
-    .category-group {
-      margin-left: auto;
+      letter-spacing: 0.06em;
     }
     .category-group select {
       min-height: 42px;
-      min-width: 146px;
+      min-width: 170px;
       padding: 7px 34px 7px 12px;
       color: var(--gray-700);
       background: var(--surface);
@@ -258,65 +208,266 @@ const labelsJson = JSON.stringify(beverageLabels);
       border-radius: 7px;
     }
     .label-count {
-      margin-left: 3px;
+      margin-left: auto;
+      padding-bottom: 10px;
       color: var(--gray-500);
       font: 11px var(--font-mono);
       white-space: nowrap;
     }
+    .explorer-facets {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: 14px;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .explorer-facets .explorer-group {
+      flex: 1 1 150px;
+    }
+    .collection-filters {
+      position: relative;
+      flex: none;
+    }
+    .collection-filters summary {
+      min-height: 38px;
+      padding: 10px 12px;
+      border: 1px solid var(--gray-200);
+      border-radius: 5px;
+      color: var(--gray-700);
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .collection-filter-fields {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 12px;
+      width: min(420px, calc(100vw - 80px));
+      padding: 15px;
+      border: 1px solid var(--gray-200);
+      border-radius: 7px;
+      background: var(--surface);
+      box-shadow: 0 8px 24px #00000012;
+    }
+    .explorer-facets select,
+    .explorer-facets input {
+      width: 100%;
+      min-height: 38px;
+      max-width: 100%;
+      padding: 5px 9px;
+      border: 1px solid var(--gray-200);
+      border-radius: 5px;
+      background: var(--surface);
+      color: var(--gray-700);
+    }
     .explorer-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 340px;
-      min-height: 510px;
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+      align-items: start;
+    }
+    .label-sidebar {
+      min-width: 0;
+      padding: 25px 26px;
+    }
+    .sidebar-heading {
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .sidebar-heading h2 {
+      font-size: 18px;
+    }
+    .labels-list {
+      padding-top: 6px;
+    }
+    .origin-group {
+      scroll-margin: 100px;
+    }
+    .origin-group:focus {
+      outline: 2px solid var(--blue-600);
+      outline-offset: 5px;
+    }
+    .label-card {
+      padding: 23px 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .label-card .label-name {
+      margin: 0;
+      color: var(--gray-950);
+      font-size: clamp(21px, 2vw, 26px);
+      font-weight: 650;
+      line-height: 1.45;
+      letter-spacing: -0.025em;
+      overflow-wrap: anywhere;
+      text-wrap: balance;
+    }
+    .label-card .label-producer {
+      margin: 6px 0 12px;
+      color: var(--gray-500);
+      font-size: 12px;
+    }
+    .label-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .label-badge {
+      max-width: 100%;
+      padding: 4px 8px;
+      border: 1px solid var(--gray-200);
+      border-radius: 5px;
+      color: var(--gray-600);
+      font-size: 10px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+    .label-badge--category {
+      background: var(--gray-50);
+      color: var(--blue-700);
+    }
+    .label-badge--vintage {
+      font-family: var(--font-mono);
+    }
+    .label-card .label-terroir {
+      margin-top: 13px;
+      color: var(--gray-600);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+    .label-terroir span {
+      margin-right: 9px;
+      color: var(--gray-500);
+      font-size: 10px;
+    }
+    .uncertainty-tag {
+      margin-top: 10px;
+      color: var(--gray-500);
+      font-size: 11px;
+    }
+    .label-card-actions {
+      display: flex;
+      align-items: start;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .label-evidence {
+      flex: 1;
+      min-width: 0;
+      color: var(--gray-500);
+      font-size: 11px;
+    }
+    .label-evidence summary {
+      width: fit-content;
+      min-height: 34px;
+      padding-top: 8px;
+      cursor: pointer;
+    }
+    .label-evidence p {
+      margin: 7px 0;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+    .label-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 13px;
+    }
+    .label-source {
+      color: var(--blue-700);
+      font-size: 11px;
+    }
+    .card-map-button {
+      flex: none;
+      min-height: 34px;
+      padding: 6px 0 6px 8px;
+      border: 0;
+      color: var(--blue-700);
+      background: transparent;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .loading-state,
+    .empty-list {
+      padding: 22px 0;
+      color: var(--gray-500);
+      font-size: 13px;
+    }
+    .selection-reset {
+      width: 100%;
+      padding: 11px;
+      color: var(--blue-700);
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 5px;
+      font-size: 11px;
     }
     .map-frame {
+      position: sticky;
+      top: 90px;
       min-width: 0;
-      padding: 25px 27px 18px;
-      border-right: 1px solid var(--gray-200);
+      padding: 25px 24px 18px;
+      border-left: 1px solid var(--gray-200);
     }
     .map-heading-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 12px;
     }
-    .map-heading-row .section-index,
-    .sidebar-heading .section-index {
-      margin-bottom: 4px;
-    }
-    .map-heading-row h2,
-    .sidebar-heading h2 {
-      font-size: 23px;
+    .map-heading-row h2 {
+      font-size: 18px;
     }
     .map-controls {
       display: inline-flex;
       gap: 4px;
       align-items: center;
-      margin-left: auto;
     }
     .map-controls button {
       min-width: 34px;
-      min-height: 34px;
+      min-height: 38px;
       padding: 4px 8px;
       border: 1px solid var(--gray-200);
       border-radius: 5px;
       background: var(--surface);
       color: var(--gray-700);
-      font-size: 12px;
+      font-size: 11px;
     }
     .map-controls button:hover {
       border-color: var(--blue-600);
       color: var(--blue-700);
     }
-    .map-coordinate-note {
-      font-size: 11px;
+    .segmented {
+      display: inline-flex;
+      padding: 3px;
+      border: 1px solid var(--gray-200);
+      border-radius: 7px;
+      gap: 2px;
+    }
+    .map-areas {
+      margin-top: 13px;
+    }
+    .segmented button {
+      min-height: 36px;
+      padding: 6px 13px;
+      border: 0;
+      border-radius: 5px;
+      background: transparent;
       color: var(--gray-500);
+      font-size: 11px;
+    }
+    .segmented button[aria-pressed='true'] {
+      color: var(--surface);
+      background: var(--blue-700);
     }
     .map-viewport {
       position: relative;
-      margin-top: 18px;
-      min-height: 344px;
       display: grid;
       place-items: center;
+      min-height: 360px;
+      margin-top: 13px;
       overflow: hidden;
       background: var(--gray-50);
       border: 1px solid var(--gray-200);
@@ -324,9 +475,14 @@ const labelsJson = JSON.stringify(beverageLabels);
     .origin-map {
       display: block;
       width: 100%;
-      height: 100%;
-      min-height: 344px;
+      height: 360px;
+      min-height: 360px;
       background: #f1f5f4;
+      touch-action: none;
+      cursor: grab;
+    }
+    .origin-map:active {
+      cursor: grabbing;
     }
     .map-water {
       fill: #f1f5f4;
@@ -338,7 +494,7 @@ const labelsJson = JSON.stringify(beverageLabels);
     }
     .map-error {
       position: absolute;
-      z-index: 1;
+      z-index: 2;
       top: 10px;
       left: 10px;
       right: 10px;
@@ -361,6 +517,7 @@ const labelsJson = JSON.stringify(beverageLabels);
       background: color-mix(in srgb, var(--surface) 82%, transparent);
       color: var(--gray-500);
       font-size: 12px;
+      pointer-events: none;
     }
     .map-empty strong {
       color: var(--gray-950);
@@ -371,53 +528,45 @@ const labelsJson = JSON.stringify(beverageLabels);
       font-size: 25px;
       line-height: 1;
     }
+    .map-empty[hidden],
+    .map-error[hidden] {
+      display: none;
+    }
     .map-legend {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       gap: 8px;
-      margin-top: 13px;
+      margin-top: 12px;
       color: var(--gray-500);
-      font-size: 11px;
+      font-size: 10px;
     }
     .map-attribution {
-      margin-left: auto;
       color: var(--gray-500);
       font-size: 9px;
-      text-align: right;
+    }
+    .map-legend .map-attribution:first-of-type {
+      margin-left: auto;
     }
     .legend-pin {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: var(--blue-600);
       border: 2px solid var(--surface);
       box-shadow: 0 0 0 1px var(--blue-600);
     }
+    .origin-pin-group,
     .origin-pin {
       cursor: pointer;
+    }
+    .origin-pin {
       fill: var(--blue-700);
       stroke: var(--surface);
       stroke-width: 1.5;
       vector-effect: non-scaling-stroke;
     }
-    .origin-pin-group {
-      cursor: pointer;
-    }
-    .river-name {
-      fill: #247b99;
-      stroke: var(--surface);
-      stroke-width: 3;
-      paint-order: stroke;
-      font-family: var(--font-sans);
-      font-style: italic;
-      font-size: 10px;
-      pointer-events: none;
-    }
     .origin-pin-group:focus-visible .origin-pin {
-      stroke: var(--gray-950);
-      stroke-width: 2.5;
-    }
-    .origin-pin:focus-visible {
       stroke: var(--gray-950);
       stroke-width: 2.5;
     }
@@ -430,221 +579,30 @@ const labelsJson = JSON.stringify(beverageLabels);
       text-anchor: middle;
       dominant-baseline: central;
     }
-    .label-sidebar {
-      display: flex;
-      flex-direction: column;
-      padding: 25px 21px 18px;
-      min-width: 0;
-    }
-    .sidebar-heading {
-      padding-bottom: 15px;
-      border-bottom: 1px solid var(--gray-200);
-    }
-    .labels-list {
-      flex: 1;
-      padding-top: 12px;
-      max-height: 580px;
-      overflow-y: auto;
-      padding-inline: 5px;
-    }
-    .loading-state,
-    .empty-list,
-    .load-error {
-      padding: 16px 0;
-      color: var(--gray-500);
-      font-size: 12px;
-    }
-    .label-card {
-      padding: 13px 0;
-      border-bottom: 1px solid var(--gray-200);
-    }
-    .origin-group {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--gray-200);
-      scroll-margin: 12px;
-    }
-    .origin-group:focus,
-    .origin-group.is-selected {
-      outline: 2px solid var(--blue-600);
-      outline-offset: 5px;
-    }
-    .origin-group-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 7px;
-    }
-    .origin-group-heading h3 {
-      font-size: 12px;
-    }
-    .coordinate-precision {
-      font-size: 10px !important;
-      color: var(--gray-500) !important;
-    }
-    .origin-group-count {
-      color: var(--gray-500);
-      font: 9px var(--font-mono);
-      white-space: nowrap;
-    }
-    .label-card h3 {
-      font-size: 14px;
-    }
-    .label-card p {
-      margin-top: 4px;
-      color: var(--gray-500);
-      font-size: 11px;
-    }
-    .label-card img {
-      display: block;
-      width: 100%;
-      max-height: 150px;
-      margin-top: 10px;
-      object-fit: contain;
-      background: var(--gray-50);
-    }
-    .label-source {
-      display: inline-block;
-      margin-top: 8px;
-      color: var(--blue-700);
-      font-size: 11px;
-    }
-    .category-tag {
-      display: inline-block;
-      margin-bottom: 6px;
-      color: var(--blue-700);
-      font: 9px var(--font-mono);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .privacy-note {
-      margin-top: 18px;
-      padding-top: 13px;
-      border-top: 1px solid var(--gray-200);
-      color: var(--gray-500);
+    .river-name {
+      fill: #247b99;
+      stroke: var(--surface);
+      stroke-width: 3;
+      paint-order: stroke;
+      font-family: var(--font-sans);
+      font-style: italic;
       font-size: 10px;
-      line-height: 1.55;
-    }
-    .mobile-view-toggle {
-      display: none;
-    }
-    .explorer-facets {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: end;
-      gap: 16px;
-      padding: 14px 22px;
-      border-bottom: 1px solid var(--gray-200);
-    }
-    .explorer-facets .explorer-group {
-      flex: 1 1 160px;
-      max-width: 300px;
-    }
-    .explorer-facets select,
-    .explorer-facets input {
-      width: 100%;
-      min-height: 38px;
-      max-width: 100%;
-      padding: 5px 9px;
-      border: 1px solid var(--gray-200);
-      border-radius: 5px;
-      background: var(--surface);
-      color: var(--gray-700);
-    }
-    .collection-hierarchy {
-      color: var(--gray-500);
-      font-size: 10px;
-      margin: 0 0 10px auto;
-    }
-    .collection-region {
-      padding: 13px 0 6px;
-      color: var(--blue-700);
-      font-size: 11px;
-      line-height: 1.7;
-    }
-    .label-name {
-      font-size: 14px;
-      line-height: 1.6;
-      overflow-wrap: anywhere;
-    }
-    .label-card .label-producer {
-      margin: 0 0 3px;
-      color: var(--gray-700);
-      font-size: 10px;
-    }
-    .label-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 14px;
-    }
-    .label-evidence {
-      margin-top: 8px;
-      font-size: 11px;
-      color: var(--gray-500);
-    }
-    .label-evidence summary {
-      cursor: pointer;
-    }
-    .label-evidence p {
-      line-height: 1.8;
-    }
-    .uncertainty-tag {
-      display: inline-block;
-      margin-top: 6px;
-      padding: 3px 6px;
-      border: 1px solid var(--gray-200);
-      border-radius: 4px;
-      color: var(--gray-700);
-      font-size: 10px;
-    }
-    .selection-reset {
-      width: 100%;
-      padding: 9px;
-      color: var(--blue-700);
-      background: var(--gray-50);
-      border: 1px solid var(--gray-200);
-      border-radius: 5px;
-      font-size: 11px;
-    }
-    .map-empty[hidden],
-    .map-error[hidden] {
-      display: none;
-    }
-    .origin-map {
-      touch-action: none;
-      cursor: grab;
-    }
-    .origin-map:active {
-      cursor: grabbing;
-    }
-    .map-heading-row {
-      flex-wrap: wrap;
-    }
-    .map-legend {
-      flex-wrap: wrap;
-    }
-    .map-attribution {
-      margin-left: 0;
-    }
-    .label-page .map-controls button,
-    .label-page .wine-region-views button {
-      min-height: 38px;
+      pointer-events: none;
     }
     .wine-region-views {
       position: absolute;
       bottom: 10px;
       left: 10px;
       right: 10px;
-      z-index: 1;
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 5px;
     }
     .wine-region-views[hidden] {
       display: none;
     }
     .wine-region-views button {
+      min-height: 36px;
       padding: 6px 9px;
       border: 1px solid var(--gray-200);
       border-radius: 5px;
@@ -652,71 +610,30 @@ const labelsJson = JSON.stringify(beverageLabels);
       color: var(--gray-700);
       font-size: 10px;
     }
-    .wine-region-views span {
-      padding: 5px;
-      background: color-mix(in srgb, var(--surface) 90%, transparent);
-      color: var(--gray-500);
-      font-size: 9px;
+    .wine-region-views button[aria-pressed='true'] {
+      border-color: var(--blue-600);
+      color: var(--blue-700);
+    }
+    .mobile-view-toggle {
+      display: none;
+      scroll-margin-top: 24px;
     }
     @media (max-width: 850px) {
       .explorer-layout {
         grid-template-columns: 1fr;
       }
       .map-frame {
-        border-right: 0;
-        border-bottom: 1px solid var(--gray-200);
-      }
-      .label-sidebar {
-        min-height: 220px;
-      }
-    }
-    @media (max-width: 600px) {
-      .explorer-facets {
-        padding: 12px 14px;
-        gap: 10px;
-      }
-      .explorer-facets .explorer-group {
-        flex-basis: 130px;
-      }
-      .collection-hierarchy {
-        width: 100%;
-        margin: 0;
-      }
-      .map-coordinate-note {
-        display: none;
-      }
-      .map-controls {
-        margin-left: auto;
-      }
-      .map-legend .map-attribution {
-        font-size: 8px;
-      }
-      .labels-list {
-        max-height: none;
-      }
-      .label-page {
-        padding-bottom: 54px;
-      }
-      .label-page .page-heading {
-        padding-top: 50px;
-      }
-      .label-page .page-heading h1 {
-        font-size: 44px;
-      }
-      .explorer-toolbar {
-        align-items: start;
-        gap: 14px;
-        padding: 15px;
+        position: static;
+        border-left: 0;
       }
       .mobile-view-toggle {
         display: flex;
         gap: 4px;
-        grid-column: 1;
-        padding: 10px 14px 0;
+        padding: 12px 16px 0;
       }
       .mobile-view-toggle button {
         flex: 1;
-        min-height: 38px;
+        min-height: 40px;
         border: 1px solid var(--gray-200);
         background: var(--surface);
         color: var(--gray-700);
@@ -726,39 +643,57 @@ const labelsJson = JSON.stringify(beverageLabels);
         background: var(--blue-700);
         color: var(--surface);
       }
-      .explorer-layout[data-mobile-view='map'] .label-sidebar {
-        display: none;
-      }
+      .explorer-layout[data-mobile-view='map'] .label-sidebar,
       .explorer-layout[data-mobile-view='list'] .map-frame {
         display: none;
       }
-      .category-group {
-        margin-left: 0;
+    }
+    @media (max-width: 600px) {
+      .label-page {
+        padding-bottom: 54px;
       }
-      .label-count {
-        align-self: end;
-        margin-left: auto;
-        padding-bottom: 12px;
+      .label-page .page-heading {
+        padding-top: 45px;
       }
-      .segmented button {
-        padding-inline: 10px;
+      .label-page .page-heading h1 {
+        font-size: 44px;
+      }
+      .explorer-toolbar {
+        padding: 15px;
+        gap: 14px;
+      }
+      .category-group select {
+        min-width: 145px;
+        max-width: 100%;
+      }
+      .explorer-facets {
+        padding: 12px 15px;
+        gap: 10px;
+      }
+      .explorer-facets .explorer-group {
+        flex-basis: 130px;
+        min-width: 0;
+      }
+      .explorer-facets .explorer-group:first-child {
+        flex-basis: 160px;
+      }
+      .label-sidebar {
+        padding: 21px 18px;
+      }
+      .label-card .label-name {
+        font-size: 22px;
+      }
+      .label-badge {
+        font-size: 10px;
+        padding-inline: 7px;
       }
       .map-frame {
-        padding: 19px 14px 15px;
+        padding: 21px 15px 18px;
       }
       .map-viewport,
       .origin-map {
-        min-height: 280px;
-      }
-      .map-heading-row {
-        align-items: end;
-      }
-      .map-coordinate-note {
-        max-width: 130px;
-        text-align: right;
-      }
-      .label-sidebar {
-        padding-inline: 16px;
+        height: 310px;
+        min-height: 310px;
       }
     }
   </style>
