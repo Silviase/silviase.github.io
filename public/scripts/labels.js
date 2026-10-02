@@ -22,40 +22,30 @@
     loire: [-2, -48.4, 6, 3.5],
     burgundy: [2.8, -48.4, 3.6, 2.8],
   };
-  const areaNames = {
-    world: ['World', '世界'],
-    japan: ['Japan', '日本'],
-    france: ['France', 'フランス'],
-    rhone: ['Rhône', 'ローヌ'],
-    loire: ['Loire', 'ロワール'],
-    burgundy: ['Burgundy', 'ブルゴーニュ'],
-  };
-  const wineRegions = {
-    rhone: /ローヌ|rh[oô]ne/i,
-    loire: /ロワール|loire/i,
-    burgundy: /ブルゴーニュ|bourgogne|burgundy/i,
-  };
   const categoryNames = {
     'craft-beer': ['Craft beer', 'クラフトビール'],
     wine: ['Wine', 'ワイン'],
     sake: ['Sake', '日本酒'],
     other: ['Other', 'その他'],
   };
-  let area = 'france',
-    view = [...views.france],
-    manuallyNavigated = false,
-    selected = null;
+  let area = 'world',
+    view = [...views.world],
+    selected = null,
+    animationFrame;
   let labels;
   try {
     labels = JSON.parse(root.dataset.labels);
     if (!Array.isArray(labels)) throw new Error('Invalid catalog');
   } catch {
     list.textContent = text(
-      'Label data could not be loaded. Please refresh.',
-      'ラベルを読み込めませんでした。再読み込みしてください。'
+      'The records could not be loaded. Please refresh.',
+      '記録を読み込めませんでした。再読み込みしてください。'
     );
     return;
   }
+  const displayName = (item) => item.nameJa || item.name;
+  const producerName = (item) =>
+    lang() === 'ja' ? item.producerJa || item.producer : item.producer || item.producerJa;
   const countryName = (item) =>
     new Intl.DisplayNames([lang()], { type: 'region' }).of(item.origin.countryCode) ||
     item.origin.country;
@@ -79,16 +69,9 @@
       : item.origin.region || item.origin.country;
   const facetName = (key) =>
     key === 'gin' ? text('Gin', 'ジン') : key === 'shochu' ? text('Shochu', '焼酎') : key;
-  const areaMatches = (item) =>
-    area === 'world' ||
-    (area === 'japan'
-      ? item.origin.countryCode === 'JP'
-      : item.origin.countryCode === 'FR' &&
-        (!wineRegions[area] || wineRegions[area].test(item.origin.region || '')));
+  // Map navigation and collection filters are independent.
   const baseMatches = () =>
-    labels.filter(
-      (item) => (category.value === 'all' || item.category === category.value) && areaMatches(item)
-    );
+    labels.filter((item) => category.value === 'all' || item.category === category.value);
   const matches = () =>
     baseMatches().filter(
       (item) =>
@@ -97,9 +80,13 @@
         decode(
           [
             item.name,
+            item.nameJa,
             item.producer,
+            item.producerJa,
             item.style,
             item.vintage,
+            item.appellation,
+            item.wineRegion,
             item.origin.region,
             item.origin.locality,
             countryName(item),
@@ -124,8 +111,16 @@
         button.setAttribute('aria-pressed', String(button.dataset.mobileView === mode))
       );
     if (mode === 'map') requestAnimationFrame(() => renderPins(matches()));
+    if (window.matchMedia('(max-width: 850px)').matches)
+      requestAnimationFrame(() =>
+        root.querySelector('.mobile-view-toggle').scrollIntoView({
+          block: 'start',
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            ? 'auto'
+            : 'smooth',
+        })
+      );
   };
-
   function populateFacets() {
     const items = baseMatches();
     const populate = (select, values, name) => {
@@ -145,22 +140,73 @@
       items
         .filter((item) => regionFilter.value === 'all' || facetKey(item) === regionFilter.value)
         .map((item) => item.producer),
-      (s) => s
+      (value) => producerName(items.find((item) => item.producer === value))
     );
     root.querySelector('#origin-filter-label').textContent =
       category.value === 'sake'
         ? text('PREFECTURE', '都道府県')
         : category.value === 'other'
-          ? text('TYPE', '酒の種類')
-          : text('REGION', '産地・地域');
+          ? text('TYPE', '種類')
+          : text('REGION', '産地');
     root.querySelector('#producer-filter-label').textContent =
-      category.value === 'craft-beer'
-        ? text('BREWERY', 'ブルワリー')
-        : category.value === 'sake'
-          ? text('BREWERY', '酒蔵')
+      category.value === 'sake'
+        ? text('BREWERY', '蔵元')
+        : category.value === 'craft-beer'
+          ? text('BREWERY', 'ブルワリー')
           : text('PRODUCER', '生産者');
   }
-
+  function animateView(target) {
+    cancelAnimationFrame(animationFrame);
+    const start = [...view],
+      started = performance.now();
+    const apply = (next) => {
+      view = next;
+      map.setAttribute('viewBox', view.join(' '));
+      renderPins(matches());
+    };
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      apply([...target]);
+      return;
+    }
+    const frame = (now) => {
+      const progress = Math.min(1, (now - started) / 650),
+        t = progress * progress * (3 - 2 * progress);
+      const width = start[2] * (target[2] / start[2]) ** t,
+        height = start[3] * (target[3] / start[3]) ** t;
+      const centerX =
+        start[0] + start[2] / 2 + (target[0] + target[2] / 2 - start[0] - start[2] / 2) * t;
+      const centerY =
+        start[1] + start[3] / 2 + (target[1] + target[3] / 2 - start[1] - start[3] / 2) * t;
+      apply(
+        progress === 1 ? [...target] : [centerX - width / 2, centerY - height / 2, width, height]
+      );
+      if (progress < 1) animationFrame = requestAnimationFrame(frame);
+    };
+    animationFrame = requestAnimationFrame(frame);
+  }
+  function navigateMap(nextArea) {
+    area = nextArea;
+    selected = null;
+    render();
+    animateView(views[area]);
+  }
+  function showOnMap(item) {
+    area =
+      item.origin.countryCode === 'JP'
+        ? 'japan'
+        : item.origin.countryCode === 'FR'
+          ? 'france'
+          : 'world';
+    const width = { producer: 1.2, locality: 3.5, region: 7 }[item.origin.precision];
+    render(false);
+    if (window.matchMedia('(max-width: 850px)').matches) setMobileView('map');
+    animateView([
+      item.origin.longitude - width / 2,
+      -item.origin.latitude - width * 0.4,
+      width,
+      width * 0.8,
+    ]);
+  }
   function renderPins(items) {
     const matrix = map.getScreenCTM();
     if (!matrix || map.getBoundingClientRect().width === 0) return;
@@ -199,6 +245,11 @@
       if (cluster) cluster.items.push(item);
       else clusters.push({ x: screen.x, y: screen.y, items: [item] });
     }
+    empty.hidden = clusters.length > 0;
+    if (!clusters.length)
+      empty.querySelector('strong').textContent = items.length
+        ? text('No drinks here yet', 'このあたりの記録はまだありません')
+        : text('No drinks found', '見つかりませんでした');
     for (const cluster of clusters) {
       const first = cluster.items[0],
         g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
@@ -210,8 +261,8 @@
         `translate(${first.origin.longitude},${-first.origin.latitude}) scale(${1 / matrix.a},${1 / matrix.d})`
       );
       const description = text(
-        `${cluster.items.length} label${cluster.items.length === 1 ? '' : 's'} near ${place(first)}. Open details.`,
-        `${place(first)}付近のラベル${cluster.items.length}件。詳細を表示。`
+        `${cluster.items.length} drinks near ${place(first)}`,
+        `${place(first)}付近のお酒 ${cluster.items.length}本`
       );
       g.setAttribute('aria-label', description);
       const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
@@ -230,7 +281,7 @@
       const activate = () => {
         selected = new Set(cluster.items.map((item) => item.id));
         renderList(items);
-        if (window.matchMedia('(max-width: 600px)').matches) setMobileView('list');
+        if (window.matchMedia('(max-width: 850px)').matches) setMobileView('list');
         list.querySelector('.origin-group')?.focus({ preventScroll: true });
         list.scrollTop = 0;
       };
@@ -252,7 +303,7 @@
       const reset = element(
         'button',
         'selection-reset',
-        text(`Show all ${items.length} labels`, `${items.length}件すべてを表示`)
+        text(`All ${items.length} drinks`, `${items.length}本すべて見る`)
       );
       reset.type = 'button';
       reset.addEventListener('click', () => {
@@ -267,165 +318,150 @@
           'p',
           'empty-list',
           labels.length
-            ? text('No labels match these filters.', '条件に合うラベルはありません。')
-            : text(
-                'No reviewed labels have been added yet.',
-                '確認済みのラベルはまだ登録されていません。'
-              )
+            ? text('No drinks found.', '見つかりませんでした。')
+            : text('No drinks recorded yet.', 'まだ記録がありません。')
         )
       );
       return;
     }
-    const sorted = [...shown].sort((a, b) =>
-      [a.origin.countryCode, facetKey(a), a.producer, a.name]
-        .join('|')
-        .localeCompare([b.origin.countryCode, facetKey(b), b.producer, b.name].join('|'), lang())
-    );
     const groups = new Map();
-    for (const item of sorted) {
-      const key = `${facetKey(item)}:${groupKey(item)}`;
+    for (const item of shown) {
+      const key = groupKey(item);
       groups.set(key, [...(groups.get(key) || []), item]);
     }
-    let previousRegion = '';
     for (const items of groups.values()) {
-      const first = items[0],
-        region =
-          category.value === 'other'
-            ? otherType(first)
-            : [countryName(first), first.origin.region].filter(Boolean).join(' / ');
-      if (region !== previousRegion) {
-        list.append(element('h3', 'collection-region', region));
-        previousRegion = region;
-      }
       const section = element('section', 'origin-group');
-      section.dataset.origin = groupKey(first);
+      section.dataset.origin = groupKey(items[0]);
       section.tabIndex = -1;
-      const gh = element('div', 'origin-group-heading');
-      gh.append(
-        element('h4', '', first.origin.locality || first.origin.region || countryName(first)),
-        element('span', 'origin-group-count', text(`${items.length} labels`, `${items.length}件`))
-      );
-      section.append(gh);
+      section.setAttribute('aria-label', place(items[0]));
       for (const item of items) {
         const card = element('article', 'label-card');
         card.dataset.labelId = item.id;
-        card.append(
-          element(
-            'span',
-            'category-tag',
-            category.value === 'other' ? otherType(item) : text(...categoryNames[item.category])
-          )
-        );
-        if (item.producer) card.append(element('p', 'label-producer', item.producer));
-        card.append(element('h4', 'label-name', item.name));
-        const variant = [item.vintage, item.style].filter(Boolean).join(' · ');
-        if (variant) card.append(element('p', 'label-variant', variant));
-        const precision =
-          lang() === 'ja'
-            ? item.origin.precisionLabel
-            : {
-                producer: 'Producer facility reference',
-                locality: 'Approximate locality or origin reference',
-                region: 'Approximate regional reference',
-              }[item.origin.precision];
-        card.append(element('p', 'coordinate-precision', precision));
-        if (item.confidence !== 'high')
-          card.append(
-            element('span', 'uncertainty-tag', text('Details unconfirmed', '詳細未確認'))
-          );
-        if (item.note && item.note !== item.origin.precisionLabel) {
-          const details = element('details', 'label-evidence');
-          details.append(
-            element('summary', '', text('Origin notes', '産地・確認メモ')),
-            element('p', '', item.note)
-          );
-          card.append(details);
-        }
-        const links = element('div', 'label-links');
-        for (const [url, caption] of [
+        card.append(element('h3', 'label-name', displayName(item)));
+        if (producerName(item)) card.append(element('p', 'label-producer', producerName(item)));
+        const badges = element('div', 'label-badges');
+        for (const [kind, caption] of [
           [
-            item.officialSourceUrl || item.origin.sourceUrl,
-            text('Beverage / producer', '商品・生産者'),
+            'category',
+            item.category === 'other' ? otherType(item) : text(...categoryNames[item.category]),
           ],
-          [item.origin.coordinateSourceUrl, text('Coordinate source', '座標の出典')],
+          ['origin', item.wineRegion || item.origin.region || countryName(item)],
+          [
+            'vintage',
+            (lang() === 'ja'
+              ? item.vintage?.replace(/^(\d{4}) release$/, '$1年発売')
+              : item.vintage) ||
+              (item.category === 'wine' ? text('Vintage unknown', '年不明') : ''),
+          ],
+          ['style', item.style],
         ])
-          if (url) {
+          if (caption) badges.append(element('span', `label-badge label-badge--${kind}`, caption));
+        card.append(badges);
+        if (item.terroir) {
+          const terroir = element('p', 'label-terroir');
+          terroir.append(
+            element('span', '', text('Terroir', '風土')),
+            document.createTextNode(item.terroir)
+          );
+          card.append(terroir);
+        }
+        if (item.displayNote)
+          card.append(element('p', 'uncertainty-tag', item.displayNote[lang()]));
+        const actions = element('div', 'label-card-actions');
+        const details = element('details', 'label-evidence');
+        details.append(element('summary', '', text('About this drink', 'このお酒について')));
+        if (item.appellation) details.append(element('p', '', item.appellation));
+        const precision =
+          item.origin.precision === 'producer'
+            ? text('Brewery / winery', '醸造所')
+            : text('Approximate origin', '産地の目安');
+        details.append(element('p', '', `${precision} · ${place(item)}`));
+        const links = element('div', 'label-links');
+        const sources = [
+          [item.officialSourceUrl || item.origin.sourceUrl, text('Drink', '銘柄')],
+          [item.origin.coordinateSourceUrl, text('Origin', '産地')],
+          ...(item.metadataSources || []).map((url, index) => [
+            url,
+            text(`More ${index + 1}`, `資料 ${index + 1}`),
+          ]),
+        ];
+        const seen = new Set();
+        for (const [url, caption] of sources)
+          if (url && !seen.has(decode(url))) {
+            seen.add(decode(url));
             const a = element('a', 'label-source', caption);
             a.href = decode(url);
             a.target = '_blank';
             a.rel = 'noreferrer';
             links.append(a);
           }
-        card.append(links);
+        details.append(links);
+        const mapButton = element('button', 'card-map-button', text('Map ↗', '地図 ↗'));
+        mapButton.type = 'button';
+        mapButton.setAttribute(
+          'aria-label',
+          text(`Show ${displayName(item)} on the map`, `${displayName(item)}を地図で見る`)
+        );
+        mapButton.addEventListener('click', () => showOnMap(item));
+        actions.append(details, mapButton);
+        card.append(actions);
         section.append(card);
       }
       list.append(section);
     }
   }
-
   function render(refreshFacets = true) {
-    if (!manuallyNavigated) {
-      area = category.value === 'sake' ? 'japan' : category.value === 'wine' ? 'france' : 'world';
-      view = [...views[area]];
-    }
     if (refreshFacets) populateFacets();
     const items = matches();
-    root.querySelector('#map-heading').textContent = text(...areaNames[area]);
+    const filterCount = [regionFilter.value, producerFilter.value].filter(
+      (value) => value !== 'all'
+    ).length;
+    root.querySelector('#filter-summary').textContent =
+      text('Filters', '絞り込み') + (filterCount ? ` · ${filterCount}` : '');
     root
       .querySelectorAll('[data-area]')
-      .forEach((b) =>
-        b.setAttribute(
+      .forEach((button) =>
+        button.setAttribute(
           'aria-pressed',
-          String(b.dataset.area === area || (b.dataset.area === 'france' && !!wineRegions[area]))
+          String(
+            button.dataset.area === area ||
+              (button.dataset.area === 'france' && ['rhone', 'loire', 'burgundy'].includes(area))
+          )
         )
       );
     root
       .querySelectorAll('[data-wine-view]')
-      .forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.wineView === area)));
-    root.querySelector('#wine-region-views').hidden = category.value !== 'wine';
-    map.setAttribute('viewBox', view.join(' '));
+      .forEach((button) =>
+        button.setAttribute('aria-pressed', String(button.dataset.wineView === area))
+      );
+    root.querySelector('#wine-region-views').hidden = !['all', 'wine'].includes(category.value);
     root.querySelector('#river-layer').style.display =
       area === 'world' || area === 'japan' ? 'none' : '';
-    root.querySelector('#collection-hierarchy').textContent =
-      category.value === 'sake'
-        ? text('Prefecture → brewery → product', '都道府県 → 酒蔵 → 銘柄')
-        : category.value === 'wine'
-          ? text('Country → wine region → producer', '国 → ワイン産地 → 生産者')
-          : category.value === 'other'
-            ? text('Type → region → producer', '酒の種類 → 地域 → 生産者')
-            : text('Country / region → brewery → style', '国・地域 → ブルワリー → スタイル');
+    map.setAttribute('viewBox', view.join(' '));
     count.textContent = text(
-      `${items.length} / ${labels.length} labels`,
-      `${items.length} / ${labels.length}件`
+      `${items.length} / ${labels.length} drinks`,
+      `${items.length} / ${labels.length}本`
     );
     empty.hidden = items.length > 0;
-    if (!items.length) {
-      empty.querySelector('strong').textContent = text(
-        'No labels in this view',
-        'この条件のラベルはありません'
-      );
-      empty.querySelector('.empty-hint').textContent = text(
-        'Try another area or clear the filters.',
-        'エリアを変えるか、絞り込みを解除してください。'
-      );
-    }
+    if (!items.length)
+      empty.querySelector('strong').textContent = text('No drinks found', '見つかりませんでした');
     renderPins(items);
     renderList(items);
   }
-  root.querySelectorAll('[data-area], [data-wine-view]').forEach((button) =>
-    button.addEventListener('click', () => {
-      area = button.dataset.area || button.dataset.wineView;
-      view = [...views[area]];
-      manuallyNavigated = true;
-      selected = null;
-      regionFilter.value = producerFilter.value = 'all';
-      render();
-    })
-  );
+  root
+    .querySelectorAll('[data-area], [data-wine-view]')
+    .forEach((button) =>
+      button.addEventListener('click', () =>
+        navigateMap(button.dataset.area || button.dataset.wineView)
+      )
+    );
   category.addEventListener('change', () => {
     selected = null;
     regionFilter.value = producerFilter.value = 'all';
-    render();
+    search.value = '';
+    navigateMap(
+      category.value === 'sake' ? 'japan' : category.value === 'wine' ? 'france' : 'world'
+    );
   });
   search.addEventListener('input', () => {
     selected = null;
@@ -450,30 +486,32 @@
       const [x, y, w, h] = view,
         action = button.dataset.mapZoom,
         factor = action === 'in' ? 0.7 : 1.4;
-      if (action === 'reset') view = [...views[area]];
+      if (action === 'reset') animateView(views[area]);
       else if (w * factor >= 0.15 && w * factor <= 500)
-        view = [x + (w * (1 - factor)) / 2, y + (h * (1 - factor)) / 2, w * factor, h * factor];
-      manuallyNavigated = true;
-      map.setAttribute('viewBox', view.join(' '));
-      renderPins(matches());
+        animateView([
+          x + (w * (1 - factor)) / 2,
+          y + (h * (1 - factor)) / 2,
+          w * factor,
+          h * factor,
+        ]);
     })
   );
   let drag;
   map.addEventListener('pointerdown', (event) => {
     if (event.target.closest('.origin-pin-group') || event.button !== 0) return;
+    cancelAnimationFrame(animationFrame);
     drag = { x: event.clientX, y: event.clientY, view: [...view] };
     map.setPointerCapture(event.pointerId);
   });
   map.addEventListener('pointermove', (event) => {
     if (!drag) return;
-    const m = map.getScreenCTM();
+    const matrix = map.getScreenCTM();
     view = [
-      drag.view[0] - (event.clientX - drag.x) / m.a,
-      drag.view[1] - (event.clientY - drag.y) / m.d,
+      drag.view[0] - (event.clientX - drag.x) / matrix.a,
+      drag.view[1] - (event.clientY - drag.y) / matrix.d,
       drag.view[2],
       drag.view[3],
     ];
-    manuallyNavigated = true;
     map.setAttribute('viewBox', view.join(' '));
   });
   const endDrag = () => {
@@ -484,6 +522,28 @@
   };
   map.addEventListener('pointerup', endDrag);
   map.addEventListener('pointercancel', endDrag);
+  map.addEventListener(
+    'wheel',
+    (event) => {
+      event.preventDefault();
+      cancelAnimationFrame(animationFrame);
+      const factor = Math.exp(Math.max(-1, Math.min(1, event.deltaY * 0.002)));
+      if (view[2] * factor < 0.15 || view[2] * factor > 500) return;
+      const point = map.createSVGPoint();
+      point.x = event.clientX;
+      point.y = event.clientY;
+      const position = point.matrixTransform(map.getScreenCTM().inverse());
+      view = [
+        position.x + (view[0] - position.x) * factor,
+        position.y + (view[1] - position.y) * factor,
+        view[2] * factor,
+        view[3] * factor,
+      ];
+      map.setAttribute('viewBox', view.join(' '));
+      renderPins(matches());
+    },
+    { passive: false }
+  );
   document.addEventListener('languagechange', () => render());
   new ResizeObserver(() => renderPins(matches())).observe(map);
   Promise.all(
@@ -491,13 +551,13 @@
       '/assets/maps/natural-earth-admin-0-50m.svg',
       '/assets/maps/natural-earth-france-rivers.svg',
     ].map((url) =>
-      fetch(url, { method: 'HEAD' }).then((r) => {
-        if (!r.ok) throw new Error('Unavailable map asset');
+      fetch(url, { method: 'HEAD' }).then((response) => {
+        if (!response.ok) throw new Error('Unavailable map asset');
       })
     )
   ).catch(() => {
     root.querySelector('#map-error').hidden = false;
   });
-  layout.dataset.mobileView = 'map';
+  layout.dataset.mobileView = 'list';
   render();
 })();
