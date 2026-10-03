@@ -17,6 +17,9 @@ nav_sandbox:
 nav_notes:
   en: Notes
   ja: ノート
+nav_labels:
+  en: Drinks
+  ja: 飲んだお酒
 
 # Home page sections
 section_research:
