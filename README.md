@@ -23,6 +23,27 @@ npm run preview
 
 `npm test` checks the generated site, including every existing paper and post route, local links/assets, canonical URLs, domain file, sitemap, and RSS. Run it after building.
 
+### Dependency security
+
+The 2026-10-03 update upgrades Astro to 7.3.5, devalue to 5.9.4,
+brace-expansion to 5.0.12, and fast-uri to 3.1.8. The scoped `js-yaml` override
+keeps markdownlint-cli on a patched 5.4.2-compatible version until its own
+dependency range includes the fix.
+
+[GHSA-ch52-4w7c-c8xp](https://github.com/advisories/GHSA-ch52-4w7c-c8xp)
+remains open: http-cache-semantics 4.2.0 has no published fix as of 2026-10-03.
+Astro uses it for remote image caching at build time. This repository generates
+static output for GitHub Pages, uses local images, and has no application server
+or shared authenticated response cache. The reported cross-user request path is
+therefore not exposed by this deployment. This is an exposure assessment, not a
+patched dependency; reassess before enabling SSR or shared response caching and
+upgrade when a patched release becomes available. `npm audit` reports both this
+package and its dependent Astro for the same advisory.
+
+Use npm 11.19.0 when regenerating the lockfile, matching the version used to
+verify the clean install. Older npm versions can omit optional dependency entries
+required by newer npm during `npm ci`.
+
 ## Content and structure
 
 - `_papers/*.md`: publication metadata and Markdown bodies. Astro validates these through `src/content.config.ts`.
