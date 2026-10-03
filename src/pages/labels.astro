@@ -9,7 +9,6 @@ const labelsJson = JSON.stringify(beverageLabels);
 <Base title="Drinks I've had" description="A personal record of drinks I've had.">
   <div class="container label-page" data-labels={labelsJson}>
     <header class="page-heading">
-      <p class="eyebrow"><Localized en="DRINK JOURNAL" ja="お酒の記録" /></p>
       <h1><Localized en="Drinks I've had" ja="飲んだお酒" /></h1>
     </header>
 
@@ -176,9 +175,14 @@ const labelsJson = JSON.stringify(beverageLabels);
       padding-bottom: 84px;
     }
     .label-page .page-heading {
-      padding-bottom: 30px;
+      padding: 40px 0 28px;
+    }
+    .label-page .page-heading h1 {
+      font-size: clamp(32px, 4vw, 44px);
     }
     .label-explorer {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
       border: 1px solid var(--gray-200);
       background: var(--surface);
     }
@@ -186,7 +190,7 @@ const labelsJson = JSON.stringify(beverageLabels);
       display: flex;
       align-items: end;
       gap: 20px;
-      padding: 18px 24px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--gray-200);
     }
     .explorer-group {
@@ -266,128 +270,82 @@ const labelsJson = JSON.stringify(beverageLabels);
     }
     .explorer-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+      grid-column: 1 / -1;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
       align-items: start;
     }
     .label-sidebar {
       min-width: 0;
       padding: 25px 26px;
     }
-    .sidebar-heading {
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--gray-200);
+    .sidebar-heading,
+    .category-group > .filter-label,
+    label[for='label-search'] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
     .sidebar-heading h2 {
       font-size: 18px;
     }
     .labels-list {
-      padding-top: 6px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px 16px;
+      padding-top: 0;
     }
     .origin-group {
-      scroll-margin: 100px;
+      display: contents;
     }
-    .origin-group:focus {
+    .label-card {
+      min-width: 0;
+    }
+    .label-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+    .label-link:focus-visible {
       outline: 2px solid var(--blue-600);
       outline-offset: 5px;
     }
-    .label-card {
-      padding: 23px 0;
-      border-bottom: 1px solid var(--gray-200);
+    .label-artwork {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 3 / 4;
+      padding: 12px;
+      overflow: hidden;
+      background: var(--gray-50);
+      border-radius: 5px;
+      transition: background 150ms;
+    }
+    .label-link:hover .label-artwork {
+      background: var(--gray-100);
+    }
+    .label-artwork img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      min-height: 0;
+    }
+    .label-artwork--missing {
+      color: var(--gray-500);
+      font-size: 11px;
     }
     .label-card .label-name {
-      margin: 0;
-      color: var(--gray-950);
-      font-size: clamp(21px, 2vw, 26px);
-      font-weight: 650;
-      line-height: 1.45;
-      letter-spacing: -0.025em;
-      overflow-wrap: anywhere;
-      text-wrap: balance;
-    }
-    .label-card .label-producer {
-      margin: 6px 0 12px;
-      color: var(--gray-500);
+      margin: 10px 0 0;
+      color: var(--gray-700);
       font-size: 12px;
-    }
-    .label-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-    .label-badge {
-      max-width: 100%;
-      padding: 4px 8px;
-      border: 1px solid var(--gray-200);
-      border-radius: 5px;
-      color: var(--gray-600);
-      font-size: 10px;
-      line-height: 1.5;
+      font-weight: 500;
+      line-height: 1.6;
       overflow-wrap: anywhere;
     }
-    .label-badge--category {
-      background: var(--gray-50);
-      color: var(--blue-700);
-    }
-    .label-badge--vintage {
-      font-family: var(--font-mono);
-    }
-    .label-card .label-terroir {
-      margin-top: 13px;
-      color: var(--gray-600);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-    .label-terroir span {
-      margin-right: 9px;
-      color: var(--gray-500);
-      font-size: 10px;
-    }
-    .uncertainty-tag {
-      margin-top: 10px;
-      color: var(--gray-500);
-      font-size: 11px;
-    }
-    .label-card-actions {
-      display: flex;
-      align-items: start;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .label-evidence {
-      flex: 1;
-      min-width: 0;
-      color: var(--gray-500);
-      font-size: 11px;
-    }
-    .label-evidence summary {
-      width: fit-content;
-      min-height: 34px;
-      padding-top: 8px;
-      cursor: pointer;
-    }
-    .label-evidence p {
-      margin: 7px 0;
-      font-size: 11px;
-      line-height: 1.8;
-    }
-    .label-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 13px;
-    }
-    .label-source {
-      color: var(--blue-700);
-      font-size: 11px;
-    }
-    .card-map-button {
-      flex: none;
-      min-height: 34px;
-      padding: 6px 0 6px 8px;
-      border: 0;
-      color: var(--blue-700);
-      background: transparent;
-      font-size: 11px;
-      cursor: pointer;
+    .selection-reset,
+    .empty-list {
+      grid-column: 1 / -1;
     }
     .loading-state,
     .empty-list {
@@ -619,6 +577,12 @@ const labelsJson = JSON.stringify(beverageLabels);
       scroll-margin-top: 24px;
     }
     @media (max-width: 850px) {
+      .label-explorer {
+        grid-template-columns: 1fr;
+      }
+      .labels-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
       .explorer-layout {
         grid-template-columns: 1fr;
       }
@@ -653,10 +617,10 @@ const labelsJson = JSON.stringify(beverageLabels);
         padding-bottom: 54px;
       }
       .label-page .page-heading {
-        padding-top: 45px;
+        padding-top: 28px;
       }
       .label-page .page-heading h1 {
-        font-size: 44px;
+        font-size: 36px;
       }
       .explorer-toolbar {
         padding: 15px;
@@ -681,11 +645,7 @@ const labelsJson = JSON.stringify(beverageLabels);
         padding: 21px 18px;
       }
       .label-card .label-name {
-        font-size: 22px;
-      }
-      .label-badge {
-        font-size: 10px;
-        padding-inline: 7px;
+        font-size: 12px;
       }
       .map-frame {
         padding: 21px 15px 18px;

@@ -2,8 +2,8 @@
  * Reviewed public label catalog. Coordinates must be manually checked origins,
  * never EXIF/GPS coordinates copied from a private photograph.
  *
- * This catalog contains text only. Private photo paths, Drive IDs, and original
- * photo metadata do not belong in the public manifest.
+ * Only prepared public images belong in this catalog. Private photo paths,
+ * Drive IDs, and original photo metadata do not belong in the public manifest.
  */
 import catalog from '../../_data/beverage-labels.json';
 import { z } from 'astro/zod';
@@ -13,6 +13,7 @@ export interface BeverageLabel {
   /** Unique per beverage variant; alternate photos of one item share one entry. */
   id: string;
   name: string;
+  image?: { src: string; alt: string; sourceUrl: string; originalUrl: string };
   /** Verified Japanese wording; keep the original name available for search. */
   nameJa?: string;
   producer?: string;
@@ -50,6 +51,15 @@ const labelSchema = z
   .object({
     id: z.string().regex(/^[a-z0-9-]+$/),
     name: z.string().min(1),
+    image: z
+      .object({
+        src: z.string().regex(/^\/assets\/labels\/[a-z0-9-]+\.(?:webp|jpg|png)$/),
+        alt: z.string().min(1),
+        sourceUrl,
+        originalUrl: sourceUrl,
+      })
+      .strict()
+      .optional(),
     nameJa: z.string().min(1).optional(),
     producer: z.string().optional(),
     producerJa: z.string().min(1).optional(),

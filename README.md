@@ -49,3 +49,26 @@ The site generates ordinary HTML/CSS/JS into `dist/`. It requires no application
 The migration replaces the Jekyll/Ruby build and templates, preserves the existing public routes and content, and retains `/feed.xml`. Sitemap entrypoint: `/sitemap-index.xml`; the original `/sitemap.xml` also works. Publication search, filters, clipboard actions, theme/language controls, and the PCA demo use small page-specific scripts; other content is prerendered.
 
 Deployment follows the [Astro GitHub Pages guide](https://docs.astro.build/en/guides/deploy/github/).
+
+## Drink gallery
+
+`_data/beverage-labels.json` supplies `/labels/` and the individual `/labels/<id>/` pages.
+Cards show a label or bottle image and a short name; the detail page contains the
+producer, origin, vintage, notes, and source links. Search and filters are restored
+when returning from a detail page. A detail's map link selects its origin in the explorer.
+
+Public images live in `public/assets/labels/`. Each optional `image` record includes
+`src`, `alt`, `sourceUrl` (the credited product page), and `originalUrl` (the collected
+asset). Images are references for the named drink; vintage and batch may differ from
+the drinking record. UCHU's supplied PDF artwork is rendered as PNG. Preserve source
+credits when replacing images, and use a matching product image rather than a
+producer's generic logo. Entries awaiting an identified image keep their detail page
+and display a small photo placeholder. Existing text and origin metadata remain the
+record of what was identified from the original collection.
+
+`npm run dev` and `npm run build` prepare local WebP variants automatically: 480px
+thumbnails for the gallery and up to 1200px images for detail pages. Generated files
+in `public/assets/labels/optimized/` are ignored by Git; generation uses the checked-in
+source images and needs no network access. After adding or replacing an image during
+development, run `npm run images:prepare`. The gallery sets native lazy loading before
+assigning each image URL, so offscreen images do not start eager downloads.

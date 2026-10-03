@@ -21,7 +21,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/kyoto-fuyu-no-kimagure-2024.png",
+      "alt": "冬の気まぐれ 2024 — label / bottle",
+      "sourceUrl": "https://otomoni.beer/beers/01JFC3WDCEQG0YJEP8CY0ABTWH",
+      "originalUrl": "https://img.otomoni.beer/packaged_drinks/images/f37bc633221e788f67dc5be20602e9e7695dfb3d/square.png?1734499775"
+    }
   },
   {
     "id": "kyoto-shingyoso-sou",
@@ -44,7 +50,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/kyoto-shingyoso-sou.png",
+      "alt": "真行草の草 / Shingyoso-SOU — label / bottle",
+      "sourceUrl": "https://kyotobrewing.com/products/mosaic-sou",
+      "originalUrl": "https://kyotobrewing.com/cdn/shop/files/1400x1700_1_bf0e5275-2219-4793-a6e8-bf032a55fe3b.png?v=1732594721&width=1200"
+    }
   },
   {
     "id": "uchu-shake-ddh-milkshake-dipa",
@@ -67,7 +79,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/uchu-shake-ddh-milkshake-dipa.png",
+      "alt": "宇宙SHAKE — label / bottle",
+      "sourceUrl": "https://uchubrewing.com/tool/",
+      "originalUrl": "https://uchubrewing.com/pop/sss.pdf"
+    }
   },
   {
     "id": "hiran-kagura-kimoto",
@@ -92,7 +110,13 @@
     "confidence": "high",
     "note": "醸造所・生産施設",
     "nameJa": "飛鸞 神楽",
-    "producerJa": "森酒造場"
+    "producerJa": "森酒造場",
+    "image": {
+      "src": "/assets/labels/hiran-kagura-kimoto.png",
+      "alt": "飛鸞 神楽 — label / bottle",
+      "sourceUrl": "https://mori-shuzou.jp/nihonshu/hiran-%E7%A5%9E%E6%A5%BDkagura/",
+      "originalUrl": "https://mori-shuzou.jp/wp-content/uploads/2022/01/飛鸞神楽720ml瓶のみ.png"
+    }
   },
   {
     "id": "uchu-369-tdh-dipa",
@@ -115,7 +139,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/uchu-369-tdh-dipa.png",
+      "alt": "369 — label / bottle",
+      "sourceUrl": "https://uchubrewing.com/tool/",
+      "originalUrl": "https://uchubrewing.com/pop/369.pdf"
+    }
   },
   {
     "id": "amakusa-tridentatus-fossil",
@@ -138,7 +168,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "公式サイトの事業所在地座標。個別ロットの製造場所を保証するものではありません / 醸造所・生産施設"
+    "note": "公式サイトの事業所在地座標。個別ロットの製造場所を保証するものではありません / 醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/amakusa-tridentatus-fossil.jpg",
+      "alt": "tridentatus fossil — label / bottle",
+      "sourceUrl": "https://witchcraftmarket.com/products/tridentatus-fossil",
+      "originalUrl": "https://cdn.shopify.com/s/files/1/0566/6363/8067/files/DSC02581.jpg?v=1724730203&width=900"
+    }
   },
   {
     "id": "inkhorn-vertere-tsubame",
@@ -161,7 +197,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "コラボ商品の場合は主醸造元Inkhornの所在地を表示 / 醸造所・生産施設"
+    "note": "コラボ商品の場合は主醸造元Inkhornの所在地を表示 / 醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/inkhorn-vertere-tsubame.jpg",
+      "alt": "Tsubame — label / bottle",
+      "sourceUrl": "https://arome.jp/products/list?name=Tsubame",
+      "originalUrl": "https://arome.jp/html/upload/save_image/07241845_66a0cd2deb5ab.jpg"
+    }
   },
   {
     "id": "niida-odayaka-omachi-usunigori-23by",
@@ -187,7 +229,13 @@
     "confidence": "high",
     "note": "醸造所・生産施設",
     "nameJa": "おだやか 雄町 うすにごり生",
-    "producerJa": "仁井田本家"
+    "producerJa": "仁井田本家",
+    "image": {
+      "src": "/assets/labels/niida-odayaka-omachi-usunigori-23by.jpg",
+      "alt": "おだやか 雄町 うすにごり生 — label / bottle",
+      "sourceUrl": "https://www.syusendo-horiichi.co.jp/SHOP/10970.html",
+      "originalUrl": "https://image1.shopserve.jp/syusendo-horiichi.co.jp/pic-labo/nidashizensyu-odayaka-kimoto-omachi-nama_2025.jpg"
+    }
   },
   {
     "id": "niida-shizenshu-shibori-2024by",
@@ -213,7 +261,13 @@
     "confidence": "high",
     "note": "醸造所・生産施設",
     "nameJa": "にいだしぜんしゅ しぼり生 木桶仕込み あらばしり",
-    "producerJa": "仁井田本家"
+    "producerJa": "仁井田本家",
+    "image": {
+      "src": "/assets/labels/niida-shizenshu-shibori-2024by.jpg",
+      "alt": "にいだしぜんしゅ しぼり生 木桶仕込み あらばしり — label / bottle",
+      "sourceUrl": "https://www.kagimoto.com/shopdetail/000000003704/",
+      "originalUrl": "https://makeshop-multi-images.akamaized.net/kagimoto/itemimages/000000003704_mwBBK0x.jpg"
+    }
   },
   {
     "id": "blacktide-snake-2025",
@@ -237,7 +291,13 @@
       "precisionLabel": "醸造所付近（概略）"
     },
     "confidence": "high",
-    "note": "公式掲載の単一施設地図の中心座標。測量精度のピンではありません / 醸造所付近（概略）"
+    "note": "公式掲載の単一施設地図の中心座標。測量精度のピンではありません / 醸造所付近（概略）",
+    "image": {
+      "src": "/assets/labels/blacktide-snake-2025.png",
+      "alt": "Snake 2025 — label / bottle",
+      "sourceUrl": "https://blacktidebrewing.com/beers/snake/",
+      "originalUrl": "https://blacktidebrewing.com/wp-content/uploads/2024/12/Snake_Label.png"
+    }
   },
   {
     "id": "bev-75db5efb5a4e",
@@ -262,7 +322,13 @@
     "confidence": "high",
     "note": "醸造所・生産施設",
     "nameJa": "神蔵 純米 クリア",
-    "producerJa": "松井酒造"
+    "producerJa": "松井酒造",
+    "image": {
+      "src": "/assets/labels/bev-75db5efb5a4e.png",
+      "alt": "神蔵 純米 クリア — label / bottle",
+      "sourceUrl": "https://matsuishuzo.com/?pid=165496652",
+      "originalUrl": "https://img07.shop-pro.jp/PA01458/099/product/165496652.png?cmsp_timestamp=20211208143626"
+    }
   },
   {
     "id": "bev-88fba7aaf655",
@@ -285,7 +351,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-88fba7aaf655.png",
+      "alt": "Brain Flowers — label / bottle",
+      "sourceUrl": "https://www.antenna-america.com/products/b097-c16037a",
+      "originalUrl": "https://www.antenna-america.com/cdn/shop/files/BrainFlowersHazyDIPA.png?v=1732847829&width=900"
+    }
   },
   {
     "id": "bev-db34f826343c",
@@ -308,7 +380,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）"
+    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-db34f826343c.jpg",
+      "alt": "Corydalis — label / bottle",
+      "sourceUrl": "https://verterebrew.com/brewlog/corydalis/",
+      "originalUrl": "https://verterebrew.com/wp/wp-content/uploads/2024/12/688f0969ebd31b081c850029ecdf6848-1024x1024.jpg"
+    }
   },
   {
     "id": "bev-8629b31d9cc0",
@@ -331,7 +409,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "2023年以降の生産拠点として確認。Wild Party Vol.2の個別製造ロットは未確認。遊牧型ブルワリーの過去商品には別の製造地の可能性があります / 市区町村・地域の代表点（概略）"
+    "note": "2023年以降の生産拠点として確認。Wild Party Vol.2の個別製造ロットは未確認。遊牧型ブルワリーの過去商品には別の製造地の可能性があります / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-8629b31d9cc0.jpg",
+      "alt": "Wild Party Vol. 2 Double Blackberry — label / bottle",
+      "sourceUrl": "https://beervolta.shop-pro.jp/?pid=185184290",
+      "originalUrl": "https://img07.shop-pro.jp/PA01384/703/product/185184290.jpg?cmsp_timestamp=20250307151906"
+    }
   },
   {
     "id": "bev-8c1ae2bc9411",
@@ -354,7 +438,13 @@
       "precisionLabel": "醸造所付近（概略）"
     },
     "confidence": "high",
-    "note": "公式掲載の単一施設地図の中心座標。醸造所所在地は用宗2-18-1 / 醸造所付近（概略）"
+    "note": "公式掲載の単一施設地図の中心座標。醸造所所在地は用宗2-18-1 / 醸造所付近（概略）",
+    "image": {
+      "src": "/assets/labels/bev-8c1ae2bc9411.jpg",
+      "alt": "Harmonic Dreams — label / bottle",
+      "sourceUrl": "https://www.westcoastbrewing.jp/beer/harmonic-dreams/",
+      "originalUrl": "https://www.westcoastbrewing.jp/wp/wp-content/uploads/2021/11/210303_HarmonicDreams_art.jpg"
+    }
   },
   {
     "id": "bev-3f6e1fee1047",
@@ -377,7 +467,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）"
+    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-3f6e1fee1047.jpg",
+      "alt": "Benitoa — label / bottle",
+      "sourceUrl": "https://verterebrew.com/brewlog/benitoa/",
+      "originalUrl": "https://verterebrew.com/wp/wp-content/uploads/2025/02/075_Benitoa-1024x1024.jpg"
+    }
   },
   {
     "id": "bev-6b977e940a1d",
@@ -400,7 +496,13 @@
       "precisionLabel": "醸造所付近（概略）"
     },
     "confidence": "high",
-    "note": "公式掲載の単一施設地図の中心座標。醸造所所在地は用宗2-18-1 / 醸造所付近（概略）"
+    "note": "公式掲載の単一施設地図の中心座標。醸造所所在地は用宗2-18-1 / 醸造所付近（概略）",
+    "image": {
+      "src": "/assets/labels/bev-6b977e940a1d.jpg",
+      "alt": "Endgame Magic — label / bottle",
+      "sourceUrl": "https://www.westcoastbrewing.jp/beer/endgame-magic/",
+      "originalUrl": "https://www.westcoastbrewing.jp/wp/wp-content/uploads/2021/11/220413_EndgameMagic_art.jpg"
+    }
   },
   {
     "id": "bev-7d56b99a370a",
@@ -423,7 +525,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）"
+    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-7d56b99a370a.jpg",
+      "alt": "Nox — label / bottle",
+      "sourceUrl": "https://verterebrew.com/brewlog/nox/",
+      "originalUrl": "https://verterebrew.com/wp/wp-content/uploads/2024/05/036_nox-1024x1024.jpg"
+    }
   },
   {
     "id": "bev-f89aa7524d4a",
@@ -448,7 +556,13 @@
     "confidence": "high",
     "note": "よこやまを造る横山蔵。焼酎蔵の本社とは別所在地 / 醸造所・生産施設",
     "nameJa": "よこやま SILVER7 純米吟醸 生酒",
-    "producerJa": "重家酒造"
+    "producerJa": "重家酒造",
+    "image": {
+      "src": "/assets/labels/bev-f89aa7524d4a.png",
+      "alt": "よこやま SILVER7 純米吟醸 生酒 — label / bottle",
+      "sourceUrl": "https://www.omoyashuzo.com/product.html",
+      "originalUrl": "https://www.omoyashuzo.com/shared/img/product/sake_img14.png"
+    }
   },
   {
     "id": "bev-14395deedd41",
@@ -477,7 +591,9 @@
     },
     "appellation": "シャサーニュ・モンラッシェ・プルミエ・クリュ",
     "wineRegion": "ブルゴーニュ／コート・ド・ボーヌ",
-    "metadataSources": ["https://www.chassagne-montrachet.com/producteurs/"]
+    "metadataSources": [
+      "https://www.chassagne-montrachet.com/producteurs/"
+    ]
   },
   {
     "id": "bev-d0caaccf5749",
@@ -501,7 +617,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-d0caaccf5749.png",
+      "alt": "UNDERWATER (2025) — label / bottle",
+      "sourceUrl": "https://narabrewing.com/beer/underwater2025",
+      "originalUrl": "https://narabrewing.com/wp/wp-content/uploads/2025/02/underwater2025Instagram_th.png"
+    }
   },
   {
     "id": "bev-bd1e805ff1a2",
@@ -524,7 +646,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）"
+    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-bd1e805ff1a2.jpg",
+      "alt": "Somnium — label / bottle",
+      "sourceUrl": "https://verterebrew.com/brewlog/somnium/",
+      "originalUrl": "https://verterebrew.com/wp/wp-content/uploads/2025/03/4ff65c5864ebb26261aab3c6dc4b604f-1024x1024.jpg"
+    }
   },
   {
     "id": "bev-3cc29d37e2d9",
@@ -549,7 +677,13 @@
     "confidence": "high",
     "note": "よこやまを造る横山蔵。焼酎蔵の本社とは別所在地 / 醸造所・生産施設",
     "nameJa": "よこやま SILVER 超辛7",
-    "producerJa": "重家酒造"
+    "producerJa": "重家酒造",
+    "image": {
+      "src": "/assets/labels/bev-3cc29d37e2d9.png",
+      "alt": "よこやま SILVER 超辛7 — label / bottle",
+      "sourceUrl": "https://www.omoyashuzo.com/product.html",
+      "originalUrl": "https://www.omoyashuzo.com/shared/img/product/sake_img21.png"
+    }
   },
   {
     "id": "bev-1ed85631141a",
@@ -630,7 +764,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-89b6e51f3221.jpg",
+      "alt": "White Harmony — label / bottle",
+      "sourceUrl": "https://shop.egretbrewery.jp/collections/white-harmony",
+      "originalUrl": "https://shop.egretbrewery.jp/cdn/shop/collections/HAZY_WHITE_IPA.jpg?v=1657685156"
+    }
   },
   {
     "id": "bev-8e4dd58da7a3",
@@ -653,7 +793,13 @@
       "precisionLabel": "醸造所付近（概略）"
     },
     "confidence": "high",
-    "note": "公式掲載の単一施設地図の中心座標。測量精度のピンではありません / 醸造所付近（概略）"
+    "note": "公式掲載の単一施設地図の中心座標。測量精度のピンではありません / 醸造所付近（概略）",
+    "image": {
+      "src": "/assets/labels/bev-8e4dd58da7a3.png",
+      "alt": "Azure Fog — label / bottle",
+      "sourceUrl": "https://blacktidebrewing.com/beers/azure-fog/",
+      "originalUrl": "https://blacktidebrewing.com/wp-content/uploads/2024/12/Azure-Fog_Label.png"
+    }
   },
   {
     "id": "bev-11e3a00a1aa5",
@@ -676,7 +822,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "聖水洞の代表点。醸造所の正確な位置ではありません / 市区町村・地域の代表点（概略）"
+    "note": "聖水洞の代表点。醸造所の正確な位置ではありません / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-11e3a00a1aa5.jpg",
+      "alt": "Pale Blue Dot IPA — label / bottle",
+      "sourceUrl": "https://witchcraftmarket.com/products/pale-blue-dot-ipa",
+      "originalUrl": "https://cdn.shopify.com/s/files/1/0566/6363/8067/files/DSC01607.jpg?v=1690189389&width=900"
+    }
   },
   {
     "id": "bev-d2e4799c90b3",
@@ -699,7 +851,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-d2e4799c90b3.jpg",
+      "alt": "Tricks & Tips — label / bottle",
+      "sourceUrl": "https://arome.jp/products/list?name=Tricks",
+      "originalUrl": "https://arome.jp/html/upload/save_image/09071436_66dbe675c433e.jpg"
+    }
   },
   {
     "id": "bev-e9f400def47a",
@@ -722,7 +880,13 @@
       "precisionLabel": "醸造所付近（概略）"
     },
     "confidence": "high",
-    "note": "公式掲載の施設地図中心座標。測量精度のピンではありません / 醸造所付近（概略）"
+    "note": "公式掲載の施設地図中心座標。測量精度のピンではありません / 醸造所付近（概略）",
+    "image": {
+      "src": "/assets/labels/bev-e9f400def47a.jpg",
+      "alt": "Novoru — label / bottle",
+      "sourceUrl": "https://witchcraftmarket.com/products/novoru2",
+      "originalUrl": "https://cdn.shopify.com/s/files/1/0566/6363/8067/files/DSC03234.jpg?v=1742452574&width=900"
+    }
   },
   {
     "id": "bev-7607b87b7cd6",
@@ -768,7 +932,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-8c8a30c701b5.png",
+      "alt": "宇宙IPA (Uchu IPA) — label / bottle",
+      "sourceUrl": "https://uchubrewing.com/tool/",
+      "originalUrl": "https://uchubrewing.com/pop/ipa.pdf"
+    }
   },
   {
     "id": "bev-9e9703d24c9e",
@@ -791,7 +961,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "Google destination coordinates linked by the official Harland site; 10115 Carroll Canyon Road. Collaboration beer is mapped to labelled Harland producer, not Roadhouse partner. / 醸造所・生産施設"
+    "note": "Google destination coordinates linked by the official Harland site; 10115 Carroll Canyon Road. Collaboration beer is mapped to labelled Harland producer, not Roadhouse partner. / 醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-9e9703d24c9e.png",
+      "alt": "Summit to Sea — label / bottle",
+      "sourceUrl": "https://www.antenna-america.com/products/b070-c16050",
+      "originalUrl": "https://www.antenna-america.com/cdn/shop/files/SummitToSea.png?v=1743843185&width=900"
+    }
   },
   {
     "id": "bev-57b2236519e0",
@@ -822,7 +998,13 @@
       "https://www.tripoz.fr/wp-content/uploads/2023/07/PL21.pdf",
       "https://www.tripoz.fr/vins/pouilly-loche/"
     ],
-    "terroir": "丘陵の粘土石灰質土壌"
+    "terroir": "丘陵の粘土石灰質土壌",
+    "image": {
+      "src": "/assets/labels/bev-57b2236519e0.jpg",
+      "alt": "Pouilly-Loché 1ère Réserve — label / bottle",
+      "sourceUrl": "https://www.tripoz.fr/vins/pouilly-loche/",
+      "originalUrl": "https://www.tripoz.fr/wp-content/uploads/2020/06/Pouilly-Loche-Reserve.jpg"
+    }
   },
   {
     "id": "bev-e5d23f4e2798",
@@ -845,7 +1027,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Nagakute locality reference point, not the brewery entrance. Official brewery/taproom address: 杁ケ根795-1; do not substitute Nagoya retail taprooms. / 市区町村・地域の代表点（概略）"
+    "note": "Nagakute locality reference point, not the brewery entrance. Official brewery/taproom address: 杁ケ根795-1; do not substitute Nagoya retail taprooms. / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-e5d23f4e2798.jpg",
+      "alt": "Balloonphobia — label / bottle",
+      "sourceUrl": "https://witchcraftmarket.com/products/balloonphobia",
+      "originalUrl": "https://cdn.shopify.com/s/files/1/0566/6363/8067/files/DSC03418.jpg?v=1749355338&width=900"
+    }
   },
   {
     "id": "bev-68793450aa87",
@@ -868,7 +1056,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）"
+    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-68793450aa87.jpg",
+      "alt": "Acca — label / bottle",
+      "sourceUrl": "https://verterebrew.com/brewlog/acca/",
+      "originalUrl": "https://verterebrew.com/wp/wp-content/uploads/2024/04/ff98027c37856293f7c2b047b7dbdd69-1024x1024.jpg"
+    }
   },
   {
     "id": "bev-f44c430ca170",
@@ -891,7 +1085,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-f44c430ca170.png",
+      "alt": "LEPTON — label / bottle",
+      "sourceUrl": "https://uchubrewing.com/tool/",
+      "originalUrl": "https://uchubrewing.com/pop/lepton.pdf"
+    }
   },
   {
     "id": "bev-5f48a8139aee",
@@ -914,7 +1114,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Nozawaonsen locality reference point, not exact brewery. Official site identifies handmade beer in Nozawa Onsen; labelled Rain Maker origin is Nozawa rather than the Yokohama operation. / 市区町村・地域の代表点（概略）"
+    "note": "Nozawaonsen locality reference point, not exact brewery. Official site identifies handmade beer in Nozawa Onsen; labelled Rain Maker origin is Nozawa rather than the Yokohama operation. / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-5f48a8139aee.jpg",
+      "alt": "Rain Maker — label / bottle",
+      "sourceUrl": "https://anglojapanesebeer.com/products/rain-maker",
+      "originalUrl": "https://anglojapanesebeer.com/cdn/shop/files/RainMaker_350_a4960076-429a-4f2f-a22f-801e85a862d2_grande.jpg?v=1748310133"
+    }
   },
   {
     "id": "bev-7f16c520e302",
@@ -937,7 +1143,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "MapFan WGS84 point for Mitsutake at the official address 浜町乙2421. Producer point; individual distillation equipment location is not independently surveyed. / 醸造所・生産施設"
+    "note": "MapFan WGS84 point for Mitsutake at the official address 浜町乙2421. Producer point; individual distillation equipment location is not independently surveyed. / 醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-7f16c520e302.jpg",
+      "alt": "赤鳥居 Aka Torii Original — label / bottle",
+      "sourceUrl": "https://www.hizennya.com/c/other_sake/n-spirits/n-gin/a-62-1",
+      "originalUrl": "https://sake.itembox.cloud/product/008/000000000836/000000000836-01.jpg?size=l&w=ODAw&t=20220928180923"
+    }
   },
   {
     "id": "bev-b15e39132b65",
@@ -960,7 +1172,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Torrance locality reference point for Monkish brewery/world HQ. Monkish also brews in Anaheim; the exact brewing site for this photographed batch was not independently established. Do not present this as a batch-specific facility pin. / 市区町村・地域の代表点（概略）"
+    "note": "Torrance locality reference point for Monkish brewery/world HQ. Monkish also brews in Anaheim; the exact brewing site for this photographed batch was not independently established. Do not present this as a batch-specific facility pin. / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-b15e39132b65.png",
+      "alt": "Subliminal Sequel — label / bottle",
+      "sourceUrl": "https://www.antenna-america.com/products/b077-c16053a",
+      "originalUrl": "https://www.antenna-america.com/cdn/shop/files/SubliminalSequel_9cc433a2-9d9a-46ef-89df-1b7bcd08b1d9.png?v=1729733241&width=900"
+    }
   },
   {
     "id": "bev-d5f94d275d59",
@@ -985,7 +1203,13 @@
     "confidence": "high",
     "note": "MapFan reference point for the Kamiyamada neighborhood, not exact brewery. Production site is 上山田2432; historic Nishitakato shop is a different location. / 市区町村・地域の代表点（概略）",
     "nameJa": "黒松仙醸 城花",
-    "producerJa": "仙醸"
+    "producerJa": "仙醸",
+    "image": {
+      "src": "/assets/labels/bev-d5f94d275d59.jpg",
+      "alt": "黒松仙醸 城花 — label / bottle",
+      "sourceUrl": "https://www.komiyasaketen.co.jp/view/item/000000008196",
+      "originalUrl": "https://makeshop-multi-images.akamaized.net/komiyasake/itemimages/000000008196_XNlgQTF.jpg"
+    }
   },
   {
     "id": "bev-cd9f70103007",
@@ -1008,7 +1232,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Kamifurano locality reference point, not brewery address. Official brewery address 西8線北33号. / 市区町村・地域の代表点（概略）"
+    "note": "Kamifurano locality reference point, not brewery address. Official brewery address 西8線北33号. / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-cd9f70103007.jpg",
+      "alt": "haskap — label / bottle",
+      "sourceUrl": "https://hopkotan.com/originals/haskap/",
+      "originalUrl": "https://hopkotan.com/wpcms/wp-content/uploads/2022/01/haskap01-400x400.jpg"
+    }
   },
   {
     "id": "bev-aafa910bcab0",
@@ -1034,7 +1264,16 @@
     "confidence": "high",
     "note": "Furano grape-growing area represented by locality reference point. Official winery says locally grown Furano grapes; exact Kerner 2021 vineyard parcel not established. This is not an exact winery or vineyard pin. / 広域産地の代表点（概略）",
     "wineRegion": "北海道／富良野",
-    "metadataSources": ["https://www.furanowine.jp/lineup.html", "https://furanowine.jp/"]
+    "metadataSources": [
+      "https://www.furanowine.jp/lineup.html",
+      "https://furanowine.jp/"
+    ],
+    "image": {
+      "src": "/assets/labels/bev-aafa910bcab0.png",
+      "alt": "Kerner — label / bottle",
+      "sourceUrl": "https://www.furanowine.jp/lineup.html",
+      "originalUrl": "https://www.furanowine.jp/cms/storage/tmp/thumbs/53eaf22bb69550259281fb86db46a286_85_thumbnail.png"
+    }
   },
   {
     "id": "bev-cf5a287d6ae6",
@@ -1057,7 +1296,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "コラボ商品の場合は主醸造元Inkhornの所在地を表示 / 醸造所・生産施設"
+    "note": "コラボ商品の場合は主醸造元Inkhornの所在地を表示 / 醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-cf5a287d6ae6.jpg",
+      "alt": "Lapwing — label / bottle",
+      "sourceUrl": "https://www.syusendo-horiichi.co.jp/SHOP/21911.html",
+      "originalUrl": "https://image1.shopserve.jp/syusendo-horiichi.co.jp/pic-labo/inkhornbrewing-lapwing_2025.jpg"
+    }
   },
   {
     "id": "bev-f8a85fb97273",
@@ -1080,7 +1325,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-f8a85fb97273.png",
+      "alt": "らんぽ (Ranpo) — label / bottle",
+      "sourceUrl": "https://kyotobrewing.com/products/cherry-lime",
+      "originalUrl": "https://kyotobrewing.com/cdn/shop/files/1400x1700_21acf588-fd0f-4220-bb31-9e0f8cc36719.png?v=1752560969&width=1200"
+    }
   },
   {
     "id": "bev-277a3ca84e40",
@@ -1105,7 +1356,13 @@
     "confidence": "high",
     "note": "Asahikawa locality reference point, not exact brewery. Official Takasago address 宮下通17丁目右1号; this is Hokkaido Takasago, not Fuji-Takasago in Shizuoka. / 市区町村・地域の代表点（概略）",
     "nameJa": "国士無双 モシリ",
-    "producerJa": "髙砂酒造"
+    "producerJa": "髙砂酒造",
+    "image": {
+      "src": "/assets/labels/bev-277a3ca84e40.jpg",
+      "alt": "国士無双 モシリ — label / bottle",
+      "sourceUrl": "https://takasagoshuzo-store.com/view/item/000000000013?category_page_id=kokushimusou",
+      "originalUrl": "https://makeshop-multi-images.akamaized.net/takasagosake/itemimages/000000000013_WC9GGMl.jpg"
+    }
   },
   {
     "id": "bev-a5a78cbf7348",
@@ -1128,7 +1385,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）"
+    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-a5a78cbf7348.jpg",
+      "alt": "Salvia — label / bottle",
+      "sourceUrl": "https://verterebrew.com/brewlog/salvia/",
+      "originalUrl": "https://verterebrew.com/wp/wp-content/uploads/2025/07/193_Salvia-1024x1024.jpg"
+    }
   },
   {
     "id": "bev-a69d45c5e678",
@@ -1153,7 +1416,13 @@
     "confidence": "high",
     "note": "Exact destination coordinates linked by Kyoto tourism federation for Wakamiya Shuzo, matching official address 味方町薬師前4. / 醸造所・生産施設",
     "nameJa": "綾音",
-    "producerJa": "若宮酒造"
+    "producerJa": "若宮酒造",
+    "image": {
+      "src": "/assets/labels/bev-a69d45c5e678.jpg",
+      "alt": "綾音 — label / bottle",
+      "sourceUrl": "https://www.kit.ac.jp/2021/06/news210617/",
+      "originalUrl": "https://www.kit.ac.jp/wp/wp-content/uploads/2021/06/news210617-1.jpg"
+    }
   },
   {
     "id": "bev-7e9e27969d31",
@@ -1176,7 +1445,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-7e9e27969d31.png",
+      "alt": "宇宙 Relax — label / bottle",
+      "sourceUrl": "https://uchubrewing.com/tool/",
+      "originalUrl": "https://uchubrewing.com/pop/relax.pdf"
+    }
   },
   {
     "id": "bev-f09007f53744",
@@ -1199,7 +1474,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Tsurui locality reference point, not exact brewery. Brewery is at the former Mosetsuri elementary school, 茂雪裡69-8. / 市区町村・地域の代表点（概略）"
+    "note": "Tsurui locality reference point, not exact brewery. Brewery is at the former Mosetsuri elementary school, 茂雪裡69-8. / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-f09007f53744.jpg",
+      "alt": "MOON — label / bottle",
+      "sourceUrl": "https://witchcraftmarket.com/products/moon-2",
+      "originalUrl": "https://cdn.shopify.com/s/files/1/0566/6363/8067/files/DSC01813_74568517-cf06-4192-9ce9-a4d8c2aa703e.jpg?v=1715676390&width=900"
+    }
   },
   {
     "id": "bev-3891882bb13e",
@@ -1226,7 +1507,15 @@
     "note": "Approximate representative midpoint between Gervans and Larnage locality coordinates. Official importer identifies Silène hillside vineyards in both communes; not a vineyard-parcel centroid. Crozes-Hermitage covers multiple communes; Mauves is the producer address, not this wine’s grape origin. / 産地・畑周辺の代表点（概略）",
     "appellation": "クローズ・エルミタージュ",
     "wineRegion": "ローヌ／北ローヌ",
-    "metadataSources": ["https://www.vins-rhone.com/en/cotes-du-rhone-cru-aoc-crozes-hermitage"]
+    "metadataSources": [
+      "https://www.vins-rhone.com/en/cotes-du-rhone-cru-aoc-crozes-hermitage"
+    ],
+    "image": {
+      "src": "/assets/labels/bev-3891882bb13e.jpg",
+      "alt": "Silène Crozes-Hermitage — label / bottle",
+      "sourceUrl": "https://www.linerandelsen.com/products/j-l-chave-selection-crozes-hermitage-silene-2023",
+      "originalUrl": "https://www.linerandelsen.com/cdn/shop/files/J.L.ChaveSelectionCrozesHermitageSilene2020.jpg?v=1686242593"
+    }
   },
   {
     "id": "bev-6aafb06b6132",
@@ -1257,7 +1546,13 @@
       "https://www.domaineleshautspemions.fr/monniegraveres-saint-fiacre.html",
       "https://www.domaineleshautspemions.fr/le-domaine.html"
     ],
-    "terroir": "片麻岩・正片麻岩・角閃岩の土壌"
+    "terroir": "片麻岩・正片麻岩・角閃岩の土壌",
+    "image": {
+      "src": "/assets/labels/bev-6aafb06b6132.jpg",
+      "alt": "Les Hauts Pémions Monnières-Saint-Fiacre Muscadet Sèvre et Maine — label / bottle",
+      "sourceUrl": "https://wirwinzer.de/2022-cru-communal-monnieres-saint-fiacre-muscadet-sevre-et-maine-aop-trocken-domaine-des-hauts-pemions-frankreich.html",
+      "originalUrl": "https://wirwinzer.de/media/98/4e/55/1782388199/7194007000.jpg?ts=1782388199"
+    }
   },
   {
     "id": "bev-a0fdace2ee99",
@@ -1280,7 +1575,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-a0fdace2ee99.png",
+      "alt": "CHIMERA — label / bottle",
+      "sourceUrl": "https://uchubrewing.com/tool/",
+      "originalUrl": "https://uchubrewing.com/pop/CHIMERA.pdf"
+    }
   },
   {
     "id": "bev-7f82554efe5b",
@@ -1303,7 +1604,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）"
+    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-7f82554efe5b.jpg",
+      "alt": "Sapida — label / bottle",
+      "sourceUrl": "https://verterebrew.com/brewlog/sapida/",
+      "originalUrl": "https://verterebrew.com/wp/wp-content/uploads/2024/04/029_Sapida-1024x1024.jpg"
+    }
   },
   {
     "id": "bev-61595b8705c0",
@@ -1335,7 +1642,13 @@
       "https://www.vinmonopolet.no/Land/Frankrike/Rh%C3%B4ne/Saint-Joseph/J-L-Chave-S%C3%A9lection-Circa-Saint-Joseph-Blanc-2023/p/20037101",
       "https://nobleselection.kork.ca/qc/fr/nos-domaines/jl-chave-selection/saint-joseph-circa/2024/14999839",
       "https://www.saq.com/en/14999839"
-    ]
+    ],
+    "image": {
+      "src": "/assets/labels/bev-61595b8705c0.png",
+      "alt": "Circa Saint-Joseph — label / bottle",
+      "sourceUrl": "https://trialto.kork.ca/bc/en/our-wineries/jl-chave-selection/saint-joseph-circa/2023/438989",
+      "originalUrl": "https://d2uilr6vzyngls.cloudfront.net/images/c_265x265_circa16_anv800.png"
+    }
   },
   {
     "id": "bev-051ca628d98c",
@@ -1358,7 +1671,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）"
+    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-051ca628d98c.jpg",
+      "alt": "Miestas — label / bottle",
+      "sourceUrl": "https://verterebrew.com/brewlog/miestas/",
+      "originalUrl": "https://verterebrew.com/wp/wp-content/uploads/2025/09/HP_200_Miestas.jpg"
+    }
   },
   {
     "id": "bev-c8782cfdb7b5",
@@ -1482,7 +1801,13 @@
     "confidence": "high",
     "note": "醸造所・生産施設",
     "nameJa": "飛鸞 Infinity ∞ 2025",
-    "producerJa": "森酒造場"
+    "producerJa": "森酒造場",
+    "image": {
+      "src": "/assets/labels/bev-b2d9b918c060.jpg",
+      "alt": "飛鸞 Infinity ∞ 2025 — label / bottle",
+      "sourceUrl": "https://osakeda.com/products/히란-infinity-2025-720ml",
+      "originalUrl": "https://osakeda.com/cdn/shop/files/Infinity_2025_1200x1200.jpg?v=1753836891"
+    }
   },
   {
     "id": "bev-69b835166427",
@@ -1507,7 +1832,13 @@
     "confidence": "high",
     "note": "醸造所・生産施設",
     "nameJa": "亀泉 貴賓",
-    "producerJa": "亀泉酒造"
+    "producerJa": "亀泉酒造",
+    "image": {
+      "src": "/assets/labels/bev-69b835166427.jpg",
+      "alt": "亀泉 貴賓 — label / bottle",
+      "sourceUrl": "https://www.kameizumi.co.jp/product/",
+      "originalUrl": "https://www.kameizumi.co.jp/product/images/img_02.jpg"
+    }
   },
   {
     "id": "bev-8fdc9f49346d",
@@ -1538,7 +1869,13 @@
       "https://kermitlynch.com/newsletters/12-25_december25.pdf",
       "https://kermitlynch.com/files/domaine-pierre-guillemot.pdf",
       "https://www.inao.gouv.fr/node/8660"
-    ]
+    ],
+    "image": {
+      "src": "/assets/labels/bev-8fdc9f49346d.png",
+      "alt": "Bourgogne Côte-d’Or — label / bottle",
+      "sourceUrl": "https://www.winecountryconnection.net/shop/2023-pierre-guillemot-bourgogne-cote-dor-rouge",
+      "originalUrl": "https://vxekvrgf2hcb2b9g.public.blob.vercel-storage.com/products/2025/06/unnamed-5-1.png"
+    }
   },
   {
     "id": "bev-d8e87b6829d8",
@@ -1563,7 +1900,13 @@
     "confidence": "high",
     "note": "Google map embedded on sake-directory page explicitly identifies 赤武酒造株式会社復活蔵 at the official Morioka address. Coordinates extracted from the named place data, not the west-shifted viewport center. / 醸造所・生産施設",
     "nameJa": "赤武（AKABU）純米大吟醸",
-    "producerJa": "赤武酒造"
+    "producerJa": "赤武酒造",
+    "image": {
+      "src": "/assets/labels/bev-d8e87b6829d8.jpg",
+      "alt": "赤武（AKABU）純米大吟醸 — label / bottle",
+      "sourceUrl": "https://www.sakenoyamamoto.jp/view/item/000000003285",
+      "originalUrl": "https://makeshop-multi-images.akamaized.net/sakeyamamoto/itemimages/000000003285_aaURJWk.jpg"
+    }
   },
   {
     "id": "bev-db9d025e3bd0",
@@ -1588,7 +1931,13 @@
     "confidence": "high",
     "note": "醸造所・生産施設",
     "nameJa": "森嶋 雄町 純米大吟醸 しぼりたて生",
-    "producerJa": "森島酒造"
+    "producerJa": "森島酒造",
+    "image": {
+      "src": "/assets/labels/bev-db9d025e3bd0.jpg",
+      "alt": "森嶋 雄町 純米大吟醸 しぼりたて生 — label / bottle",
+      "sourceUrl": "https://isobe-sake.com/products/morishima_jindai_omachi_nama",
+      "originalUrl": "https://isobe-sake.com/cdn/shop/files/DSC09250_8ed33ad3-6736-4525-b1d7-1a040823ab22.jpg?v=1747027629"
+    }
   },
   {
     "id": "bev-88d911a371f9",
@@ -1620,7 +1969,13 @@
       "https://domainedupelican.fr/products/arbois-gcs?variant=57020131574137",
       "https://domainedupelican.fr/pages/histoire"
     ],
-    "terroir": "グラン・キュルレの灰色・多色の泥灰土"
+    "terroir": "グラン・キュルレの灰色・多色の泥灰土",
+    "image": {
+      "src": "/assets/labels/bev-88d911a371f9.jpg",
+      "alt": "Arbois Grand Curoulet Savagnin Ouillé — label / bottle",
+      "sourceUrl": "https://www.saq.com/fr/15579545",
+      "originalUrl": "https://www.saq.com/media/catalog/product/1/5/15579545-1_1771874588.png?optimize=high&fit=bounds&height=265&width=265&canvas=265:265&format=jpeg"
+    }
   },
   {
     "id": "bev-5b67a2cdbeb3",
@@ -1645,7 +2000,13 @@
     "confidence": "high",
     "note": "醸造所・生産施設",
     "nameJa": "松盛 ピュア茨城 蔵なま",
-    "producerJa": "岡部合名会社"
+    "producerJa": "岡部合名会社",
+    "image": {
+      "src": "/assets/labels/bev-5b67a2cdbeb3.jpg",
+      "alt": "松盛 ピュア茨城 蔵なま — label / bottle",
+      "sourceUrl": "https://www.matsuzakari.co.jp/2021/02/14/sk-014/",
+      "originalUrl": "https://www.matsuzakari.co.jp/wp-content/uploads/2021/02/a49133a25f3c585fc61005541e882e5d.jpg"
+    }
   },
   {
     "id": "bev-8797636a0898",
@@ -1670,7 +2031,13 @@
     "confidence": "high",
     "note": "醸造所・生産施設",
     "nameJa": "亀泉 CEL-24",
-    "producerJa": "亀泉酒造"
+    "producerJa": "亀泉酒造",
+    "image": {
+      "src": "/assets/labels/bev-8797636a0898.jpg",
+      "alt": "亀泉 CEL-24 — label / bottle",
+      "sourceUrl": "https://www.kameizumi.co.jp/product/",
+      "originalUrl": "https://www.kameizumi.co.jp/product/images/img_05.jpg"
+    }
   },
   {
     "id": "bev-554984397368",
@@ -1695,7 +2062,13 @@
     "confidence": "high",
     "note": "This is Wakakoma Shuzo in Oyama, Tochigi, not the similarly named brewery in Toyama. / 醸造所・生産施設",
     "nameJa": "若駒 キレコマ+17",
-    "producerJa": "若駒酒造"
+    "producerJa": "若駒酒造",
+    "image": {
+      "src": "/assets/labels/bev-554984397368.jpg",
+      "alt": "若駒 キレコマ+17 — label / bottle",
+      "sourceUrl": "https://www.kakinuma-tokyo.co.jp/products/wakakoma-sake010",
+      "originalUrl": "https://www.kakinuma-tokyo.co.jp/cdn/shop/files/0000000017242_6KsVP9K.jpg?v=1769052332"
+    }
   },
   {
     "id": "bev-8d532c74474a",
@@ -1724,7 +2097,13 @@
     "metadataSources": [
       "https://www.polanerselections.com/producers/fontaine-gagnard/",
       "https://www.bourgogne-wines.com/our-wines-our-terroir/all-bourgogne-wines/gallery_files/site/321/402/19992/25639.pdf"
-    ]
+    ],
+    "image": {
+      "src": "/assets/labels/bev-8d532c74474a.png",
+      "alt": "Chassagne-Montrachet 1er Cru La Maltroie — label / bottle",
+      "sourceUrl": "https://www.saratogawine.com/product/fontaine-gagnard-chassagne-montrachet-1er-cru-la-maltroie-2019-1-5ltr/",
+      "originalUrl": "https://www.saratogawine.com/wp-content/uploads/2024/01/dffa7d5.png"
+    }
   },
   {
     "id": "bev-2fbf06d03f83",
@@ -1770,7 +2149,13 @@
       "precisionLabel": "醸造所付近（概略）"
     },
     "confidence": "high",
-    "note": "公式掲載の単一施設地図の中心座標。測量精度のピンではありません / 醸造所付近（概略）"
+    "note": "公式掲載の単一施設地図の中心座標。測量精度のピンではありません / 醸造所付近（概略）",
+    "image": {
+      "src": "/assets/labels/bev-d03163c39005.jpg",
+      "alt": "Days Over — label / bottle",
+      "sourceUrl": "https://blacktidebrewing.com/",
+      "originalUrl": "https://blacktidebrewing.com/wp-content/uploads/2020/08/Days-1.jpg"
+    }
   },
   {
     "id": "bev-12fe8ef78889",
@@ -1793,7 +2178,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）"
+    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-12fe8ef78889.jpg",
+      "alt": "Nemophila — label / bottle",
+      "sourceUrl": "https://verterebrew.com/brewlog/nemophila/",
+      "originalUrl": "https://verterebrew.com/wp/wp-content/uploads/2025/04/a153467d97f9c7234e3a502c2a03f678.jpg"
+    }
   },
   {
     "id": "bev-2ba633e54165",
@@ -1816,7 +2207,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-2ba633e54165.png",
+      "alt": "Fire Bird — label / bottle",
+      "sourceUrl": "https://uchubrewing.com/tool/",
+      "originalUrl": "https://uchubrewing.com/pop/FIRE-BIRD.pdf"
+    }
   },
   {
     "id": "bev-5be2bf8c0ff9",
@@ -1841,7 +2238,13 @@
     "confidence": "high",
     "note": "醸造所・生産施設",
     "nameJa": "亀泉 兵庫山田錦 CEL-19",
-    "producerJa": "亀泉酒造"
+    "producerJa": "亀泉酒造",
+    "image": {
+      "src": "/assets/labels/bev-5be2bf8c0ff9.jpg",
+      "alt": "亀泉 兵庫山田錦 CEL-19 — label / bottle",
+      "sourceUrl": "https://www.kameizumi.co.jp/product/",
+      "originalUrl": "https://www.kameizumi.co.jp/product/images/img_06.jpg"
+    }
   },
   {
     "id": "bev-17cfdf742815",
@@ -1864,7 +2267,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "Mapped to Moksa’s Rocklin brewery at 5860 Pacific Street; collaboration partner is not treated as a second origin. / 醸造所・生産施設"
+    "note": "Mapped to Moksa’s Rocklin brewery at 5860 Pacific Street; collaboration partner is not treated as a second origin. / 醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-17cfdf742815.jpg",
+      "alt": "Rule Zero — label / bottle",
+      "sourceUrl": "https://arome.jp/products/list?category_id=105294",
+      "originalUrl": "https://arome.jp/html/upload/save_image/02262104_69a036d5aaecc.jpg"
+    }
   },
   {
     "id": "bev-ec38926f21b1",
@@ -1889,7 +2298,13 @@
     "confidence": "high",
     "note": "醸造所・生産施設",
     "nameJa": "七田 夏純",
-    "producerJa": "天山酒造"
+    "producerJa": "天山酒造",
+    "image": {
+      "src": "/assets/labels/bev-ec38926f21b1.png",
+      "alt": "七田 夏純 — label / bottle",
+      "sourceUrl": "https://tenzan.co.jp/product/shichida-natsujyun/",
+      "originalUrl": "https://tenzan.co.jp/wp/wp-content/uploads/2020/09/27_7natsujyun1800.png"
+    }
   },
   {
     "id": "bev-17a52b16845c",
@@ -1916,8 +2331,16 @@
     "note": "Regional reference point at Bernkastel-Kues in the Middle Mosel, not the Moselland winery or an identified vineyard. Label/producer establish Mosel only; exact grapes site within Mosel is unknown. / 広域産地の代表点（概略）",
     "appellation": "モーゼル",
     "wineRegion": "モーゼル",
-    "metadataSources": ["https://www.moselland.de/produkte/10032300/"],
-    "terroir": "日当たりのよいスレート質の急斜面"
+    "metadataSources": [
+      "https://www.moselland.de/produkte/10032300/"
+    ],
+    "terroir": "日当たりのよいスレート質の急斜面",
+    "image": {
+      "src": "/assets/labels/bev-17a52b16845c.png",
+      "alt": "Riesling Aus der Steillage Lieblich — label / bottle",
+      "sourceUrl": "https://en.moselland.de/moselland-riesling-wines-en/",
+      "originalUrl": "https://en.moselland.de/wp-content/uploads/10027604-337x1140.png"
+    }
   },
   {
     "id": "bev-07b16108c04b",
@@ -1940,7 +2363,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "醸造所・生産施設"
+    "note": "醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-07b16108c04b.png",
+      "alt": "Camouflage — label / bottle",
+      "sourceUrl": "https://narabrewing.com/20260810blog",
+      "originalUrl": "https://narabrewing.com/wp/wp-content/uploads/2026/07/un_sq-1024x1024.png"
+    }
   },
   {
     "id": "bev-c63b710113a9",
@@ -1963,7 +2392,13 @@
       "precisionLabel": "醸造所付近（概略）"
     },
     "confidence": "high",
-    "note": "公式掲載の施設地図中心座標。測量精度のピンではありません / 醸造所付近（概略）"
+    "note": "公式掲載の施設地図中心座標。測量精度のピンではありません / 醸造所付近（概略）",
+    "image": {
+      "src": "/assets/labels/bev-c63b710113a9.jpg",
+      "alt": "Togaru — label / bottle",
+      "sourceUrl": "https://witchcraftmarket.com/products/togaru",
+      "originalUrl": "https://cdn.shopify.com/s/files/1/0566/6363/8067/files/DSC04165.jpg?v=1784980878&width=900"
+    }
   },
   {
     "id": "bev-71c07bb3c637",
@@ -1986,7 +2421,13 @@
       "precisionLabel": "醸造所付近（概略）"
     },
     "confidence": "high",
-    "note": "公式掲載の施設地図中心座標。測量精度のピンではありません / 醸造所付近（概略）"
+    "note": "公式掲載の施設地図中心座標。測量精度のピンではありません / 醸造所付近（概略）",
+    "image": {
+      "src": "/assets/labels/bev-71c07bb3c637.jpg",
+      "alt": "Hiraku — label / bottle",
+      "sourceUrl": "https://witchcraftmarket.com/products/hiraku",
+      "originalUrl": "https://cdn.shopify.com/s/files/1/0566/6363/8067/files/DSC04156.jpg?v=1784980878&width=900"
+    }
   },
   {
     "id": "bev-46589bc3049e",
@@ -2032,7 +2473,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）"
+    "note": "奥多摩町の代表点。醸造所の正確な位置ではありません。2024年開設の新醸造所は氷川1099 / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-20dbf1ed4ab4.jpg",
+      "alt": "Deserti — label / bottle",
+      "sourceUrl": "https://verterebrew.com/brewlog/deserti/",
+      "originalUrl": "https://verterebrew.com/wp/wp-content/uploads/2023/05/112_Deserti_2-1024x1024.jpeg"
+    }
   },
   {
     "id": "bev-2b3cd1887044",
@@ -2080,7 +2527,13 @@
       "precisionLabel": "醸造所・生産施設"
     },
     "confidence": "high",
-    "note": "Current main ISEKADO Shimono brewery. Company also lists a Jinkyu brewery; exact production line/batch of this can is not independently established. Origin city Ise is secure. / 醸造所・生産施設"
+    "note": "Current main ISEKADO Shimono brewery. Company also lists a Jinkyu brewery; exact production line/batch of this can is not independently established. Origin city Ise is secure. / 醸造所・生産施設",
+    "image": {
+      "src": "/assets/labels/bev-c00a19571e54.jpg",
+      "alt": "Neko Nihiki — label / bottle",
+      "sourceUrl": "https://witchcraftmarket.com/products/nekonihiki",
+      "originalUrl": "https://cdn.shopify.com/s/files/1/0566/6363/8067/files/nekonihiki.jpg?v=1732845721&width=900"
+    }
   },
   {
     "id": "bev-b5747b6c6ce5",
@@ -2103,7 +2556,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Approximate Ise locality point only; not the brewery doorway. Himitsu Beer is in Futamicho-Nishi, Ise. No independently verified exact brewery map pin obtained. / 市区町村・地域の代表点（概略）"
+    "note": "Approximate Ise locality point only; not the brewery doorway. Himitsu Beer is in Futamicho-Nishi, Ise. No independently verified exact brewery map pin obtained. / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-b5747b6c6ce5.jpg",
+      "alt": "Pearl Lager — label / bottle",
+      "sourceUrl": "https://store.shopping.yahoo.co.jp/sake-tadokoro/himitu-iseshimapearl.html",
+      "originalUrl": "https://item-shopping.c.yimg.jp/i/n/sake-tadokoro_himitu-iseshimapearl"
+    }
   },
   {
     "id": "bev-4da59b70c00a",
@@ -2126,7 +2585,13 @@
       "precisionLabel": "市区町村・地域の代表点（概略）"
     },
     "confidence": "high",
-    "note": "Approximate Ise locality point only; not the brewery doorway. Himitsu Beer is in Futamicho-Nishi, Ise. No independently verified exact brewery map pin obtained. / 市区町村・地域の代表点（概略）"
+    "note": "Approximate Ise locality point only; not the brewery doorway. Himitsu Beer is in Futamicho-Nishi, Ise. No independently verified exact brewery map pin obtained. / 市区町村・地域の代表点（概略）",
+    "image": {
+      "src": "/assets/labels/bev-4da59b70c00a.jpg",
+      "alt": "Oise-chan — label / bottle",
+      "sourceUrl": "https://witchcraftmarket.com/products/oisechan",
+      "originalUrl": "https://witchcraftmarket.com/cdn/shop/files/DSC03937.jpg?v=1768537561"
+    }
   },
   {
     "id": "bev-d585177a6c94",
@@ -2153,7 +2618,15 @@
     "note": "Dürnstein village/municipality reference point. Official producer describes Dürnsteiner as a blend of multiple terraced and plain vineyards in the municipality, so no single vineyard point is asserted. / 産地・畑周辺の代表点（概略）",
     "appellation": "ヴァッハウ／デュルンシュタイン",
     "wineRegion": "ヴァッハウ",
-    "metadataSources": ["https://fx-pichler.at/en/vineyards-wines/"],
-    "terroir": "デュルンシュタインの山の段々畑と平地の複数畑をブレンド"
+    "metadataSources": [
+      "https://fx-pichler.at/en/vineyards-wines/"
+    ],
+    "terroir": "デュルンシュタインの山の段々畑と平地の複数畑をブレンド",
+    "image": {
+      "src": "/assets/labels/bev-d585177a6c94.jpg",
+      "alt": "Dürnsteiner Grüner Veltliner — label / bottle",
+      "sourceUrl": "https://fx-pichler.at/en/vineyards-wines/",
+      "originalUrl": "https://fx-pichler.at/wp-content/uploads/2022/03/Gruner-Veltliner_Durnsteiner-265x1040.jpg"
+    }
   }
 ]

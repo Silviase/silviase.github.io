@@ -1,0 +1,212 @@
+---
+import Base from '../../layouts/Base.astro';
+import Localized from '../../components/Localized.astro';
+import { beverageLabels } from '../../lib/beverage-labels';
+
+export function getStaticPaths() {
+  return beverageLabels.map((item) => ({ params: { id: item.id }, props: { item } }));
+}
+const { item } = Astro.props;
+const clean = (value: string) => value.replaceAll('&amp;', '&');
+const sources = [
+  ...new Set([
+    item.officialSourceUrl || item.origin.sourceUrl,
+    item.origin.coordinateSourceUrl,
+    ...(item.metadataSources || []),
+  ]),
+];
+const facts = [
+  ['Producer', '生産者', item.producer, item.producerJa || item.producer],
+  ['Vintage', '年', item.vintage, item.vintage],
+  ['Style', 'スタイル', item.style, item.style],
+  [
+    'Origin',
+    '産地',
+    [item.origin.country, item.origin.region, item.origin.locality].filter(Boolean).join(' · '),
+  ],
+  ['Wine region', 'ワイン産地', item.wineRegion],
+  ['Appellation', '原産地呼称', item.appellation],
+];
+---
+
+<Base title={clean(item.nameJa || item.name)} description={`${clean(item.name)} — Drinks I've had`}>
+  <div class="container drink-detail">
+    <a class="back-link" href="/labels/"><Localized en="← All drinks" ja="← お酒の一覧" /></a>
+    <article class="drink-layout">
+      <div class="drink-image">
+        {
+          item.image ? (
+            <img src={`/assets/labels/optimized/${item.id}-detail.webp`} alt={item.image.alt} />
+          ) : (
+            <p>
+              <Localized en="No photo yet" ja="写真準備中" />
+            </p>
+          )
+        }
+      </div>
+      <div class="drink-info">
+        <h1><Localized en={clean(item.name)} ja={clean(item.nameJa || item.name)} /></h1>
+        <dl>
+          {
+            facts
+              .filter(([, , value]) => value)
+              .map(([en, ja, value, valueJa]) => (
+                <div>
+                  <>
+                    <dt>
+                      <Localized en={en!} ja={ja} />
+                    </dt>
+                    <dd>
+                      <Localized en={clean(value!)} ja={clean((valueJa || value)!)} />
+                    </dd>
+                  </>
+                </div>
+              ))
+          }
+        </dl>
+        {item.terroir && <p class="terroir">{item.terroir}</p>}
+        {
+          item.displayNote && (
+            <p class="note">
+              <Localized en={item.displayNote.en} ja={item.displayNote.ja} />
+            </p>
+          )
+        }
+        <a class="map-link" href={`/labels/?drink=${item.id}`}
+          ><Localized en="View origin on map ↗" ja="産地を地図で見る ↗" /></a
+        >
+        {
+          item.image && (
+            <p class="image-credit">
+              <>
+                <Localized
+                  en="Reference image; vintage or batch may differ."
+                  ja="銘柄の参考画像です。年号・ロットは記録と異なる場合があります。"
+                />
+                <br />
+                <a href={item.image.sourceUrl} target="_blank" rel="noreferrer">
+                  <Localized en="Image source" ja="画像の出典" /> ·{' '}
+                  {new URL(item.image.sourceUrl).hostname}
+                </a>
+              </>
+            </p>
+          )
+        }
+        <details>
+          <summary><Localized en="Sources" ja="出典" /></summary>
+          <p>{item.origin.precisionLabel}</p>
+          <ul>
+            {
+              sources.map((url) => (
+                <li>
+                  <a href={url.replaceAll('&amp;', '&')} target="_blank" rel="noreferrer">
+                    {new URL(url).hostname}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </details>
+      </div>
+    </article>
+  </div>
+  <style>
+    .drink-detail {
+      padding-top: 42px;
+      padding-bottom: 80px;
+    }
+    .back-link {
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+    .drink-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 64px;
+      margin-top: 32px;
+      align-items: start;
+    }
+    .drink-image {
+      position: relative;
+      min-height: 0;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 3 / 4;
+      padding: 24px;
+      background: var(--gray-50);
+      border-radius: 6px;
+      color: var(--gray-500);
+      font-size: 12px;
+    }
+    .drink-image img {
+      position: absolute;
+      inset: 24px;
+      display: block;
+      width: calc(100% - 48px);
+      height: calc(100% - 48px);
+      object-fit: contain;
+      min-height: 0;
+    }
+    h1 {
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+    dl {
+      margin: 32px 0;
+    }
+    dl div {
+      display: grid;
+      grid-template-columns: 100px minmax(0, 1fr);
+      gap: 16px;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    dt {
+      color: var(--gray-500);
+    }
+    dd {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+    .terroir,
+    .note {
+      margin-bottom: 24px;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+    .note {
+      color: var(--gray-500);
+    }
+    .image-credit {
+      margin-top: 24px;
+      font-size: 11px;
+      color: var(--gray-500);
+    }
+    .map-link {
+      font-size: 13px;
+    }
+    details {
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--gray-500);
+    }
+    summary {
+      cursor: pointer;
+      padding: 12px 0;
+    }
+    details ul {
+      padding-left: 20px;
+    }
+    @media (max-width: 650px) {
+      .drink-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .drink-image {
+        width: 100%;
+        max-height: 65vh;
+      }
+    }
+  </style>
+</Base>

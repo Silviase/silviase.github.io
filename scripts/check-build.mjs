@@ -71,6 +71,24 @@ assert.equal(
   catalog.length,
   'Label IDs must be unique'
 );
+for (const label of catalog) {
+  const detail = read(`dist/labels/${label.id}/index.html`);
+  assert.ok(detail.includes('href="/labels/"'), `Missing gallery link: ${label.id}`);
+  if (label.image) {
+    assert.ok(existsSync(`dist${label.image.src}`), `Missing label image: ${label.id}`);
+    const detailImage = `/assets/labels/optimized/${label.id}-detail.webp`;
+    assert.ok(existsSync(`dist${detailImage}`), `Missing optimized detail: ${label.id}`);
+    assert.ok(
+      existsSync(`dist/assets/labels/optimized/${label.id}-thumb.webp`),
+      `Missing thumbnail: ${label.id}`
+    );
+    assert.ok(detail.includes(detailImage), `Missing detail image: ${label.id}`);
+    assert.ok(
+      detail.includes(label.image.sourceUrl.replaceAll('&', '&amp;')),
+      `Missing image credit: ${label.id}`
+    );
+  }
+}
 const errors = [];
 const htmlFiles = walk('dist').filter((path) => path.endsWith('.html'));
 for (const file of htmlFiles) {

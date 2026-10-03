@@ -22,12 +22,6 @@
     loire: [-2, -48.4, 6, 3.5],
     burgundy: [2.8, -48.4, 3.6, 2.8],
   };
-  const categoryNames = {
-    'craft-beer': ['Craft beer', 'クラフトビール'],
-    wine: ['Wine', 'ワイン'],
-    sake: ['Sake', '日本酒'],
-    other: ['Other', 'その他'],
-  };
   let area = 'world',
     view = [...views.world],
     selected = null,
@@ -53,12 +47,6 @@
     [item.origin.locality, item.origin.region, countryName(item)].filter(Boolean).join(' · ');
   const groupKey = (item) =>
     `${item.origin.countryCode}:${item.origin.latitude}:${item.origin.longitude}`;
-  const otherType = (item) =>
-    /gin/i.test(item.style || '')
-      ? text('Gin', 'ジン')
-      : /shochu/i.test(item.style || '')
-        ? text('Shochu', '焼酎')
-        : item.style || text('Other', 'その他');
   const facetKey = (item) =>
     category.value === 'other'
       ? /gin/i.test(item.style || '')
@@ -282,7 +270,7 @@
         selected = new Set(cluster.items.map((item) => item.id));
         renderList(items);
         if (window.matchMedia('(max-width: 850px)').matches) setMobileView('list');
-        list.querySelector('.origin-group')?.focus({ preventScroll: true });
+        list.querySelector('.label-link')?.focus({ preventScroll: true });
         list.scrollTop = 0;
       };
       g.addEventListener('click', activate);
@@ -337,74 +325,22 @@
       for (const item of items) {
         const card = element('article', 'label-card');
         card.dataset.labelId = item.id;
-        card.append(element('h3', 'label-name', displayName(item)));
-        if (producerName(item)) card.append(element('p', 'label-producer', producerName(item)));
-        const badges = element('div', 'label-badges');
-        for (const [kind, caption] of [
-          [
-            'category',
-            item.category === 'other' ? otherType(item) : text(...categoryNames[item.category]),
-          ],
-          ['origin', item.wineRegion || item.origin.region || countryName(item)],
-          [
-            'vintage',
-            (lang() === 'ja'
-              ? item.vintage?.replace(/^(\d{4}) release$/, '$1年発売')
-              : item.vintage) ||
-              (item.category === 'wine' ? text('Vintage unknown', '年不明') : ''),
-          ],
-          ['style', item.style],
-        ])
-          if (caption) badges.append(element('span', `label-badge label-badge--${kind}`, caption));
-        card.append(badges);
-        if (item.terroir) {
-          const terroir = element('p', 'label-terroir');
-          terroir.append(
-            element('span', '', text('Terroir', '風土')),
-            document.createTextNode(item.terroir)
-          );
-          card.append(terroir);
+        const link = element('a', 'label-link');
+        link.href = `/labels/${item.id}/`;
+        const artwork = element('div', 'label-artwork');
+        if (item.image) {
+          const image = element('img');
+          image.loading = 'lazy';
+          image.decoding = 'async';
+          image.src = `/assets/labels/optimized/${item.id}-thumb.webp`;
+          image.alt = item.image.alt;
+          artwork.append(image);
+        } else {
+          artwork.classList.add('label-artwork--missing');
+          artwork.append(element('span', '', text('No photo yet', '写真準備中')));
         }
-        if (item.displayNote)
-          card.append(element('p', 'uncertainty-tag', item.displayNote[lang()]));
-        const actions = element('div', 'label-card-actions');
-        const details = element('details', 'label-evidence');
-        details.append(element('summary', '', text('About this drink', 'このお酒について')));
-        if (item.appellation) details.append(element('p', '', item.appellation));
-        const precision =
-          item.origin.precision === 'producer'
-            ? text('Brewery / winery', '醸造所')
-            : text('Approximate origin', '産地の目安');
-        details.append(element('p', '', `${precision} · ${place(item)}`));
-        const links = element('div', 'label-links');
-        const sources = [
-          [item.officialSourceUrl || item.origin.sourceUrl, text('Drink', '銘柄')],
-          [item.origin.coordinateSourceUrl, text('Origin', '産地')],
-          ...(item.metadataSources || []).map((url, index) => [
-            url,
-            text(`More ${index + 1}`, `資料 ${index + 1}`),
-          ]),
-        ];
-        const seen = new Set();
-        for (const [url, caption] of sources)
-          if (url && !seen.has(decode(url))) {
-            seen.add(decode(url));
-            const a = element('a', 'label-source', caption);
-            a.href = decode(url);
-            a.target = '_blank';
-            a.rel = 'noreferrer';
-            links.append(a);
-          }
-        details.append(links);
-        const mapButton = element('button', 'card-map-button', text('Map ↗', '地図 ↗'));
-        mapButton.type = 'button';
-        mapButton.setAttribute(
-          'aria-label',
-          text(`Show ${displayName(item)} on the map`, `${displayName(item)}を地図で見る`)
-        );
-        mapButton.addEventListener('click', () => showOnMap(item));
-        actions.append(details, mapButton);
-        card.append(actions);
+        link.append(artwork, element('h3', 'label-name', displayName(item)));
+        card.append(link);
         section.append(card);
       }
       list.append(section);
@@ -559,5 +495,53 @@
     root.querySelector('#map-error').hidden = false;
   });
   layout.dataset.mobileView = 'list';
+  // Return from a drink to the same filtered gallery, including the explicit back link.
+  try {
+    const saved = JSON.parse(sessionStorage.getItem('drink-gallery') || 'null');
+    if (saved) {
+      category.value = [...category.options].some((option) => option.value === saved.category)
+        ? saved.category
+        : 'all';
+      populateFacets();
+      regionFilter.value = [...regionFilter.options].some((option) => option.value === saved.region)
+        ? saved.region
+        : 'all';
+      populateFacets();
+      producerFilter.value = [...producerFilter.options].some(
+        (option) => option.value === saved.producer
+      )
+        ? saved.producer
+        : 'all';
+      search.value = typeof saved.search === 'string' ? saved.search : '';
+    }
+  } catch {
+    /* Storage may be unavailable in private browsing. */
+  }
+  list.addEventListener('click', (event) => {
+    if (!event.target.closest('.label-link')) return;
+    try {
+      sessionStorage.setItem(
+        'drink-gallery',
+        JSON.stringify({
+          category: category.value,
+          region: regionFilter.value,
+          producer: producerFilter.value,
+          search: search.value,
+        })
+      );
+    } catch {
+      /* Navigation still works without storage. */
+    }
+  });
   render();
+  const requested = labels.find(
+    (item) => item.id === new URLSearchParams(location.search).get('drink')
+  );
+  if (requested) {
+    category.value = regionFilter.value = producerFilter.value = 'all';
+    search.value = '';
+    selected = new Set([requested.id]);
+    populateFacets();
+    showOnMap(requested);
+  }
 })();
