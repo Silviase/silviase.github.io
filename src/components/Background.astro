@@ -122,7 +122,13 @@ import T from './T.astro';
       {
         awards.map((award) => (
           <li>
-            <Localized en={award.en} ja={award.ja} />
+            {award.url ? (
+              <a class="award-source" href={award.url}>
+                <Localized en={award.en} ja={award.ja} />
+              </a>
+            ) : (
+              <Localized en={award.en} ja={award.ja} />
+            )}
           </li>
         ))
       }

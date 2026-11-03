@@ -1,5 +1,6 @@
 ---
 import Localized from '../../components/Localized.astro';
+import PaperAwards from '../../components/PaperAwards.astro';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { dateLabel } from '../../lib/data';
@@ -20,9 +21,10 @@ const { Content } = await render(paper);
     ><header class="page-heading">
       <p class="eyebrow">{p.type} / {dateLabel(p.date)}</p><h1 class="article-title">
         {p.title}
-      </h1><p class="authors">{p.authors.join(', ')}</p><p class="blue">{p.venue || p.journal}</p>{
-        p.description && <p>{p.description}</p>
-      }<div class="hero-links">
+      </h1><p class="authors">{p.authors.join(', ')}</p><p class="blue">{p.venue || p.journal}</p>
+      <PaperAwards paperId={paper.id} />{p.description && <p>{p.description}</p>}<div
+        class="hero-links"
+      >
         {
           (p.pdf || p.pdf_link) && (
             <a class="button" href={p.pdf || p.pdf_link}>

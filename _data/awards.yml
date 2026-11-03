@@ -1,3 +1,12 @@
+- en: JSAI Annual Conference Award (Poster Presentation), Jagle (2026)
+  ja: 人工知能学会 全国大会優秀賞（ポスターセッション発表部門）、Jagle（2026年）
+  badge:
+    en: JSAI 2026 Annual Conference Award
+    ja: JSAI 2026 全国大会優秀賞
+  url: https://www.ai-gakkai.or.jp/about/award/jsai_award-conf/
+  paper_ids:
+    - 2026_jagle
+    - 2026_d_jagle
 - en: Young Scientist Award, ANLP (2025)
   ja: 言語処理学会 若手奨励賞（2025年）
 - en: Committee Special Awarded Paper, ANLP (2026, 2025, 2023)

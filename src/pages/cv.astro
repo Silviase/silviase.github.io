@@ -3,6 +3,7 @@ import Localized from '../components/Localized.astro';
 import T from '../components/T.astro';
 import Base from '../layouts/Base.astro';
 import Background from '../components/Background.astro';
+import PaperAwards from '../components/PaperAwards.astro';
 import { profile, cvPublications } from '../lib/data';
 import { getCollection } from 'astro:content';
 const papers = (await getCollection('papers')).sort(
@@ -84,6 +85,7 @@ let start = 1;
                         <a href={`/papers/${paper.id}/`}>
                           <strong>{paper.data.title}</strong>
                         </a>
+                        <PaperAwards paperId={paper.id} />
                         <p class="muted">
                           {[
                             paper.data.venue || paper.data.journal,
