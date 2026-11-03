@@ -5,14 +5,48 @@
     ja: JSAI 2026 全国大会優秀賞
   url: https://www.ai-gakkai.or.jp/about/award/jsai_award-conf/
   paper_ids:
-    - 2026_jagle
     - 2026_d_jagle
+- en: Committee Special Awarded Paper, ANLP (2026)
+  ja: 言語処理学会 委員特別賞（2026年）
+  badge:
+    en: NLP 2026 Committee Special Award
+    ja: NLP 2026 委員特別賞
+  url: https://www.anlp.jp/nlp2026/award.html
+  paper_ids:
+    - 2026_d_jawildtext
 - en: Young Scientist Award, ANLP (2025)
   ja: 言語処理学会 若手奨励賞（2025年）
-- en: Committee Special Awarded Paper, ANLP (2026, 2025, 2023)
-  ja: 言語処理学会 委員特別賞（2026年・2025年・2023年）
+  badge:
+    en: NLP 2025 Young Scientist Award
+    ja: NLP 2025 若手奨励賞
+  url: https://www.anlp.jp/nlp2025/award.html
+  paper_ids:
+    - 2025_d_llmjpevalmm
+- en: Committee Special Awarded Papers, ANLP (2025)
+  ja: 言語処理学会 委員特別賞（2025年）
+  badge:
+    en: NLP 2025 Committee Special Award
+    ja: NLP 2025 委員特別賞
+  url: https://www.anlp.jp/nlp2025/award.html
+  paper_ids:
+    - 2025_d_llmjp3vila
+    - 2025_d_legalviz
+- en: Committee Special Awarded Paper, ANLP (2023)
+  ja: 言語処理学会 委員特別賞（2023年）
+  badge:
+    en: NLP 2023 Committee Special Award
+    ja: NLP 2023 委員特別賞
+  url: https://www.anlp.jp/nlp2023/award.html
+  paper_ids:
+    - 2023_d_duet
 - en: Program for Development of Co-creative Experts towards Top-level AI Research
     (Science Tokyo BOOST) for Science and Engineering fields (2024–2027)
   ja: 東京科学大学 BOOST：次世代AI分野を先導する共創型トップ研究者育成（理工系、2024–2027年）
 - en: Awarded Paper, ANLP (2022)
   ja: 言語処理学会 優秀賞（2022年）
+  badge:
+    en: NLP 2022 Outstanding Paper Award
+    ja: NLP 2022 優秀賞
+  url: https://www.anlp.jp/nlp2022/award.html
+  paper_ids:
+    - 2022_d_impara
