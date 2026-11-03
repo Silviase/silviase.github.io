@@ -26,19 +26,29 @@ npm run preview
 ### Dependency security
 
 The 2026-10-03 update upgrades Astro to 7.3.5, devalue to 5.9.4,
-brace-expansion to 5.0.12, and fast-uri to 3.1.8. The scoped `js-yaml` override
-keeps markdownlint-cli on a patched 5.4.2-compatible version until its own
-dependency range includes the fix.
+brace-expansion to 5.0.12, and fast-uri to 3.1.8.
+
+The 2026-11-03 update upgrades Vite to 8.2.4, markdown-it to 15.0.3,
+undici to 8.12.3, fast-uri to 3.1.9, source-map-js to 1.2.2, and Zod to 4.6.7.
+The development-only markdownlint-cli is updated to 0.50.0, which includes
+smol-toml 1.9.1 and js-yaml 5.5.0. Its previous js-yaml override is no longer
+needed. Scoped overrides select patched minimatch 11.x for markdownlint-cli,
+RE2JS 2.8.7 or newer in the 2.8 series for markdownlint, and KaTeX 0.18.2 or newer
+in the 0.18 series for micromark-extension-math. The lockfile resolves these to
+11.0.4, 2.8.8, and 0.18.10 respectively.
 
 [GHSA-ch52-4w7c-c8xp](https://github.com/advisories/GHSA-ch52-4w7c-c8xp)
-remains open: http-cache-semantics 4.2.0 has no published fix as of 2026-10-03.
-Astro uses it for remote image caching at build time. This repository generates
-static output for GitHub Pages, uses local images, and has no application server
-or shared authenticated response cache. The reported cross-user request path is
-therefore not exposed by this deployment. This is an exposure assessment, not a
-patched dependency; reassess before enabling SSR or shared response caching and
-upgrade when a patched release becomes available. `npm audit` reports both this
-package and its dependent Astro for the same advisory.
+was withdrawn on 2026-10-28 because the report was not a valid vulnerability.
+The previous warning about an unpatched http-cache-semantics issue no longer
+applies to that advisory.
+
+As of 2026-11-03, `npm audit` reports zero vulnerabilities, including development
+dependencies. The scoped overrides address the advisories for
+[KaTeX](https://github.com/advisories/GHSA-238p-pmpm-9mq7),
+[minimatch](https://github.com/advisories/GHSA-g3hv-75wg-m249), and
+[RE2JS](https://github.com/advisories/GHSA-gg6h-894w-4m9c).
+Recheck their compatibility when upgrading markdownlint-cli. The site continues
+to generate static output for GitHub Pages.
 
 Use npm 11.19.0 when regenerating the lockfile, matching the version used to
 verify the clean install. Older npm versions can omit optional dependency entries
