@@ -1,5 +1,6 @@
 ---
 import Localized from '../components/Localized.astro';
+import PaperAwards from './PaperAwards.astro';
 import type { CollectionEntry } from 'astro:content';
 interface Props {
   paper: CollectionEntry<'papers'>;
@@ -23,6 +24,7 @@ const shortVenue = venue?.match(/\(([^)]+)\)/)?.[1] || venue;
   </div>
   <div class="paper-info">
     <h3><a href={`/papers/${paper.id}/`}>{p.title}</a></h3>
+    <PaperAwards paperId={paper.id} />
     <p class="authors">
       {
         p.authors.map((author, i) => (

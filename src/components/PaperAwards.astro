@@ -1,0 +1,29 @@
+---
+import Localized from './Localized.astro';
+import { awards } from '../lib/data';
+interface Props {
+  paperId: string;
+}
+const { paperId } = Astro.props;
+const paperAwards = awards.filter((award) => award.paper_ids?.includes(paperId));
+---
+
+{
+  paperAwards.length > 0 && (
+    <ul class="paper-awards">
+      {paperAwards.map((award) => (
+        <li>
+          {award.url ? (
+            <a class="award-badge" href={award.url}>
+              <Localized en={award.badge?.en ?? award.en} ja={award.badge?.ja ?? award.ja} />
+            </a>
+          ) : (
+            <span class="award-badge">
+              <Localized en={award.badge?.en ?? award.en} ja={award.badge?.ja ?? award.ja} />
+            </span>
+          )}
+        </li>
+      ))}
+    </ul>
+  )
+}

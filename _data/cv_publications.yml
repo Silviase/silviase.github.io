@@ -12,6 +12,11 @@
   pages: 'pages (to appear)'
   page_count: '18 pages'
   column: 'Single column'
+- id: 2026_d_jagle
+  date: 'June 2026'
+  location: 'Gunma, Japan'
+  pages: '2Yin-B-01'
+  page_count: '4 pages'
 - id: 2026_jawildtext
   date: 'March 2026'
   pages: 'pages (to appear)'

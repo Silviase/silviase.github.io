@@ -47,7 +47,15 @@ export const experience = data<
     description: string;
   }[]
 >('experience');
-export const awards = data<{ en: string; ja: string }[]>('awards');
+export const awards = data<
+  {
+    en: string;
+    ja: string;
+    badge?: { en: string; ja: string };
+    url?: string;
+    paper_ids?: string[];
+  }[]
+>('awards');
 export const skills =
   data<{ name: string; items: string[]; name_ja: string; items_ja: string[] }[]>('skills');
 export const talks = data<
