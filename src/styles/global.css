@@ -705,6 +705,35 @@ select {
 .prose blockquote p:last-child {
   margin: 0;
 }
+.prose table {
+  width: 100%;
+  margin: 0 0 28px;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.prose th,
+.prose td {
+  padding: 10px 14px 10px 0;
+  border-bottom: 1px solid var(--gray-200);
+  text-align: left;
+  vertical-align: top;
+}
+.prose th {
+  color: var(--gray-950);
+  font-weight: 600;
+  border-bottom-color: var(--gray-400);
+}
+.prose td:first-child {
+  white-space: nowrap;
+}
+.prose pre {
+  margin-bottom: 22px;
+}
+:root[data-theme='dark'] .astro-code,
+:root[data-theme='dark'] .astro-code span {
+  color: var(--shiki-dark) !important;
+}
 pre {
   overflow: auto;
   padding: 24px;
